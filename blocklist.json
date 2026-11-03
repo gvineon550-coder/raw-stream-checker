@@ -1,15 +1,13 @@
 {
   "bad_extensions": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg", ".ico", ".html", ".htm", ".php", ".asp", ".aspx", ".jsp", ".zip", ".rar", ".7z", ".tar", ".gz", ".exe", ".dmg", ".apk", ".deb", ".rpm"],
-  "bad_ports": [":22/", ":21/", ":23/", ":25/", ":110/", ":143/", ":3306/", ":5432/", ":6379/", ":27017/", ":8080/"],
+  "bad_ports": [":22/", ":21/", ":23/", ":25/", ":110/", ":143/", ":3306/", ":5432/", ":6379/", ":27017/"],
   "bad_domains_suffix": ["bit.ly", "tinyurl.com", "goo.gl", "clck.ru", "vk.cc", "cutt.ly", "rb.gy", "is.gd", "adf.ly", "linkvertise.com"],
   "blocked_url_hosts": [
     "tvstitch.com",
     "4.59.210.197",
     "cinerama.uz",
     "stream3.cinerama.uz",
-    "stream8.cinerama.uz",
-    "stream.mcquack.net",
-    "mcquack.net"
+    "stream8.cinerama.uz"
   ],
   "blocked_url_prefixes": ["udp://", "rtmp://"],
   "blocked_url_contains": ["/tracks-v1a1/", "token=", "&s=", "127.0.0.1"]
