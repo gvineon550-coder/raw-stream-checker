@@ -80,6 +80,137 @@ def is_junk(u):
         if h == bd or h.endswith("." + bd): return True
     return False
 
+# ---------- НОРМАЛИЗАЦИЯ ГРУПП ----------
+# Единый словарь: ключ (в нижнем регистре) → красивая категория
+# Покрывает английские варианты из M3U + английские из API + русские
+GROUP_NORMALIZE = {
+    # Спорт
+    "sport": "⚽ Спорт", "sports": "⚽ Спорт", "спорт": "⚽ Спорт",
+    # Новости
+    "news": "📰 Новостные", "новости": "📰 Новостные", "новостные": "📰 Новостные",
+    # Кино
+    "movie": "🎬 Кино", "movies": "🎬 Кино", "cinema": "🎬 Кино",
+    "кино": "🎬 Кино",
+    # Сериалы
+    "series": "📺 Сериалы", "сериалы": "📺 Сериалы",
+    # Музыка
+    "music": "🎵 Музыкальные", "музыка": "🎵 Музыкальные", "музыкальные": "🎵 Музыкальные",
+    # Детские
+    "kids": "🧸 Детские", "children": "🧸 Детские", "family": "🧸 Детские",
+    "animation": "🧸 Детские", "cartoon": "🧸 Детские",
+    "детские": "🧸 Детские", "детям": "🧸 Детские", "мультфильмы": "🧸 Детские",
+    # Документальные
+    "documentary": "🎥 Документальные", "history": "🎥 Документальные",
+    "документальные": "🎥 Документальные",
+    # Познавательные
+    "science": "🌍 Познавательные", "education": "🌍 Познавательные",
+    "познавательные": "🌍 Познавательные",
+    # Развлекательные
+    "entertainment": "🎭 Развлекательные", "comedy": "🎭 Развлекательные",
+    "lifestyle": "🎭 Развлекательные", "развлекательные": "🎭 Развлекательные",
+    # Федеральные / General
+    "general": "📡 Федеральные", "федеральные": "📡 Федеральные",
+    # Региональные
+    "regional": "🏙 Региональные", "региональные": "🏙 Региональные",
+    # Религиозные
+    "religious": "🙏 Религиозные", "religion": "🙏 Религиозные",
+    "религиозные": "🙏 Религиозные",
+    # Авто
+    "auto": "🚗 Авто", "авто": "🚗 Авто",
+    # Кулинарные
+    "cooking": "🍳 Кулинарные", "food": "🍳 Кулинарные", "кулинарные": "🍳 Кулинарные",
+    # Путешествия
+    "travel": "🌍 Путешествия", "путешествия": "🌍 Путешествия",
+    # Культура
+    "culture": "🎭 Культура", "культура": "🎭 Культура",
+    # Бизнес
+    "business": "📰 Бизнес", "бизнес": "📰 Бизнес",
+    # Погода
+    "weather": "📰 Погода", "погода": "📰 Погода",
+    # Магазины
+    "shop": "🛒 Магазины", "shopping": "🛒 Магазины",
+    "магазины": "🛒 Магазины",
+    # Undefined / Other
+    "undefined": "📦 Разное", "other": "📦 Разное", "misc": "📦 Разное",
+    "разное": "📦 Разное",
+}
+
+def normalize_group(raw):
+    """Приводит любую группу (рус/англ, с эмодзи или без) к единому виду."""
+    if not raw:
+        return None
+    g = raw.strip().lower()
+    # Убираем эмодзи и лишние символы
+    g_clean = re.sub(r'[^\w\s]', '', g).strip()
+    # Если есть в словаре — возвращаем стандартное
+    if g_clean in GROUP_NORMALIZE:
+        return GROUP_NORMALIZE[g_clean]
+    # Частичное совпадение (например, "sport hd")
+    for key, val in GROUP_NORMALIZE.items():
+        if key in g_clean:
+            return val
+    # Если не нашли — возвращаем исходное (с заглавной)
+    return raw.strip()
+
+# ---------- API КАТЕГОРИИ ----------
+def load_api_categories():
+    p = DATA/"api_cats.json"
+    ttl = 7 * 86400
+    if p.exists():
+        try:
+            d = json.loads(p.read_text("utf-8"))
+            if time.time() - d.get("ts", 0) < ttl:
+                return d.get("cats", {}), d.get("names", {})
+        except: pass
+    print("[*] Загрузка категорий из iptv-org API...")
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            "https://iptv-org.github.io/api/channels.json",
+            headers={"User-Agent": UAS.get("Chrome_Win", "Mozilla/5.0")}
+        )
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        cats = {}
+        names = {}
+        for ch in data:
+            cid = ch.get("id")
+            if not cid: continue
+            for c in (ch.get("categories") or []):
+                cats[cid] = c.lower()
+                break
+            nm = ch.get("name")
+            if nm: names[nm.lower()] = cid
+            for alt in (ch.get("alt_names") or []):
+                if alt: names[alt.lower()] = cid
+        _save(p, {"ts": int(time.time()), "cats": cats, "names": names})
+        print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён")
+        return cats, names
+    except Exception as e:
+        print(f"[!] API недоступен: {e}")
+        return {}, {}
+
+def resolve_category(ch, api_cats, api_names):
+    """Приоритет: M3U → API по tvg-id → API по имени → Разное."""
+    # 1. Группа из M3U (нормализуем, чтобы не было "Sports" и "Спорт" отдельно)
+    grp = normalize_group(ch.get("group", ""))
+    if grp:
+        return grp
+    
+    # 2. API по tvg-id
+    tid = (ch.get("tvg_id") or "").split("@")[0]
+    if tid and tid in api_cats:
+        return normalize_group(api_cats[tid]) or "📦 Разное"
+    
+    # 3. API по имени
+    nm = ch.get("name", "").lower().strip()
+    if nm in api_names:
+        cid = api_names[nm]
+        if cid in api_cats:
+            return normalize_group(api_cats[cid]) or "📦 Разное"
+    
+    return "📦 Разное"
+
 # ---------- ИСТОЧНИКИ ----------
 def load_sources():
     p = ROOT/"sources.txt"
@@ -111,7 +242,7 @@ async def fetch_src(session, name, url, retries=2):
             if attempt < retries: await asyncio.sleep(3)
     return name, None
 
-# ---------- КЭШИ И ОБУЧЕНИЕ ----------
+# ---------- КЭШИ ----------
 def load_ua_cache(): return _load(DATA/"ua_cache.json", {})
 def save_ua_cache(c): _save(DATA/"ua_cache.json", c)
 def load_ua_scores(): return _load(DATA/"ua_scores.json", {})
@@ -291,7 +422,10 @@ def write_playlist(channels):
         if c.get("tvg_id"):   attrs.append('tvg-id="' + c["tvg_id"] + '"')
         if c.get("tvg_name"): attrs.append('tvg-name="' + c["tvg_name"] + '"')
         if c.get("logo"):     attrs.append('tvg-logo="' + c["logo"] + '"')
-        if c.get("group"):    attrs.append('group-title="' + c["group"] + '"')
+        
+        grp = c.get("category") or "📦 Разное"
+        attrs.append('group-title="' + grp + '"')
+        
         attr_str = " ".join(attrs)
         lines.append('#EXTINF:-1 ' + attr_str + ',' + c["name"])
         if c.get("working_ua"): lines.append('#EXTVLCOPT:http-user-agent=' + c["working_ua"])
@@ -308,7 +442,7 @@ def write_readme(report, working, elapsed):
     def bar(p, w=20):
         n = max(0, min(w, int(p/100*w))); return "█"*n + "░"*(w-n)
     ua_stats = Counter(c.get("working_ua_key","?") for c in working)
-    grp_stats = Counter(c.get("group") or "Без группы" for c in working)
+    grp_stats = Counter(c.get("category") or "📦 Разное" for c in working)
     date_safe = report["generated_at"][:10].replace("-", ".")
     lbl_a = urllib.parse.quote("живых")
     lbl_t = urllib.parse.quote("всего")
@@ -317,7 +451,7 @@ def write_readme(report, working, elapsed):
         "# 🎯 Raw Stream Checker", "",
         "Автономный самообучающийся парсер и чекер IPTV. Парсит источники «как есть», "
         "проверяет каждый поток через `ffprobe`, собирает рабочий плейлист. "
-        "Умный UA-подбор, кэш живых/мёртвых, адаптивные таймауты.", "",
+        "Умный UA-подбор, кэш живых/мёртвых, адаптивные таймауты, единые категории.", "",
         "![живых](https://img.shields.io/badge/" + lbl_a + "-" + str(work) + "-brightgreen?style=flat-square) " +
         "![всего](https://img.shields.io/badge/" + lbl_t + "-" + str(total) + "-blue?style=flat-square) " +
         "![обновлено](https://img.shields.io/badge/" + lbl_u + "-" + date_safe + "-lightgrey?style=flat-square)", "",
@@ -337,19 +471,19 @@ def write_readme(report, working, elapsed):
         for k, v in ua_stats.most_common(): L.append("| `" + k + "` | " + str(v) + " |")
         L.append("")
     if grp_stats:
-        L += ["## 🗂 Группы", "", "| Группа | Каналов |", "|---|---:|"]
+        L += ["## 🗂 Категории", "", "| Категория | Каналов |", "|---|---:|"]
         for k, v in grp_stats.most_common(30): L.append("| " + k + " | " + str(v) + " |")
         L.append("")
     L += ["## ⚙️ Как это работает", "",
           "- **Источники:** из `sources.txt` (формат `имя|url|приоритет`)",
-          "- **Парсинг:** `#EXTINF`, `#EXTVLCOPT`",
+          "- **Категории:** M3U → API iptv-org по `tvg-id` → API по имени → `📦 Разное`",
+          "- **Нормализация:** `Sports` и `Спорт` → `⚽ Спорт`, `Movies` и `Кино` → `🎬 Кино`",
           "- **Фильтр мусора:** расширения, приватные IP, редиректы, битые протоколы",
           "- **Проверка:** HTTP pre-check + `ffprobe` + умный перебор UA по хосту",
           "- **Самообучение:** запоминает рабочий UA для каждого хоста",
           "- **Кэш:** живые 6ч, мёртвые 30 дней, таймауты адаптивные",
           "- **HLS:** master-плейлист → variant stream",
-          "- **Защита:** публикация отменяется если живых < 15%",
-          "- **Итог:** `playlist.m3u` с рабочими ссылками и нужным User-Agent", "",
+          "- **Защита:** публикация отменяется если живых < 15%", "",
           "## ⚖️ Дисклеймер", "",
           "Этот проект **не хранит и не транслирует** видеоконтент. Все потоки берутся из открытых источников "
           "(в частности, репозитория [iptv-org](https://github.com/iptv-org/iptv)). "
@@ -373,6 +507,8 @@ async def main():
     sources = load_sources()
     if not sources:
         print("[!] sources.txt пуст"); return
+
+    api_cats, api_names = load_api_categories()
 
     ua_cache = load_ua_cache()
     ua_scores = load_ua_scores()
@@ -406,15 +542,20 @@ async def main():
                     key = (n.lower(), u)
                     if key in seen: continue
                     seen.add(key)
-                    channels.append({
+                    chan = {
                         "name": n, "url": u,
                         "tvg_id": a.get("tvg-id",""), "tvg_name": a.get("tvg-name",""),
                         "logo": a.get("tvg-logo",""), "group": a.get("group-title",""),
                         "extvlc": ch["extvlc"], "urls": [u],
-                    })
+                    }
+                    chan["category"] = resolve_category(chan, api_cats, api_names)
+                    channels.append(chan)
                     kept += 1
                 print(f"[+] {sname}: {kept} (мусор: {junk})")
 
+            cats_preview = Counter(c["category"] for c in channels)
+            top = ", ".join(f"{k}={v}" for k, v in cats_preview.most_common(6))
+            print(f"[*] Топ категорий: {top}")
             print(f"[*] Всего уникальных: {len(channels)}")
             if not channels:
                 print("[!] Нет каналов для проверки — выходим"); return
@@ -456,7 +597,7 @@ async def main():
                 "total": len(channels), "alive": len(alive), "dead": len(channels) - len(alive),
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
-                              "group": c.get("group",""), "height": c.get("height",0)} for c in alive],
+                              "group": c.get("category",""), "height": c.get("height",0)} for c in alive],
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
             write_readme(report, alive, time.time()-started)
