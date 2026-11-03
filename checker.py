@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v3 — EPG, quality (black/audio/static), optimization."""
+"""Raw Stream Checker v3.1 — EPG, quality (black/audio/static), production fixes."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -419,24 +419,44 @@ def is_quality_fresh(u, quality):
     ttl = CFG.get("quality_check_cache_days", 7) * 86400
     return time.time() - rec.get("ts", 0) < ttl
 
-def track_problem(problems, u, name, kind, ok):
+def track_problem(problems, u, name, kind, ok, run_id=None):
+    """
+    Счётчик растёт только если проблема зафиксирована в РАЗНЫХ прогонах.
+    Внутри одного прогона (даже с 3 URL) — считается как 1 fail.
+    """
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
         "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
+        "last_fail_run": {},
     })
-    # backfill для старых записей
     rec.setdefault("black_fails", 0)
     rec.setdefault("silent_fails", 0)
     rec.setdefault("static_fails", 0)
-    rec["name"] = name; rec["last_ts"] = int(time.time())
-    if kind == "black": rec["black_fails"] = 0 if ok else rec.get("black_fails", 0) + 1
-    elif kind == "silent": rec["silent_fails"] = 0 if ok else rec.get("silent_fails", 0) + 1
-    elif kind == "static": rec["static_fails"] = 0 if ok else rec.get("static_fails", 0) + 1
+    rec.setdefault("last_fail_run", {})
+
+    if run_id is None:
+        run_id = int(time.time() // 3600)
+
+    rec["name"] = name
+    rec["last_ts"] = int(time.time())
+
     if ok:
         rec["last_ok_ts"] = int(time.time())
+        rec["black_fails"] = 0
+        rec["silent_fails"] = 0
+        rec["static_fails"] = 0
         rec["blocked_until"] = None
+        rec["last_fail_run"] = {}
     else:
-        thr = CFG.get("problem_threshold", 3); ttl = CFG.get("problem_block_ttl_days", 30)
+        last_run = rec.get("last_fail_run", {})
+        # Считаем только новый прогон
+        if last_run.get(kind) != run_id:
+            key = f"{kind}_fails"
+            rec[key] = rec.get(key, 0) + 1
+            rec["last_fail_run"][kind] = run_id
+
+        thr = CFG.get("problem_threshold", 5)
+        ttl = CFG.get("problem_block_ttl_days", 30)
         if (rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr
             or rec.get("static_fails", 0) >= thr):
             rec["blocked_until"] = int(time.time() + ttl * 86400)
@@ -481,15 +501,15 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
     if not (check_black or check_audio or check_static):
         return False, False, False
 
-    sample = CFG.get("quality_check_sample_sec", 2)
-    timeout = CFG.get("quality_check_timeout_sec", 15)
-    black_dur = CFG.get("quality_black_min_duration", 0.5)
-    audio_db = CFG.get("quality_audio_min_db", -60)
-    static_dur = CFG.get("quality_static_min_duration", 1.5)
+    sample = CFG.get("quality_check_sample_sec", 5)
+    timeout = CFG.get("quality_check_timeout_sec", 20)
+    black_dur = CFG.get("quality_black_min_duration", 2.0)
+    audio_db = CFG.get("quality_audio_min_db", -70)
+    static_dur = CFG.get("quality_static_min_duration", 3.0)
 
     filters = []
     if check_black: filters.append(f"blackdetect=d={black_dur}:pix_th=0.10")
-    if check_static: filters.append(f"freezedetect=n=0.003:d={static_dur}")
+    if check_static: filters.append(f"freezedetect=n=0.02:d={static_dur}")
 
     hdr = "User-Agent: " + ua + "\r\n"
     if ref: hdr += "Referer: " + ref + "\r\n"
@@ -516,10 +536,11 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
             if not has_audio_track:
                 is_silent = True
             else:
-                m = re.search(r"mean_volume:\s*(-inf|-?\d+(?:\.\d+)?)\s*dB", err)
-                if m:
-                    val = m.group(1)
-                    is_silent = (val == "-inf") or (float(val) < audio_db)
+                matches = re.findall(r"mean_volume:\s*(-inf|-?\d+(?:\.\d+)?)\s*dB", err)
+                if matches:
+                    vals = [float(v) for v in matches if v != "-inf"]
+                    if vals:
+                        is_silent = max(vals) < audio_db
         return is_black, is_static, is_silent
     except:
         return False, False, False
@@ -602,9 +623,11 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False))
-                        if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black)
-                        if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent)
-                        if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static)
+                        # run_id одинаковый для всех URL одного канала в этом прогоне
+                        run_id = int(time.time() // 3600)
+                        if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black, run_id=run_id)
+                        if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent, run_id=run_id)
+                        if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static, run_id=run_id)
 
                         if is_black or is_silent or is_static:
                             quality.pop(u, None)
@@ -750,9 +773,10 @@ def write_readme(report, working, elapsed, problems):
         L += [f"## ⚠️ Заблокированные ({len(blocked)})", "", "| Канал | Причина | До |", "|---|---|---|"]
         for u, r in blocked[:20]:
             reasons = []
-            if r.get("black_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("чёрный")
-            if r.get("silent_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("без звука")
-            if r.get("static_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("статичная картинка")
+            thr = CFG.get("problem_threshold", 5)
+            if r.get("black_fails", 0) >= thr: reasons.append("чёрный")
+            if r.get("silent_fails", 0) >= thr: reasons.append("без звука")
+            if r.get("static_fails", 0) >= thr: reasons.append("статичная")
             until = datetime.fromtimestamp(r["blocked_until"], timezone.utc).strftime("%Y-%m-%d")
             L.append(f"| {r.get('name','?')} | {', '.join(reasons) or '?'} | {until} |")
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
@@ -771,7 +795,7 @@ def write_readme(report, working, elapsed, problems):
           "- **EPG:** iptvx.one (+ fallback), fuzzy-матч, русские имена",
           "- **Quality checks** (опц.): `ffmpeg` combined black + static + audio за один проход",
           "- **Quality cache:** чистые каналы не проверяются 7 дней (в deep режиме — проверяются все)",
-          "- **Проблемные каналы:** проверяются каждый прогон, 3 фейла → блок на 30 дней",
+          "- **Проблемные каналы:** проверяются каждый прогон, 5 фейлов в РАЗНЫХ прогонах → блок на 30 дней",
           "- **Самообучение UA:** запоминает рабочий UA по хостам",
           "- **Кэш:** warm 6ч, dead 30д, таймауты адаптивные",
           "- **Защита:** публикация отменяется если живых < 15%", "",
@@ -791,7 +815,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v3 [{mode}] ===")
+    print(f"=== Raw Stream Checker v3.1 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
