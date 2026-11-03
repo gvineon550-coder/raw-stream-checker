@@ -1,7 +1,7 @@
 name: Raw Check
 on:
   schedule:
-    - cron: "0 4 * * *"     # daily normal (04:00 UTC = 07:00 MSK)
+    - cron: "0 3 * * *"     # daily normal (03:00 UTC = 06:00 MSK)
     - cron: "0 5 * * 0"     # weekly deep (Sunday, 05:00 UTC = 08:00 MSK)
   workflow_dispatch:
     inputs:
