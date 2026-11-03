@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v3.4 — EPG, quality, filters (geo/regional/kids/mcquack)."""
+"""Raw Stream Checker v3.5 — full filters + quality + EPG."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -63,9 +63,8 @@ def parse_m3u(text):
             cur["url"] = line; out.append(cur); cur = None
     return out
 
-# ---------- МУСОР / URL-ФИЛЬТР ----------
+# ---------- URL-ФИЛЬТР ----------
 PRIV_RE = re.compile(r'^https?://(localhost|127\.|0\.0\.0\.0|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|169\.254\.)')
-BARE_IP_RE = re.compile(r'^https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?:[/:?]|$)')
 _BAD_EXT   = tuple(BLK.get("bad_extensions", []))
 _BAD_PORTS = tuple(BLK.get("bad_ports", []))
 _BAD_DOMS  = tuple(BLK.get("bad_domains_suffix", []))
@@ -78,7 +77,6 @@ def is_junk(u):
     if u.startswith(_BAD_PFX): return True
     if any(x in u for x in _BAD_CNT): return True
     if PRIV_RE.search(u): return True
-    if BARE_IP_RE.match(u): return True  # голые IP — убираем
     if u.lower().split("?")[0].endswith(_BAD_EXT): return True
     for bp in _BAD_PORTS:
         if bp in u: return True
@@ -89,59 +87,75 @@ def is_junk(u):
         if h == bh or h.endswith("." + bh): return True
     return False
 
-# ---------- ФИЛЬТР КОНТЕНТА (geo/regional/kids) ----------
+# ---------- КОНТЕНТ-ФИЛЬТР ----------
 BAD_GROUPS = [
     "kids", "детск", "children", "cartoon", "мульт", "шопинг",
     "shop", "магазин", "ювелир", "adult", "18+",
     "regional", "региональн",
 ]
-BAD_TLD = [
-    ".ua", ".lv", ".lt", ".ee", ".kz", ".uz", ".by", ".az",
-    ".am", ".ge", ".md", ".kg", ".tj", ".tm", ".pt",
-]
+BAD_TLD = [".ua", ".lv", ".lt", ".ee", ".kz", ".uz", ".by", ".az",
+           ".am", ".ge", ".md", ".kg", ".tj", ".tm", ".pt",
+           ".pl", ".cz", ".sk", ".hu", ".ro", ".bg", ".rs", ".hr",
+           ".de", ".fr", ".it", ".es", ".gb", ".uk", ".us", ".ca"]
 BAD_WORDS = [
-    # Детские
     "детск", "kids", "child", "cartoon", "мульт", "карусель", "carousel",
     "в гостях у сказки", "капитан фантастика", "мама тв", "супергерои",
     "тооку", "тижи", "tiji", "gulli", "baby", "disney", "nick jr",
     "nicktoons", "jimjam", "мультиландия", "радость моя", "рыжий",
-    # Зарубежные (по названию)
-    "украин", "ukrain", "україн", "беларус", "belarus", "казах", "kazakh",
-    "узбек", "uzbek", "молдов", "moldova", "латви", "latvia", "эстон",
-    "estonia", "литв", "lithuania", "армени", "armenia", "груз", "georgia",
-    "kentron", "novy kanal", "lugansk", "freeдом", "рада", "майдан",
-    "витебск", "rtvi", "tbn baltia", "tv mana", "mana tserkov",
-    "angel tv", "atr", "100% news", "100news", "mir kazakhstan",
+    "ниндзя", "черепашки", "смешарик", "фиксики",
+    "украин", "ukrain", "україн", "новий канал", "новий", "ictv", "1+1",
+    "2+2", "стб", "тет", "плюс плюс", "plusplus", "нло", "5 канал украина",
+    "прямий", "еспресо", "рада", "freeдом", "майдан", "громад", "галичина",
+    "нтн", "мега", "к1", "к2", "zoom украина", "интер", "inter", "iнтер",
+    "112 украина", "112.ua", "newsone", "ziq", "ukraine", "ukrainian",
+    "беларус", "belarus", "беларусь 1", "беларусь 2", "беларусь 3",
+    "беларусь 4", "беларусь 5", "беларусь 24", "витебск", "гомель",
+    "казах", "kazakh", "qazaq", "jibek", "joly", "mtrk", "silk way",
+    "ulytau", "хабар", "khabar", "ktk", "31 канал", "qazsport", "kazsport",
+    "астана", "astana tv", "первый канал евразия", "channel one eurasia",
+    "узбек", "uzbek", "uzreport", "dasturxon",
     "киргиз", "kyrgyz", "таджик", "tajik", "туркмен", "turkmen",
-    # Региональные (по названию, только явные маркеры)
+    "армени", "armenia", "h1 армения", "kentron", "shant", "imedi",
+    "rustavi", "gpbc", "азерб", "azerbaijan", "aztv", "itv azerbaijan",
+    "латви", "latvia", "ltv", "эстон", "estonia", "err", "литв",
+    "lithuania", "lrt", "otv латвия", "tbn baltia",
+    "молдов", "moldova", "trm", "prime tv moldova",
+    "rtvi", "russian america", "rt balkan", "rt en espanol",
+    "rt español", "europe", "europa", "european", "international",
+    "cis", "asia", "america", "israel", "channel 9 israel",
     "областное", "краевое", "городской", "городская", "области",
-    # Магазины
+    "республики", "края",
     "shop", "магазин", "ювелир", "leomax", "magnat", "top shop",
-    "нтв витрина",
-    # Мусор
+    "нтв витрина", "teleshop",
     "city eden", "сити эдем", "svoboda", "свобода", "univer",
     "vitrina", "zoopark", "зоопарк", "doctor", "home 4k", "moy mir",
+    "test", "demo", "promo", "sample",
 ]
 FORBIDDEN_TVG_IDS = {
     "o.ru@sd", "o.ru@international", "mult", "carousel.ru@plus4",
 }
 
-def is_forbidden(name, tid, grp):
-    """Возвращает причину блокировки или None."""
-    n_low = name.lower().strip()
-    t_low = (tid or "").lower().strip()
-    t_base = t_low.split("@")[0]
-    g_low = (grp or "").lower().strip()
+def is_forbidden(name, tid, tvg_name, grp):
+    parts = [name or "", tid or "", tvg_name or "", grp or ""]
+    text = " ".join(parts).lower()
 
-    if g_low and any(bg in g_low for bg in BAD_GROUPS):
-        return f"group:{g_low}"
-    if t_low and any(t_low.endswith(tld) for tld in BAD_TLD):
-        return f"tld:{t_low.split('.')[-1]}"
+    t_low = (tid or "").lower().strip()
+    for tld in BAD_TLD:
+        if tld in t_low:
+            return f"tld:{tld}"
+
+    for bg in BAD_GROUPS:
+        if bg in (grp or "").lower():
+            return f"group:{bg}"
+
+    t_base = t_low.split("@")[0]
     if t_low in FORBIDDEN_TVG_IDS or t_base in FORBIDDEN_TVG_IDS:
         return f"tvid:{t_low}"
+
     for bw in BAD_WORDS:
-        if bw in n_low:
+        if bw in text:
             return f"word:{bw}"
+
     return None
 
 # ---------- ГРУППЫ ----------
@@ -550,11 +564,11 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
     check_static = CFG.get("check_static_image", False)
     if not (check_black or check_audio or check_static):
         return False, False, False
-    sample = CFG.get("quality_check_sample_sec", 5)
-    timeout = CFG.get("quality_check_timeout_sec", 20)
-    black_dur = CFG.get("quality_black_min_duration", 2.0)
+    sample = CFG.get("quality_check_sample_sec", 10)
+    timeout = CFG.get("quality_check_timeout_sec", 25)
+    black_dur = CFG.get("quality_black_min_duration", 3.0)
     audio_db = CFG.get("quality_audio_min_db", -70)
-    static_dur = CFG.get("quality_static_min_duration", 3.0)
+    static_dur = CFG.get("quality_static_min_duration", 5.0)
 
     filters = []
     if check_black:
@@ -790,8 +804,8 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
 
     L = [
         "# 🎯 Raw Stream Checker", "",
-        "Автономный парсер и чекер IPTV: фильтрация URL (mcquack, cinerama, IP, :8080), "
-        "контента (geo/regional/kids), EPG, лого, детект чёрного экрана, звука и статики.", "",
+        "Автономный парсер и чекер IPTV: URL и контент-фильтры, EPG, лого, "
+        "детект чёрного экрана, звука и статики.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -841,23 +855,23 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
         L.append("")
 
     L += ["## 🎛 Управление", "",
-          "**URL-фильтры:** `blocklist.json` (mcquack, cinerama, :8080, IP)",
-          "**Контент-фильтры:** `checker.py` — блоки `BAD_GROUPS`, `BAD_TLD`, `BAD_WORDS`",
-          "**Разблокировать канал:** `problems.json` → `\"blocked_until\": null`",
+          "**URL-фильтры:** `blocklist.json`",
+          "**Контент-фильтры:** `checker.py` — `BAD_GROUPS`, `BAD_TLD`, `BAD_WORDS`",
+          "**Разблокировать:** `problems.json` → `\"blocked_until\": null`",
           "**Сменить EPG:** `config.json` → `epg_url`, `epg_url_fallback`",
-          "**Запустить:** Actions → Raw Check → Run workflow (галочка `deep` = игнор quality cache)", "",
+          "**Запустить:** Actions → Raw Check → Run workflow (галочка `deep`)", "",
           "## ⚙️ Как это работает", "",
-          "- **Источники:** из `sources.txt`",
-          "- **Фильтр URL:** blocklist (расширения, порты, хосты, префиксы, IP)",
-          "- **Фильтр контента:** группы (kids/regional/shop), TLD (.ua/.kz/...), слова в названии",
+          "- **Источники:** `sources.txt`",
+          "- **URL-фильтр:** расширения, порты, хосты, префиксы, приватные IP",
+          "- **Контент-фильтр:** группы, TLD, слова в `name`+`tvg-id`+`tvg-name`+`group`",
           "- **Категории:** M3U → API iptv-org → `📦 Разное`",
           "- **Логотипы:** M3U (HTTPS) → API iptv-org",
-          "- **EPG:** iptvx.one (+ fallback), fuzzy-матч, русские имена",
-          "- **Quality checks** (опц.): `ffmpeg` black + signalstats + static + audio",
-          "- **Quality cache:** чистые каналы не проверяются 7 дней (в deep — все)",
-          "- **Трекинг:** 5 фейлов в РАЗНЫХ прогонах → блок на 30 дней", "",
+          "- **EPG:** iptvx.one (+ fallback), fuzzy, русские имена",
+          "- **Quality:** `ffmpeg` black + signalstats + static + audio",
+          "- **Quality cache:** 7 дней (deep игнорирует)",
+          "- **Трекинг:** 5 фейлов в РАЗНЫХ прогонах → блок 30 дней", "",
           "## ⚖️ Дисклеймер", "",
-          "Проект **не хранит и не транслирует** контент. Все потоки — из открытых источников (iptv-org). "
+          "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
           "<sub>🤖 Обновлено " + now_msk() + "</sub>", ""]
     (ROOT/"README.md").write_text("\n".join(L), "utf-8")
@@ -872,7 +886,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v3.4 [{mode}] ===")
+    print(f"=== Raw Stream Checker v3.5 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
@@ -915,11 +929,11 @@ async def main():
                     if is_junk(u): junk += 1; continue
 
                     tid = a.get("tvg-id","")
+                    tvg_name = a.get("tvg-name","")
                     grp = a.get("group-title","")
-                    reason = is_forbidden(n, tid, grp)
+                    reason = is_forbidden(n, tid, tvg_name, grp)
                     if reason:
                         filtered += 1
-                        # группируем по префиксу причины (group/tld/word)
                         key = reason.split(":")[0]
                         filtered_stats[key] += 1
                         continue
@@ -928,7 +942,7 @@ async def main():
                     if key in seen: continue
                     seen.add(key)
                     chan = {"name": n, "url": u,
-                            "tvg_id": tid, "tvg_name": a.get("tvg-name",""),
+                            "tvg_id": tid, "tvg_name": tvg_name,
                             "logo": a.get("tvg-logo",""), "group": grp,
                             "extvlc": ch["extvlc"], "urls": [u]}
                     chan["category"] = resolve_category(chan, api_cats, api_names)
