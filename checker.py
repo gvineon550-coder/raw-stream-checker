@@ -126,15 +126,14 @@ def load_hosts(): return _load(DATA/"hosts.json", {})
 def save_hosts(s): _save(DATA/"hosts.json", s)
 
 def pick_ua_order(host, ua_cache, ua_scores):
-    """Умный порядок перебора UA для хоста."""
     saved = ua_cache.get(host)
     scores = ua_scores.get(host, {})
     keys = sorted(UAS.keys(), key=lambda k: (-scores.get(k, 0), -CFG.get("ua_weights", {}).get(k, 1)))
     if saved and saved in UAS:
         if saved in keys: keys.remove(saved)
         keys.insert(0, saved)
-        return keys[:3]  # Знаем победителя — пробуем его + 2 запасных
-    return keys[:5]      # Холодный хост — 5 попыток
+        return keys[:3]
+    return keys[:5]
 
 def upd_ua_score(ua_scores, host, key, ok):
     s = ua_scores.setdefault(host, {})
@@ -228,12 +227,10 @@ async def http_pre(session, u, ua, ref):
 async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts):
     async with sem:
         for u in ch["urls"]:
-            # 1. Мертвый в кэше — пропускаем
             if is_dead_cached(u, dead): continue
             host = host_of(u)
-            # 2. Хост заблокирован — пропускаем
             if host_blocked(host, hosts): continue
-            # 3. Warm cache — знаем что работает
+            
             wc = warm.get(u)
             if wc and time.time() - wc.get("ts", 0) < CFG.get("warm_cache_ttl_hours", 6) * 3600:
                 ch["working_url"] = u
@@ -247,12 +244,10 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
             ref = ch.get("extvlc", {}).get("http-referrer") or get_ref(u)
             cookie = ch.get("extvlc", {}).get("http-cookie")
 
-            # 4. Перебор UA по умному порядку
             for ua_key in pick_ua_order(host, ua_cache, ua_scores):
                 ua = UAS[ua_key]
                 try:
                     status = await http_pre(session, u, ua, ref)
-                    # Fast-fail на явные отказы
                     if status in (403, 404, 410, 451):
                         mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
                         break
@@ -285,7 +280,6 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                 except Exception as e:
                     print(f"  err {ch['name']}: {e}")
                     continue
-            # Все UA провалились — хост и канал помечаем
             mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
         return None
 
@@ -356,6 +350,11 @@ def write_readme(report, working, elapsed):
           "- **HLS:** master-плейлист → variant stream",
           "- **Защита:** публикация отменяется если живых < 15%",
           "- **Итог:** `playlist.m3u` с рабочими ссылками и нужным User-Agent", "",
+          "## ⚖️ Дисклеймер", "",
+          "Этот проект **не хранит и не транслирует** видеоконтент. Все потоки берутся из открытых источников "
+          "(в частности, репозитория [iptv-org](https://github.com/iptv-org/iptv)). "
+          "Права на каналы и передачи принадлежат их правообладателям. "
+          "Проект создан для личного использования и не преследует коммерческих целей.", "",
           "<sub>🤖 Обновлено " + now_msk() + "</sub>", ""]
     (ROOT/"README.md").write_text("\n".join(L), "utf-8")
 
@@ -375,7 +374,6 @@ async def main():
     if not sources:
         print("[!] sources.txt пуст"); return
 
-    # Загружаем всё что нужно
     ua_cache = load_ua_cache()
     ua_scores = load_ua_scores()
     warm = load_warm()
@@ -443,11 +441,9 @@ async def main():
 
             alive = [r for r in rs if r and not isinstance(r, Exception)]
 
-            # Защита от пустого плейлиста
             threshold = max(10, int(len(channels) * 0.15))
             if len(alive) < threshold:
                 print(f"[!] ПРОВАЛ: живых {len(alive)} < порога {threshold}. Публикация отменена.")
-                # Сохраняем отчёт для разбора, но НЕ трогаем playlist.m3u
                 (ROOT/"report_failed.json").write_text(json.dumps({
                     "total": len(channels), "alive": len(alive),
                     "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -473,7 +469,6 @@ async def main():
             print(f"[+] Мёртвых: {len(channels)-len(alive)}")
 
     finally:
-        # Всегда сохраняем кэш — даже если что-то упало
         print("[*] Сохранение кэша...")
         save_ua_cache(ua_cache)
         save_ua_scores(ua_scores)
