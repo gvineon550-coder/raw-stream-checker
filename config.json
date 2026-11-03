@@ -5,5 +5,15 @@
   "ffprobe_threads": 50,
   "ffprobe_probesize": 32768,
   "ffprobe_analyzeduration": 1000000,
-  "output_m3u": "playlist.m3u"
+  "warm_cache_ttl_hours": 6,
+  "dead_cache_min_fails": 3,
+  "dead_cache_ttl_days": 30,
+  "host_block_after_fails": 10,
+  "output_m3u": "playlist.m3u",
+  "ua_weights": {
+    "Wink": 30, "HlsWinkPlayer": 25, "TiviMate": 12,
+    "AndroidTV": 8, "VLC": 8, "SmartTV": 6, "Kodi": 5,
+    "OTT": 5, "ExoPlayer": 4, "Lavf": 3, "okhttp": 3,
+    "Chrome_Win": 3, "Safari_Mac": 2, "Firefox": 2, "MXPlayer": 2
+  }
 }
