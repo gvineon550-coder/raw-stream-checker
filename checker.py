@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v3.1 — EPG, quality (black/audio/static), production fixes."""
+"""Raw Stream Checker v3.4 — EPG, quality, filters (geo/regional/kids/mcquack)."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -28,7 +28,6 @@ def now_msk(): return datetime.now(MSK).strftime("%Y-%m-%d %H:%M MSK")
 def host_of(u):
     try: return urlparse(u).netloc.lower().split(":")[0]
     except: return "unknown"
-
 def has_cyrillic(s): return bool(re.search(r'[а-яА-ЯёЁ]', s or ''))
 
 CFG = _load(ROOT/"config.json", {})
@@ -64,11 +63,13 @@ def parse_m3u(text):
             cur["url"] = line; out.append(cur); cur = None
     return out
 
-# ---------- МУСОР ----------
+# ---------- МУСОР / URL-ФИЛЬТР ----------
 PRIV_RE = re.compile(r'^https?://(localhost|127\.|0\.0\.0\.0|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|169\.254\.)')
+BARE_IP_RE = re.compile(r'^https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?:[/:?]|$)')
 _BAD_EXT   = tuple(BLK.get("bad_extensions", []))
 _BAD_PORTS = tuple(BLK.get("bad_ports", []))
 _BAD_DOMS  = tuple(BLK.get("bad_domains_suffix", []))
+_BAD_HOSTS = tuple(BLK.get("blocked_url_hosts", []))
 _BAD_PFX   = tuple(BLK.get("blocked_url_prefixes", []))
 _BAD_CNT   = tuple(BLK.get("blocked_url_contains", []))
 
@@ -77,13 +78,71 @@ def is_junk(u):
     if u.startswith(_BAD_PFX): return True
     if any(x in u for x in _BAD_CNT): return True
     if PRIV_RE.search(u): return True
+    if BARE_IP_RE.match(u): return True  # голые IP — убираем
     if u.lower().split("?")[0].endswith(_BAD_EXT): return True
     for bp in _BAD_PORTS:
         if bp in u: return True
     h = host_of(u)
     for bd in _BAD_DOMS:
         if h == bd or h.endswith("." + bd): return True
+    for bh in _BAD_HOSTS:
+        if h == bh or h.endswith("." + bh): return True
     return False
+
+# ---------- ФИЛЬТР КОНТЕНТА (geo/regional/kids) ----------
+BAD_GROUPS = [
+    "kids", "детск", "children", "cartoon", "мульт", "шопинг",
+    "shop", "магазин", "ювелир", "adult", "18+",
+    "regional", "региональн",
+]
+BAD_TLD = [
+    ".ua", ".lv", ".lt", ".ee", ".kz", ".uz", ".by", ".az",
+    ".am", ".ge", ".md", ".kg", ".tj", ".tm", ".pt",
+]
+BAD_WORDS = [
+    # Детские
+    "детск", "kids", "child", "cartoon", "мульт", "карусель", "carousel",
+    "в гостях у сказки", "капитан фантастика", "мама тв", "супергерои",
+    "тооку", "тижи", "tiji", "gulli", "baby", "disney", "nick jr",
+    "nicktoons", "jimjam", "мультиландия", "радость моя", "рыжий",
+    # Зарубежные (по названию)
+    "украин", "ukrain", "україн", "беларус", "belarus", "казах", "kazakh",
+    "узбек", "uzbek", "молдов", "moldova", "латви", "latvia", "эстон",
+    "estonia", "литв", "lithuania", "армени", "armenia", "груз", "georgia",
+    "kentron", "novy kanal", "lugansk", "freeдом", "рада", "майдан",
+    "витебск", "rtvi", "tbn baltia", "tv mana", "mana tserkov",
+    "angel tv", "atr", "100% news", "100news", "mir kazakhstan",
+    "киргиз", "kyrgyz", "таджик", "tajik", "туркмен", "turkmen",
+    # Региональные (по названию, только явные маркеры)
+    "областное", "краевое", "городской", "городская", "области",
+    # Магазины
+    "shop", "магазин", "ювелир", "leomax", "magnat", "top shop",
+    "нтв витрина",
+    # Мусор
+    "city eden", "сити эдем", "svoboda", "свобода", "univer",
+    "vitrina", "zoopark", "зоопарк", "doctor", "home 4k", "moy mir",
+]
+FORBIDDEN_TVG_IDS = {
+    "o.ru@sd", "o.ru@international", "mult", "carousel.ru@plus4",
+}
+
+def is_forbidden(name, tid, grp):
+    """Возвращает причину блокировки или None."""
+    n_low = name.lower().strip()
+    t_low = (tid or "").lower().strip()
+    t_base = t_low.split("@")[0]
+    g_low = (grp or "").lower().strip()
+
+    if g_low and any(bg in g_low for bg in BAD_GROUPS):
+        return f"group:{g_low}"
+    if t_low and any(t_low.endswith(tld) for tld in BAD_TLD):
+        return f"tld:{t_low.split('.')[-1]}"
+    if t_low in FORBIDDEN_TVG_IDS or t_base in FORBIDDEN_TVG_IDS:
+        return f"tvid:{t_low}"
+    for bw in BAD_WORDS:
+        if bw in n_low:
+            return f"word:{bw}"
+    return None
 
 # ---------- ГРУППЫ ----------
 GROUP_NORMALIZE = {
@@ -161,8 +220,8 @@ def load_api_categories():
     if p.exists():
         try:
             d = json.loads(p.read_text("utf-8"))
-            if time.time() - d.get("ts", 0) < ttl:
-                return d.get("cats", {}), d.get("names", {})
+            if d.get("v") == 2 and time.time() - d.get("ts", 0) < ttl:
+                return d.get("cats", {}), d.get("names", {}), d.get("ru", {})
         except: pass
     print("[*] Загрузка категорий из iptv-org API...")
     try:
@@ -170,7 +229,7 @@ def load_api_categories():
             headers={"User-Agent": UAS.get("Chrome_Win", "Mozilla/5.0")})
         with urllib.request.urlopen(req, timeout=60) as r:
             data = json.loads(r.read().decode("utf-8"))
-        cats, names = {}, {}
+        cats, names, ru = {}, {}, {}
         for ch in data:
             cid = ch.get("id")
             if not cid: continue
@@ -180,11 +239,13 @@ def load_api_categories():
             if nm: names[nm.lower()] = cid
             for alt in (ch.get("alt_names") or []):
                 if alt: names[alt.lower()] = cid
-        _save(p, {"ts": int(time.time()), "cats": cats, "names": names})
-        print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён")
-        return cats, names
+            for n in ([nm] if nm else []) + list(ch.get("alt_names") or []):
+                if n and has_cyrillic(n): ru[cid] = n.strip(); break
+        _save(p, {"v": 2, "ts": int(time.time()), "cats": cats, "names": names, "ru": ru})
+        print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён, {len(ru)} русских")
+        return cats, names, ru
     except Exception as e:
-        print(f"[!] API категорий: {e}"); return {}, {}
+        print(f"[!] API категорий: {e}"); return {}, {}, {}
 
 def load_api_logos():
     p = DATA/"api_logos.json"; ttl = 7 * 86400
@@ -420,10 +481,6 @@ def is_quality_fresh(u, quality):
     return time.time() - rec.get("ts", 0) < ttl
 
 def track_problem(problems, u, name, kind, ok, run_id=None):
-    """
-    Счётчик растёт только если проблема зафиксирована в РАЗНЫХ прогонах.
-    Внутри одного прогона (даже с 3 URL) — считается как 1 fail.
-    """
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
         "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
@@ -437,30 +494,24 @@ def track_problem(problems, u, name, kind, ok, run_id=None):
     if run_id is None:
         run_id = int(time.time() // 3600)
 
-    rec["name"] = name
-    rec["last_ts"] = int(time.time())
+    rec["name"] = name; rec["last_ts"] = int(time.time())
 
     if ok:
         rec["last_ok_ts"] = int(time.time())
-        rec["black_fails"] = 0
-        rec["silent_fails"] = 0
-        rec["static_fails"] = 0
-        rec["blocked_until"] = None
-        rec["last_fail_run"] = {}
+        rec["black_fails"] = 0; rec["silent_fails"] = 0; rec["static_fails"] = 0
+        rec["blocked_until"] = None; rec["last_fail_run"] = {}
     else:
         last_run = rec.get("last_fail_run", {})
-        # Считаем только новый прогон
         if last_run.get(kind) != run_id:
             key = f"{kind}_fails"
             rec[key] = rec.get(key, 0) + 1
             rec["last_fail_run"][kind] = run_id
 
-        thr = CFG.get("problem_threshold", 5)
-        ttl = CFG.get("problem_block_ttl_days", 30)
+        thr = CFG.get("problem_threshold", 5); ttl = CFG.get("problem_block_ttl_days", 30)
         if (rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr
             or rec.get("static_fails", 0) >= thr):
             rec["blocked_until"] = int(time.time() + ttl * 86400)
-            print(f"  [BLOCK] {name}: блок на {ttl} дн "
+            print(f"  [BLOCK] {name}: {ttl} дн "
                   f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
 
 # ---------- ПРОВЕРКА ПОТОКА ----------
@@ -494,13 +545,11 @@ def ffprobe_check(u, ua, ref, cookie, tmo):
     except: return None
 
 def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
-    """Возвращает (is_black, is_static, is_silent)."""
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
     if not (check_black or check_audio or check_static):
         return False, False, False
-
     sample = CFG.get("quality_check_sample_sec", 5)
     timeout = CFG.get("quality_check_timeout_sec", 20)
     black_dur = CFG.get("quality_black_min_duration", 2.0)
@@ -508,28 +557,35 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
     static_dur = CFG.get("quality_static_min_duration", 3.0)
 
     filters = []
-    if check_black: filters.append(f"blackdetect=d={black_dur}:pix_th=0.10")
-    if check_static: filters.append(f"freezedetect=n=0.02:d={static_dur}")
+    if check_black:
+        filters.append(f"blackdetect=d={black_dur}:pix_th=0.05")
+        filters.append("signalstats")
+    if check_static:
+        filters.append(f"freezedetect=n=0.02:d={static_dur}")
 
     hdr = "User-Agent: " + ua + "\r\n"
     if ref: hdr += "Referer: " + ref + "\r\n"
     if cookie: hdr += "Cookie: " + cookie + "\r\n"
 
-    cmd = ["ffmpeg", "-hide_banner", "-nostats", "-headers", hdr,
+    cmd = ["ffmpeg", "-hide_banner", "-nostats", "-loglevel", "info", "-headers", hdr,
            "-t", str(sample), "-i", u]
-    if filters:
-        cmd += ["-vf", ",".join(filters)]
-    if check_audio and has_audio_track:
-        cmd += ["-af", "volumedetect"]
+    if filters: cmd += ["-vf", ",".join(filters)]
+    if check_audio and has_audio_track: cmd += ["-af", "volumedetect"]
     cmd += ["-map", "0:v?"]
-    if check_audio and has_audio_track:
-        cmd += ["-map", "0:a?"]
+    if check_audio and has_audio_track: cmd += ["-map", "0:a?"]
     cmd += ["-f", "null", "-"]
 
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=timeout, text=True)
         err = r.stderr
-        is_black = check_black and "black_start" in err
+        is_black_detected = check_black and "black_start" in err
+        is_black_signal = False
+        if check_black:
+            yavg_vals = [float(x) for x in re.findall(r'YAVG:([\d\.]+)', err)]
+            if yavg_vals:
+                median_yavg = sorted(yavg_vals)[len(yavg_vals)//2]
+                is_black_signal = median_yavg < 16
+        is_black = is_black_detected or is_black_signal
         is_static = check_static and "freeze_start" in err
         is_silent = False
         if check_audio:
@@ -539,8 +595,7 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
                 matches = re.findall(r"mean_volume:\s*(-inf|-?\d+(?:\.\d+)?)\s*dB", err)
                 if matches:
                     vals = [float(v) for v in matches if v != "-inf"]
-                    if vals:
-                        is_silent = max(vals) < audio_db
+                    if vals: is_silent = max(vals) < audio_db
         return is_black, is_static, is_silent
     except:
         return False, False, False
@@ -623,15 +678,13 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False))
-                        # run_id одинаковый для всех URL одного канала в этом прогоне
                         run_id = int(time.time() // 3600)
                         if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black, run_id=run_id)
                         if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent, run_id=run_id)
                         if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static, run_id=run_id)
 
                         if is_black or is_silent or is_static:
-                            quality.pop(u, None)
-                            continue
+                            quality.pop(u, None); continue
                         quality[u] = {"ts": int(time.time()), "black_ok": True,
                                       "audio_ok": True, "static_ok": True}
 
@@ -670,25 +723,27 @@ def resolve_logo(ch, api_logos):
     if tid and tid in api_logos: return api_logos[tid]
     return ""
 
-def resolve_epg_for_channel(ch, prog_ids, bn, bt, bp, ru_disp, api_names, api_cats):
+def resolve_epg_for_channel(ch, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru):
     tid = ch.get("tvg_id", "")
     base = tid.split("@")[0] if tid else ""
     if (tid in prog_ids) or (base and base in prog_ids): return True
     ru_name = ch["name"]
     if not has_cyrillic(ch["name"]):
-        new_ru = find_ru(ch["name"], tid, bn, bt, bp, ru_disp, api_names, api_cats)
-        if new_ru: ru_name = new_ru
+        new_ru = find_ru(ch["name"], tid, bn, bt, bp, ru_disp, api_names, api_ru)
+        if new_ru and has_cyrillic(new_ru): ru_name = new_ru
     eid, _ = resolve_epg(ru_name, bn, bt, bp)
     if eid:
         e_base = eid.split("@")[0]
         if eid in prog_ids or e_base in prog_ids:
-            ch["tvg_id"] = eid; ch["name"] = ru_name; return True
+            ch["tvg_id"] = eid
+            if ru_name != ch["name"] and has_cyrillic(ru_name): ch["name"] = ru_name
+            return True
     eid, _ = resolve_epg(ch["name"], bn, bt, bp)
     if eid:
         e_base = eid.split("@")[0]
         if eid in prog_ids or e_base in prog_ids:
             ch["tvg_id"] = eid
-            if ru_name != ch["name"]: ch["name"] = ru_name
+            if ru_name != ch["name"] and has_cyrillic(ru_name): ch["name"] = ru_name
             return True
     return False
 
@@ -712,7 +767,7 @@ def write_playlist(channels):
         lines.append(c["working_url"])
     (ROOT / CFG.get("output_m3u", "playlist.m3u")).write_text("\n".join(lines) + "\n", "utf-8")
 
-def write_readme(report, working, elapsed, problems):
+def write_readme(report, working, elapsed, problems, filtered_stats):
     repo = os.environ.get("GITHUB_REPOSITORY", "user/repo")
     branch = os.environ.get("GITHUB_REF_NAME", "main") or "main"
     raw = "https://raw.githubusercontent.com/" + repo + "/" + branch
@@ -735,8 +790,8 @@ def write_readme(report, working, elapsed, problems):
 
     L = [
         "# 🎯 Raw Stream Checker", "",
-        "Автономный парсер и чекер IPTV с EPG, лого, детектом чёрного экрана, "
-        "отсутствия звука и статичной картинки.", "",
+        "Автономный парсер и чекер IPTV: фильтрация URL (mcquack, cinerama, IP, :8080), "
+        "контента (geo/regional/kids), EPG, лого, детект чёрного экрана, звука и статики.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -755,9 +810,12 @@ def write_readme(report, working, elapsed, problems):
         f"| Обновлено | `{report['generated_at']}` |", "",
         "### Живучесть", "", "```",
         f"LIVE  {bar(pct)}  {pct:5.1f}%  ({work}/{total})", "```", "",
-        "### Покрытие EPG", "", "```",
-        f"EPG   {bar(epg_pct)}  {epg_pct:5.1f}%  ({with_epg}/{work})", "```", "",
     ]
+    if filtered_stats:
+        L += ["## 🚫 Отфильтровано при парсинге", "", "| Причина | Каналов |", "|---|---:|"]
+        for reason, cnt in sorted(filtered_stats.items(), key=lambda x: -x[1]):
+            L.append(f"| {reason} | {cnt} |")
+        L.append("")
     if ua_stats:
         L += ["## 🎭 User-Agent", "", "| UA | Каналов |", "|---|---:|"]
         for k, v in ua_stats.most_common(): L.append(f"| `{k}` | {v} |")
@@ -783,22 +841,21 @@ def write_readme(report, working, elapsed, problems):
         L.append("")
 
     L += ["## 🎛 Управление", "",
-          "**Добавить источник:** `sources.txt` (`имя|url|приоритет`)", "",
-          "**Включить quality checks:** в `config.json` → `\"check_black_screen\": true`, `\"check_audio\": true`, `\"check_static_image\": true`", "",
-          "**Разблокировать канал:** в `problems.json` → `\"blocked_until\": null`", "",
-          "**Сменить EPG:** в `config.json` → `epg_url`, `epg_url_fallback`", "",
-          "**Запустить вручную:** Actions → Raw Check → Run workflow (галочка `deep` = игнор quality cache)", "",
+          "**URL-фильтры:** `blocklist.json` (mcquack, cinerama, :8080, IP)",
+          "**Контент-фильтры:** `checker.py` — блоки `BAD_GROUPS`, `BAD_TLD`, `BAD_WORDS`",
+          "**Разблокировать канал:** `problems.json` → `\"blocked_until\": null`",
+          "**Сменить EPG:** `config.json` → `epg_url`, `epg_url_fallback`",
+          "**Запустить:** Actions → Raw Check → Run workflow (галочка `deep` = игнор quality cache)", "",
           "## ⚙️ Как это работает", "",
           "- **Источники:** из `sources.txt`",
+          "- **Фильтр URL:** blocklist (расширения, порты, хосты, префиксы, IP)",
+          "- **Фильтр контента:** группы (kids/regional/shop), TLD (.ua/.kz/...), слова в названии",
           "- **Категории:** M3U → API iptv-org → `📦 Разное`",
           "- **Логотипы:** M3U (HTTPS) → API iptv-org",
           "- **EPG:** iptvx.one (+ fallback), fuzzy-матч, русские имена",
-          "- **Quality checks** (опц.): `ffmpeg` combined black + static + audio за один проход",
-          "- **Quality cache:** чистые каналы не проверяются 7 дней (в deep режиме — проверяются все)",
-          "- **Проблемные каналы:** проверяются каждый прогон, 5 фейлов в РАЗНЫХ прогонах → блок на 30 дней",
-          "- **Самообучение UA:** запоминает рабочий UA по хостам",
-          "- **Кэш:** warm 6ч, dead 30д, таймауты адаптивные",
-          "- **Защита:** публикация отменяется если живых < 15%", "",
+          "- **Quality checks** (опц.): `ffmpeg` black + signalstats + static + audio",
+          "- **Quality cache:** чистые каналы не проверяются 7 дней (в deep — все)",
+          "- **Трекинг:** 5 фейлов в РАЗНЫХ прогонах → блок на 30 дней", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Все потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -815,7 +872,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v3.1 [{mode}] ===")
+    print(f"=== Raw Stream Checker v3.4 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
@@ -829,7 +886,7 @@ async def main():
         print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}")
         if DEEP_CHECK: print("[!] DEEP режим: игнорируем quality cache")
 
-    api_cats, api_names = load_api_categories()
+    api_cats, api_names, api_ru = load_api_categories()
     api_logos = load_api_logos()
     bn, bt, bp, ic, ru_disp, prog_ids = load_epg()
 
@@ -837,6 +894,8 @@ async def main():
     warm = load_warm(); dead = load_dead(); tmo = load_tmo(); hosts = load_hosts()
     problems = load_problems(); quality = load_quality()
     print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)} problems={len(problems)} quality={len(quality)}")
+
+    filtered_stats = Counter()
 
     try:
         conn = aiohttp.TCPConnector(limit=100, ssl=False, ttl_dns_cache=300)
@@ -848,24 +907,38 @@ async def main():
             seen = set()
             for (sname, _, prio), (_, text) in zip(sources, src_results):
                 if not text: print(f"[!] {sname}: пусто"); continue
-                kept = 0; junk = 0
+                kept = 0; junk = 0; filtered = 0
                 try: parsed = parse_m3u(text)
                 except Exception as e: print(f"[!] {sname}: {e}"); continue
                 for ch in parsed:
                     n, u, a = ch["name"], ch["url"], ch["attrs"]
                     if is_junk(u): junk += 1; continue
+
+                    tid = a.get("tvg-id","")
+                    grp = a.get("group-title","")
+                    reason = is_forbidden(n, tid, grp)
+                    if reason:
+                        filtered += 1
+                        # группируем по префиксу причины (group/tld/word)
+                        key = reason.split(":")[0]
+                        filtered_stats[key] += 1
+                        continue
+
                     key = (n.lower(), u)
                     if key in seen: continue
                     seen.add(key)
                     chan = {"name": n, "url": u,
-                            "tvg_id": a.get("tvg-id",""), "tvg_name": a.get("tvg-name",""),
-                            "logo": a.get("tvg-logo",""), "group": a.get("group-title",""),
+                            "tvg_id": tid, "tvg_name": a.get("tvg-name",""),
+                            "logo": a.get("tvg-logo",""), "group": grp,
                             "extvlc": ch["extvlc"], "urls": [u]}
                     chan["category"] = resolve_category(chan, api_cats, api_names)
                     chan["logo"] = resolve_logo(chan, api_logos)
-                    chan["has_epg"] = resolve_epg_for_channel(chan, prog_ids, bn, bt, bp, ru_disp, api_names, api_cats) if prog_ids else False
+                    chan["has_epg"] = resolve_epg_for_channel(chan, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru) if prog_ids else False
                     channels.append(chan); kept += 1
-                print(f"[+] {sname}: {kept} (мусор: {junk})")
+                print(f"[+] {sname}: {kept} (мусор: {junk}, фильтр: {filtered})")
+
+            if filtered_stats:
+                print(f"[*] Отфильтровано: " + ", ".join(f"{k}={v}" for k, v in filtered_stats.most_common()))
 
             epg_pre = sum(1 for c in channels if c.get("has_epg"))
             logo_pre = sum(1 for c in channels if c.get("logo"))
@@ -908,6 +981,7 @@ async def main():
                 "total": len(channels), "alive": len(alive), "dead": len(channels)-len(alive),
                 "with_epg": sum(1 for c in alive if c.get("has_epg")),
                 "with_logo": sum(1 for c in alive if c.get("logo")),
+                "filtered": dict(filtered_stats),
                 "mode": mode,
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
@@ -915,12 +989,14 @@ async def main():
                               "logo": c.get("logo",""), "epg": c.get("has_epg", False)} for c in alive],
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
-            write_readme(report, alive, time.time()-started, problems)
+            write_readme(report, alive, time.time()-started, problems, filtered_stats)
 
             elapsed = time.time() - started
             print("=========================================")
             print(f"[+] Готово за {elapsed:.1f}s [{mode}]")
             print(f"[+] Всего: {len(channels)} | Живых: {len(alive)} | EPG: {report['with_epg']} | Лого: {report['with_logo']}")
+            if filtered_stats:
+                print(f"[+] Отфильтровано: {sum(filtered_stats.values())}")
     finally:
         print("[*] Сохранение кэша...")
         save_ua_cache(ua_cache); save_ua_scores(ua_scores)
