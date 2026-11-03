@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Raw Stream Checker v2 — self-learning, fault-tolerant, production-ready."""
 import asyncio, json, os, re, sys, time, subprocess, urllib.parse
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -28,6 +29,7 @@ CFG = _load(ROOT/"config.json", {})
 UAS = _load(ROOT/"useragents.json", {})
 BLK = _load(ROOT/"blocklist.json", {})
 
+# ---------- ПАРСИНГ ----------
 ATTR_RE = re.compile(r'([A-Za-z0-9_\-]+)="([^"]*)"')
 def split_extinf(line):
     in_q = False
@@ -57,6 +59,7 @@ def parse_m3u(text):
             cur["url"] = line; out.append(cur); cur = None
     return out
 
+# ---------- ФИЛЬТР МУСОРА ----------
 PRIV_RE = re.compile(r'^https?://(localhost|127\.|0\.0\.0\.0|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|169\.254\.)')
 _BAD_EXT   = tuple(BLK.get("bad_extensions", []))
 _BAD_PORTS = tuple(BLK.get("bad_ports", []))
@@ -77,6 +80,7 @@ def is_junk(u):
         if h == bd or h.endswith("." + bd): return True
     return False
 
+# ---------- ИСТОЧНИКИ ----------
 def load_sources():
     p = ROOT/"sources.txt"
     if not p.exists(): return []
@@ -90,16 +94,83 @@ def load_sources():
         out.append((parts[0], parts[1], prio))
     return out
 
-async def fetch_src(session, name, url):
-    try:
-        async with session.get(url, headers={"User-Agent": UAS.get("Chrome_Win","Mozilla/5.0")},
-                               timeout=aiohttp.ClientTimeout(total=60), ssl=False) as r:
-            if r.status != 200:
-                print(f"[src] {name}: HTTP {r.status}"); return name, None
-            return name, await r.text(errors="ignore")
-    except Exception as e:
-        print(f"[src] {name}: {e}"); return name, None
+async def fetch_src(session, name, url, retries=2):
+    for attempt in range(retries + 1):
+        try:
+            async with session.get(url, headers={"User-Agent": UAS.get("Chrome_Win","Mozilla/5.0")},
+                                   timeout=aiohttp.ClientTimeout(total=60), ssl=False) as r:
+                if r.status == 429:
+                    wait = 5 * (attempt + 1)
+                    print(f"[src] {name}: 429 rate limit, ждем {wait}s")
+                    await asyncio.sleep(wait); continue
+                if r.status != 200:
+                    print(f"[src] {name}: HTTP {r.status}"); return name, None
+                return name, await r.text(errors="ignore")
+        except Exception as e:
+            print(f"[src] {name}: {e} (attempt {attempt+1}/{retries+1})")
+            if attempt < retries: await asyncio.sleep(3)
+    return name, None
 
+# ---------- КЭШИ И ОБУЧЕНИЕ ----------
+def load_ua_cache(): return _load(DATA/"ua_cache.json", {})
+def save_ua_cache(c): _save(DATA/"ua_cache.json", c)
+def load_ua_scores(): return _load(DATA/"ua_scores.json", {})
+def save_ua_scores(s): _save(DATA/"ua_scores.json", s)
+def load_warm(): return _load(DATA/"warm.json", {})
+def save_warm(c): _save(DATA/"warm.json", c)
+def load_dead(): return _load(DATA/"dead.json", {})
+def save_dead(c): _save(DATA/"dead.json", c)
+def load_tmo(): return _load(DATA/"tmo.json", {})
+def save_tmo(s): _save(DATA/"tmo.json", s)
+def load_hosts(): return _load(DATA/"hosts.json", {})
+def save_hosts(s): _save(DATA/"hosts.json", s)
+
+def pick_ua_order(host, ua_cache, ua_scores):
+    """Умный порядок перебора UA для хоста."""
+    saved = ua_cache.get(host)
+    scores = ua_scores.get(host, {})
+    keys = sorted(UAS.keys(), key=lambda k: (-scores.get(k, 0), -CFG.get("ua_weights", {}).get(k, 1)))
+    if saved and saved in UAS:
+        if saved in keys: keys.remove(saved)
+        keys.insert(0, saved)
+        return keys[:3]  # Знаем победителя — пробуем его + 2 запасных
+    return keys[:5]      # Холодный хост — 5 попыток
+
+def upd_ua_score(ua_scores, host, key, ok):
+    s = ua_scores.setdefault(host, {})
+    s[key] = s.get(key, 0) + (2 if ok else -1)
+
+def is_dead_cached(u, dead):
+    i = dead.get(u)
+    if not i: return False
+    if i.get("fails", 0) < 3: return False
+    if time.time() - i.get("ts", 0) > 30 * 86400: return False
+    return True
+
+def mark_dead(dead, u, ok):
+    if ok: dead.pop(u, None)
+    else:
+        p = dead.get(u, {"fails":0,"ts":0})
+        p["fails"] = p.get("fails",0)+1; p["ts"] = int(time.time()); dead[u] = p
+
+def upd_host_stat(hosts, host, ok):
+    e = hosts.setdefault(host, {"ok":0,"fail":0})
+    k = "ok" if ok else "fail"; e[k] = e.get(k, 0) + 1
+
+def host_blocked(host, hosts):
+    e = hosts.get(host, {})
+    return e.get("ok",0) == 0 and e.get("fail",0) >= 10
+
+def get_timeout(u, tmo):
+    med = tmo.get(host_of(u), {}).get("med", 0)
+    return max(3, int(med/1000*2 + 2)) if med else CFG.get("ffprobe_timeout", 8)
+
+def upd_timeout(tmo, u, ms):
+    h = host_of(u); d = tmo.setdefault(h, {"v":[]})
+    v = d.get("v", [])[-20:] + [int(ms)]; d["v"] = v[-20:]
+    d["med"] = sorted(d["v"])[len(d["v"])//2]
+
+# ---------- ПРОВЕРКА ----------
 def get_ref(u):
     h = host_of(u)
     if "wink.ru" in h: return "https://wink.ru/"
@@ -154,27 +225,71 @@ async def http_pre(session, u, ua, ref):
             return r.status
     except: return 0
 
-async def check_one(session, ch, sem, loop, executor):
+async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts):
     async with sem:
         for u in ch["urls"]:
+            # 1. Мертвый в кэше — пропускаем
+            if is_dead_cached(u, dead): continue
+            host = host_of(u)
+            # 2. Хост заблокирован — пропускаем
+            if host_blocked(host, hosts): continue
+            # 3. Warm cache — знаем что работает
+            wc = warm.get(u)
+            if wc and time.time() - wc.get("ts", 0) < CFG.get("warm_cache_ttl_hours", 6) * 3600:
+                ch["working_url"] = u
+                ch["working_ua_key"] = wc["ua_key"]
+                ch["working_ua"] = UAS.get(wc["ua_key"], "")
+                ch["height"] = wc.get("height", 0)
+                ch["width"] = wc.get("width", 0)
+                ch["codec"] = wc.get("codec", "")
+                return ch
+
             ref = ch.get("extvlc", {}).get("http-referrer") or get_ref(u)
             cookie = ch.get("extvlc", {}).get("http-cookie")
-            for ua_key, ua in UAS.items():
-                status = await http_pre(session, u, ua, ref)
-                if status in (403, 404, 410, 451): break
-                if not status: continue
-                target = await hls_variant(session, u, ua, ref)
-                info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, CFG.get("ffprobe_timeout", 8))
-                if info:
-                    ch["working_url"] = u
-                    ch["working_ua"] = ua
-                    ch["working_ua_key"] = ua_key
-                    ch["height"] = info.get("height", 0)
-                    ch["width"] = info.get("width", 0)
-                    ch["codec"] = info.get("codec", "")
-                    return ch
+
+            # 4. Перебор UA по умному порядку
+            for ua_key in pick_ua_order(host, ua_cache, ua_scores):
+                ua = UAS[ua_key]
+                try:
+                    status = await http_pre(session, u, ua, ref)
+                    # Fast-fail на явные отказы
+                    if status in (403, 404, 410, 451):
+                        mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
+                        break
+                    if status == 429:
+                        continue
+                    if not status:
+                        upd_ua_score(ua_scores, host, ua_key, False); continue
+
+                    target = await hls_variant(session, u, ua, ref)
+                    t = get_timeout(u, tmo); t0 = time.time()
+                    info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, t)
+                    upd_timeout(tmo, u, (time.time()-t0)*1000)
+
+                    if info:
+                        ua_cache[host] = ua_key
+                        upd_ua_score(ua_scores, host, ua_key, True)
+                        upd_host_stat(hosts, host, True)
+                        mark_dead(dead, u, True)
+                        warm[u] = {"ts": int(time.time()), "ua_key": ua_key,
+                                   "codec": info.get("codec",""), "height": info.get("height",0),
+                                   "width": info.get("width",0)}
+                        ch["working_url"] = u
+                        ch["working_ua_key"] = ua_key
+                        ch["working_ua"] = ua
+                        ch["height"] = info.get("height", 0)
+                        ch["width"] = info.get("width", 0)
+                        ch["codec"] = info.get("codec", "")
+                        return ch
+                    upd_ua_score(ua_scores, host, ua_key, False)
+                except Exception as e:
+                    print(f"  err {ch['name']}: {e}")
+                    continue
+            # Все UA провалились — хост и канал помечаем
+            mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
         return None
 
+# ---------- ГЕНЕРАЦИЯ ----------
 def write_playlist(channels):
     lines = ["#EXTM3U"]
     for c in channels:
@@ -206,7 +321,9 @@ def write_readme(report, working, elapsed):
     lbl_u = urllib.parse.quote("обновлено")
     L = [
         "# 🎯 Raw Stream Checker", "",
-        "Автономный парсер и чекер IPTV-плейлистов. Парсит источники «как есть», проверяет каждый поток через ffprobe, собирает рабочий плейлист.", "",
+        "Автономный самообучающийся парсер и чекер IPTV. Парсит источники «как есть», "
+        "проверяет каждый поток через `ffprobe`, собирает рабочий плейлист. "
+        "Умный UA-подбор, кэш живых/мёртвых, адаптивные таймауты.", "",
         "![живых](https://img.shields.io/badge/" + lbl_a + "-" + str(work) + "-brightgreen?style=flat-square) " +
         "![всего](https://img.shields.io/badge/" + lbl_t + "-" + str(total) + "-blue?style=flat-square) " +
         "![обновлено](https://img.shields.io/badge/" + lbl_u + "-" + date_safe + "-lightgrey?style=flat-square)", "",
@@ -233,8 +350,11 @@ def write_readme(report, working, elapsed):
           "- **Источники:** из `sources.txt` (формат `имя|url|приоритет`)",
           "- **Парсинг:** `#EXTINF`, `#EXTVLCOPT`",
           "- **Фильтр мусора:** расширения, приватные IP, редиректы, битые протоколы",
-          "- **Проверка:** HTTP pre-check + `ffprobe` + перебор 15 ходовых UA",
+          "- **Проверка:** HTTP pre-check + `ffprobe` + умный перебор UA по хосту",
+          "- **Самообучение:** запоминает рабочий UA для каждого хоста",
+          "- **Кэш:** живые 6ч, мёртвые 30 дней, таймауты адаптивные",
           "- **HLS:** master-плейлист → variant stream",
+          "- **Защита:** публикация отменяется если живых < 15%",
           "- **Итог:** `playlist.m3u` с рабочими ссылками и нужным User-Agent", "",
           "<sub>🤖 Обновлено " + now_msk() + "</sub>", ""]
     (ROOT/"README.md").write_text("\n".join(L), "utf-8")
@@ -246,79 +366,122 @@ def print_progress(done, total, ok_count, fail_count):
     bar = "█" * filled + "░" * (bar_len - filled)
     print(f"[{bar}] {pct}% ({done}/{total}) | Живых: {ok_count} | Упало: {fail_count}", flush=True)
 
+# ---------- MAIN ----------
 async def main():
     started = time.time()
-    print("=== Raw Stream Checker ===")
+    print("=== Raw Stream Checker v2 ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
         print("[!] sources.txt пуст"); return
 
-    conn = aiohttp.TCPConnector(limit=100, ssl=False, ttl_dns_cache=300)
-    async with aiohttp.ClientSession(connector=conn) as session:
-        print("[*] Загрузка источников...")
-        src_results = await asyncio.gather(*(fetch_src(session, n, u) for n, u, _ in sources))
+    # Загружаем всё что нужно
+    ua_cache = load_ua_cache()
+    ua_scores = load_ua_scores()
+    warm = load_warm()
+    dead = load_dead()
+    tmo = load_tmo()
+    hosts = load_hosts()
+    print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)}")
 
-        channels = []
-        seen = set()
-        for (sname, _, prio), (_, text) in zip(sources, src_results):
-            if not text: continue
-            kept = 0; junk = 0
-            for ch in parse_m3u(text):
-                n, u, a = ch["name"], ch["url"], ch["attrs"]
-                if is_junk(u): junk += 1; continue
-                key = (n.lower(), u)
-                if key in seen: continue
-                seen.add(key)
-                channels.append({
-                    "name": n, "url": u,
-                    "tvg_id": a.get("tvg-id",""), "tvg_name": a.get("tvg-name",""),
-                    "logo": a.get("tvg-logo",""), "group": a.get("group-title",""),
-                    "extvlc": ch["extvlc"], "urls": [u],
-                })
-                kept += 1
-            print(f"[+] {sname}: {kept} (мусор: {junk})")
+    try:
+        conn = aiohttp.TCPConnector(limit=100, ssl=False, ttl_dns_cache=300)
+        async with aiohttp.ClientSession(connector=conn) as session:
+            print("[*] Загрузка источников...")
+            src_results = await asyncio.gather(*(fetch_src(session, n, u) for n, u, _ in sources))
 
-        print(f"[*] Всего уникальных: {len(channels)}")
+            channels = []
+            seen = set()
+            for (sname, _, prio), (_, text) in zip(sources, src_results):
+                if not text:
+                    print(f"[!] {sname}: пустой ответ, пропускаем")
+                    continue
+                kept = 0; junk = 0
+                try:
+                    parsed = parse_m3u(text)
+                except Exception as e:
+                    print(f"[!] {sname}: парсинг упал ({e})")
+                    continue
+                for ch in parsed:
+                    n, u, a = ch["name"], ch["url"], ch["attrs"]
+                    if is_junk(u): junk += 1; continue
+                    key = (n.lower(), u)
+                    if key in seen: continue
+                    seen.add(key)
+                    channels.append({
+                        "name": n, "url": u,
+                        "tvg_id": a.get("tvg-id",""), "tvg_name": a.get("tvg-name",""),
+                        "logo": a.get("tvg-logo",""), "group": a.get("group-title",""),
+                        "extvlc": ch["extvlc"], "urls": [u],
+                    })
+                    kept += 1
+                print(f"[+] {sname}: {kept} (мусор: {junk})")
 
-        executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
-        loop = asyncio.get_running_loop()
-        sem = asyncio.Semaphore(CFG.get("concurrency", 80))
+            print(f"[*] Всего уникальных: {len(channels)}")
+            if not channels:
+                print("[!] Нет каналов для проверки — выходим"); return
 
-        done = 0; ok = 0; fail = 0
-        async def wrap(ch):
-            nonlocal done, ok, fail
-            r = await check_one(session, ch, sem, loop, executor)
-            done += 1
-            if r: ok += 1
-            else: fail += 1
-            step = max(1, len(channels)//20)
-            if done % step == 0 or done == len(channels) or done == 1:
-                print_progress(done, len(channels), ok, fail)
-            return r
+            executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
+            loop = asyncio.get_running_loop()
+            sem = asyncio.Semaphore(CFG.get("concurrency", 80))
 
-        print(f"[*] Проверка ({len(channels)} шт.)...")
-        rs = await asyncio.gather(*[wrap(c) for c in channels])
-        executor.shutdown()
+            done = 0; ok = 0; fail = 0
+            async def wrap(ch):
+                nonlocal done, ok, fail
+                r = await check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts)
+                done += 1
+                if r: ok += 1
+                else: fail += 1
+                step = max(1, len(channels)//20)
+                if done % step == 0 or done == len(channels) or done == 1:
+                    print_progress(done, len(channels), ok, fail)
+                return r
 
-        alive = [r for r in rs if r]
-        write_playlist(alive)
+            print(f"[*] Проверка ({len(channels)} шт.)...")
+            rs = await asyncio.gather(*[wrap(c) for c in channels], return_exceptions=True)
+            executor.shutdown()
 
-        report = {
-            "total": len(channels), "alive": len(alive), "dead": len(channels) - len(alive),
-            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
-                          "group": c.get("group",""), "height": c.get("height",0)} for c in alive],
-        }
-        (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
-        write_readme(report, alive, time.time()-started)
+            alive = [r for r in rs if r and not isinstance(r, Exception)]
 
-        elapsed = time.time() - started
-        print("=========================================")
-        print(f"[+] Готово за {elapsed:.1f}s")
-        print(f"[+] Всего:   {len(channels)}")
-        print(f"[+] Живых:   {len(alive)}")
-        print(f"[+] Мёртвых: {len(channels)-len(alive)}")
+            # Защита от пустого плейлиста
+            threshold = max(10, int(len(channels) * 0.15))
+            if len(alive) < threshold:
+                print(f"[!] ПРОВАЛ: живых {len(alive)} < порога {threshold}. Публикация отменена.")
+                # Сохраняем отчёт для разбора, но НЕ трогаем playlist.m3u
+                (ROOT/"report_failed.json").write_text(json.dumps({
+                    "total": len(channels), "alive": len(alive),
+                    "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                }, ensure_ascii=False, indent=2), "utf-8")
+                return
+
+            write_playlist(alive)
+
+            report = {
+                "total": len(channels), "alive": len(alive), "dead": len(channels) - len(alive),
+                "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
+                              "group": c.get("group",""), "height": c.get("height",0)} for c in alive],
+            }
+            (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
+            write_readme(report, alive, time.time()-started)
+
+            elapsed = time.time() - started
+            print("=========================================")
+            print(f"[+] Готово за {elapsed:.1f}s")
+            print(f"[+] Всего:   {len(channels)}")
+            print(f"[+] Живых:   {len(alive)}")
+            print(f"[+] Мёртвых: {len(channels)-len(alive)}")
+
+    finally:
+        # Всегда сохраняем кэш — даже если что-то упало
+        print("[*] Сохранение кэша...")
+        save_ua_cache(ua_cache)
+        save_ua_scores(ua_scores)
+        save_warm({k: v for k, v in warm.items() if time.time() - v.get("ts",0) < 86400 * 7})
+        save_dead(dead)
+        save_tmo(tmo)
+        save_hosts(hosts)
+        print("[*] Кэш сохранен.")
 
 if __name__ == "__main__":
     asyncio.run(main())
