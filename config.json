@@ -21,10 +21,12 @@
   "epg_ttl_hours": 168,
   "check_black_screen": true,
   "check_audio": true,
+  "check_static_image": true,
   "quality_check_sample_sec": 2,
   "quality_check_timeout_sec": 15,
   "quality_audio_min_db": -60,
   "quality_black_min_duration": 0.5,
+  "quality_static_min_duration": 1.5,
   "quality_check_cache_days": 7,
   "problem_threshold": 3,
   "problem_block_ttl_days": 30
