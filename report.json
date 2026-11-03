@@ -1,9 +1,16 @@
 {
   "total": 1051,
-  "alive": 753,
-  "dead": 298,
-  "generated_at": "2026-11-03T12:02:32Z",
+  "alive": 771,
+  "dead": 280,
+  "generated_at": "2026-11-03T12:22:04Z",
   "channels": [
+    {
+      "name": "2x2 (576i)",
+      "url": "https://bl.rutube.ru/livestream/392b4686b770bae2da6bf5ac4574add5/index.m3u8?e=2068731801&s=tenr-yHXUv1wibfka78s2A&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
+    },
     {
       "name": "2x2 SD (576p)",
       "url": "http://stream.mcquack.net/187/index.m3u8",
@@ -70,7 +77,7 @@
     {
       "name": ".sci-fi (576p)",
       "url": "http://stream.mcquack.net/180/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -89,6 +96,13 @@
       "height": 1080
     },
     {
+      "name": "Ani (576p)",
+      "url": "http://stream.mcquack.net/306/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
       "name": "ART (576p)",
       "url": "http://89.104.114.24:8080/art/index.m3u8",
       "ua": "Wink",
@@ -105,7 +119,7 @@
     {
       "name": "Avto24 (576p)",
       "url": "http://stream.mcquack.net/78/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -115,6 +129,13 @@
       "ua": "Wink",
       "group": "",
       "height": 360
+    },
+    {
+      "name": "Soyuzny (576p)",
+      "url": "https://souzny.mediacdn.ru/cdn/souzny/playlist.m3u8",
+      "ua": "AndroidTV",
+      "group": "",
+      "height": 1080
     },
     {
       "name": "Blokbaster HD (1080p)",
@@ -133,7 +154,7 @@
     {
       "name": "BRIDGE (576p)",
       "url": "http://stream.mcquack.net/318/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 576
     },
@@ -147,14 +168,14 @@
     {
       "name": "BRIDGE Deluxe HD (576p)",
       "url": "http://stream.mcquack.net/92/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "BRIDGE Hits (576p)",
       "url": "http://stream.mcquack.net/320/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 576
     },
@@ -175,7 +196,7 @@
     {
       "name": "Carousel SD (576p)",
       "url": "http://stream.mcquack.net/120/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -224,9 +245,23 @@
     {
       "name": "Channel 8 Novosibirsk (480i)",
       "url": "https://live-8knsk.cdnvideo.ru/8knsk/stream1/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 480
+    },
+    {
+      "name": "Channel 10 (576i)",
+      "url": "https://bl.rutube.ru/livestream/c9e26bf5c003fd8d477200065ca1a05f/index.m3u8?e=2072611029&s=eqlTXebDP9wSWTZgre6BwQ&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Channel One (576p)",
+      "url": "http://45.153.24.78/1TV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
     },
     {
       "name": "Channel One (576p)",
@@ -252,7 +287,7 @@
     {
       "name": "Classic Music (1080p)",
       "url": "http://stream.mcquack.net/312/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -264,11 +299,25 @@
       "height": 576
     },
     {
+      "name": "Da Vinci",
+      "url": "https://stream8.cinerama.uz/1231/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
       "name": "DanceHits80",
       "url": "http://dancehits80.denvs.ru:8080/index.m3u8",
       "ua": "Wink",
       "group": "",
       "height": 432
+    },
+    {
+      "name": "Dikaya okhota HD (1080p)",
+      "url": "http://stream.mcquack.net/274/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
     },
     {
       "name": "Dikaya rybalka HD (1080p)",
@@ -285,9 +334,23 @@
       "height": 576
     },
     {
+      "name": "Dom kino (576p)",
+      "url": "http://stream.mcquack.net/236/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dom kino",
+      "url": "https://stream8.cinerama.uz/1054/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
       "name": "Dom kino Premium HD (1080p)",
       "url": "http://stream.mcquack.net/108/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -308,7 +371,7 @@
     {
       "name": "Dorama HD (1080p)",
       "url": "http://stream.mcquack.net/412/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -322,7 +385,7 @@
     {
       "name": "Dushevnoe HD (1080p)",
       "url": "http://stream.mcquack.net/213/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -336,7 +399,7 @@
     {
       "name": "Europa Plus TV SD (576p)",
       "url": "http://stream.mcquack.net/184/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -350,21 +413,21 @@
     {
       "name": "FAN (576p)",
       "url": "http://stream.mcquack.net/420/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Fashion&LifeStyle (1080p)",
       "url": "http://stream.mcquack.net/119/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Fon Music (576p)",
       "url": "http://stream.mcquack.net/317/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -385,14 +448,14 @@
     {
       "name": "Fox Life (576p)",
       "url": "http://stream.mcquack.net/129/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Friday! (576p)",
       "url": "http://stream.mcquack.net/181/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -427,7 +490,7 @@
     {
       "name": "Hit HD (1080p)",
       "url": "http://stream.mcquack.net/363/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -616,7 +679,7 @@
     {
       "name": "Komedia (576p)",
       "url": "http://stream.mcquack.net/68/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -665,7 +728,7 @@
     {
       "name": "Law TV (1080p)",
       "url": "http://stream.mcquack.net/406/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -679,14 +742,14 @@
     {
       "name": "Mama (576p)",
       "url": "http://stream.mcquack.net/79/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Match! Arena (576p)",
       "url": "http://stream.mcquack.net/163/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -784,7 +847,7 @@
     {
       "name": "Moskva 24 (1080p)",
       "url": "https://stream.smotrim.ru/hls/givc8/playlist.m3u8?entity=channel&id=798&sign=37881ef2e289f062ceff0dca6c24dc58",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "",
       "height": 240
     },
@@ -993,6 +1056,13 @@
     },
     {
       "name": "NTV HD (1080p)",
+      "url": "https://bl.rutube.ru/livestream/c37cd74192c6bc3d6cd6077c0c4fd686/index.m3u8?e=2077050299&s=HSWg81JrQ3OqmwuWkEIDAQ&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "NTV HD (1080p)",
       "url": "https://cdn-dvr.ntv.ru/ntv0_hd/index.m3u8",
       "ua": "Wink",
       "group": "",
@@ -1195,13 +1265,6 @@
       "height": 484
     },
     {
-      "name": "RT (720p)",
-      "url": "http://212.5.144.156:8080/rt/index.m3u8",
-      "ua": "Wink",
-      "group": "",
-      "height": 720
-    },
-    {
       "name": "RT Balkan (1080p)",
       "url": "https://rt-srb.rttv.com/dvr/rtbalkan/playlist.m3u8",
       "ua": "Wink",
@@ -1253,7 +1316,7 @@
     {
       "name": "RTG TV HD (1080p)",
       "url": "http://stream.mcquack.net/164/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1265,6 +1328,13 @@
       "height": 576
     },
     {
+      "name": "RU.TV (1080p)",
+      "url": "https://bl.rutube.ru/livestream/b1eb8e90d7e636677b3eb73b4fcbb717/index.m3u8?e=2069285076&s=d-E-bxKy2v3EEJ94RQX9CA&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
+    },
+    {
       "name": "RU.TV",
       "url": "https://stream8.cinerama.uz/1202/tracks-v1a1/mono.m3u8",
       "ua": "Wink",
@@ -1274,7 +1344,7 @@
     {
       "name": "RU.TV SD (576p)",
       "url": "http://stream.mcquack.net/109/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -1330,28 +1400,28 @@
     {
       "name": "Russian MusicBox (576p)",
       "url": "http://stream.mcquack.net/319/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Russkiy Bestseller (576p)",
       "url": "http://stream.mcquack.net/208/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Russkiy Detektiv (576p)",
       "url": "http://stream.mcquack.net/204/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Russkiy roman (576p)",
       "url": "http://stream.mcquack.net/266/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1505,7 +1575,7 @@
     {
       "name": "Solnce (576p)",
       "url": "http://stream.mcquack.net/118/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -1589,16 +1659,23 @@
     {
       "name": "STS kids (576p)",
       "url": "http://stream.mcquack.net/197/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "STS Love (576p)",
       "url": "http://stream.mcquack.net/183/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
+    },
+    {
+      "name": "Subbota! (1080p)",
+      "url": "https://bl.rutube.ru/livestream/310744c10a5809da38aa445c952976da/index.m3u8?e=2066519758&s=dmUf6BUQzDBTwtQOseAfog&scheme=https",
+      "ua": "TiviMate",
+      "group": "",
+      "height": 0
     },
     {
       "name": "Subbota! (576p)",
@@ -1666,7 +1743,7 @@
     {
       "name": "TiJi (576p)",
       "url": "http://stream.mcquack.net/111/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -1680,7 +1757,7 @@
     {
       "name": "TNT SD (576p)",
       "url": "http://stream.mcquack.net/135/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1701,7 +1778,7 @@
     {
       "name": "Tochka RF (1080p)",
       "url": "http://stream.mcquack.net/161/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1711,6 +1788,13 @@
       "ua": "Wink",
       "group": "",
       "height": 1080
+    },
+    {
+      "name": "Tsargrad TV (1080p) [Geo-blocked]",
+      "url": "https://bl.rutube.ru/livestream/91815da4edb167b5bd617bae490e57da/index.m3u8?e=2070278263&s=is_mLq_kjPYLsOJ4qj85tw&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
     },
     {
       "name": "TV 21 International (576p)",
@@ -1739,6 +1823,13 @@
       "ua": "Wink",
       "group": "",
       "height": 360
+    },
+    {
+      "name": "U (720p)",
+      "url": "https://bl.rutube.ru/livestream/5c9327074e25ca86f3111d4085cbbb65/index.m3u8?e=2066519758&s=9cPc1rCGu6M932eqrifRhQ&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 0
     },
     {
       "name": "U (576p)",
@@ -1785,21 +1876,21 @@
     {
       "name": "Usadba (576p)",
       "url": "http://stream.mcquack.net/211/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "V gostyakh u skazki (576p)",
       "url": "http://stream.mcquack.net/93/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "V mire zhivotnykh (1080p)",
       "url": "http://stream.mcquack.net/241/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1813,7 +1904,7 @@
     {
       "name": "viju Explore (576p)",
       "url": "http://stream.mcquack.net/239/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1827,7 +1918,7 @@
     {
       "name": "viju History (576p)",
       "url": "http://stream.mcquack.net/101/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1841,7 +1932,7 @@
     {
       "name": "viju TV1000 (576p)",
       "url": "http://stream.mcquack.net/110/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1876,28 +1967,28 @@
     {
       "name": "viju+ Comedy HD (1080p)",
       "url": "http://stream.mcquack.net/201/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "viju+ Megahit HD (1080p)",
       "url": "http://stream.mcquack.net/200/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "viju+ Planet HD (1080p)",
       "url": "http://stream.mcquack.net/240/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "viju+ Premiere HD (1080p)",
       "url": "http://stream.mcquack.net/202/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -1946,14 +2037,14 @@
     {
       "name": "Voprosy i Otvety (576p)",
       "url": "http://stream.mcquack.net/76/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Vremya (576p)",
       "url": "http://stream.mcquack.net/237/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
@@ -1974,21 +2065,21 @@
     {
       "name": "Zhara (576p)",
       "url": "http://stream.mcquack.net/386/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Zhivaya priroda (1080p)",
       "url": "http://stream.mcquack.net/83/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Zhivaya priroda HD (1080p)",
       "url": "http://stream.mcquack.net/225/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -2009,7 +2100,7 @@
     {
       "name": "Zvezda HD (1080p) [Not 24/7]",
       "url": "https://tvchannelstream1.tvzvezda.ru/cdn/tvzvezda/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 720
     },
@@ -2145,6 +2236,13 @@
       "ua": "Wink",
       "group": "",
       "height": 288
+    },
+    {
+      "name": "Крым 24",
+      "url": "https://cdn.1tvcrimea.ru/24tvcrimea.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
     },
     {
       "name": "ЛДПР ТВ (1080p)",
@@ -2385,6 +2483,13 @@
       "height": 720
     },
     {
+      "name": "Тамыр (Уфа)",
+      "url": "https://bstonline.mediacdn.ru/cdn/tamyr/playlist.m3u8",
+      "ua": "AndroidTV",
+      "group": "",
+      "height": 576
+    },
+    {
       "name": "ТВ Центр",
       "url": "https://tvc-hls.cdnvideo.ru/tvc-res/smil:vd9221.smil/playlist.m3u8",
       "ua": "Wink",
@@ -2396,7 +2501,7 @@
       "url": "https://air.tvk6.ru/tvk24/playlist.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 0
+      "height": 360
     },
     {
       "name": "Твое TV HD (1080p)",
@@ -2422,7 +2527,7 @@
     {
       "name": "Телерадиокомпания 555 (Алушта) (720p)",
       "url": "http://trk555.tv:8888/live",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "",
       "height": 0
     },
@@ -2460,6 +2565,13 @@
       "ua": "Wink",
       "group": "",
       "height": 1080
+    },
+    {
+      "name": "Шансон ТВ (512p) [Geo-blocked]",
+      "url": "http://hls.shansontv.cdnvideo.ru/shansontv/shansontv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 404
     },
     {
       "name": "Щёлковское ТВ (576p) [Not 24/7]",
@@ -2730,42 +2842,42 @@
     {
       "name": "TV-3 HD (1080p)",
       "url": "http://stream.mcquack.net/136/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "TNT4 (576p)",
       "url": "http://stream.mcquack.net/106/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Telecafe (576p)",
       "url": "http://stream.mcquack.net/314/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 576
     },
     {
       "name": "Doctor (576p)",
       "url": "http://stream.mcquack.net/80/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Travel+Adventure HD (1080p)",
       "url": "http://stream.mcquack.net/206/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "UDAR (1080p)",
       "url": "http://stream.mcquack.net/279/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -2926,27 +3038,6 @@
     {
       "name": "KVN TV (576p)",
       "url": "https://fs.uplink.kz/kvn_tv/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "",
-      "height": 576
-    },
-    {
-      "name": "TV Centr (576p)",
-      "url": "https://fs.uplink.kz/tvc/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "",
-      "height": 1080
-    },
-    {
-      "name": "Dorama (576p)",
-      "url": "https://fs.uplink.kz/dorama/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "",
-      "height": 576
-    },
-    {
-      "name": "Baby Time (576p)",
-      "url": "https://fs.uplink.kz/baby_time/mono.m3u8?token=onlinetv",
       "ua": "Wink",
       "group": "",
       "height": 576
@@ -3243,7 +3334,7 @@
       "url": "http://31.131.141.195:8000/play/a006/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 0
+      "height": 720
     },
     {
       "name": "RT en Espanol (1080p)",
@@ -3418,7 +3509,7 @@
       "url": "http://46.53.200.153:7777/play/a01i/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 0
+      "height": 576
     },
     {
       "name": "viju History (576p)",
@@ -3446,14 +3537,14 @@
       "url": "http://46.53.200.153:7777/play/Sapfir_HD/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 1080
+      "height": 0
     },
     {
       "name": "Nash Kinopokaz HD (576p)",
       "url": "http://46.53.200.153:7777/play/SRT_Nash_kinopokaz/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 1080
+      "height": 0
     },
     {
       "name": "RTG TV HD (1080p)",
@@ -3474,7 +3565,7 @@
       "url": "http://46.53.200.153:7777/play/Viju_Megahit_HD/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 1080
+      "height": 0
     },
     {
       "name": "viju+ Premiere HD (1080p)",
@@ -3523,7 +3614,7 @@
       "url": "http://46.53.200.153:7777/play/Viasat_Sport/index.m3u8",
       "ua": "Wink",
       "group": "",
-      "height": 576
+      "height": 0
     },
     {
       "name": "viju TV1000 novella HD (1080p)",
@@ -3563,42 +3654,42 @@
     {
       "name": "Discovery Channel (1080p)",
       "url": "http://stream.mcquack.net/177/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Investigation Discovery (1080p)",
       "url": "http://stream.mcquack.net/205/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "TLC (1080p)",
       "url": "http://stream.mcquack.net/168/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Animal Planet (1080p)",
       "url": "http://stream.mcquack.net/114/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Food Network (1080p)",
       "url": "http://stream.mcquack.net/298/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
     {
       "name": "Travel Channel (1080p)",
       "url": "http://stream.mcquack.net/231/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "",
       "height": 1080
     },
@@ -3612,7 +3703,7 @@
     {
       "name": "VIVA Russia",
       "url": "https://live20.bozztv.com/akamaissh101/ssh101/vivarussia/playlist.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "",
       "height": 1080
     },
@@ -3638,13 +3729,6 @@
       "height": 0
     },
     {
-      "name": "NTV Svoya igra (1080p)",
-      "url": "https://cdn-dvr.ntv.ru/th_svoya_igra/index.m3u8",
-      "ua": "Wink",
-      "group": "",
-      "height": 1080
-    },
-    {
       "name": "Match! Premier (576p)",
       "url": "http://185.23.80.23:8080/MATCH_PREMIER/index.m3u8",
       "ua": "Wink",
@@ -3657,13 +3741,6 @@
       "ua": "Wink",
       "group": "",
       "height": 1080
-    },
-    {
-      "name": "NTV Sledstviye veli (1080p) [Geo-blocked]",
-      "url": "https://mhd116.iptv2022.com/x/t4hRFz1R89Q6kjp3CL3WVQ,1792610109/streaming/sledstvie_veli_hd/324/1/index.m3u8",
-      "ua": "Wink",
-      "group": "",
-      "height": 240
     },
     {
       "name": "Russia-24 HD (1080p)",
@@ -3696,7 +3773,7 @@
     {
       "name": "555 (720p)",
       "url": "http://trk555.tv:8888/live",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "General",
       "height": 0
     },
@@ -3724,14 +3801,14 @@
     {
       "name": "Animal Planet (Russia) (1080p)",
       "url": "http://stream.mcquack.net/114/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Documentary",
       "height": 1080
     },
     {
       "name": "Apsua TV",
       "url": "https://gcmx3v3owcj.a.trbcdn.net/livemaster/ba7pu_fgej0zelpw.smil/playlist.m3u8?blstid=null",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "General",
       "height": 1080
     },
@@ -3759,7 +3836,7 @@
     {
       "name": "Armenia TV Satellite (576p)",
       "url": "http://stream.mcquack.net/175/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "General",
       "height": 576
     },
@@ -3769,6 +3846,13 @@
       "ua": "Wink",
       "group": "Culture",
       "height": 576
+    },
+    {
+      "name": "ARTN TV (1080p) [Not 24/7]",
+      "url": "https://streamer1.connectto.com/ARTN_mobile/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
     },
     {
       "name": "Astrahan 24 (720p)",
@@ -3794,7 +3878,7 @@
     {
       "name": "ATR (1080p)",
       "url": "http://stream.mcquack.net/244/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Culture",
       "height": 1080
     },
@@ -3815,7 +3899,7 @@
     {
       "name": "Belarus-1 HD (1080p)",
       "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus1.smil/playlist.m3u8",
-      "ua": "TiviMate",
+      "ua": "Wink",
       "group": "General",
       "height": 1080
     },
@@ -3915,7 +3999,7 @@
       "url": "http://46.53.200.153:7777/play/Bug_TV_HD/index.m3u8",
       "ua": "Wink",
       "group": "General",
-      "height": 720
+      "height": 0
     },
     {
       "name": "Carousel +4 (720p)",
@@ -3948,7 +4032,7 @@
     {
       "name": "Channel 7 (Kazakhstan) (576p)",
       "url": "http://stream.mcquack.net/27/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "General",
       "height": 576
     },
@@ -3957,7 +4041,7 @@
       "url": "http://45.11.139.43:8555/8kanal/index.m3u8",
       "ua": "Wink",
       "group": "Entertainment",
-      "height": 576
+      "height": 0
     },
     {
       "name": "Channel 9 (Israel) (1080p)",
@@ -3965,6 +4049,13 @@
       "ua": "Wink",
       "group": "News",
       "height": 1080
+    },
+    {
+      "name": "Channel 10 (Russia) (576i)",
+      "url": "https://bl.rutube.ru/livestream/c9e26bf5c003fd8d477200065ca1a05f/index.m3u8?e=2072611029&s=eqlTXebDP9wSWTZgre6BwQ&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "General",
+      "height": 0
     },
     {
       "name": "Channel 12 (1080p)",
@@ -3997,112 +4088,112 @@
     {
       "name": "City Eden AutoGid [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/47515/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Auto",
       "height": 0
     },
     {
       "name": "City Eden Birma Play [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/34364/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Music",
       "height": 0
     },
     {
       "name": "City Eden Classic Music [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/47400/index.m3u8",
-      "ua": "VLC",
+      "ua": "Wink",
       "group": "Music",
       "height": 0
     },
     {
       "name": "City Eden KinoAction [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/41333/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden KinoArt [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/38398/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden KinoAsia [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/34393/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 692
     },
     {
       "name": "City Eden KinoDetektiv [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/41327/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden KinoDok [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/38354/index.m3u8",
-      "ua": "VLC",
+      "ua": "Wink",
       "group": "Documentary;Series",
-      "height": 720
+      "height": 0
     },
     {
       "name": "City Eden KinoDrama [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/45269/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden KinoFantastika [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/45268/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden KinoKlassika [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/34185/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "Wink",
       "group": "Movies",
-      "height": 0
+      "height": 480
     },
     {
       "name": "City Eden KinoKomediya [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/41331/index.m3u8",
-      "ua": "VLC",
+      "ua": "Wink",
       "group": "Movies",
       "height": 720
     },
     {
       "name": "City Eden KinoMistika [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/40783/index.m3u8",
-      "ua": "VLC",
+      "ua": "Wink",
       "group": "Movies",
       "height": 0
     },
     {
       "name": "City Eden MedZdrav [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/47519/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "Lifestyle",
       "height": 0
     },
     {
       "name": "City Eden Play [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/34100/index.m3u8",
-      "ua": "AndroidTV",
+      "ua": "HlsWinkPlayer",
       "group": "Music",
       "height": 0
     },
     {
       "name": "City Eden Recepty Gurmana [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/47516/index.m3u8",
-      "ua": "VLC",
+      "ua": "Wink",
       "group": "Cooking",
       "height": 0
     },
@@ -4111,21 +4202,28 @@
       "url": "https://cityeden.catcast.tv/content/46421/index.m3u8",
       "ua": "Wink",
       "group": "Music",
-      "height": 0
+      "height": 360
     },
     {
       "name": "City Eden TeleNovella [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/46209/index.m3u8",
-      "ua": "TiviMate",
+      "ua": "Wink",
       "group": "Series",
       "height": 0
     },
     {
       "name": "City Eden TV [Not 24/7]",
       "url": "https://cityeden.catcast.tv/content/34246/index.m3u8",
-      "ua": "TiviMate",
+      "ua": "Wink",
       "group": "General;Religious",
       "height": 0
+    },
+    {
+      "name": "Crimea 24",
+      "url": "https://cdn.1tvcrimea.ru/24tvcrimea.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 540
     },
     {
       "name": "Current Time TV (1080p)",
@@ -4158,7 +4256,7 @@
     {
       "name": "Discovery Channel (Russia) (1080p)",
       "url": "http://stream.mcquack.net/177/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Entertainment",
       "height": 1080
     },
@@ -4235,14 +4333,14 @@
     {
       "name": "Food Network (Russia) (1080p)",
       "url": "http://stream.mcquack.net/298/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Cooking",
       "height": 1080
     },
     {
       "name": "Fox (Russia) (576p)",
       "url": "http://stream.mcquack.net/182/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Entertainment",
       "height": 1080
     },
@@ -4305,7 +4403,7 @@
     {
       "name": "Investigation Discovery (Russia) (1080p)",
       "url": "http://stream.mcquack.net/205/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Documentary",
       "height": 1080
     },
@@ -4394,6 +4492,13 @@
       "height": 1080
     },
     {
+      "name": "Leomax 24 (1080p)",
+      "url": "https://tvshops.bonus-tv.ru/cdn/shop24/playlist.m3u8",
+      "ua": "AndroidTV",
+      "group": "Shop",
+      "height": 1080
+    },
+    {
       "name": "Life TV (Estonia) (432p) [Not 24/7]",
       "url": "http://lifetv.bitflip.ee/live/stream1_1/index.m3u8",
       "ua": "Wink",
@@ -4417,7 +4522,7 @@
     {
       "name": "Lugansk 24",
       "url": "https://streaming.televizor-24-tochka.ru/live/29.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "General",
       "height": 240
     },
@@ -4639,6 +4744,13 @@
       "height": 360
     },
     {
+      "name": "NTV (Russia) HD (1080p)",
+      "url": "https://bl.rutube.ru/livestream/c37cd74192c6bc3d6cd6077c0c4fd686/index.m3u8?e=2077050299&s=HSWg81JrQ3OqmwuWkEIDAQ&scheme=https",
+      "ua": "HlsWinkPlayer",
+      "group": "General",
+      "height": 0
+    },
+    {
       "name": "NTV Law (576p)",
       "url": "https://cdn.ntv.ru/th_pravo/playlist.m3u8",
       "ua": "Wink",
@@ -4672,6 +4784,13 @@
       "ua": "Wink",
       "group": "News",
       "height": 0
+    },
+    {
+      "name": "Osetiya-Iryston (1080p)",
+      "url": "https://osir.mediacdn.ru/cdn/osetia/playlist.m3u8",
+      "ua": "TiviMate",
+      "group": "General",
+      "height": 1080
     },
     {
       "name": "OSN",
@@ -4900,7 +5019,7 @@
     {
       "name": "Shchyolkovskoe TV (576p) [Not 24/7]",
       "url": "http://stream0.tv41.ru/live.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "Undefined",
       "height": 1080
     },
@@ -5047,14 +5166,14 @@
     {
       "name": "TLC (Russia) (1080p)",
       "url": "http://stream.mcquack.net/168/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Lifestyle",
       "height": 1080
     },
     {
       "name": "TNT (Russia) (576p)",
       "url": "http://stream.mcquack.net/135/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Entertainment",
       "height": 1080
     },
@@ -5075,7 +5194,7 @@
     {
       "name": "Travel Channel (Russia) (1080p)",
       "url": "http://stream.mcquack.net/231/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Undefined",
       "height": 1080
     },
@@ -5246,6 +5365,13 @@
       "ua": "Wink",
       "group": "Undefined",
       "height": 720
+    },
+    {
+      "name": "YaPervyy (1080p)",
+      "url": "https://yaroslavl.mediacdn.ru/cdn/pervyaroslavsk/playlist.m3u8",
+      "ua": "AndroidTV",
+      "group": "General",
+      "height": 1080
     },
     {
       "name": "Yuvelirochka (576p)",
