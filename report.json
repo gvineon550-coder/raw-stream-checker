@@ -1,30 +1,16 @@
 {
-  "total": 1051,
-  "alive": 717,
-  "dead": 334,
-  "with_epg": 489,
-  "with_logo": 714,
+  "total": 384,
+  "alive": 270,
+  "dead": 114,
+  "with_epg": 197,
+  "with_logo": 270,
+  "filtered": {
+    "word": 67,
+    "group": 14
+  },
   "mode": "DEEP",
-  "generated_at": "2026-11-03T15:16:37Z",
+  "generated_at": "2026-11-03T21:25:54Z",
   "channels": [
-    {
-      "name": "entertainment",
-      "url": "https://bl.rutube.ru/livestream/392b4686b770bae2da6bf5ac4574add5/index.m3u8?e=2068731801&s=tenr-yHXUv1wibfka78s2A&scheme=https",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 360,
-      "logo": "https://i.imgur.com/fhQFLEl.png",
-      "epg": true
-    },
-    {
-      "name": "entertainment",
-      "url": "http://stream.mcquack.net/187/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/fhQFLEl.png",
-      "epg": true
-    },
     {
       "name": "5 minut tishiny (1080p)",
       "url": "https://cdn-dvr.ntv.ru/5_minut_tishiny/index.m3u8",
@@ -55,91 +41,19 @@
     {
       "name": "360° Новости",
       "url": "https://edge-tv-ll.facecast.io/evacoder_hls_hi/UBZfFgtKB1JwTwoDERNQVGGs/index.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://i.imgur.com/YXDeX8q.png",
       "epg": true
     },
     {
-      "name": "365 days TV (576p)",
-      "url": "http://stream.mcquack.net/70/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎥 Документальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/NfnAiTR.png",
-      "epg": false
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/263/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Q4A6ci4.png",
-      "epg": true
-    },
-    {
-      "name": "Sony ТВ HD",
-      "url": "http://stream.mcquack.net/69/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/GET9Qut.png",
-      "epg": true
-    },
-    {
-      "name": ".sci-fi (576p)",
-      "url": "http://stream.mcquack.net/180/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🌍 Познавательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/nSSUHcg.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/162/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/a8ZBGBw.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/306/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/i2AP0hp.png",
-      "epg": true
-    },
-    {
-      "name": "Арт",
-      "url": "http://89.104.114.24:8080/art/index.m3u8",
+      "name": "Афонтово",
+      "url": "https://stream.afontovo.ru/hd.m3u8",
       "ua": "Wink",
-      "group": "🎭 Культура",
-      "height": 576,
-      "logo": "https://optim.tildacdn.com/tild3134-3836-4338-a138-666666653363/-/format/webp/__.png.webp",
-      "epg": true
-    },
-    {
-      "name": "Auto Plus",
-      "url": "https://stream8.cinerama.uz/1036/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🚗 Авто",
-      "height": 576,
-      "logo": "https://i.imgur.com/sVc8cFt.png",
-      "epg": false
-    },
-    {
-      "name": "Авто24",
-      "url": "http://stream.mcquack.net/78/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🚗 Авто",
+      "group": "📡 Федеральные",
       "height": 1080,
-      "logo": "https://i.imgur.com/GXSXmN2.png",
+      "logo": "https://i.imgur.com/StFfPaI.png",
       "epg": true
     },
     {
@@ -152,102 +66,12 @@
       "epg": false
     },
     {
-      "name": "Soyuzny (576p)",
+      "name": "Союзный",
       "url": "https://souzny.mediacdn.ru/cdn/souzny/playlist.m3u8",
-      "ua": "AndroidTV",
+      "ua": "VLC",
       "group": "📡 Федеральные",
       "height": 1080,
       "logo": "https://www.mtis.by/upload/medialibrary/717/v07nk6rmf6m1mno8ujhbkcg8nstkfjgv/Slide%2016_9%20-%2050.png",
-      "epg": false
-    },
-    {
-      "name": "Блокбастер HD",
-      "url": "http://stream.mcquack.net/364/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/KcOi4Os.png",
-      "epg": true
-    },
-    {
-      "name": "Бокс ТВ",
-      "url": "http://stream.mcquack.net/154/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/R1UjyfX.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/318/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/qYObfrG.png",
-      "epg": true
-    },
-    {
-      "name": "classic",
-      "url": "http://stream.mcquack.net/272/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/JJTQq81.png",
-      "epg": true
-    },
-    {
-      "name": "music HD",
-      "url": "http://stream.mcquack.net/92/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/EazL8w7.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/320/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/sIW9oR4.png",
-      "epg": true
-    },
-    {
-      "name": "Carousel (720p)",
-      "url": "http://185.37.150.46/Karusel/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "https://stream.smotrim.ru/hls2/karusel/playlist_3.m3u8",
-      "ua": "TiviMate",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/120/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": true
-    },
-    {
-      "name": "Пятый Int",
-      "url": "http://178.134.1.158:8081/5channel/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/8VKc2Ya.png",
       "epg": true
     },
     {
@@ -261,15 +85,6 @@
     },
     {
       "name": "Channel 8 (576p)",
-      "url": "http://45.11.139.43:8555/8kanal/index.m3u8",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/nUSx1jF.png",
-      "epg": false
-    },
-    {
-      "name": "Channel 8 (576p)",
       "url": "http://tshift-1.telecoma.tv/8channel/index.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "🎭 Развлекательные",
@@ -278,345 +93,30 @@
       "epg": false
     },
     {
-      "name": "Channel 8 (576p)",
-      "url": "https://v4.proofix.ru/8tv-russia/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/nUSx1jF.png",
-      "epg": false
-    },
-    {
-      "name": "Channel 8 Krasnoyarsk HD (1080p)",
-      "url": "https://tshift-1.telecoma.tv/8channel/tracks-v1a1/mono.ts.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/q3JCAC3.png",
-      "epg": false
-    },
-    {
       "name": "Channel 8 Novosibirsk (480i)",
       "url": "https://live-8knsk.cdnvideo.ru/8knsk/stream1/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📡 Федеральные",
       "height": 480,
       "logo": "https://i.imgur.com/eHGETvU.png",
       "epg": false
     },
     {
-      "name": "Десятка (Новокузнецк)",
-      "url": "https://bl.rutube.ru/livestream/c9e26bf5c003fd8d477200065ca1a05f/index.m3u8?e=2072611029&s=eqlTXebDP9wSWTZgre6BwQ&scheme=https",
-      "ua": "TiviMate",
-      "group": "📡 Федеральные",
-      "height": 360,
-      "logo": "https://i.imgur.com/k8JjFDw.png",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "http://45.153.24.78/1TV/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/pervyj-hd.png",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "http://178.217.49.7/1/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/pervyj-hd.png",
-      "epg": true
-    },
-    {
-      "name": "general HD",
-      "url": "https://stream8.cinerama.uz/1214/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/pervyj-hd.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "https://stream8.cinerama.uz/1227/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/b5e9qUA.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/312/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/TpXs1qA.png",
-      "epg": true
-    },
-    {
-      "name": "Да Винчи",
-      "url": "http://stream.mcquack.net/238/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🌍 Познавательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/iBx7K1M.png",
-      "epg": true
-    },
-    {
-      "name": "Да Винчи",
-      "url": "https://stream8.cinerama.uz/1231/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Познавательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/iBx7K1M.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://dancehits80.denvs.ru:8080/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 432,
-      "logo": "https://i.imgur.com/uMw3kks.png",
-      "epg": true
-    },
-    {
-      "name": "Дикая охота HD HD",
-      "url": "http://stream.mcquack.net/274/index.m3u8",
-      "ua": "VLC",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/EOue13e.png",
-      "epg": true
-    },
-    {
-      "name": "Дикая рыбалка HD HD",
-      "url": "http://stream.mcquack.net/275/index.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/e3BFVgt.png",
-      "epg": true
-    },
-    {
-      "name": "Doctor (576i)",
-      "url": "https://stream8.cinerama.uz/1409/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Познавательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/VNirxxn.png",
-      "epg": false
-    },
-    {
-      "name": "Дом кино",
-      "url": "http://stream.mcquack.net/236/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png/960px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png",
-      "epg": true
-    },
-    {
-      "name": "Дом кино",
-      "url": "https://stream8.cinerama.uz/1054/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png/960px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png",
-      "epg": true
-    },
-    {
-      "name": "Дом кино Премиум HD",
-      "url": "http://stream.mcquack.net/108/index.m3u8",
-      "ua": "VLC",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/rJpQtvK.png",
-      "epg": true
-    },
-    {
-      "name": "Domashniy SD (576p)",
-      "url": "http://stream.mcquack.net/227/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/WaLwOyt.jpeg",
-      "epg": false
-    },
-    {
-      "name": "Дорама",
-      "url": "https://stream8.cinerama.uz/1273/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZH5LuXU.png",
-      "epg": true
-    },
-    {
-      "name": "Дорама HD",
-      "url": "http://stream.mcquack.net/412/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZH5LuXU.png",
-      "epg": true
-    },
-    {
-      "name": "Drive (576i)",
-      "url": "https://stream8.cinerama.uz/1421/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🚗 Авто",
-      "height": 576,
-      "logo": "https://i.imgur.com/FnuwfSC.png",
-      "epg": false
-    },
-    {
-      "name": "Душевное SD HD",
-      "url": "http://stream.mcquack.net/213/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/vTRHAvD.png",
-      "epg": true
-    },
-    {
-      "name": "Enisey (576p)",
+      "name": "Енисей",
       "url": "http://tshift-1.telecoma.tv/enisei/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/57deE7f.png",
-      "epg": false
-    },
-    {
-      "name": "Европа Плюс ТВ",
-      "url": "http://stream.mcquack.net/184/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/GLc4qrc.png",
       "epg": true
     },
     {
-      "name": "Еврокино HD",
-      "url": "http://stream.mcquack.net/385/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/8LPtPf6.png",
-      "epg": true
-    },
-    {
-      "name": "animation",
-      "url": "http://stream.mcquack.net/420/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/mDeTbaF.png",
-      "epg": true
-    },
-    {
-      "name": "Fashion&LifeStyle (1080p)",
-      "url": "http://stream.mcquack.net/119/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ETmpllL.png",
-      "epg": false
-    },
-    {
-      "name": "ТНТ-Music",
-      "url": "http://stream.mcquack.net/317/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "",
-      "epg": true
-    },
-    {
-      "name": "Еда HD",
-      "url": "http://stream.mcquack.net/216/index.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/gxCYAwH.png",
-      "epg": true
-    },
-    {
-      "name": "Fox Россия",
-      "url": "http://stream.mcquack.net/182/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/nr1Y67Z.png",
-      "epg": true
-    },
-    {
-      "name": "Fox Life Россия",
-      "url": "http://stream.mcquack.net/129/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 1080,
-      "logo": "https://i.imgur.com/O2miSLA.png",
-      "epg": true
-    },
-    {
-      "name": "Friday! (576p)",
-      "url": "http://stream.mcquack.net/181/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://antifriz.tv/storage/images/pack_logos/71e74d77d2a9f55f496870623e5f7203.png",
-      "epg": false
-    },
-    {
-      "name": "Глазами туриста",
-      "url": "https://stream8.cinerama.uz/1423/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Путешествия",
-      "height": 1080,
-      "logo": "https://i.imgur.com/GXJKWdy.png",
-      "epg": true
-    },
-    {
-      "name": "Groznyj",
+      "name": "Грозный",
       "url": "https://balancer.facecast.io/evacoder_hls_hi/UUMLQVAYVlZyH14GRENQVV0G/2/720-3.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/yrN0Vl6.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1445/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/lbViDuC.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/305/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/lbViDuC.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://stream.mcquack.net/363/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/jl3MNPe.png",
       "epg": true
     },
     {
@@ -629,228 +129,12 @@
       "epg": false
     },
     {
-      "name": "Indiyskoye Kino (576p)",
-      "url": "http://188.113.190.12/329/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/LL8GyCh.png",
-      "epg": false
-    },
-    {
-      "name": "Indiyskoye Kino",
-      "url": "https://stream8.cinerama.uz/1060/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/LL8GyCh.png",
-      "epg": false
-    },
-    {
-      "name": "Insayt TV (2160p)",
-      "url": "https://stream8.cinerama.uz/1416/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/slLuRel.png",
-      "epg": false
-    },
-    {
-      "name": "Insayt TV (1080p)",
-      "url": "http://stream.mcquack.net/361/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 2160,
-      "logo": "https://i.imgur.com/slLuRel.png",
-      "epg": false
-    },
-    {
       "name": "Истоки",
       "url": "https://istoki.tv/live/stream1/playlist.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://istoki.tv/local/templates/istoki_new/img/logo.png",
-      "epg": true
-    },
-    {
-      "name": "Капитан Фантастика",
-      "url": "http://stream.mcquack.net/144/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/K3PSHiT.png",
-      "epg": true
-    },
-    {
-      "name": "КХЛ ТВ",
-      "url": "http://stream.mcquack.net/166/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/RgdHdOV.png",
-      "epg": true
-    },
-    {
-      "name": "КХЛ HD",
-      "url": "http://stream.mcquack.net/178/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/pwxT0ON.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://176.118.197.101/KinoTvHD/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/sMpamNO.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/221/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/sMpamNO.png",
-      "epg": true
-    },
-    {
-      "name": "KinoHit (576p)",
-      "url": "http://stream.mcquack.net/126/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Ge8vkQM.png",
-      "epg": false
-    },
-    {
-      "name": "KinoHit",
-      "url": "https://stream8.cinerama.uz/1055/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/Ge8vkQM.png",
-      "epg": false
-    },
-    {
-      "name": "comedy",
-      "url": "http://stream.mcquack.net/265/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/dVjtth0.png",
-      "epg": true
-    },
-    {
-      "name": "Kinomix (576p)",
-      "url": "http://93.170.254.17/Kinomiks/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/D4q2XUT.png",
-      "epg": false
-    },
-    {
-      "name": "Kinomix (576p)",
-      "url": "http://stream.mcquack.net/133/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/D4q2XUT.png",
-      "epg": false
-    },
-    {
-      "name": "Кинопоказ SD",
-      "url": "https://stream8.cinerama.uz/1057/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/nNjMyAq.png",
-      "epg": true
-    },
-    {
-      "name": "Kinopremyera (1080p)",
-      "url": "http://5.188.159.128:8070/KINOPREMIERA/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/s0UYT8T.png",
-      "epg": false
-    },
-    {
-      "name": "Kinopremyera",
-      "url": "https://stream8.cinerama.uz/1207/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/s0UYT8T.png",
-      "epg": false
-    },
-    {
-      "name": "Kinosemja (576p)",
-      "url": "http://stream.mcquack.net/170/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/4BF5VeK.png",
-      "epg": false
-    },
-    {
-      "name": "Киносвидание",
-      "url": "http://5.188.159.128:8070/kinosvidanie/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZRaWqxj.png",
-      "epg": true
-    },
-    {
-      "name": "Киносвидание",
-      "url": "http://stream.mcquack.net/171/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZRaWqxj.png",
-      "epg": true
-    },
-    {
-      "name": "Киносвидание",
-      "url": "https://stream8.cinerama.uz/1203/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZRaWqxj.png",
-      "epg": true
-    },
-    {
-      "name": "Киноужас",
-      "url": "http://stream.mcquack.net/278/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/mAcAAQF.png",
-      "epg": true
-    },
-    {
-      "name": "comedy",
-      "url": "http://stream.mcquack.net/68/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/VRC5juh.png",
-      "epg": true
-    },
-    {
-      "name": "comedy HD",
-      "url": "http://stream.mcquack.net/74/index.m3u8",
-      "ua": "VLC",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/cEKe8XC.png",
       "epg": true
     },
     {
@@ -872,39 +156,12 @@
       "epg": true
     },
     {
-      "name": "Kuhnya (576p)",
-      "url": "http://stream.mcquack.net/179/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🍳 Кулинарные",
-      "height": 576,
-      "logo": "https://cdn2.red-media.ru/wp-content/uploads/2016/08/Kuhnya-mediakit.png",
-      "epg": false
-    },
-    {
       "name": "Kulinar TV (576p)",
       "url": "https://api.alpaca.t62a.com/hls/9110/stream0.m3u8",
       "ua": "Wink",
       "group": "🍳 Кулинарные",
       "height": 576,
       "logo": "https://smotret.tv/images/kulinar-tv.webp",
-      "epg": false
-    },
-    {
-      "name": "КВН ТВ",
-      "url": "http://178.124.179.122:8080/KVN-TV/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/Vw3LFLX.png",
-      "epg": true
-    },
-    {
-      "name": "Law TV (1080p)",
-      "url": "http://stream.mcquack.net/406/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/X0Vp6fd.png",
       "epg": false
     },
     {
@@ -917,102 +174,12 @@
       "epg": true
     },
     {
-      "name": "Мама",
-      "url": "http://stream.mcquack.net/79/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/kmMIjjf.png",
-      "epg": true
-    },
-    {
-      "name": "Матч! Арена",
-      "url": "http://stream.mcquack.net/163/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/udTzwzu.png",
-      "epg": true
-    },
-    {
-      "name": "Матч! Боец",
-      "url": "http://stream.mcquack.net/112/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/DogOkA4.png",
-      "epg": true
-    },
-    {
-      "name": "Матч! Игра",
-      "url": "http://stream.mcquack.net/188/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/5XWpF19.png",
-      "epg": true
-    },
-    {
-      "name": "Матч! Страна",
-      "url": "http://stream.mcquack.net/143/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/X02s2UE.png",
-      "epg": true
-    },
-    {
-      "name": "sports 4K",
-      "url": "http://stream.mcquack.net/169/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://www.kartina.tv/media/news/images/News/SEO/kanal-match-ultra.jpg",
-      "epg": true
-    },
-    {
-      "name": "Мир",
-      "url": "http://45.153.24.78/MIR/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/AqWaJT8.png",
-      "epg": true
-    },
-    {
       "name": "Мир",
       "url": "https://tvcdn01.oktv.kz/tv/mir/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/AqWaJT8.png",
-      "epg": true
-    },
-    {
-      "name": "Мир",
-      "url": "https://stream8.cinerama.uz/1218/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/AqWaJT8.png",
-      "epg": true
-    },
-    {
-      "name": "Мир 24",
-      "url": "http://5.188.159.128:8070/mir_24/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/dj9c8Yd.png",
-      "epg": true
-    },
-    {
-      "name": "Мир 24",
-      "url": "https://stream8.cinerama.uz/1219/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/dj9c8Yd.png",
       "epg": true
     },
     {
@@ -1025,36 +192,9 @@
       "epg": true
     },
     {
-      "name": "Mir Kazakhstan (576p)",
-      "url": "http://tvcdn01.esilnet.kz/tv/mir/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/AqWaJT8.png",
-      "epg": false
-    },
-    {
-      "name": "sports",
-      "url": "https://stream8.cinerama.uz/1226/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/QhdxNsB.png",
-      "epg": true
-    },
-    {
-      "name": "Mosfilm Gold Collection (576p)",
-      "url": "http://stream.mcquack.net/369/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/95Y8jb6.png",
-      "epg": false
-    },
-    {
       "name": "Москва-24",
       "url": "https://stream.smotrim.ru/hls/givc8/playlist.m3u8?entity=channel&id=798&sign=37881ef2e289f062ceff0dca6c24dc58",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 240,
       "logo": "https://i.imgur.com/gXbUMVy.png",
@@ -1062,182 +202,29 @@
     },
     {
       "name": "Москва-24",
+      "url": "https://stream.smotrim.ru/hls2/givc9/playlist_4.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "📡 Федеральные",
+      "height": 720,
+      "logo": "https://i.imgur.com/gXbUMVy.png",
+      "epg": true
+    },
+    {
+      "name": "Москва-24",
       "url": "https://stream.smotrim.ru/hls2/moscow_24/playlist_3.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/gXbUMVy.png",
       "epg": true
     },
     {
-      "name": "Moskva. Doveriye (576p)",
+      "name": "Москва. Доверие",
       "url": "https://stream.smotrim.ru/hls2/doverie/playlist_3.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/QDqDQzt.png",
-      "epg": false
-    },
-    {
-      "name": "Moy mir (720p)",
-      "url": "https://moymir.ru/hls/onair.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 720,
-      "logo": "https://www.cableman.ru/sites/default/files/MM-TV_logo-1%5B1509%5D.png",
-      "epg": false
-    },
-    {
-      "name": "Моя Планета",
-      "url": "http://stream.mcquack.net/124/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/uIiAdBv.png",
-      "epg": true
-    },
-    {
-      "name": "Моя стихия HD",
-      "url": "http://stream.mcquack.net/141/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🌍 Путешествия",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Sl8c9eB.png",
-      "epg": true
-    },
-    {
-      "name": "Мульт",
-      "url": "http://stream.mcquack.net/232/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/xi351Fx.png",
-      "epg": true
-    },
-    {
-      "name": "Мультимузыка",
-      "url": "http://stream.mcquack.net/82/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/SYt6BZP.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1440/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/ccwijY0.png",
-      "epg": true
-    },
-    {
-      "name": "Муз-ТВ",
-      "url": "http://stream.mcquack.net/86/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/BtqrHmz.png",
-      "epg": true
-    },
-    {
-      "name": "Муз-ТВ",
-      "url": "https://stream8.cinerama.uz/1200/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/BtqrHmz.png",
-      "epg": true
-    },
-    {
-      "name": "Мужское кино HD",
-      "url": "http://stream.mcquack.net/107/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/8RN3tQC.png",
-      "epg": true
-    },
-    {
-      "name": "Музыка Live",
-      "url": "http://stream.mcquack.net/303/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://cdn2.red-media.ru/wp-content/uploads/2016/08/LOGO_MUSIC_LIVE.png",
-      "epg": true
-    },
-    {
-      "name": "Музыка Первого",
-      "url": "http://stream.mcquack.net/153/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/U0vKj3P.png",
-      "epg": true
-    },
-    {
-      "name": "Музыка Первого",
-      "url": "https://stream8.cinerama.uz/1201/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/U0vKj3P.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://stream.mcquack.net/419/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/dYj3XDa.png",
-      "epg": true
-    },
-    {
-      "name": "#НАШЕ music HD",
-      "url": "http://stream.mcquack.net/217/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/KO8dhi9.png",
-      "epg": true
-    },
-    {
-      "name": "Наше Мужское HD",
-      "url": "http://stream.mcquack.net/362/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/QRWKpmb.png",
-      "epg": true
-    },
-    {
-      "name": "Наше новое кино",
-      "url": "https://stream8.cinerama.uz/1051/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/IOxIsPj.png",
-      "epg": true
-    },
-    {
-      "name": "National Geographic (Украина, Литва, СНГ)",
-      "url": "http://stream.mcquack.net/116/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Natgeologo.svg/960px-Natgeologo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "Наука",
-      "url": "http://stream.mcquack.net/125/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZZxzueO.png",
       "epg": true
     },
     {
@@ -1250,75 +237,12 @@
       "epg": false
     },
     {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/220/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nick_Jr._logo_2023_(outline).svg/960px-Nick_Jr._logo_2023_(outline).svg.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1501/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nick_Jr._logo_2023_(outline).svg/960px-Nick_Jr._logo_2023_(outline).svg.png",
-      "epg": true
-    },
-    {
-      "name": "Nickelodeon СНГ",
-      "url": "http://stream.mcquack.net/443/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/w8iE8dV.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1502/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 480,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Nicktoons_UK_Logo_2014.png",
-      "epg": true
-    },
-    {
-      "name": "НСТ",
-      "url": "http://stream.mcquack.net/207/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/uv2yxa5.png",
-      "epg": true
-    },
-    {
       "name": "НСТ",
       "url": "https://vod.tuva.ru/nst/index.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 576,
       "logo": "https://i.imgur.com/uv2yxa5.png",
-      "epg": true
-    },
-    {
-      "name": "НТВ",
-      "url": "https://stream8.cinerama.uz/1023/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://real.su/wp-content/uploads/2019/12/%D0%9D%D0%A2%D0%92_HD-20220826-123641.png",
-      "epg": true
-    },
-    {
-      "name": "НТВ HD",
-      "url": "https://bl.rutube.ru/livestream/c37cd74192c6bc3d6cd6077c0c4fd686/index.m3u8?e=2077050299&s=HSWg81JrQ3OqmwuWkEIDAQ&scheme=https",
-      "ua": "TiviMate",
-      "group": "📡 Федеральные",
-      "height": 360,
-      "logo": "https://real.su/wp-content/uploads/2019/12/%D0%9D%D0%A2%D0%92_HD-20220826-123641.png",
       "epg": true
     },
     {
@@ -1331,15 +255,6 @@
       "epg": true
     },
     {
-      "name": "НТВ-Мир",
-      "url": "http://5.188.159.128:8070/ntvmir_TV/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Культура",
-      "height": 576,
-      "logo": "https://i.imgur.com/pUcV46F.png",
-      "epg": true
-    },
-    {
       "name": "НТВ",
       "url": "https://cdn.ntv.ru/ntv-spb/index.m3u8",
       "ua": "Wink",
@@ -1347,87 +262,6 @@
       "height": 360,
       "logo": "https://real.su/wp-content/uploads/2019/12/%D0%9D%D0%A2%D0%92_HD-20220826-123641.png",
       "epg": true
-    },
-    {
-      "name": "NTV Series (576p)",
-      "url": "http://stream.mcquack.net/301/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📺 Сериалы",
-      "height": 576,
-      "logo": "https://i.imgur.com/QdVa8tl.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/60/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/pDc665V.png",
-      "epg": true
-    },
-    {
-      "name": "Ohotnik i rybolov (576i)",
-      "url": "https://stream8.cinerama.uz/1413/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Bj1jI7F.png",
-      "epg": false
-    },
-    {
-      "name": "Ohotnik i rybolov HD (1080p)",
-      "url": "http://stream.mcquack.net/194/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Bj1jI7F.png",
-      "epg": false
-    },
-    {
-      "name": "Охота и рыбалка",
-      "url": "http://stream.mcquack.net/155/index.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 576,
-      "logo": "https://i.imgur.com/nZwBaeW.png",
-      "epg": true
-    },
-    {
-      "name": "Охота и рыбалка",
-      "url": "https://stream8.cinerama.uz/1038/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 576,
-      "logo": "https://i.imgur.com/nZwBaeW.png",
-      "epg": true
-    },
-    {
-      "name": "Окко.Футбол",
-      "url": "http://178.124.179.122:8080/Setanta1/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://xml-epgservice.cdnvideo.ru/EPGService/hs/xmldata/852f4b92-cae5-463e-aad6-cd8844c5a49/logo/8986.png",
-      "epg": true
-    },
-    {
-      "name": "Ostrosyuzhetnoye HD (1080p)",
-      "url": "http://stream.mcquack.net/214/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/NwQ7GBy.png",
-      "epg": false
-    },
-    {
-      "name": "Peretz International (576p)",
-      "url": "http://stream.mcquack.net/121/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/On6ggLe.png",
-      "epg": false
     },
     {
       "name": "Perviy otdel (1080p)",
@@ -1441,34 +275,25 @@
     {
       "name": "Пес HD",
       "url": "https://cdn-dvr.ntv.ru/Pes/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📺 Сериалы",
       "height": 360,
       "logo": "https://cdn2-static.ntv.ru/home/promo/24740/pes_llive.jpg",
       "epg": true
     },
     {
-      "name": "Премиальное SD HD",
-      "url": "http://stream.mcquack.net/421/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ck4aLBP.png",
-      "epg": true
-    },
-    {
-      "name": "Приключения HD HD",
-      "url": "http://stream.mcquack.net/198/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/qQ6pPPQ.png",
+      "name": "PRODеньги",
+      "url": "https://tv-streaming.bsh.ru:21938/probusiness/probusiness.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "📰 Бизнес",
+      "height": 576,
+      "logo": "https://i.imgur.com/1u8KvTD.png",
       "epg": true
     },
     {
       "name": "Продвижение",
       "url": "https://streaming.astrakhan.ru/proastrakhanhd/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📦 Разное",
       "height": 480,
       "logo": "https://i.imgur.com/KlsnfG9.png",
@@ -1502,48 +327,21 @@
       "epg": true
     },
     {
+      "name": "Радио России HD",
+      "url": "https://stream.smotrim.ru/hls2/radio_rus/playlist_4.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "📡 Федеральные",
+      "height": 720,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Radio_Rossii_logo.svg/1920px-Radio_Rossii_logo.svg.png",
+      "epg": true
+    },
+    {
       "name": "Радость моя",
       "url": "https://radm.mediacdn.ru/cdn/radost/playlist_sdhigh.m3u8",
       "ua": "Wink",
       "group": "🧸 Детские",
       "height": 576,
       "logo": "https://i.imgur.com/B5FA62o.png",
-      "epg": true
-    },
-    {
-      "name": "Ретро",
-      "url": "http://stream.mcquack.net/191/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/p21co1w.png",
-      "epg": true
-    },
-    {
-      "name": "Ретро",
-      "url": "https://stream8.cinerama.uz/1047/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/p21co1w.png",
-      "epg": true
-    },
-    {
-      "name": "Родное кино",
-      "url": "http://stream.mcquack.net/242/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/H70LxoZ.png",
-      "epg": true
-    },
-    {
-      "name": "Родное кино",
-      "url": "https://stream8.cinerama.uz/1052/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/H70LxoZ.png",
       "epg": true
     },
     {
@@ -1554,15 +352,6 @@
       "height": 484,
       "logo": "https://i.imgur.com/GnbNG0r.png",
       "epg": false
-    },
-    {
-      "name": "news",
-      "url": "http://212.5.144.156:8080/rt/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 720,
-      "logo": "https://dtil.tmsimg.com/assets/s142401_ld_h15_aa.png?lock=720x540",
-      "epg": true
     },
     {
       "name": "RT Balkan (1080p)",
@@ -1576,7 +365,7 @@
     {
       "name": "RT Balkan (1080p)",
       "url": "https://rt-srb.rttv.com/live/rtbalkan/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📰 Новостные",
       "height": 540,
       "logo": "https://pbs.twimg.com/media/FiHmjBrWIBsN41d.jpg",
@@ -1594,7 +383,7 @@
     {
       "name": "RT en Espanol (576p)",
       "url": "https://streaming.thestream.cyou/live/46.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📰 Новостные",
       "height": 240,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/960px-Russia-today-logo.svg.png",
@@ -1603,14 +392,14 @@
     {
       "name": "RT en Espanol (576p)",
       "url": "https://streamtv.onliv3.online:1936/exito-tv/exito-tv/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "📰 Новостные",
       "height": 540,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/960px-Russia-today-logo.svg.png",
       "epg": false
     },
     {
-      "name": "news HD",
+      "name": "RT HD (1080p)",
       "url": "https://wisewatchoott.wiseplayout.com/RT/master.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
@@ -1619,196 +408,61 @@
       "epg": true
     },
     {
-      "name": "RTG Международный",
-      "url": "http://213.91.179.28:8000/play/a0bw",
-      "ua": "Wink",
-      "group": "🌍 Путешествия",
-      "height": 0,
-      "logo": "https://i.imgur.com/ZpUNou4.png",
-      "epg": true
-    },
-    {
-      "name": "RTG TV HD (1080p)",
-      "url": "http://stream.mcquack.net/164/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🌍 Путешествия",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZMKPAho.png",
-      "epg": true
-    },
-    {
-      "name": "RTVi Европа",
-      "url": "https://shift03.isp.bg/RTVi/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/1AEhXyS.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "https://bl.rutube.ru/livestream/b1eb8e90d7e636677b3eb73b4fcbb717/index.m3u8?e=2069285076&s=d-E-bxKy2v3EEJ94RQX9CA&scheme=https",
-      "ua": "TiviMate",
-      "group": "🎵 Музыкальные",
-      "height": 0,
-      "logo": "https://rutv.by/wp-content/uploads/2020/09/logo.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "https://stream8.cinerama.uz/1202/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://rutv.by/wp-content/uploads/2020/09/logo.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/109/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://rutv.by/wp-content/uploads/2020/09/logo.png",
-      "epg": true
-    },
-    {
-      "name": "Russia-1",
-      "url": "https://stream8.cinerama.uz/1020/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
-    },
-    {
-      "name": "Russia-1 HD (1080p)",
+      "name": "Россия-1 HD",
       "url": "https://stream.smotrim.ru/hls2/russia_hd/playlist_6.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 1080,
       "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "Russia-1 SD (576p)",
-      "url": "http://109.207.243.18/2/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
-    },
-    {
-      "name": "Russia-24",
-      "url": "https://stream8.cinerama.uz/1021/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
+      "name": "Россия-24",
+      "url": "https://stream.smotrim.ru/hls2/russia24nl_smotrim/playlist_5.m3u8",
+      "ua": "HlsWinkPlayer",
       "group": "📰 Новостные",
-      "height": 576,
+      "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "Russia-K (576p)",
-      "url": "http://stream.mcquack.net/229/index.m3u8",
-      "ua": "Wink",
+      "name": "Россия-К HD",
+      "url": "https://stream.smotrim.ru/hls2/russia_k/playlist_5.m3u8",
+      "ua": "HlsWinkPlayer",
       "group": "🎭 Культура",
-      "height": 576,
+      "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Russia-Cultura.svg/960px-Russia-Cultura.svg.png",
-      "epg": false
-    },
-    {
-      "name": "music",
-      "url": "http://stream.mcquack.net/319/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZkJ3Rh9.png",
       "epg": true
     },
     {
-      "name": "Russkiy Bestseller (576p)",
-      "url": "http://stream.mcquack.net/208/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/w0ZE9QJ.png",
-      "epg": false
-    },
-    {
-      "name": "Russkiy Detektiv (576p)",
-      "url": "http://stream.mcquack.net/204/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/H3qhN8S.png",
-      "epg": false
-    },
-    {
-      "name": "Russkiy roman (576p)",
-      "url": "http://stream.mcquack.net/266/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/cQN0P2B.png",
-      "epg": false
-    },
-    {
-      "name": "Russkiy roman (576p)",
+      "name": "Русский роман",
       "url": "https://vod.tuva.ru/rusroman/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎬 Кино",
       "height": 576,
       "logo": "https://i.imgur.com/cQN0P2B.png",
-      "epg": false
-    },
-    {
-      "name": "Охотник и рыболов",
-      "url": "http://stream.mcquack.net/264/index.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/wJMTcFS.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1407/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/acrU2IE.png",
       "epg": true
     },
     {
       "name": "Санкт-Петербург HD",
       "url": "https://stream.smotrim.ru/hls2/ext_spbtv/playlist_5.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://i.imgur.com/9At4oG7.png",
       "epg": true
     },
     {
-      "name": "Сарафан",
-      "url": "http://stream.mcquack.net/81/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/u4q1rMT.png",
-      "epg": true
-    },
-    {
-      "name": "music",
+      "name": "Шансон ТВ",
       "url": "https://streaming.thestream.cyou/live/7009.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "🎵 Музыкальные",
       "height": 240,
       "logo": "https://shanson.tv/wp-content/uploads/2025/12/pics.31.png",
       "epg": true
     },
     {
-      "name": "music",
+      "name": "Шансон ТВ",
       "url": "http://catchup.videoline.ru/shanson/index.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
@@ -1824,33 +478,6 @@
       "height": 360,
       "logo": "https://cdn2-static.ntv.ru/home/promo/24740/shef_llive.jpg",
       "epg": false
-    },
-    {
-      "name": "Шокирующее SD HD",
-      "url": "http://stream.mcquack.net/75/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/UG63hZ0.png",
-      "epg": true
-    },
-    {
-      "name": "shop",
-      "url": "https://nonmirya7cc.a.trbcdn.net/livemaster/tzrz5_sazlypl5ot.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/EMmGnjV.png",
-      "epg": true
-    },
-    {
-      "name": "shop",
-      "url": "http://serv30.vintera.tv:8081/shoppinglive/shoppinglive_stream/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 576,
-      "logo": "https://i.imgur.com/EMmGnjV.png",
-      "epg": true
     },
     {
       "name": "Skoraya pomoshch (1080p)",
@@ -1873,16 +500,25 @@
     {
       "name": "Смотрим 100% Детское",
       "url": "https://stream.smotrim.ru/hls/fasttv05/playlist_3.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🧸 Детские",
       "height": 1080,
       "logo": "https://i.imgur.com/1hsNeTa.png",
       "epg": true
     },
     {
+      "name": "Смотрим 100% Факты",
+      "url": "https://stream.smotrim.ru/hls/fasttv06/playlist_3.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "🎥 Документальные",
+      "height": 1080,
+      "logo": "https://i.imgur.com/dB3cJzO.png",
+      "epg": true
+    },
+    {
       "name": "Смотрим 100% Классика",
       "url": "https://stream.smotrim.ru/hls/fasttv03/playlist_3.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "🎬 Кино",
       "height": 1080,
       "logo": "https://i.imgur.com/aASNpKq.png",
@@ -1900,7 +536,7 @@
     {
       "name": "Смотрим 100% Мужское",
       "url": "https://stream.smotrim.ru/hls/fasttv02/playlist_3.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📺 Сериалы",
       "height": 1080,
       "logo": "https://i.imgur.com/UY3fjYU.png",
@@ -1909,7 +545,7 @@
     {
       "name": "Смотрим 100% Праздник",
       "url": "https://stream.smotrim.ru/hls/fasttv04/playlist_3.m3u8",
-      "ua": "TiviMate",
+      "ua": "HlsWinkPlayer",
       "group": "🎭 Развлекательные",
       "height": 1080,
       "logo": "https://i.imgur.com/NEcqFse.png",
@@ -1918,55 +554,28 @@
     {
       "name": "Sochi Live HD (720p) [Not 24/7]",
       "url": "http://serv30.vintera.tv:8081/sochi/sochi_stream/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://www.cableman.ru/sites/default/files/sochi_live.png",
       "epg": false
     },
     {
-      "name": "Solnce (576p)",
-      "url": "http://217.114.191.150/Solnce/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/HCefxaK.png",
-      "epg": false
-    },
-    {
-      "name": "Solnce (576p)",
-      "url": "http://stream.mcquack.net/118/index.m3u8",
-      "ua": "VLC",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/HCefxaK.png",
-      "epg": false
-    },
-    {
-      "name": "Solnce (576p)",
+      "name": "Солнце",
       "url": "https://tv.mediacdn.ru/live/solntse/playlist.m3u8",
       "ua": "Wink",
       "group": "🧸 Детские",
       "height": 360,
       "logo": "https://i.imgur.com/HCefxaK.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "music",
+      "name": "SONGTV Russia",
       "url": "https://songtv.hls.iptvdc.com/web-russia/playlist.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
       "height": 360,
       "logo": "https://i.imgur.com/nM7LbmV.png",
-      "epg": true
-    },
-    {
-      "name": "Soyuzny (480p)",
-      "url": "http://178.124.179.122:8080/TRO/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 360,
-      "logo": "https://www.mtis.by/upload/medialibrary/717/v07nk6rmf6m1mno8ujhbkcg8nstkfjgv/Slide%2016_9%20-%2050.png",
       "epg": false
     },
     {
@@ -1979,9 +588,18 @@
       "epg": true
     },
     {
+      "name": "Спортивный",
+      "url": "https://live-3.otcnet.ru/sportivny/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "⚽ Спорт",
+      "height": 360,
+      "logo": "https://i.imgur.com/ujS6mMo.png",
+      "epg": true
+    },
+    {
       "name": "Star Cinema Россия",
       "url": "https://dash2.antik.sk/live/test_star_cinema_atktv/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "🎬 Кино",
       "height": 1080,
       "logo": "https://i.imgur.com/5sis895.png",
@@ -1990,19 +608,10 @@
     {
       "name": "Star Family Россия",
       "url": "https://dash2.antik.sk/live/test_star_family_atktv/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "🎬 Кино",
       "height": 1080,
       "logo": "https://i.imgur.com/eGuGHnZ.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/128/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/4bACa7x.png",
       "epg": true
     },
     {
@@ -2015,123 +624,6 @@
       "epg": true
     },
     {
-      "name": "СТС HD",
-      "url": "http://stream.mcquack.net/138/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ilUzAeb.png",
-      "epg": true
-    },
-    {
-      "name": "СТС International",
-      "url": "http://178.134.1.158:8081/CTC/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/mwiC0RG.png",
-      "epg": true
-    },
-    {
-      "name": "СТС Kids HD",
-      "url": "http://stream.mcquack.net/197/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/o9kLpAL.png",
-      "epg": true
-    },
-    {
-      "name": "СТС Love",
-      "url": "http://stream.mcquack.net/183/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/YBVZoDd.png",
-      "epg": true
-    },
-    {
-      "name": "Суббота!",
-      "url": "https://bl.rutube.ru/livestream/310744c10a5809da38aa445c952976da/index.m3u8?e=2066519758&s=dmUf6BUQzDBTwtQOseAfog&scheme=https",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 0,
-      "logo": "https://i.imgur.com/nsk8PpB.png",
-      "epg": true
-    },
-    {
-      "name": "Суббота!",
-      "url": "http://217.114.191.150/Subbota/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/nsk8PpB.png",
-      "epg": true
-    },
-    {
-      "name": "Суббота! HD",
-      "url": "http://stream.mcquack.net/269/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/nsk8PpB.png",
-      "epg": true
-    },
-    {
-      "name": "Супергерои",
-      "url": "http://109.94.1.3:8080/132/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/c0zZUR1.png",
-      "epg": true
-    },
-    {
-      "name": "Svoboda",
-      "url": "http://88.212.15.50/live/svoboda/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://web02.antik.sk/assets/img/channels/db23090472360f39401398f924a47461.svg",
-      "epg": true
-    },
-    {
-      "name": "T24 (576p)",
-      "url": "http://178.134.1.158:8081/t24/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/1W6R14o.png",
-      "epg": true
-    },
-    {
-      "name": "T24 (576p)",
-      "url": "http://stream.mcquack.net/209/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/1W6R14o.png",
-      "epg": true
-    },
-    {
-      "name": "T24",
-      "url": "https://stream8.cinerama.uz/1037/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/1W6R14o.png",
-      "epg": true
-    },
-    {
-      "name": "Telecafe",
-      "url": "https://stream8.cinerama.uz/1035/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 576,
-      "logo": "https://i.imgur.com/1H3h1HL.png",
-      "epg": false
-    },
-    {
       "name": "Теледом",
       "url": "https://iam-profi.ru/hls-live/livepkgr/_definst_/liveevent/td720.m3u8",
       "ua": "HlsWinkPlayer",
@@ -2141,57 +633,12 @@
       "epg": true
     },
     {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/111/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/QCOUJ30.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1441/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/QCOUJ30.png",
-      "epg": true
-    },
-    {
-      "name": "ТНТ",
-      "url": "http://stream.mcquack.net/135/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.ibb.co/HDmdRFR1/N-Baltic-2025.webp",
-      "epg": true
-    },
-    {
-      "name": "TNV-Planet",
-      "url": "https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/ijA1zDw.png",
-      "epg": false
-    },
-    {
       "name": "ТНВ",
       "url": "https://user91229.clients-cdnnow.ru/hls/user91229_1.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 480,
       "logo": "https://i.imgur.com/58u9TQT.png",
-      "epg": true
-    },
-    {
-      "name": "Точка.РФ",
-      "url": "http://stream.mcquack.net/161/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "",
       "epg": true
     },
     {
@@ -2204,33 +651,6 @@
       "epg": true
     },
     {
-      "name": "Tsargrad TV (1080p) [Geo-blocked]",
-      "url": "https://bl.rutube.ru/livestream/91815da4edb167b5bd617bae490e57da/index.m3u8?e=2070278263&s=is_mLq_kjPYLsOJ4qj85tw&scheme=https",
-      "ua": "TiviMate",
-      "group": "🙏 Религиозные",
-      "height": 0,
-      "logo": "https://i.imgur.com/34RINpb.png",
-      "epg": false
-    },
-    {
-      "name": "TV 21 International (576p)",
-      "url": "http://stream.mcquack.net/152/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://ibb.co/BH6CZx3K",
-      "epg": false
-    },
-    {
-      "name": "TV1000 Russian Kino Global",
-      "url": "http://213.91.179.28:8000/play/a0bx",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TV1000_%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B5_%D0%BA%D0%B8%D0%BD%D0%BE_2014.png/1280px-TV1000_%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B5_%D0%BA%D0%B8%D0%BD%D0%BE_2014.png",
-      "epg": false
-    },
-    {
       "name": "TV PRO",
       "url": "http://rtmp.tvpro-online.ru/hls/ch1.m3u8",
       "ua": "HlsWinkPlayer",
@@ -2240,355 +660,13 @@
       "epg": false
     },
     {
-      "name": "TV-3 (576p)",
-      "url": "http://178.124.179.122:8080/TB-3/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 360,
-      "logo": "https://i.imgur.com/JLAvq8O.png",
-      "epg": false
-    },
-    {
-      "name": "U (720p)",
-      "url": "https://bl.rutube.ru/livestream/5c9327074e25ca86f3111d4085cbbb65/index.m3u8?e=2066519758&s=9cPc1rCGu6M932eqrifRhQ&scheme=https",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 0,
-      "logo": "https://i.imgur.com/KDZvt0Q.png",
-      "epg": false
-    },
-    {
-      "name": "U (576p)",
-      "url": "http://178.134.1.158:8081/U/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/KDZvt0Q.png",
-      "epg": false
-    },
-    {
-      "name": "U (576p)",
-      "url": "http://stream.mcquack.net/230/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/KDZvt0Q.png",
-      "epg": false
-    },
-    {
-      "name": "Удар",
-      "url": "http://5.188.159.128:8070/udar/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://mt.media/upload/iblock/2b3/2b3cf99141bf7f99cda377eec62ec084.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1033/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://mt.media/upload/iblock/c22/pndw8yi2jwgppdrjikm3eusqp8087kr3.png",
-      "epg": true
-    },
-    {
-      "name": "Univer TV (1080p) [Not 24/7]",
-      "url": "https://cdn.universmotri.ru/live/smil:mbr.smil/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/r3u0mxr.png",
-      "epg": true
-    },
-    {
-      "name": "Univer TV (1080p)",
-      "url": "https://cdn.universmotri.ru/live/smil:univer.smil/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/r3u0mxr.png",
-      "epg": true
-    },
-    {
-      "name": "Усадьба",
-      "url": "http://stream.mcquack.net/211/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/mf13haG.png",
-      "epg": true
-    },
-    {
-      "name": "В гостях у сказки",
-      "url": "http://stream.mcquack.net/93/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/jNJkLHl.png",
-      "epg": true
-    },
-    {
-      "name": "В мире животных HD",
-      "url": "http://stream.mcquack.net/241/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/6uotdVQ.png",
-      "epg": true
-    },
-    {
       "name": "Vesti FM (720p)",
       "url": "https://stream.smotrim.ru/hls2/vesti_fm/playlist_4.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📰 Новостные",
       "height": 720,
       "logo": "https://i.imgur.com/ZBHqSZj.png",
       "epg": false
-    },
-    {
-      "name": "documentary",
-      "url": "http://stream.mcquack.net/239/index.m3u8",
-      "ua": "VLC",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/EGIpLPu.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://178.124.179.122:8080/HistoryHD/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 432,
-      "logo": "https://i.imgur.com/FqWkeXb.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://stream.mcquack.net/101/index.m3u8",
-      "ua": "VLC",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/FqWkeXb.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "https://stream8.cinerama.uz/1228/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/8BPZ18l.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/110/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZMsyjSr.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/100/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/TMmyuzh.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/TMmyuzh.png",
-      "epg": true
-    },
-    {
-      "name": "viju TV1000 Русское",
-      "url": "https://stream8.cinerama.uz/1058/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Meak2y4.png",
-      "epg": true
-    },
-    {
-      "name": "viju TV1000 Русское",
-      "url": "https://stream8.cinerama.uz/1059/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Meak2y4.png",
-      "epg": true
-    },
-    {
-      "name": "comedy HD",
-      "url": "http://stream.mcquack.net/201/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/YoNOFu7.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://stream.mcquack.net/200/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/oIQNddV.png",
-      "epg": true
-    },
-    {
-      "name": "documentary HD",
-      "url": "http://stream.mcquack.net/240/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/9Weqdsk.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://stream.mcquack.net/202/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/klRvhR5.png",
-      "epg": true
-    },
-    {
-      "name": "series HD",
-      "url": "http://stream.mcquack.net/311/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 1080,
-      "logo": "https://i.imgur.com/8yXZET5.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://stream.mcquack.net/333/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/fXESG0l.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "https://stream8.cinerama.uz/1229/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/fXESG0l.png",
-      "epg": true
-    },
-    {
-      "name": "Vitrina TV (720p)",
-      "url": "https://live-11cinema.cdnvideo.ru/11cinema/11cinema/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/lzQsVfn.png",
-      "epg": false
-    },
-    {
-      "name": "Вкус",
-      "url": "http://178.134.1.158:8081/vkus/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Путешествия",
-      "height": 576,
-      "logo": "https://www.cableman.ru/sites/default/files/logo%20%287%29%20%281%29.png",
-      "epg": true
-    },
-    {
-      "name": "Вместе-РФ",
-      "url": "https://streaming.thestream.cyou/live/7006.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 240,
-      "logo": "https://i.imgur.com/KI1qZNc.png",
-      "epg": true
-    },
-    {
-      "name": "Вопросы и ответы",
-      "url": "http://stream.mcquack.net/76/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/yjETxk1.png",
-      "epg": true
-    },
-    {
-      "name": "Время",
-      "url": "http://stream.mcquack.net/237/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/jZlj3ga.png",
-      "epg": true
-    },
-    {
-      "name": "Загородная жизнь",
-      "url": "http://185.57.68.33/40/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/RoYd5pz.png",
-      "epg": true
-    },
-    {
-      "name": "Загородная жизнь",
-      "url": "https://stream8.cinerama.uz/1044/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/RoYd5pz.png",
-      "epg": true
-    },
-    {
-      "name": "Жара",
-      "url": "http://stream.mcquack.net/386/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "",
-      "epg": true
-    },
-    {
-      "name": "Живая природа",
-      "url": "http://stream.mcquack.net/83/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/9lHQPdN.png",
-      "epg": true
-    },
-    {
-      "name": "ZooПарк",
-      "url": "https://stream8.cinerama.uz/1417/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/IO5jegK.png",
-      "epg": true
-    },
-    {
-      "name": "Звезда",
-      "url": "https://stream8.cinerama.uz/1050/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/4PAcpfM.png",
-      "epg": true
     },
     {
       "name": "Звезда HD",
@@ -2611,7 +689,7 @@
     {
       "name": "Арис 24 (720p) [Not 24/7]",
       "url": "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/CTFVEAb.png",
@@ -2629,7 +707,7 @@
     {
       "name": "Астрахань.Ru Sport (720p)",
       "url": "https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "⚽ Спорт",
       "height": 240,
       "logo": "https://i.imgur.com/BKaEtqL.png",
@@ -2638,7 +716,7 @@
     {
       "name": "Астрахань.Ru TV (480p)",
       "url": "https://streaming.astrakhan.ru/astrakhanrulivehd/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "📦 Разное",
       "height": 240,
       "logo": "https://i.imgur.com/w4ys6zm.png",
@@ -2663,18 +741,9 @@
       "epg": true
     },
     {
-      "name": "БСТ 24 (Братск)",
-      "url": "http://bst.bratsk.ru/hls/bst2/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/IDotHmQ.png",
-      "epg": false
-    },
-    {
       "name": "Вера 24",
       "url": "https://5f05e059699ae.streamlock.net/WEB_Vera24/ngrp:Vera24.stream-adaptive/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "🙏 Религиозные",
       "height": 720,
       "logo": "https://i.imgur.com/Qer5Lnh.png",
@@ -2683,7 +752,7 @@
     {
       "name": "Ветта 24 (Пермь) (576p) [Not 24/7]",
       "url": "http://serv24.vintera.tv:8081/vetta/vetta_office/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "📦 Разное",
       "height": 480,
       "logo": "https://i.imgur.com/zKH1b5k.png",
@@ -2728,7 +797,7 @@
     {
       "name": "К16 (Саров) (406p) [Not 24/7]",
       "url": "http://serv25.vintera.tv:8081/test/k16/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 406,
       "logo": "https://i.imgur.com/7tNDKHe.png",
@@ -2780,24 +849,6 @@
       "epg": true
     },
     {
-      "name": "Мир Белагорья (720p) [Geo-blocked]",
-      "url": "http://mirbelogorya.ru:8080/mirbelogorya/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://mirbelogorya.ru/images/logo/Logo_Mir_Belogorya_purple_gradient.png",
-      "epg": true
-    },
-    {
-      "name": "Мир Белогорья (720p) [Geo-blocked]",
-      "url": "http://stream.tvbelgorod.ru:8080/mirbelogorya/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://mirbelogorya.ru/images/logo/Logo_Mir_Belogorya_purple_gradient.png",
-      "epg": true
-    },
-    {
       "name": "МТВ (Волгоград) (720p) [Not 24/7]",
       "url": "http://hls.volgograd1vtv.cdnvideo.ru/volgograd1vtv/volgograd1vtv.sdp/playlist.m3u8",
       "ua": "Wink",
@@ -2816,12 +867,39 @@
       "epg": false
     },
     {
+      "name": "Надежда (720p)",
+      "url": "https://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "🙏 Религиозные",
+      "height": 720,
+      "logo": "https://i.imgur.com/ah6VnFJ.png",
+      "epg": true
+    },
+    {
+      "name": "Надежда (720p)",
+      "url": "https://tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "🙏 Религиозные",
+      "height": 720,
+      "logo": "https://i.imgur.com/ah6VnFJ.png",
+      "epg": true
+    },
+    {
       "name": "Нано ТВ HD (576p)",
       "url": "http://s1.tv-nano.com/Nano_rec/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎥 Документальные",
       "height": 270,
       "logo": "https://i.imgur.com/dYj3XDa.png",
+      "epg": true
+    },
+    {
+      "name": "Наука",
+      "url": "https://vod.tuva.ru/nauka2/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "🎥 Документальные",
+      "height": 576,
+      "logo": "https://i.imgur.com/ZZxzueO.png",
       "epg": true
     },
     {
@@ -2845,7 +923,7 @@
     {
       "name": "Ника ТВ (576p) [Not 24/7]",
       "url": "https://live-nikatv.cdnvideo.ru/nikatv/nikatv.sdp/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/dccsFAu.png",
@@ -2872,7 +950,7 @@
     {
       "name": "ОСН",
       "url": "http://osnmedia.servicecdn.ru/streams/17603_88089/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 360,
       "logo": "https://www.osnmedia.ru/wp-content/uploads/2024/11/osn-logo-header.png",
@@ -2908,11 +986,20 @@
     {
       "name": "Пятница! (576p)",
       "url": "https://vod.tuva.ru/friday/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎭 Развлекательные",
       "height": 576,
       "logo": "https://antifriz.tv/storage/images/pack_logos/71e74d77d2a9f55f496870623e5f7203.png",
       "epg": true
+    },
+    {
+      "name": "Радио Говорит Москва (Веб-камера) (720p)",
+      "url": "https://video.govoritmoskva.ru/rufm/index.m3u8",
+      "ua": "Wink",
+      "group": "📰 Новостные",
+      "height": 720,
+      "logo": "https://i.imgur.com/z2mxf3E.png",
+      "epg": false
     },
     {
       "name": "РБК (СПБ) (576p)",
@@ -3025,34 +1112,16 @@
     {
       "name": "ТВК 24 (576p)",
       "url": "https://air.tvk6.ru/tvk24/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📦 Разное",
       "height": 360,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e7/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%A2%D0%92%D0%9A_%282015%29.png",
       "epg": false
     },
     {
-      "name": "Твое TV HD (1080p)",
-      "url": "http://tvoetv.space:8080/tvoetv/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/kKAM7dP.png",
-      "epg": true
-    },
-    {
-      "name": "Твое ТВ Юмор (1080p)",
-      "url": "http://tvoetv.space:8080/tvoetv_humor/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://smotret.tv/images/tvoe-tv-yumor.webp",
-      "epg": true
-    },
-    {
       "name": "Телеканал 86 (Сургут) (1080p) [Not 24/7]",
       "url": "https://sitv.ru/hls/s86.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 1080,
       "logo": "https://i.imgur.com/0dRS4Cb.png",
@@ -3097,10 +1166,19 @@
     {
       "name": "Три Ангела (720p)",
       "url": "https://hls.tv.3angels.ru/stream.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🙏 Религиозные",
       "height": 270,
       "logo": "https://i.imgur.com/4fhBbam.png",
+      "epg": true
+    },
+    {
+      "name": "Хузур ТВ (1080p) [Not 24/7]",
+      "url": "https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/playlist.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "🙏 Религиозные",
+      "height": 1080,
+      "logo": "https://i.imgur.com/Abg1fct.png",
       "epg": true
     },
     {
@@ -3113,165 +1191,12 @@
       "epg": true
     },
     {
-      "name": "Ювелирочка ТВ (576p)",
-      "url": "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/IcWtXCZ.png",
-      "epg": true
-    },
-    {
-      "name": "entertainment",
+      "name": "Дважды два",
       "url": "http://flussonic.mkpnet.ru/tv-17540fb90079a865/video.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎭 Развлекательные",
       "height": 576,
       "logo": "https://i.imgur.com/fhQFLEl.png",
-      "epg": true
-    },
-    {
-      "name": "ДумаТВ",
-      "url": "http://185.23.80.23:8080/DumaTV/index.m3u8",
-      "ua": "Wink",
-      "group": "legislative",
-      "height": 720,
-      "logo": "https://i.imgur.com/JvlO3PU.png",
-      "epg": true
-    },
-    {
-      "name": "Unknown Russia HD (1080p)",
-      "url": "http://185.23.80.23:8080/NeizvestnayaRossia/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/W7ste2f.png",
-      "epg": false
-    },
-    {
-      "name": "documentary HD",
-      "url": "http://185.23.80.23:8080/NANO_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/dYj3XDa.png",
-      "epg": true
-    },
-    {
-      "name": "TV BRICS Russian (1080p)",
-      "url": "http://185.23.80.23:8080/TVBRICS/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/vLpm8tN.png",
-      "epg": false
-    },
-    {
-      "name": "entertainment",
-      "url": "http://185.23.80.23:8080/2x2/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/fhQFLEl.png",
-      "epg": true
-    },
-    {
-      "name": "Арт",
-      "url": "http://185.23.80.23:8080/ART/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Культура",
-      "height": 576,
-      "logo": "https://optim.tildacdn.com/tild3134-3836-4338-a138-666666653363/-/format/webp/__.png.webp",
-      "epg": true
-    },
-    {
-      "name": "Рен ТВ",
-      "url": "http://185.23.80.23:8080/REN/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://iks-online.net/storage/2018/07/REN-TV-HD.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://178.134.1.158:8081/BRIDGE/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/qYObfrG.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://178.134.1.158:8081/BRIDGEROCK/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/MHuwct2.png",
-      "epg": true
-    },
-    {
-      "name": "РенТВ International",
-      "url": "http://178.134.1.158:8081/RENTV/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/gBjk9oF.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://178.134.1.158:8081/babytime/index.m3u8",
-      "ua": "Chrome_Win",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/lW3WIBD.png",
-      "epg": true
-    },
-    {
-      "name": "Sony ТВ HD HD",
-      "url": "http://178.134.1.158:8081/red/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/GET9Qut.png",
-      "epg": true
-    },
-    {
-      "name": "ТВ-21+",
-      "url": "http://178.134.1.158:8081/TVXXI/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/nSmSnH6.png",
-      "epg": true
-    },
-    {
-      "name": "Тонус ТВ",
-      "url": "http://194.143.148.28:8080/Mir24/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/pGm8QCj.png",
-      "epg": true
-    },
-    {
-      "name": "Аист",
-      "url": "http://194.143.148.28:8080/Aist/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/bcw0s4V.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://194.143.148.28:8080/RT_DOC/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/qYObfrG.png",
       "epg": true
     },
     {
@@ -3284,18 +1209,18 @@
       "epg": true
     },
     {
-      "name": "Friday! (576p)",
+      "name": "Пятница!",
       "url": "http://flussonic.linkintel.ru/Pyatnica/index.m3u8",
       "ua": "Wink",
       "group": "🎭 Развлекательные",
       "height": 576,
       "logo": "https://antifriz.tv/storage/images/pack_logos/71e74d77d2a9f55f496870623e5f7203.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "TV-3 (576p)",
       "url": "http://flussonic.linkintel.ru/tv-3/index.m3u8",
-      "ua": "Wink",
+      "ua": "Lavf",
       "group": "🎭 Развлекательные",
       "height": 576,
       "logo": "https://i.imgur.com/JLAvq8O.png",
@@ -3338,30 +1263,30 @@
       "epg": true
     },
     {
-      "name": "kids",
-      "url": "http://flussonic.linkintel.ru/Karusel/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": true
-    },
-    {
-      "name": "TV Centr (576p)",
+      "name": "ЦЕНТР",
       "url": "http://flussonic.linkintel.ru/tvc/index.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 576,
       "logo": "https://www.moscow-telecom.ru/img/logo_channels/tvc_hd.svg",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Звезда",
       "url": "http://flussonic.linkintel.ru/zvezda/index.m3u8",
-      "ua": "Wink",
+      "ua": "Lavf",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/4PAcpfM.png",
+      "epg": true
+    },
+    {
+      "name": "ОТР",
+      "url": "http://flussonic.linkintel.ru/otr/index.m3u8",
+      "ua": "Wink",
+      "group": "📡 Федеральные",
+      "height": 1080,
+      "logo": "https://i.imgur.com/VaWlnjZ.png",
       "epg": true
     },
     {
@@ -3374,7 +1299,7 @@
       "epg": true
     },
     {
-      "name": "movies",
+      "name": "Amedia Hit (576p)",
       "url": "http://flussonic.linkintel.ru/amedia-hit/index.m3u8",
       "ua": "Wink",
       "group": "🎬 Кино",
@@ -3383,7 +1308,7 @@
       "epg": true
     },
     {
-      "name": "movies",
+      "name": "Cinema (576p)",
       "url": "http://flussonic.linkintel.ru/cinema/index.m3u8",
       "ua": "Wink",
       "group": "🎬 Кино",
@@ -3392,7 +1317,7 @@
       "epg": true
     },
     {
-      "name": "movies",
+      "name": "КиноТВ",
       "url": "http://flussonic.linkintel.ru/kino-tv/index.m3u8",
       "ua": "Wink",
       "group": "🎬 Кино",
@@ -3401,13 +1326,13 @@
       "epg": true
     },
     {
-      "name": "sports 4K",
+      "name": "Match! Ultra (576p)",
       "url": "http://flussonic.linkintel.ru/match/index.m3u8",
       "ua": "Wink",
       "group": "⚽ Спорт",
       "height": 576,
       "logo": "https://www.kartina.tv/media/news/images/News/SEO/kanal-match-ultra.jpg",
-      "epg": true
+      "epg": false
     },
     {
       "name": "Мама",
@@ -3419,319 +1344,31 @@
       "epg": true
     },
     {
-      "name": "Музыка Первого",
-      "url": "http://88.212.15.50/live/test_muzyka_pervogo/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/U0vKj3P.png",
-      "epg": true
-    },
-    {
-      "name": "TV-3 HD (1080p)",
-      "url": "http://stream.mcquack.net/136/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/JLAvq8O.png",
-      "epg": false
-    },
-    {
-      "name": "ТНТ4",
-      "url": "http://stream.mcquack.net/106/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/gBokU5i.png",
-      "epg": true
-    },
-    {
-      "name": "Telecafe (576p)",
-      "url": "http://stream.mcquack.net/314/index.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 576,
-      "logo": "https://i.imgur.com/1H3h1HL.png",
-      "epg": false
-    },
-    {
-      "name": "Doctor (576p)",
-      "url": "http://stream.mcquack.net/80/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Познавательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/VNirxxn.png",
-      "epg": false
-    },
-    {
-      "name": "travel HD",
-      "url": "http://stream.mcquack.net/206/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Путешествия",
-      "height": 1080,
-      "logo": "https://i.imgur.com/AlpdXC4.png",
-      "epg": true
-    },
-    {
-      "name": "Удар",
-      "url": "http://stream.mcquack.net/279/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://mt.media/upload/iblock/2b3/2b3cf99141bf7f99cda377eec62ec084.png",
-      "epg": true
-    },
-    {
-      "name": "classic",
-      "url": "http://5.188.159.128:8070/Bridge_TV_Classic/index.m3u8",
-      "ua": "Wink",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/JJTQq81.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://5.188.159.128:8070/Bridge_TV_Hits/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/sIW9oR4.png",
-      "epg": true
-    },
-    {
-      "name": "Мульт",
-      "url": "https://stream8.cinerama.uz/1246/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/xi351Fx.png",
-      "epg": true
-    },
-    {
-      "name": "Мама",
-      "url": "https://stream8.cinerama.uz/1244/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/kmMIjjf.png",
-      "epg": true
-    },
-    {
-      "name": "365 days TV (576p)",
-      "url": "https://stream8.cinerama.uz/1242/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎥 Документальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/NfnAiTR.png",
-      "epg": false
-    },
-    {
-      "name": "Арсенал ТВ",
-      "url": "https://stream8.cinerama.uz/1414/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/DBpVeb0.png",
-      "epg": true
-    },
-    {
-      "name": "Капитан Фантастика",
-      "url": "https://stream8.cinerama.uz/1406/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/K3PSHiT.png",
-      "epg": true
-    },
-    {
-      "name": "В гостях у сказки",
-      "url": "https://stream8.cinerama.uz/1270/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/jNJkLHl.png",
-      "epg": true
-    },
-    {
-      "name": "Smile TV (720p)",
-      "url": "https://stream8.cinerama.uz/1425/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://static.tildacdn.com/tild3936-3138-4234-b536-326531343933/-_13x.png",
-      "epg": false
-    },
-    {
-      "name": "Kuhnya (576p)",
-      "url": "https://stream8.cinerama.uz/1236/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🍳 Кулинарные",
-      "height": 576,
-      "logo": "https://cdn2.red-media.ru/wp-content/uploads/2016/08/Kuhnya-mediakit.png",
-      "epg": false
-    },
-    {
-      "name": "TV Centr (576p)",
-      "url": "https://stream8.cinerama.uz/1025/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://www.moscow-telecom.ru/img/logo_channels/tvc_hd.svg",
-      "epg": false
-    },
-    {
-      "name": "Точка отрыва",
-      "url": "https://stream8.cinerama.uz/1031/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/TZiBQDK.png",
-      "epg": true
-    },
-    {
-      "name": "Усадьба",
-      "url": "https://stream8.cinerama.uz/1427/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/mf13haG.png",
-      "epg": true
-    },
-    {
-      "name": "Здоровое ТВ",
-      "url": "https://stream8.cinerama.uz/1428/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/jedtE5l.png",
-      "epg": true
-    },
-    {
-      "name": "Домашние животные",
-      "url": "https://stream8.cinerama.uz/1426/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/ISJzQGP.png",
-      "epg": true
-    },
-    {
-      "name": "Dikij (576p)",
-      "url": "https://stream3.cinerama.uz/1230/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "outdoor",
-      "height": 576,
-      "logo": "https://i.imgur.com/VDXDiPC.png",
-      "epg": false
-    },
-    {
-      "name": "Приключения HD",
-      "url": "https://stream8.cinerama.uz/1420/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/qQ6pPPQ.png",
-      "epg": true
-    },
-    {
-      "name": "Живая планета",
-      "url": "https://stream8.cinerama.uz/1250/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/onNv1tM.png",
-      "epg": true
-    },
-    {
-      "name": "Russia-K (576p)",
-      "url": "https://stream8.cinerama.uz/1048/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎭 Культура",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Russia-Cultura.svg/960px-Russia-Cultura.svg.png",
-      "epg": false
-    },
-    {
-      "name": "Киносерия",
-      "url": "https://fs.uplink.kz/kinoseria/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/iao7zLZ.png",
-      "epg": true
-    },
-    {
-      "name": "КВН ТВ",
-      "url": "https://fs.uplink.kz/kvn_tv/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/Vw3LFLX.png",
-      "epg": true
-    },
-    {
-      "name": "TV Centr (576p)",
-      "url": "https://fs.uplink.kz/tvc/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://www.moscow-telecom.ru/img/logo_channels/tvc_hd.svg",
-      "epg": false
-    },
-    {
-      "name": "Дорама",
-      "url": "https://fs.uplink.kz/dorama/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZH5LuXU.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://fs.uplink.kz/baby_time/mono.m3u8?token=onlinetv",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/lW3WIBD.png",
-      "epg": true
-    },
-    {
-      "name": "Russia-1 HD (1080p)",
+      "name": "Россия-1 HD",
       "url": "https://live.smotrim.ru/vgtrk/0/russia1-hd/index.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 1080,
       "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "Russia-24 HD (1080p)",
+      "name": "Россия-24 HD",
       "url": "https://live.smotrim.ru/vgtrk/0/russia24-hd/index.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
-    },
-    {
-      "name": "sports 4K",
-      "url": "http://45.132.87.69:8080/match/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://www.kartina.tv/media/news/images/News/SEO/kanal-match-ultra.jpg",
       "epg": true
     },
     {
-      "name": "sports 4K",
+      "name": "Match! Ultra (576p)",
       "url": "http://tv.tuva.ru/machtv/index.m3u8",
       "ua": "Wink",
       "group": "⚽ Спорт",
       "height": 576,
       "logo": "https://www.kartina.tv/media/news/images/News/SEO/kanal-match-ultra.jpg",
-      "epg": true
+      "epg": false
     },
     {
       "name": "FashionTV (1080p)",
@@ -3743,288 +1380,27 @@
       "epg": false
     },
     {
-      "name": "Russia-K HD (1080p)",
+      "name": "Россия-К HD",
       "url": "https://live.smotrim.ru/vgtrk/0/kultura-hd/index.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎭 Культура",
       "height": 576,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Russia-Cultura.svg/960px-Russia-Cultura.svg.png",
-      "epg": false
-    },
-    {
-      "name": "TV Centr International (576p)",
-      "url": "https://stream8.cinerama.uz/1281/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://i.imgur.com/tsCOnBW.png",
-      "epg": false
-    },
-    {
-      "name": "TV-3 (576p)",
-      "url": "http://176.118.197.101/TB3/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/JLAvq8O.png",
-      "epg": false
-    },
-    {
-      "name": "movies HD",
-      "url": "http://176.118.197.101/Bollywood_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/YLQRnXt.png",
       "epg": true
     },
     {
-      "name": "movies",
-      "url": "http://176.118.197.101/START_AIR/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://i.imgur.com/4bACa7x.png",
-      "epg": true
-    },
-    {
-      "name": "ТНТ",
-      "url": "http://176.118.197.101/THT/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.ibb.co/HDmdRFR1/N-Baltic-2025.webp",
-      "epg": true
-    },
-    {
-      "name": "Че",
-      "url": "http://176.118.197.101/Che/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZOcDGpB.png",
-      "epg": true
-    },
-    {
-      "name": "music HD",
-      "url": "http://176.118.197.101/1HD/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/4Ww7CsR.png",
-      "epg": true
-    },
-    {
-      "name": "comedy",
-      "url": "http://176.118.197.101/Komediya/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/VRC5juh.png",
-      "epg": true
-    },
-    {
-      "name": "КХЛ ТВ",
-      "url": "http://176.118.197.101/KHL/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/RgdHdOV.png",
-      "epg": true
-    },
-    {
-      "name": "РБК",
-      "url": "http://176.118.197.101/RBK/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Бизнес",
-      "height": 1080,
-      "logo": "https://i.imgur.com/CwhmJby.png",
-      "epg": true
-    },
-    {
-      "name": "СТС",
-      "url": "http://176.118.197.101/CTC/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/ilUzAeb.png",
-      "epg": true
-    },
-    {
-      "name": "НТВ",
-      "url": "http://176.118.197.101/NTV/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://real.su/wp-content/uploads/2019/12/%D0%9D%D0%A2%D0%92_HD-20220826-123641.png",
-      "epg": true
-    },
-    {
-      "name": "entertainment",
-      "url": "http://176.118.197.101/2x2/index.m3u8",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/fhQFLEl.png",
-      "epg": true
-    },
-    {
-      "name": "Еврокино",
-      "url": "http://176.118.197.101/Evrokino/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/8LPtPf6.png",
-      "epg": true
-    },
-    {
-      "name": "Мир сериала",
-      "url": "http://176.118.197.101/MirSeriala/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 576,
-      "logo": "https://i.imgur.com/uzj7wVp.png",
-      "epg": true
-    },
-    {
-      "name": "Russia-24 (576p)",
-      "url": "http://176.118.197.101/Rossiya24/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📰 Новостные",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
-    },
-    {
-      "name": "Russia-1 HD (1080p)",
-      "url": "http://176.118.197.101/RossiyaHD/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
-    },
-    {
-      "name": "Ретро",
-      "url": "http://176.118.197.101/Retro/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/p21co1w.png",
-      "epg": true
-    },
-    {
-      "name": "classic",
-      "url": "http://176.118.197.101/Nostalgiya/index.m3u8",
-      "ua": "Wink",
-      "group": "classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/YBdBc0J.png",
-      "epg": true
-    },
-    {
-      "name": "Illusion+ (576p)",
-      "url": "http://176.118.197.101/Illuzion+/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/9GvuHQ5.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "http://88.212.15.50/live/test_karusel/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": true
-    },
-    {
-      "name": "Время",
-      "url": "http://88.212.15.50/live/test_vremya/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/jZlj3ga.png",
-      "epg": true
-    },
-    {
-      "name": "Дом кино",
-      "url": "http://88.212.15.50/live/test_dom_kino/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png/960px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%94%D0%BE%D0%BC_%D0%9A%D0%B8%D0%BD%D0%BE.png",
-      "epg": true
-    },
-    {
-      "name": "Дом кино Премиум",
-      "url": "http://88.212.15.50/live/test_dom_kino_premium/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/rJpQtvK.png",
-      "epg": true
-    },
-    {
-      "name": "Telecafe (576p)",
-      "url": "http://88.212.15.50/live/test_telecafe_tv/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 576,
-      "logo": "https://i.imgur.com/1H3h1HL.png",
-      "epg": false
-    },
-    {
-      "name": "Бобер",
-      "url": "http://88.212.15.50/live/test_bober/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/clWWhB8.png",
-      "epg": true
-    },
-    {
-      "name": "Poehali! (576p)",
-      "url": "http://88.212.15.50/live/test_poehali/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZNCpbII.png",
-      "epg": false
-    },
-    {
-      "name": "Russia-24",
+      "name": "Россия-24",
       "url": "http://dmi3y-tv.online/hls/smotrim/T2/CH_RUSSIA24_INT.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "📰 Новостные",
       "height": 576,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
-    },
-    {
-      "name": "Novorossiya TV (1080p) [Geo-blocked]",
-      "url": "http://31.131.139.253:9002/novoros/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 0,
-      "logo": "https://i.imgur.com/ijmf0bV.png",
-      "epg": false
-    },
-    {
-      "name": "Oplot TV (1080p) [Geo-blocked]",
-      "url": "http://31.131.139.253:9002/oplot_hd/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 0,
-      "logo": "https://pic.rtbcdn.ru/user/2025-08-18/24/91/24919316f6594ce2542686d540894797.jpg",
-      "epg": false
+      "epg": true
     },
     {
       "name": "8 канал International",
       "url": "http://live-11cinema.cdnvideo.net/11cinemanet/11cinemanet/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/I8OU9oa.png",
@@ -4049,466 +1425,16 @@
       "epg": false
     },
     {
-      "name": "Oplot TV (1080p) [Geo-blocked]",
-      "url": "http://31.131.141.195:8000/play/a006/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 720,
-      "logo": "https://pic.rtbcdn.ru/user/2025-08-18/24/91/24919316f6594ce2542686d540894797.jpg",
-      "epg": false
-    },
-    {
-      "name": "RT en Espanol (1080p)",
-      "url": "http://168.196.127.137:6001/play/a0a9/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📰 Новостные",
-      "height": 0,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Russia-today-logo.svg/960px-Russia-today-logo.svg.png",
-      "epg": false
-    },
-    {
-      "name": "general",
-      "url": "http://31.148.5.241/kanal_1/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/pervyj-hd.png",
-      "epg": true
-    },
-    {
-      "name": "Russia-1 (576p)",
-      "url": "http://31.148.5.241/kanal_2/index.m3u8",
+      "name": "Кубань 24 MaikopskoyeTelevidenie",
+      "url": "http://dmi3y-tv.online/hls/zabava/region/MAYK/CH_MAYKOP.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://uut-telecom.ru/wp-content/uploads/2021/12/rossiya-1-hd.png",
-      "epg": false
-    },
-    {
-      "name": "sports 4K",
-      "url": "http://31.148.5.241/kanal_3/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://www.kartina.tv/media/news/images/News/SEO/kanal-match-ultra.jpg",
+      "height": 1920,
+      "logo": "https://www.cableman.ru/sites/default/files/2022-03-23_02-09-35.png",
       "epg": true
     },
     {
-      "name": "НТВ",
-      "url": "http://31.148.5.241/kanal_4/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://real.su/wp-content/uploads/2019/12/%D0%9D%D0%A2%D0%92_HD-20220826-123641.png",
-      "epg": true
-    },
-    {
-      "name": "Channel 5 (576p)",
-      "url": "http://31.148.5.241/kanal_5/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/PQhMXOZ.png",
-      "epg": false
-    },
-    {
-      "name": "Russia-24 (576p)",
-      "url": "http://31.148.5.241/kanal_7/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "http://31.148.5.241/kanal_8/index.m3u8",
-      "ua": "TiviMate",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": true
-    },
-    {
-      "name": "ОТР",
-      "url": "http://31.148.5.241/kanal_9/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/VaWlnjZ.png",
-      "epg": true
-    },
-    {
-      "name": "TV Centr (576p)",
-      "url": "http://31.148.5.241/kanal_10/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://www.moscow-telecom.ru/img/logo_channels/tvc_hd.svg",
-      "epg": false
-    },
-    {
-      "name": "Рен ТВ",
-      "url": "http://31.148.5.241/kanal_11/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://iks-online.net/storage/2018/07/REN-TV-HD.png",
-      "epg": true
-    },
-    {
-      "name": "Спас",
-      "url": "http://31.148.5.241/kanal_12/index.m3u8",
-      "ua": "Wink",
-      "group": "🙏 Религиозные",
-      "height": 576,
-      "logo": "https://i.imgur.com/yY39nMg.png",
-      "epg": true
-    },
-    {
-      "name": "СТС",
-      "url": "http://31.148.5.241/kanal_13/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/ilUzAeb.png",
-      "epg": true
-    },
-    {
-      "name": "Domashniy (576p)",
-      "url": "http://31.148.5.241/kanal_14/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/WaLwOyt.jpeg",
-      "epg": false
-    },
-    {
-      "name": "TV-3 (576p)",
-      "url": "http://31.148.5.241/kanal_15/index.m3u8",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/JLAvq8O.png",
-      "epg": false
-    },
-    {
-      "name": "Friday! (576p)",
-      "url": "http://31.148.5.241/kanal_16/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://antifriz.tv/storage/images/pack_logos/71e74d77d2a9f55f496870623e5f7203.png",
-      "epg": false
-    },
-    {
-      "name": "Звезда",
-      "url": "http://31.148.5.241/kanal_17/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/4PAcpfM.png",
-      "epg": true
-    },
-    {
-      "name": "Мир",
-      "url": "http://31.148.5.241/kanal_18/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/AqWaJT8.png",
-      "epg": true
-    },
-    {
-      "name": "ТНТ",
-      "url": "http://31.148.5.241/kanal_19/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 576,
-      "logo": "https://i.ibb.co/HDmdRFR1/N-Baltic-2025.webp",
-      "epg": true
-    },
-    {
-      "name": "Муз-ТВ",
-      "url": "http://31.148.5.241/kanal_20/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://i.imgur.com/BtqrHmz.png",
-      "epg": true
-    },
-    {
-      "name": "Rus (576p)",
-      "url": "http://31.148.5.241/kanal_21/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/KuL21f9.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://31.148.5.241/Viasat_Sport/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/fXESG0l.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://46.53.200.153:7777/play/test_krask1/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 0,
-      "logo": "https://i.imgur.com/Dk8VbAc.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://46.53.200.153:7777/play/a01i/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/EGIpLPu.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://46.53.200.153:7777/play/a01j/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/FqWkeXb.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://46.53.200.153:7777/play/a01k/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/8BPZ18l.png",
-      "epg": true
-    },
-    {
-      "name": "TV 21 International (576p)",
-      "url": "http://46.53.200.153:7777/play/TV-21M/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://ibb.co/BH6CZx3K",
-      "epg": false
-    },
-    {
-      "name": "Saphire (1080p)",
-      "url": "http://46.53.200.153:7777/play/Sapfir_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 0,
-      "logo": "https://i.imgur.com/NMOBvle.png",
-      "epg": false
-    },
-    {
-      "name": "Наш Кинопоказ HD",
-      "url": "http://46.53.200.153:7777/play/SRT_Nash_kinopokaz/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/iwTMl8O.png",
-      "epg": true
-    },
-    {
-      "name": "RTG TV HD (1080p)",
-      "url": "http://46.53.200.153:7777/play/a00u/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Путешествия",
-      "height": 0,
-      "logo": "https://i.imgur.com/ZMKPAho.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://46.53.200.153:7777/play/Viju_Megahit_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/oIQNddV.png",
-      "epg": true
-    },
-    {
-      "name": "movies HD",
-      "url": "http://46.53.200.153:7777/play/Viju_Premiere/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/klRvhR5.png",
-      "epg": true
-    },
-    {
-      "name": "series HD",
-      "url": "http://46.53.200.153:7777/play/Viju_Serial_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 0,
-      "logo": "https://i.imgur.com/8yXZET5.png",
-      "epg": true
-    },
-    {
-      "name": "music",
-      "url": "http://46.53.200.153:7777/play/Shanson_TV/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 576,
-      "logo": "https://shanson.tv/wp-content/uploads/2025/12/pics.31.png",
-      "epg": true
-    },
-    {
-      "name": "Европа Плюс ТВ Belarus",
-      "url": "http://46.53.200.153:7777/play/EuropaPlus/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/GLc4qrc.png",
-      "epg": true
-    },
-    {
-      "name": "music HD",
-      "url": "http://46.53.200.153:7777/play/Live_music_channel/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/9qJkxV9.png",
-      "epg": true
-    },
-    {
-      "name": "sports HD",
-      "url": "http://46.53.200.153:7777/play/a01l/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 0,
-      "logo": "https://i.imgur.com/fXESG0l.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://46.53.200.153:7777/play/Viasat_Sport/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 0,
-      "logo": "https://i.imgur.com/fXESG0l.png",
-      "epg": true
-    },
-    {
-      "name": "viju TV1000 Новелла HD",
-      "url": "http://46.53.200.153:7777/play/VIJU_TV_1000_novella/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://www.cableman.ru/sites/default/files/viju_TV1000_%D0%BD%D0%BE%D0%B2%D0%B5%D0%BB%D0%BB%D0%B0_color_rgb_02%20%281%29.png",
-      "epg": true
-    },
-    {
-      "name": "series HD",
-      "url": "http://46.53.200.153:7777/play/Viju_Drama/index.m3u8",
-      "ua": "Wink",
-      "group": "📺 Сериалы",
-      "height": 576,
-      "logo": "https://rnnxdki1nv.a.trbcdn.net/viasat/production/tvchannels/dc243048-c5ad-4ccc-86c6-3a480874ec29/logos/flo59mr6lh1jf68g3021urgwtd5k",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://46.53.200.153:7777/play/TV_1000/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 576,
-      "logo": "https://i.imgur.com/ZMsyjSr.png",
-      "epg": true
-    },
-    {
-      "name": "movies",
-      "url": "http://46.53.200.153:7777/play/a01h/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/TMmyuzh.png",
-      "epg": true
-    },
-    {
-      "name": "viju TV1000 Русское",
-      "url": "http://46.53.200.153:7777/play/a01g/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/Meak2y4.png",
-      "epg": true
-    },
-    {
-      "name": "Discovery Центральная Европа",
-      "url": "http://stream.mcquack.net/177/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2019_Discovery_logo.svg/960px-2019_Discovery_logo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "Investigation Discovery (1080p)",
-      "url": "http://stream.mcquack.net/205/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/InvestigationDiscoveryLogo2020.svg/960px-InvestigationDiscoveryLogo2020.svg.png",
-      "epg": false
-    },
-    {
-      "name": "TLC Россия",
-      "url": "http://stream.mcquack.net/168/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/960px-TLC_Logo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "documentary",
-      "url": "http://stream.mcquack.net/114/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/2018_Animal_Planet_logo.svg/960px-2018_Animal_Planet_logo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "Food Network (1080p)",
-      "url": "http://stream.mcquack.net/298/index.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Food_Network_New_Logo.png/960px-Food_Network_New_Logo.png",
-      "epg": false
-    },
-    {
-      "name": "Travel Channel Европа HD",
-      "url": "http://stream.mcquack.net/231/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://static.wikia.nocookie.net/logopedia/images/8/82/Travel_Channel_International.svg/revision/latest?cb=20191226223708",
-      "epg": true
-    },
-    {
-      "name": "O! International (720p)",
-      "url": "http://88.212.15.50/live/test_telekanal_o/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/pDc665V.png",
-      "epg": false
-    },
-    {
-      "name": "music",
+      "name": "VIVA Russia",
       "url": "https://live20.bozztv.com/akamaissh101/ssh101/vivarussia/playlist.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
@@ -4517,58 +1443,31 @@
       "epg": true
     },
     {
-      "name": "Oplot 2 (720p) [Geo-blocked]",
-      "url": "http://91.224.16.9:7779/Oplot_2/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://nettv.live/uploads/allimg/21/1-210123195A80-L.jpg",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "http://88.218.242.237:8001/Cartoon_Classics",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 0,
-      "logo": "https://sales.planbkino.tv//b/c/471.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://185.23.80.23:8080/MATCH_PREMIER/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://avatars.mds.yandex.net/i?id=0e4bdacd44c114798f7334dae02683d5b0336bd2-13079178-images-thumbs&n=13",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "http://88.212.7.14/live/test_home_uhd_tizen/playlist.m3u8",
+      "name": "Министерство идей",
+      "url": "https://live-minidey.cdnvideo.ru/minidey-srt/minidey/playlist.m3u8",
       "ua": "HlsWinkPlayer",
-      "group": "relax",
-      "height": 1080,
-      "logo": "https://i.imgur.com/3UXk7JR.png",
+      "group": "🎭 Культура",
+      "height": 576,
+      "logo": "https://i.imgur.com/3P0uvHD.png",
       "epg": true
     },
     {
-      "name": "Russia-24 HD (1080p)",
+      "name": "Россия-24 HD",
       "url": "https://live.smotrim.ru/vgtrk/0/russia24-hd/1080p.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Rossiya-24_Logo.svg/960px-Rossiya-24_Logo.svg.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "3ABN Russia (720p)",
+      "name": "Три Ангела",
       "url": "https://hls.tv.3angels.ru/stream.m3u8",
       "ua": "Wink",
       "group": "🙏 Религиозные",
       "height": 270,
       "logo": "https://i.imgur.com/4fhBbam.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "86 (1080p) [Not 24/7]",
@@ -4580,18 +1479,18 @@
       "epg": false
     },
     {
-      "name": "360° News (1080p)",
+      "name": "360° Новости",
       "url": "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/playlist.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://i.imgur.com/YXDeX8q.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "555 (720p)",
       "url": "http://trk555.tv:8888/live",
-      "ua": "OTT",
+      "ua": "Lavf",
       "group": "📡 Федеральные",
       "height": 0,
       "logo": "https://i.imgur.com/JQZkxeA.png",
@@ -4616,45 +1515,18 @@
       "epg": true
     },
     {
-      "name": "Angel TV Russian (720p)",
-      "url": "https://janya-digimix.akamaized.net/vglive-sk-955415/russia/ngrp:angelrussia_all/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🙏 Религиозные",
-      "height": 720,
-      "logo": "https://i.imgur.com/qKLEGU7.png",
-      "epg": false
-    },
-    {
-      "name": "documentary",
-      "url": "http://stream.mcquack.net/114/index.m3u8",
-      "ua": "Wink",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/2018_Animal_Planet_logo.svg/960px-2018_Animal_Planet_logo.svg.png",
-      "epg": true
-    },
-    {
       "name": "Apsua TV",
       "url": "https://gcmx3v3owcj.a.trbcdn.net/livemaster/ba7pu_fgej0zelpw.smil/playlist.m3u8?blstid=null",
       "ua": "Wink",
       "group": "📡 Федеральные",
-      "height": 0,
+      "height": 1080,
       "logo": "https://i.imgur.com/TJowroY.png",
       "epg": false
     },
     {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1205/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/ekF5cAi.png",
-      "epg": true
-    },
-    {
       "name": "Арис 24",
       "url": "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/CTFVEAb.png",
@@ -4670,36 +1542,9 @@
       "epg": true
     },
     {
-      "name": "H1 (Армения)",
-      "url": "http://stream.mcquack.net/175/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/UnoI5uM.png",
-      "epg": true
-    },
-    {
-      "name": "Арт",
-      "url": "http://89.104.114.24:8080/art/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Культура",
-      "height": 576,
-      "logo": "https://optim.tildacdn.com/tild3134-3836-4338-a138-666666653363/-/format/webp/__.png.webp",
-      "epg": true
-    },
-    {
-      "name": "Astrahan 24 (720p)",
-      "url": "https://streaming.astrakhan.ru/astrakhan24/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📰 Новостные",
-      "height": 360,
-      "logo": "https://i.imgur.com/9WcnjQN.png",
-      "epg": false
-    },
-    {
-      "name": "sports",
+      "name": "Астрахань спорт",
       "url": "https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "⚽ Спорт",
       "height": 240,
       "logo": "https://i.imgur.com/BKaEtqL.png",
@@ -4708,101 +1553,11 @@
     {
       "name": "Astrahan.Ru TV (480p)",
       "url": "https://streaming.astrakhan.ru/astrakhanrulivehd/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📦 Разное",
       "height": 240,
       "logo": "https://i.imgur.com/w4ys6zm.png",
       "epg": false
-    },
-    {
-      "name": "culture",
-      "url": "http://stream.mcquack.net/244/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Культура",
-      "height": 1080,
-      "logo": "https://i.imgur.com/lRJAXC7.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 1 HD",
-      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/_definst_/smil:belarus1.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/sUD9t5j.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 1 HD HD",
-      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus1.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/sUD9t5j.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 2 HD HD",
-      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus2.smil/playlist.m3u8",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/BpEHpPS.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 4 Гомель Gomel",
-      "url": "https://live.dc.beltelecom.by/trkgomel/trkgomel.stream/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/XNkQrMr.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 4 Витебск Vitebsk",
-      "url": "https://ngtrk.dc.beltelecom.by/vtv/bt4.stream/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 720,
-      "logo": "https://i.imgur.com/XNkQrMr.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 5 HD",
-      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus5.smil/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/NJsRFud.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь 5 HD HD",
-      "url": "http://178.124.179.122:8080/BT5/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 576,
-      "logo": "https://i.imgur.com/NJsRFud.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь-24",
-      "url": "http://ott-7.sevstar.net/belarus24/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 576,
-      "logo": "https://i.imgur.com/BP7tY6F.png",
-      "epg": true
-    },
-    {
-      "name": "Беларусь-24 HD",
-      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus24.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/BP7tY6F.png",
-      "epg": true
     },
     {
       "name": "Белгород 24",
@@ -4814,13 +1569,13 @@
       "epg": true
     },
     {
-      "name": "Big Asia (720p)",
+      "name": "Большая Азия",
       "url": "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 720,
       "logo": "https://i.imgur.com/vruuPKF.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Black Sea TV",
@@ -4832,9 +1587,9 @@
       "epg": false
     },
     {
-      "name": "movies Russia",
+      "name": "Bollywood HD Russia (576p)",
       "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🎬 Кино",
       "height": 576,
       "logo": "https://i.imgur.com/scDKOLS.png",
@@ -4843,74 +1598,11 @@
     {
       "name": "БСТ",
       "url": "https://bsttv.bonus-tv.ru/cdn/bst/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📦 Разное",
       "height": 576,
       "logo": "https://i.imgur.com/IDotHmQ.png",
       "epg": true
-    },
-    {
-      "name": "Bug-TV (1080p)",
-      "url": "http://46.53.200.153:7777/play/Bug_TV_HD/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 0,
-      "logo": "https://i.imgur.com/KqB7YdO.png",
-      "epg": false
-    },
-    {
-      "name": "Carousel +4 (720p)",
-      "url": "http://185.37.150.46/Karusel/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://i.imgur.com/4wmnx1W.png",
-      "epg": false
-    },
-    {
-      "name": "kids",
-      "url": "http://88.218.242.237:8001/Cartoon_Classics",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 0,
-      "logo": "https://sales.planbkino.tv//b/c/471.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://193.33.39.108:9019/play/a00t",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 0,
-      "logo": "https://i.imgur.com/9MrzLb1.png",
-      "epg": true
-    },
-    {
-      "name": "Channel 5 (Russia) (576p)",
-      "url": "http://31.148.5.241/kanal_5/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/KPXMa3U.png",
-      "epg": false
-    },
-    {
-      "name": "Channel 7 (Kazakhstan) (576p)",
-      "url": "http://stream.mcquack.net/27/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/LebKU09.png",
-      "epg": false
-    },
-    {
-      "name": "Channel 8 (Russia) (576p)",
-      "url": "http://45.11.139.43:8555/8kanal/index.m3u8",
-      "ua": "TiviMate",
-      "group": "🎭 Развлекательные",
-      "height": 0,
-      "logo": "https://i.imgur.com/nUSx1jF.png",
-      "epg": false
     },
     {
       "name": "Channel 9 (Israel) (1080p)",
@@ -4920,15 +1612,6 @@
       "height": 1080,
       "logo": "https://i.imgur.com/pttM3KQ.png",
       "epg": false
-    },
-    {
-      "name": "Десятка (Новокузнецк)",
-      "url": "https://bl.rutube.ru/livestream/c9e26bf5c003fd8d477200065ca1a05f/index.m3u8?e=2072611029&s=eqlTXebDP9wSWTZgre6BwQ&scheme=https",
-      "ua": "TiviMate",
-      "group": "📡 Федеральные",
-      "height": 0,
-      "logo": "https://i.imgur.com/k8JjFDw.png",
-      "epg": true
     },
     {
       "name": "12 канал Омск",
@@ -4958,7 +1641,7 @@
       "epg": true
     },
     {
-      "name": "movies",
+      "name": "Cinema (Russia) (576p)",
       "url": "http://flussonic.linkintel.ru/cinema/index.m3u8",
       "ua": "Wink",
       "group": "🎬 Кино",
@@ -4967,157 +1650,13 @@
       "epg": true
     },
     {
-      "name": "music HD",
-      "url": "https://cityeden.catcast.tv/content/34364/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/38Q5L5W.png",
-      "epg": true
-    },
-    {
-      "name": "music HD",
-      "url": "https://cityeden.catcast.tv/content/47400/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/l7BE8l6.png",
-      "epg": true
-    },
-    {
-      "name": "City Eden KinoAction [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/41333/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/uuzuvD0.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoArt [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/38398/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/67CWCtz.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoAsia [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/34393/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/gaket4B.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoDetektiv [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/41327/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/9rKHwBV.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoDok [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/38354/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📺 Сериалы",
-      "height": 0,
-      "logo": "https://i.imgur.com/itRbMX3.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoDrama [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/45269/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/29ddffh.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoFantastika [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/45268/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/I64FeIO.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoKlassika [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/34185/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/0qGCS1S.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoKomediya [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/41331/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/Aga2XVA.png",
-      "epg": false
-    },
-    {
-      "name": "City Eden KinoMistika [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/40783/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎬 Кино",
-      "height": 0,
-      "logo": "https://i.imgur.com/s1Pid0K.png",
-      "epg": false
-    },
-    {
-      "name": "music HD",
-      "url": "https://cityeden.catcast.tv/content/34100/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 720,
-      "logo": "https://i.imgur.com/ozEqob9.png",
-      "epg": true
-    },
-    {
-      "name": "City Eden Recepty Gurmana [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/47516/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🍳 Кулинарные",
-      "height": 0,
-      "logo": "https://i.imgur.com/wR0pvRc.png",
-      "epg": false
-    },
-    {
-      "name": "music HD",
-      "url": "https://cityeden.catcast.tv/content/46421/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎵 Музыкальные",
-      "height": 0,
-      "logo": "https://i.imgur.com/V3MTfyc.png",
-      "epg": true
-    },
-    {
-      "name": "City Eden TeleNovella [Not 24/7]",
-      "url": "https://cityeden.catcast.tv/content/46209/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📺 Сериалы",
-      "height": 480,
-      "logo": "https://i.imgur.com/mT5liTh.png",
-      "epg": false
-    },
-    {
-      "name": "Current Time TV (1080p)",
+      "name": "Настоящее Время",
       "url": "https://rfe-ingest.akamaized.net/hls/live/2033043/tvmc05/master.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://i.imgur.com/hKo8ApU.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Дача",
@@ -5138,49 +1677,22 @@
       "epg": false
     },
     {
-      "name": "Dasturxon TV (576p)",
-      "url": "https://stream8.cinerama.uz/1206/tracks-v1a1/playlist.m3u8",
+      "name": "ETV+ (720p)",
+      "url": "https://sb.err.ee/live/etvpluss.m3u8",
       "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/APM2ej5.jpeg",
+      "group": "🎭 Развлекательные",
+      "height": 720,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a2/ETV%2B_logo.png",
       "epg": false
     },
     {
-      "name": "Discovery Центральная Европа",
-      "url": "http://stream.mcquack.net/177/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2019_Discovery_logo.svg/960px-2019_Discovery_logo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "Domashniy (576p)",
-      "url": "http://stream.mcquack.net/227/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/XVRwgom.png",
-      "epg": false
-    },
-    {
-      "name": "news Russian",
-      "url": "https://dwamdstream110.akamaized.net/hls/live/2017971/dwstream110/master.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 270,
-      "logo": "https://i.imgur.com/8MRNFb9.png",
-      "epg": true
-    },
-    {
-      "name": "Eurasia (720p)",
+      "name": "Евразия",
       "url": "https://infochh.trkeurasia.ru/hlsinfoch/infochhd.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/4JUHIVS.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Евроновости",
@@ -5201,25 +1713,7 @@
       "epg": false
     },
     {
-      "name": "Eurosport 2 Russia (1080p)",
-      "url": "https://s7.iptv-24.net/1452/playlist.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 480,
-      "logo": "https://i.imgur.com/f56dHgR.png",
-      "epg": false
-    },
-    {
-      "name": "Фауна",
-      "url": "http://stream.mcquack.net/401/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Познавательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/UwQcDTm.png",
-      "epg": true
-    },
-    {
-      "name": "music",
+      "name": "Первый Музыкальный Канал",
       "url": "http://rtmp.one.by:1300",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
@@ -5228,57 +1722,57 @@
       "epg": true
     },
     {
-      "name": "music",
+      "name": "First Music Channel Russia (1080p)",
       "url": "http://rtmp.one.by:2300",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
       "height": 0,
       "logo": "https://i.imgur.com/rEo7nR1.png",
-      "epg": true
-    },
-    {
-      "name": "Food Network (Russia) (1080p)",
-      "url": "http://stream.mcquack.net/298/index.m3u8",
-      "ua": "Wink",
-      "group": "🍳 Кулинарные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Food_Network_New_Logo.png/960px-Food_Network_New_Logo.png",
       "epg": false
     },
     {
-      "name": "Fox Россия",
-      "url": "http://stream.mcquack.net/182/index.m3u8",
+      "name": "FreeДОМ",
+      "url": "https://dash4.antik.sk/live/test_uatv/playlist.m3u8",
       "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/nr1Y67Z.png",
-      "epg": true
-    },
-    {
-      "name": "comedy",
-      "url": "http://stream.mcquack.net/458/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ENj5GIp.png",
-      "epg": true
-    },
-    {
-      "name": "Gubernia Samara (576p)",
-      "url": "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
+      "group": "📰 Новостные",
       "height": 576,
-      "logo": "https://i.imgur.com/IlL57Rm.png",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/FreeDOMUAlogo.svg/960px-FreeDOMUAlogo.svg.png",
+      "epg": true
+    },
+    {
+      "name": "Govorit Moskva (720p)",
+      "url": "https://video.govoritmoskva.ru/rufm/index.m3u8",
+      "ua": "Wink",
+      "group": "📰 Новостные",
+      "height": 720,
+      "logo": "https://i.imgur.com/z2mxf3E.png",
       "epg": false
     },
     {
-      "name": "music",
+      "name": "Hit FM",
       "url": "https://hitfm.nfthost.net/hls/hitfm/live_all/playlist.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
       "height": 1080,
       "logo": "https://i.imgur.com/QwqM5j6.png",
+      "epg": false
+    },
+    {
+      "name": "Надежда",
+      "url": "https://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "🙏 Религиозные",
+      "height": 720,
+      "logo": "https://i.imgur.com/ah6VnFJ.png",
+      "epg": true
+    },
+    {
+      "name": "Хузур ТВ",
+      "url": "https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/playlist.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "🙏 Религиозные",
+      "height": 1080,
+      "logo": "https://i.imgur.com/Abg1fct.png",
       "epg": true
     },
     {
@@ -5291,25 +1785,16 @@
       "epg": false
     },
     {
-      "name": "Investigation Discovery (Russia) (1080p)",
-      "url": "http://stream.mcquack.net/205/index.m3u8",
-      "ua": "VLC",
-      "group": "🎥 Документальные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/InvestigationDiscoveryLogo2020.svg/960px-InvestigationDiscoveryLogo2020.svg.png",
-      "epg": false
-    },
-    {
-      "name": "Izvestia (1080p)",
+      "name": "Известия",
       "url": "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://i.imgur.com/r5HzA6J.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "general HD",
+      "name": "Jibek Joly HD (1080p)",
       "url": "https://stream.qazcdn.net/ex6r514/jjtv/playlist.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
@@ -5318,139 +1803,58 @@
       "epg": true
     },
     {
-      "name": "general",
-      "url": "http://stream.mcquack.net/39/index.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/eCaxBFn.png",
-      "epg": true
-    },
-    {
-      "name": "movies International",
+      "name": "Kino 1 (Russia) [Not 24/7]",
       "url": "http://kino-1.catcast.tv/content/38617/index.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "🎬 Кино",
-      "height": 432,
+      "height": 0,
       "logo": "https://i.imgur.com/zsCPLs4.png",
       "epg": true
     },
     {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/395/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
+      "name": "Крик-ТВ",
+      "url": "http://cdn-01.bonus-tv.ru/kriktv_edge/playlist.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "📰 Новостные",
       "height": 1080,
-      "logo": "https://i.imgur.com/FWVxBWI.png",
+      "logo": "https://i.imgur.com/rtuChZR.png",
       "epg": true
     },
     {
-      "name": "movies",
-      "url": "http://stream.mcquack.net/465/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/uk/3/35/KINO_2_UA.png",
-      "epg": true
-    },
-    {
-      "name": "КТК",
-      "url": "http://stream.mcquack.net/26/index.m3u8",
+      "name": "Кубань 24",
+      "url": "https://rt-sth-krdar-htlive.cdn.ngenix.net/hls/CH_R04_KUBAN24/variant.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/BurrNTo.png",
+      "height": 1920,
+      "logo": "https://i.imgur.com/atzrXcz.png",
       "epg": true
     },
     {
-      "name": "КТК HD",
-      "url": "http://89.218.30.37/ktklive/live.hq/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 720,
-      "logo": "https://i.imgur.com/BurrNTo.png",
-      "epg": true
-    },
-    {
-      "name": "Kuraj-TV (576p)",
+      "name": "Курай-ТВ",
       "url": "https://bsttv.bonus-tv.ru/cdn/kurai/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/hZXBD9F.png",
-      "epg": false
-    },
-    {
-      "name": "ЛДПР ТВ",
-      "url": "http://46.46.143.222:1935/live/mp4:ldpr.stream/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/gCmCRfe.png",
       "epg": true
     },
     {
-      "name": "shop",
-      "url": "https://tvshops.bonus-tv.ru/cdn/shop24/playlist.m3u8",
-      "ua": "VLC",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/qU9ohQu.png",
-      "epg": true
-    },
-    {
-      "name": "Точка.РФ",
-      "url": "http://lifetv.bitflip.ee/live/stream1_1/index.m3u8",
-      "ua": "Wink",
-      "group": "🙏 Религиозные",
-      "height": 432,
-      "logo": "https://i.imgur.com/JhrTB82.png",
-      "epg": true
-    },
-    {
-      "name": "outdoor",
+      "name": "Love Nature (1080p)",
       "url": "https://aegis-cloudfront-1.tubi.video/6d6d0f24-8445-4b4c-bdf6-44f9e38beaa4/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "Outdoor",
       "height": 240,
       "logo": "https://tv.lovenature.com/wp-content/uploads/2024/10/LoveNature2024_Logo_full_colour-copy.png",
       "epg": true
     },
     {
-      "name": "outdoor HD",
+      "name": "Love Nature HD (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8",
       "ua": "Wink",
       "group": "Outdoor",
       "height": 1080,
       "logo": "https://tv.lovenature.com/wp-content/uploads/2024/10/LoveNature2024_Logo_full_colour-copy.png",
       "epg": true
-    },
-    {
-      "name": "shop",
-      "url": "https://s1.tv-nano.com/Magnat_HD_5119705/video.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/r485aZL.png",
-      "epg": true
-    },
-    {
-      "name": "Makon TV (576i)",
-      "url": "https://stream8.cinerama.uz/1497/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/vCc0ED1.png",
-      "epg": false
-    },
-    {
-      "name": "Mana Tserkov' Onlayn (1080p) [Not 24/7]",
-      "url": "https://w2.manasat.com/tserkov-online/smil:tserkov-online.smil/playlist.m3u8",
-      "ua": "TiviMate",
-      "group": "🙏 Религиозные",
-      "height": 486,
-      "logo": "https://i.imgur.com/PruXLqS.png",
-      "epg": false
     },
     {
       "name": "Миллет",
@@ -5471,45 +1875,18 @@
       "epg": true
     },
     {
-      "name": "Мир Белогорья",
-      "url": "http://mirbelogorya.ru:8080/mirbelogorya/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://mirbelogorya.ru/images/logo/Logo_Mir_Belogorya_purple_gradient.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
+      "name": "MMA-TV.com (1080p)",
       "url": "https://streams2.sofast.tv/vglive-sk-462904/playlist.m3u8",
       "ua": "Wink",
       "group": "⚽ Спорт",
       "height": 360,
       "logo": "https://i.imgur.com/QhdxNsB.png",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "https://v0.trm.md/static/streaming-playlists/hls/9b79338b-1870-4cd7-91d4-0f6ce5cac7ca/master.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ZbQY56v.png",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "https://v0.trm.md/static/streaming-playlists/hls/d5fafab0-9c37-4746-9e7a-b2d6c0427015/master.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Hv6Nk8A.png",
-      "epg": true
+      "epg": false
     },
     {
       "name": "MTRK (576p)",
       "url": "https://tvcdn01.esilnet.kz/tv/mtrk/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📡 Федеральные",
       "height": 576,
       "logo": "https://i.imgur.com/XMyRwDk.png",
@@ -5525,75 +1902,30 @@
       "epg": true
     },
     {
-      "name": "music",
+      "name": "Muz Soyuz (576p)",
       "url": "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz2/muzsoyuz.6fw0-58xp-acts-esy0/playlist.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
       "height": 1080,
       "logo": "https://i.imgur.com/Puk1Bhx.png",
-      "epg": true
-    },
-    {
-      "name": "Muzyka 1 [Not 24/7]",
-      "url": "https://kino-1.catcast.tv/content/37745/index.m3u8",
-      "ua": "Wink",
-      "group": "🎵 Музыкальные",
-      "height": 432,
-      "logo": "https://i.imgur.com/DIKe5vA.png",
       "epg": false
     },
     {
-      "name": "Muzyka Kino [Not 24/7]",
+      "name": "Музыка 1 International",
+      "url": "https://kino-1.catcast.tv/content/37745/index.m3u8",
+      "ua": "TiviMate",
+      "group": "🎵 Музыкальные",
+      "height": 432,
+      "logo": "https://i.imgur.com/DIKe5vA.png",
+      "epg": true
+    },
+    {
+      "name": "Музыка Кино International",
       "url": "https://kino-1.catcast.tv/content/37739/index.m3u8",
       "ua": "TiviMate",
       "group": "🎵 Музыкальные",
       "height": 0,
       "logo": "https://i.imgur.com/2SG0Swa.png",
-      "epg": false
-    },
-    {
-      "name": "Nashe Lubimoe Kino Ukraine (1080p)",
-      "url": "http://stream.mcquack.net/456/index.m3u8",
-      "ua": "Wink",
-      "group": "🎬 Кино",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%9D%D0%B0%D1%88%D0%B5_%D0%A3%D0%BB%D1%8E%D0%B1%D0%BB%D0%B5%D0%BD%D0%B5_%D0%9A%D1%96%D0%BD%D0%BE.webp",
-      "epg": false
-    },
-    {
-      "name": "Наука",
-      "url": "http://stream.mcquack.net/403/index.m3u8",
-      "ua": "Wink",
-      "group": "🌍 Познавательные",
-      "height": 576,
-      "logo": "https://i.imgur.com/ClGdZCe.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "http://stream.mcquack.net/220/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nick_Jr._logo_2023_(outline).svg/960px-Nick_Jr._logo_2023_(outline).svg.png",
-      "epg": true
-    },
-    {
-      "name": "Nickelodeon СНГ",
-      "url": "http://stream.mcquack.net/443/index.m3u8",
-      "ua": "Wink",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/w8iE8dV.png",
-      "epg": true
-    },
-    {
-      "name": "kids",
-      "url": "https://stream8.cinerama.uz/1500/playlist.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 480,
-      "logo": "https://i.imgur.com/E84jnP8.png",
       "epg": true
     },
     {
@@ -5606,31 +1938,22 @@
       "epg": true
     },
     {
-      "name": "classic",
-      "url": "http://176.118.197.101/Nostalgiya/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "Classic",
-      "height": 576,
-      "logo": "https://i.imgur.com/YBdBc0J.png",
-      "epg": true
-    },
-    {
-      "name": "Новый канал",
-      "url": "http://stream.mcquack.net/157/index.m3u8",
+      "name": "Новгородское областное телевидение HD",
+      "url": "https://rt-nw-novg-htlive.cdn.ngenix.net/hls/CH_R02_NOVGORODTV/variant.m3u8",
       "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Dnfhdsm.png",
+      "group": "📡 Федеральные",
+      "height": 1920,
+      "logo": "https://i.imgur.com/2JspHVY.png",
       "epg": true
     },
     {
-      "name": "НТК",
-      "url": "http://stream.mcquack.net/389/index.m3u8",
-      "ua": "HlsWinkPlayer",
+      "name": "NTK 21 [Geo-blocked]",
+      "url": "https://s97982.cdn.ngenix.net/hls/CH_R79_OTT_DV_HVSK_NTK/variant.m3u8",
+      "ua": "Wink",
       "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/hHSCH4L.png",
-      "epg": true
+      "height": 1920,
+      "logo": "https://i.imgur.com/W9s1flH.png",
+      "epg": false
     },
     {
       "name": "НТМ",
@@ -5653,7 +1976,7 @@
     {
       "name": "NTV (Russia) +1 (576p)",
       "url": "https://cdn.ntv.ru/ntv1/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 360,
       "logo": "https://i.imgur.com/9r1BKzK.png",
@@ -5662,7 +1985,7 @@
     {
       "name": "NTV (Russia) +2 (576p)",
       "url": "https://cdn.ntv.ru/ntv2/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 360,
       "logo": "https://i.imgur.com/9r1BKzK.png",
@@ -5687,31 +2010,22 @@
       "epg": false
     },
     {
-      "name": "НТВ HD",
-      "url": "https://bl.rutube.ru/livestream/c37cd74192c6bc3d6cd6077c0c4fd686/index.m3u8?e=2077050299&s=HSWg81JrQ3OqmwuWkEIDAQ&scheme=https",
-      "ua": "TiviMate",
-      "group": "📡 Федеральные",
-      "height": 360,
-      "logo": "https://i.imgur.com/9r1BKzK.png",
-      "epg": true
-    },
-    {
-      "name": "NTV Law (576p)",
+      "name": "НТВ Право",
       "url": "https://cdn.ntv.ru/th_pravo/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📦 Разное",
       "height": 360,
       "logo": "https://i.imgur.com/3ChnWGg.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "NTV Style (576p)",
+      "name": "НТВ Стиль",
       "url": "https://cdn.ntv.ru/th_style/playlist.m3u8",
       "ua": "Wink",
       "group": "🎭 Развлекательные",
       "height": 360,
       "logo": "https://i.imgur.com/rX6K6qT.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Саха",
@@ -5723,22 +2037,13 @@
       "epg": true
     },
     {
-      "name": "O'zbekiston (576p)",
-      "url": "https://stream8.cinerama.uz/1001/tracks-v1a1/playlist.m3u8",
-      "ua": "Wink",
+      "name": "Осетия-Ирыстон",
+      "url": "https://osir.mediacdn.ru/cdn/osetia/playlist.m3u8",
+      "ua": "SmartTV",
       "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/QUIIhTD.png",
-      "epg": false
-    },
-    {
-      "name": "Oplot TV SD (1080p) [Geo-blocked]",
-      "url": "http://31.131.139.253:9002/oplot_hd/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 0,
-      "logo": "https://i.imgur.com/RvUkId2.png",
-      "epg": false
+      "height": 1080,
+      "logo": "https://i.imgur.com/N0Zn4zU.png",
+      "epg": true
     },
     {
       "name": "OSN",
@@ -5750,67 +2055,40 @@
       "epg": false
     },
     {
-      "name": "Ost West 24 (1080p)",
-      "url": "http://stream.mcquack.net/455/index.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/voeQ6x1.png",
-      "epg": false
-    },
-    {
-      "name": "Otkritiy mir. Zdorove (576p)",
+      "name": "Открытый мир. Здоровье",
       "url": "https://v4.proofix.ru/0mir/index.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "🎭 Развлекательные",
       "height": 576,
       "logo": "https://i.imgur.com/7orZOJA.png",
-      "epg": false
-    },
-    {
-      "name": "OTV (Латвия)",
-      "url": "http://88.212.7.14/live/otv/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://web02.antik.sk/assets/img/channels/5c4e6aadc3255df82fedf3221570cdb5.svg",
       "epg": true
     },
     {
-      "name": "OTV-Prim",
+      "name": "ОТВ-Прим",
       "url": "https://jz2lo90hnpy.a.trbcdn.net/livemaster/yo8gr_live-5gorrrfpouq.smil/playlist.m3u8",
       "ua": "Wink",
       "group": "🎭 Развлекательные",
       "height": 1080,
       "logo": "https://i.imgur.com/2zd8trG.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "Perviy Informationniy HD (1080p)",
+      "name": "Первый информационный HD",
       "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:informacionnyy.smil/playlist.m3u8",
       "ua": "TiviMate",
       "group": "📰 Новостные",
       "height": 1080,
       "logo": "https://i.imgur.com/eIiXRAI.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "Perviy Krymskiy (720p)",
+      "name": "Первый Крымский",
       "url": "https://live1.1tvcrimea.ru/1tvcrimea.m3u8",
       "ua": "Wink",
       "group": "📡 Федеральные",
       "height": 540,
       "logo": "https://i.imgur.com/i6hg7QG.png",
-      "epg": false
-    },
-    {
-      "name": "Pervyy gorodskoy. Odessa (576p)",
-      "url": "http://91.194.79.46:8081/stream2/channel2/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/8qdc6aO.png",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Pervyy Respublikanskiy",
@@ -5828,24 +2106,6 @@
       "group": "📦 Разное",
       "height": 720,
       "logo": "https://i.imgur.com/33XGMch.png",
-      "epg": true
-    },
-    {
-      "name": "general",
-      "url": "https://stream8.cinerama.uz/1431/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://cdn.qazaqstan.tv/qazaqstan.png?w=420&h=196&format=png&resize=aspectfill&g=centeralt=",
-      "epg": true
-    },
-    {
-      "name": "entertainment",
-      "url": "http://stream.mcquack.net/397/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/I0ZE0M4.png",
       "epg": true
     },
     {
@@ -5876,34 +2136,16 @@
       "epg": true
     },
     {
-      "name": "entertainment",
-      "url": "http://stream.mcquack.net/463/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://s2.vcdn.biz/static/f/7607683721/image.jpg/pt/c192x192x4",
-      "epg": true
-    },
-    {
-      "name": "entertainment",
-      "url": "http://stream.mcquack.net/464/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://s7.vcdn.biz/static/f/7607698621/image.jpg/pt/c192x192x4",
-      "epg": true
-    },
-    {
       "name": "RAZ 3 International",
       "url": "https://dash2.antik.sk/live/kvartal_tv/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "TiviMate",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Raz_3_%282026%29.png",
       "epg": false
     },
     {
-      "name": "Red Line (480p)",
+      "name": "Красная линия",
       "url": "http://s55766.cdn.ngenix.net/s55766-media-origin/rline_high/index.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
@@ -5921,15 +2163,6 @@
       "epg": true
     },
     {
-      "name": "RTR-Planeta (720p) [Geo-blocked]",
-      "url": "https://stream.smotrim.ru/hls/planeta_rtr_sng/playlist.m3u8?entity=channel&id=512&sign=2abaa592de074d65809a10b6bacc4410",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 240,
-      "logo": "https://i.imgur.com/0YEahxs.png",
-      "epg": false
-    },
-    {
       "name": "RTR-Planeta Asia",
       "url": "https://streaming.televizor-24-tochka.ru/live/211.m3u8",
       "ua": "HlsWinkPlayer",
@@ -5937,24 +2170,6 @@
       "height": 240,
       "logo": "https://i.imgur.com/0YEahxs.png",
       "epg": false
-    },
-    {
-      "name": "RTR-Planeta Europe (720p) [Geo-blocked]",
-      "url": "https://stream.smotrim.ru/hls/planeta_rtr_euro/playlist.m3u8?entity=channel&id=510&sign=5c0ac65d75140fac2fd938d77c92138d",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 240,
-      "logo": "https://i.imgur.com/0YEahxs.png",
-      "epg": false
-    },
-    {
-      "name": "RTVI США",
-      "url": "https://amg17233-amg17233c1-wisptv-us-6409.playouts.now.amagi.tv/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📡 Федеральные",
-      "height": 720,
-      "logo": "https://www.einpresswire.com/image/large/960869/logo-rtvi-us.png#676x536",
-      "epg": true
     },
     {
       "name": "S1 (1080p) [Not 24/7]",
@@ -5968,28 +2183,10 @@
     {
       "name": "Салям",
       "url": "https://bsttv.bonus-tv.ru/cdn/salyam/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "Wink",
       "group": "📦 Разное",
       "height": 576,
       "logo": "https://i.imgur.com/FfULLr1.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://stream.mcquack.net/234/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/zlJK7ca.png",
-      "epg": true
-    },
-    {
-      "name": "sports",
-      "url": "http://stream.mcquack.net/235/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/ouHunnK.png",
       "epg": true
     },
     {
@@ -6002,16 +2199,7 @@
       "epg": true
     },
     {
-      "name": "family",
-      "url": "https://stream8.cinerama.uz/1017/tracks-v1a1/playlist.m3u8",
-      "ua": "OTT",
-      "group": "🧸 Детские",
-      "height": 1080,
-      "logo": "https://i.imgur.com/iMwzRlr.png",
-      "epg": true
-    },
-    {
-      "name": "music",
+      "name": "Шансон ТВ",
       "url": "http://catchup.videoline.ru/shanson/index.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
@@ -6020,16 +2208,16 @@
       "epg": true
     },
     {
-      "name": "Shchyolkovskoe TV (576p) [Not 24/7]",
+      "name": "Щёлковское ТВ",
       "url": "http://stream0.tv41.ru/live.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://i.imgur.com/0us6l04.png",
-      "epg": false
+      "epg": true
     },
     {
-      "name": "movies",
+      "name": "Silk Way Cinema (1080p) [Geo-blocked]",
       "url": "https://stream.qazcdn.net/ex6r514/silkwaycinema/index.m3u8",
       "ua": "Wink",
       "group": "🎬 Кино",
@@ -6083,30 +2271,12 @@
       "epg": true
     },
     {
-      "name": "sports",
-      "url": "http://stream.mcquack.net/461/index.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/aBY7QK4.png",
-      "epg": true
-    },
-    {
       "name": "Телеканал Радио Страна ФМ",
       "url": "https://live-stranafm.cdnvideo.ru/stranafm/smil:stranafm.smil/playlist.m3u8",
       "ua": "Wink",
       "group": "🎵 Музыкальные",
       "height": 720,
       "logo": "https://i.imgur.com/WsPlKJJ.png",
-      "epg": true
-    },
-    {
-      "name": "Жара HD",
-      "url": "https://ctv.dc.beltelecom.by/ctv/ctv.stream/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 720,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%B1%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%C2%AB%D0%A1%D0%A2%D0%92%C2%BB.svg/960px-%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%B1%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%C2%AB%D0%A1%D0%A2%D0%92%C2%BB.svg.png",
       "epg": true
     },
     {
@@ -6128,39 +2298,12 @@
       "epg": false
     },
     {
-      "name": "Taraqqiyot TV",
-      "url": "https://stream8.cinerama.uz/1204/tracks-v1a1/mono.m3u8",
-      "ua": "OTT",
-      "group": "📡 Федеральные",
-      "height": 576,
-      "logo": "https://i.imgur.com/V3rtPEl.jpg",
-      "epg": false
-    },
-    {
       "name": "Таврия ТВ",
       "url": "https://streaming.televizor-24-tochka.ru/live/24.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 240,
       "logo": "https://i.imgur.com/gqung6i.png",
-      "epg": true
-    },
-    {
-      "name": "TBN Baltia (1080p)",
-      "url": "http://dc.tbnbaltia.eu:8088/dvr/rewind-21600.m3u8",
-      "ua": "Wink",
-      "group": "🙏 Религиозные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/rKBaK56.png",
-      "epg": false
-    },
-    {
-      "name": "ТДК 42",
-      "url": "https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 720,
-      "logo": "https://i.imgur.com/iVhdcS7.png",
       "epg": true
     },
     {
@@ -6175,20 +2318,11 @@
     {
       "name": "Telplus (360p) [Not 24/7]",
       "url": "https://streaming.astrakhan.ru/telplushd/playlist.m3u8",
-      "ua": "HlsWinkPlayer",
+      "ua": "TiviMate",
       "group": "📦 Разное",
       "height": 240,
       "logo": "https://i.imgur.com/1zbcZ3p.png",
       "epg": false
-    },
-    {
-      "name": "Терра",
-      "url": "http://stream.mcquack.net/402/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 576,
-      "logo": "https://i.imgur.com/HFY61gj.png",
-      "epg": true
     },
     {
       "name": "TKR (1080p) [Not 24/7]",
@@ -6200,66 +2334,12 @@
       "epg": false
     },
     {
-      "name": "TLC Россия",
-      "url": "http://stream.mcquack.net/168/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/960px-TLC_Logo.svg.png",
-      "epg": true
-    },
-    {
-      "name": "ТНТ",
-      "url": "http://stream.mcquack.net/135/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/T4A6rEI.png",
-      "epg": true
-    },
-    {
       "name": "Толк HD",
       "url": "http://live-tolknews.cdnvideo.ru/tolknews/stream/playlist.m3u8",
       "ua": "Wink",
       "group": "📰 Новостные",
       "height": 720,
       "logo": "https://i.imgur.com/l7JZ79P.png",
-      "epg": true
-    },
-    {
-      "name": "Trace Sport Stars Russia (720p)",
-      "url": "https://stream8.cinerama.uz/1274/tracks-v1a1/mono.m3u8",
-      "ua": "Wink",
-      "group": "⚽ Спорт",
-      "height": 1080,
-      "logo": "https://i.imgur.com/FabFP5A.png",
-      "epg": false
-    },
-    {
-      "name": "Travel Channel Европа HD",
-      "url": "http://stream.mcquack.net/231/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 1080,
-      "logo": "https://static.wikia.nocookie.net/logopedia/images/8/82/Travel_Channel_International.svg/revision/latest?cb=20191226223708",
-      "epg": true
-    },
-    {
-      "name": "Travelxp Russia (1080p)",
-      "url": "http://stream.mcquack.net/451/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🌍 Путешествия",
-      "height": 1080,
-      "logo": "https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_TRAVELXP/images/LOGO_HD/image.png",
-      "epg": false
-    },
-    {
-      "name": "Трофей",
-      "url": "http://stream.mcquack.net/357/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "Outdoor",
-      "height": 1080,
-      "logo": "https://i.imgur.com/VDt4mKB.png",
       "epg": true
     },
     {
@@ -6272,108 +2352,45 @@
       "epg": true
     },
     {
-      "name": "Turkmenistan (406p) [Not 24/7]",
-      "url": "https://alpha.tv.online.tm/hls/ch007.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 226,
-      "logo": "https://i.imgur.com/iBBpBx4.png",
-      "epg": false
-    },
-    {
-      "name": "TV Mana Russkiy (1080p)",
-      "url": "https://w1.manasat.com/tvmana-leste/smil:tvmana-leste.smil/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🙏 Религиозные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/fACHqmY.png",
-      "epg": false
-    },
-    {
-      "name": "TV Rain (1080p) [Geo-blocked]",
+      "name": "Дождь",
       "url": "https://wl.tvrain.tv/transcode/ngrp:ses_all/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Tvrain.svg/960px-Tvrain.svg.png",
-      "epg": false
-    },
-    {
-      "name": "ТВ3 Беларусь Belarus",
-      "url": "http://178.124.179.122:8080/TB-3/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "🎭 Развлекательные",
-      "height": 360,
-      "logo": "https://i.imgur.com/JLAvq8O.png",
       "epg": true
     },
     {
-      "name": "Твоё ТВ HD",
-      "url": "http://tvoetv.space:8080/tvoetv/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/kKAM7dP.png",
-      "epg": true
-    },
-    {
-      "name": "comedy",
-      "url": "http://tvoetv.space:8080/tvoetv_humor/index.m3u8",
-      "ua": "Wink",
-      "group": "🎭 Развлекательные",
-      "height": 1080,
-      "logo": "https://smotret.tv/images/tvoe-tv-yumor.webp",
-      "epg": true
-    },
-    {
-      "name": "TVRUS",
-      "url": "http://213.91.179.28:8000/play/a082",
+      "name": "TVK (Russia) (576p)",
+      "url": "https://air.tvk6.ru/tvk24/playlist.m3u8",
       "ua": "HlsWinkPlayer",
       "group": "📦 Разное",
-      "height": 0,
-      "logo": "https://i.imgur.com/2mJKi7g.png",
+      "height": 360,
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e7/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%A2%D0%92%D0%9A_%282015%29.png",
       "epg": false
     },
     {
-      "name": "Ugra-TV (1080p)",
+      "name": "Югра-ТВ",
       "url": "https://live-ugratv.cdnvideo.ru/ugratv/ugratv/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://i.imgur.com/561FRwI.png",
-      "epg": false
-    },
-    {
-      "name": "general",
-      "url": "https://ulytau.tv/hls/master.m3u8",
-      "ua": "Wink",
-      "group": "📡 Федеральные",
-      "height": 720,
-      "logo": "https://i.imgur.com/jTL6TvC.png",
       "epg": true
     },
     {
-      "name": "Unknown Russia (1080p)",
+      "name": "Неизвестная Россия",
       "url": "https://cdn.ntv.ru/unknown_russia/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 360,
       "logo": "https://i.imgur.com/W7ste2f.png",
-      "epg": false
-    },
-    {
-      "name": "UzReport TV (1080p)",
-      "url": "https://stream8.cinerama.uz/1015/tracks-v1a1/playlist.m3u8",
-      "ua": "Wink",
-      "group": "📰 Новостные",
-      "height": 1080,
-      "logo": "https://i.imgur.com/Bch2RHc.jpg",
-      "epg": false
+      "epg": true
     },
     {
       "name": "Vera 24",
       "url": "https://5f05e059699ae.streamlock.net/WEB_Vera24/ngrp:Vera24.stream-adaptive/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "🙏 Религиозные",
       "height": 720,
       "logo": "https://i.imgur.com/Qer5Lnh.png",
@@ -6389,48 +2406,12 @@
       "epg": true
     },
     {
-      "name": "Viasat Epic Drama Ukraine (576p)",
-      "url": "http://195.189.60.253/118/index.m3u8",
-      "ua": "HlsWinkPlayer",
-      "group": "📺 Сериалы",
-      "height": 576,
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Viasat_Epic_Drama_2026.svg",
-      "epg": false
-    },
-    {
-      "name": "Витебск",
-      "url": "http://46.53.200.153:7777/play/a00h/index.m3u8",
-      "ua": "Wink",
-      "group": "📦 Разное",
-      "height": 0,
-      "logo": "https://i.imgur.com/qr26qQn.png",
-      "epg": true
-    },
-    {
       "name": "Вместе-РФ",
       "url": "https://qcpdqumitwf.a.trbcdn.net/livemastersrt/pr4mw_lvie-vmesterf-srt.smil/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://i.imgur.com/KI1qZNc.png",
-      "epg": true
-    },
-    {
-      "name": "YaPervyy (1080p)",
-      "url": "https://yaroslavl.mediacdn.ru/cdn/pervyaroslavsk/playlist.m3u8",
-      "ua": "VLC",
-      "group": "📡 Федеральные",
-      "height": 1080,
-      "logo": "https://yarreg.ru/gallery/news/2025/03/293241/3.jpeg",
-      "epg": false
-    },
-    {
-      "name": "Ювелирочка",
-      "url": "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8",
-      "ua": "Wink",
-      "group": "🛒 Магазины",
-      "height": 1080,
-      "logo": "https://i.imgur.com/IcWtXCZ.png",
       "epg": true
     },
     {
@@ -6445,20 +2426,20 @@
     {
       "name": "Звезда HD",
       "url": "https://tvzvezda.bonus-tv.ru/cdn/tvzvezda/playlist.m3u8",
-      "ua": "Wink",
+      "ua": "HlsWinkPlayer",
       "group": "📡 Федеральные",
       "height": 720,
       "logo": "https://i.imgur.com/4PAcpfM.png",
       "epg": true
     },
     {
-      "name": "Zvezda Plus HD (1080p)",
+      "name": "Звезда Плюс HD",
       "url": "http://tvzvezda.bonus-tv.ru/cdn/zvezdaplus/playlist.m3u8",
       "ua": "Wink",
       "group": "📦 Разное",
       "height": 1080,
       "logo": "https://i.imgur.com/NNmjD9Z.png",
-      "epg": false
+      "epg": true
     }
   ]
 }

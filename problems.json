@@ -116,8 +116,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718726,
-  "last_ok_ts": 1793718726,
+  "last_ts": 1793740988,
+  "last_ok_ts": 1793740988,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -196,8 +196,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718729,
-  "last_ok_ts": 1793718729,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -226,8 +226,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718730,
-  "last_ok_ts": 1793718730,
+  "last_ts": 1793740994,
+  "last_ok_ts": 1793740994,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -236,8 +236,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718730,
-  "last_ok_ts": 1793718730,
+  "last_ts": 1793741037,
+  "last_ok_ts": 1793741037,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -332,12 +332,12 @@
   "last_fail_run": {}
  },
  "http://tshift-1.telecoma.tv/enisei/index.m3u8": {
-  "name": "Enisey (576p)",
+  "name": "Енисей",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718733,
-  "last_ok_ts": 1793718733,
+  "last_ts": 1793740997,
+  "last_ok_ts": 1793740997,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -346,8 +346,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718733,
-  "last_ok_ts": 1793718733,
+  "last_ts": 1793740997,
+  "last_ok_ts": 1793740997,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -366,8 +366,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718757,
-  "last_ok_ts": 1793718757,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -376,8 +376,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718733,
-  "last_ok_ts": 1793718733,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -386,8 +386,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718733,
-  "last_ok_ts": 1793718733,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -405,11 +405,13 @@
   "name": "Channel 8 (576p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718734,
-  "last_ok_ts": 1793718734,
+  "static_fails": 1,
+  "last_ts": 1793741052,
+  "last_ok_ts": 1793741052,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "https://stream8.cinerama.uz/1227/tracks-v1a1/mono.m3u8": {
   "name": "movies",
@@ -486,8 +488,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718736,
-  "last_ok_ts": 1793718736,
+  "last_ts": 1793741015,
+  "last_ok_ts": 1793741015,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -576,8 +578,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718739,
-  "last_ok_ts": 1793718739,
+  "last_ts": 1793741021,
+  "last_ok_ts": 1793741021,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -622,12 +624,12 @@
   "last_fail_run": {}
  },
  "https://balancer.facecast.io/evacoder_hls_hi/UUMLQVAYVlZyH14GRENQVV0G/2/720-3.m3u8": {
-  "name": "Groznyj",
+  "name": "Грозный",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718743,
-  "last_ok_ts": 1793718743,
+  "last_ts": 1793741021,
+  "last_ok_ts": 1793741021,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -662,17 +664,14 @@
   "last_fail_run": {}
  },
  "https://stream.afontovo.ru/hd.m3u8": {
-  "name": "Afontovo",
+  "name": "Афонтово",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718793,
-  "last_ok_ts": 1793718793,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741010,
+  "last_ok_ts": 1793741010,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://stream.mcquack.net/120/index.m3u8": {
   "name": "kids",
@@ -929,8 +928,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718752,
-  "last_ok_ts": 1793718752,
+  "last_ts": 1793740986,
+  "last_ok_ts": 1793740986,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1021,8 +1020,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718756,
-  "last_ok_ts": 1793718756,
+  "last_ts": 1793741003,
+  "last_ok_ts": 1793741003,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1037,12 +1036,12 @@
   "last_fail_run": {}
  },
  "https://stream.smotrim.ru/hls2/doverie/playlist_3.m3u8": {
-  "name": "Moskva. Doveriye (576p)",
+  "name": "Москва. Доверие",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718757,
-  "last_ok_ts": 1793718757,
+  "last_ts": 1793740998,
+  "last_ok_ts": 1793740998,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1119,15 +1118,12 @@
  "https://stream.smotrim.ru/hls2/givc9/playlist_4.m3u8": {
   "name": "Москва-24",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718794,
-  "last_ok_ts": 1793718794,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://stream.mcquack.net/369/index.m3u8": {
   "name": "Mosfilm Gold Collection (576p)",
@@ -1144,8 +1140,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718759,
-  "last_ok_ts": 1793718759,
+  "last_ts": 1793740998,
+  "last_ok_ts": 1793740998,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1154,8 +1150,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718759,
-  "last_ok_ts": 1793718759,
+  "last_ts": 1793741004,
+  "last_ok_ts": 1793741004,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1174,8 +1170,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718783,
-  "last_ok_ts": 1793718783,
+  "last_ts": 1793741082,
+  "last_ok_ts": 1793741082,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1254,8 +1250,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718761,
-  "last_ok_ts": 1793718761,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1324,8 +1320,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718764,
-  "last_ok_ts": 1793718764,
+  "last_ts": 1793740993,
+  "last_ok_ts": 1793740993,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1364,8 +1360,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718765,
-  "last_ok_ts": 1793718765,
+  "last_ts": 1793741004,
+  "last_ok_ts": 1793741004,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1484,8 +1480,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718767,
-  "last_ok_ts": 1793718767,
+  "last_ts": 1793740990,
+  "last_ok_ts": 1793740990,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1544,8 +1540,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718769,
-  "last_ok_ts": 1793718769,
+  "last_ts": 1793741046,
+  "last_ok_ts": 1793741046,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1584,8 +1580,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718771,
-  "last_ok_ts": 1793718771,
+  "last_ts": 1793741018,
+  "last_ok_ts": 1793741018,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1604,8 +1600,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718771,
-  "last_ok_ts": 1793718771,
+  "last_ts": 1793741005,
+  "last_ok_ts": 1793741005,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1614,18 +1610,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718771,
-  "last_ok_ts": 1793718771,
+  "last_ts": 1793740993,
+  "last_ok_ts": 1793740993,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://souzny.mediacdn.ru/cdn/souzny/playlist.m3u8": {
-  "name": "Soyuzny (576p)",
+  "name": "Союзный",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718771,
-  "last_ok_ts": 1793718771,
+  "last_ts": 1793741046,
+  "last_ok_ts": 1793741046,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1660,12 +1656,12 @@
   "last_fail_run": {}
  },
  "https://wisewatchoott.wiseplayout.com/RT/master.m3u8": {
-  "name": "news HD",
+  "name": "RT HD (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718772,
-  "last_ok_ts": 1793718772,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1684,8 +1680,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718772,
-  "last_ok_ts": 1793718772,
+  "last_ts": 1793741045,
+  "last_ok_ts": 1793741045,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1693,33 +1689,29 @@
   "name": "PRODеньги",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718813,
-  "last_ok_ts": 1793718813,
+  "static_fails": 0,
+  "last_ts": 1793740998,
+  "last_ok_ts": 1793740998,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://stream.smotrim.ru/hls2/radio_rus/playlist_4.m3u8": {
   "name": "Радио России HD",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718814,
-  "last_ok_ts": 1793718814,
+  "static_fails": 0,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://live-evg10.tv360.bitel.com.pe/bitel/rt/playlist.m3u8": {
   "name": "RT en Espanol (720p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718773,
-  "last_ok_ts": 1793718773,
+  "last_ts": 1793741007,
+  "last_ok_ts": 1793741007,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1728,8 +1720,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718792,
-  "last_ok_ts": 1793718792,
+  "last_ts": 1793740995,
+  "last_ok_ts": 1793740995,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1738,8 +1730,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718774,
-  "last_ok_ts": 1793718774,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1788,8 +1780,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718798,
-  "last_ok_ts": 1793718798,
+  "last_ts": 1793741004,
+  "last_ok_ts": 1793741004,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1828,8 +1820,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718776,
-  "last_ok_ts": 1793718776,
+  "last_ts": 1793741012,
+  "last_ok_ts": 1793741012,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1838,8 +1830,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718942,
-  "last_ok_ts": 1793718942,
+  "last_ts": 1793741101,
+  "last_ok_ts": 1793741101,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1918,8 +1910,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718780,
-  "last_ok_ts": 1793718780,
+  "last_ts": 1793741039,
+  "last_ok_ts": 1793741039,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1964,12 +1956,12 @@
   "last_fail_run": {}
  },
  "https://stream.smotrim.ru/hls2/russia_hd/playlist_6.m3u8": {
-  "name": "Russia-1 HD (1080p)",
+  "name": "Россия-1 HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718782,
-  "last_ok_ts": 1793718782,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -1984,12 +1976,12 @@
   "last_fail_run": {}
  },
  "http://catchup.videoline.ru/shanson/index.m3u8": {
-  "name": "music",
+  "name": "Шансон ТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718945,
-  "last_ok_ts": 1793718945,
+  "last_ts": 1793741096,
+  "last_ok_ts": 1793741096,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2028,18 +2020,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718783,
-  "last_ok_ts": 1793718783,
+  "last_ts": 1793740996,
+  "last_ok_ts": 1793740996,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://vod.tuva.ru/rusroman/index.m3u8": {
-  "name": "Russkiy roman (576p)",
+  "name": "Русский роман",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718783,
-  "last_ok_ts": 1793718783,
+  "last_ts": 1793741013,
+  "last_ok_ts": 1793741013,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2048,8 +2040,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718783,
-  "last_ok_ts": 1793718783,
+  "last_ts": 1793740992,
+  "last_ok_ts": 1793740992,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2074,22 +2066,22 @@
   "last_fail_run": {}
  },
  "https://streaming.thestream.cyou/live/7009.m3u8": {
-  "name": "music",
+  "name": "Шансон ТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718784,
-  "last_ok_ts": 1793718784,
+  "last_ts": 1793741051,
+  "last_ok_ts": 1793741051,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://stream.smotrim.ru/hls2/russia24nl_smotrim/playlist_5.m3u8": {
-  "name": "Russia-24 (720p)",
+  "name": "Россия-24",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718836,
-  "last_ok_ts": 1793718836,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2108,18 +2100,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718810,
-  "last_ok_ts": 1793718810,
+  "last_ts": 1793741026,
+  "last_ok_ts": 1793741026,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://stream.smotrim.ru/hls2/russia_k/playlist_5.m3u8": {
-  "name": "Russia-K HD (1080p)",
+  "name": "Россия-К HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718838,
-  "last_ok_ts": 1793718838,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2128,8 +2120,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718827,
-  "last_ok_ts": 1793718827,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2138,8 +2130,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718786,
-  "last_ok_ts": 1793718786,
+  "last_ts": 1793741011,
+  "last_ok_ts": 1793741011,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2148,8 +2140,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718787,
-  "last_ok_ts": 1793718787,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2168,8 +2160,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718787,
-  "last_ok_ts": 1793718787,
+  "last_ts": 1793740997,
+  "last_ok_ts": 1793740997,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2188,8 +2180,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718789,
-  "last_ok_ts": 1793718789,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2198,8 +2190,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718790,
-  "last_ok_ts": 1793718790,
+  "last_ts": 1793741019,
+  "last_ok_ts": 1793741019,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2208,8 +2200,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718790,
-  "last_ok_ts": 1793718790,
+  "last_ts": 1793741005,
+  "last_ok_ts": 1793741005,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2238,8 +2230,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718955,
-  "last_ok_ts": 1793718955,
+  "last_ts": 1793741106,
+  "last_ok_ts": 1793741106,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2268,8 +2260,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718838,
-  "last_ok_ts": 1793718838,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2288,8 +2280,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718815,
-  "last_ok_ts": 1793718815,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2298,8 +2290,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718816,
-  "last_ok_ts": 1793718816,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2314,12 +2306,12 @@
   "last_fail_run": {}
  },
  "https://songtv.hls.iptvdc.com/web-russia/playlist.m3u8": {
-  "name": "music",
+  "name": "SONGTV Russia",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718792,
-  "last_ok_ts": 1793718792,
+  "last_ts": 1793741008,
+  "last_ok_ts": 1793741008,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2328,18 +2320,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718792,
-  "last_ok_ts": 1793718792,
+  "last_ts": 1793741006,
+  "last_ok_ts": 1793741006,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://tv.mediacdn.ru/live/solntse/playlist.m3u8": {
-  "name": "Solnce (576p)",
+  "name": "Солнце",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718792,
-  "last_ok_ts": 1793718792,
+  "last_ts": 1793741009,
+  "last_ok_ts": 1793741009,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2348,8 +2340,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718792,
-  "last_ok_ts": 1793718792,
+  "last_ts": 1793741001,
+  "last_ok_ts": 1793741001,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2398,8 +2390,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718793,
-  "last_ok_ts": 1793718793,
+  "last_ts": 1793741007,
+  "last_ok_ts": 1793741007,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2458,8 +2450,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718796,
-  "last_ok_ts": 1793718796,
+  "last_ts": 1793741017,
+  "last_ok_ts": 1793741017,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2488,8 +2480,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718796,
-  "last_ok_ts": 1793718796,
+  "last_ts": 1793741018,
+  "last_ok_ts": 1793741018,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2548,8 +2540,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718799,
-  "last_ok_ts": 1793718799,
+  "last_ts": 1793741022,
+  "last_ok_ts": 1793741022,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2568,8 +2560,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718800,
-  "last_ok_ts": 1793718800,
+  "last_ts": 1793741008,
+  "last_ok_ts": 1793741008,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2588,8 +2580,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718817,
-  "last_ok_ts": 1793718817,
+  "last_ts": 1793741003,
+  "last_ok_ts": 1793741003,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2658,8 +2650,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718803,
-  "last_ok_ts": 1793718803,
+  "last_ts": 1793741002,
+  "last_ok_ts": 1793741002,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2678,8 +2670,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718827,
-  "last_ok_ts": 1793718827,
+  "last_ts": 1793741018,
+  "last_ok_ts": 1793741018,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2807,11 +2799,13 @@
   "name": "Вместе-РФ",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718809,
-  "last_ok_ts": 1793718809,
+  "static_fails": 1,
+  "last_ts": 1793741055,
+  "last_ok_ts": 1793741055,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "https://stream8.cinerama.uz/1228/tracks-v1a1/mono.m3u8": {
   "name": "documentary",
@@ -2838,8 +2832,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718972,
-  "last_ok_ts": 1793718972,
+  "last_ts": 1793741108,
+  "last_ok_ts": 1793741108,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2874,22 +2868,24 @@
   "last_fail_run": {}
  },
  "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8": {
-  "name": "Gubernia Samara (576p)",
+  "name": "Губерния",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718910,
-  "last_ok_ts": 1793718910,
+  "static_fails": 1,
+  "last_ts": 1793741115,
+  "last_ok_ts": 1793741115,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8": {
   "name": "Арис 24",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718907,
-  "last_ok_ts": 1793718907,
+  "last_ts": 1793741067,
+  "last_ok_ts": 1793741067,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2898,8 +2894,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718890,
-  "last_ok_ts": 1793718890,
+  "last_ts": 1793741065,
+  "last_ok_ts": 1793741065,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -2947,12 +2943,12 @@
   }
  },
  "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8": {
-  "name": "Big Asia (720p)",
+  "name": "Большая Азия",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718893,
-  "last_ok_ts": 1793718893,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3011,8 +3007,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718814,
-  "last_ok_ts": 1793718814,
+  "last_ts": 1793741019,
+  "last_ok_ts": 1793741019,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3033,28 +3029,28 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718815,
-  "last_ok_ts": 1793718815,
+  "last_ts": 1793741015,
+  "last_ok_ts": 1793741015,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://s55766.cdn.ngenix.net/s55766-media-origin/rline_high/index.m3u8": {
-  "name": "Red Line (480p)",
+  "name": "Красная линия",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718941,
-  "last_ok_ts": 1793718941,
+  "last_ts": 1793741091,
+  "last_ok_ts": 1793741091,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8": {
-  "name": "sports",
+  "name": "Астрахань спорт",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718896,
-  "last_ok_ts": 1793718896,
+  "last_ts": 1793741056,
+  "last_ok_ts": 1793741056,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3069,22 +3065,24 @@
   "last_fail_run": {}
  },
  "https://streaming.astrakhan.ru/astrakhan24/playlist.m3u8": {
-  "name": "Astrahan 24 (720p)",
+  "name": "Астрахань 24",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718896,
-  "last_ok_ts": 1793718896,
+  "static_fails": 1,
+  "last_ts": 1793741109,
+  "last_ok_ts": 1793741109,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "http://hls.volgograd1vtv.cdnvideo.ru/volgograd1vtv/volgograd1vtv.sdp/playlist.m3u8": {
   "name": "МТВ Волгоград",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718925,
-  "last_ok_ts": 1793718925,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3105,18 +3103,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718896,
-  "last_ok_ts": 1793718896,
+  "last_ts": 1793741103,
+  "last_ok_ts": 1793741103,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8": {
-  "name": "Izvestia (1080p)",
+  "name": "Известия",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718918,
-  "last_ok_ts": 1793718918,
+  "last_ts": 1793741079,
+  "last_ok_ts": 1793741079,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3125,8 +3123,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718818,
-  "last_ok_ts": 1793718818,
+  "last_ts": 1793741038,
+  "last_ok_ts": 1793741038,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3135,8 +3133,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718933,
-  "last_ok_ts": 1793718933,
+  "last_ts": 1793741108,
+  "last_ok_ts": 1793741108,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3145,8 +3143,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718906,
-  "last_ok_ts": 1793718906,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3155,8 +3153,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718925,
-  "last_ok_ts": 1793718925,
+  "last_ts": 1793741088,
+  "last_ok_ts": 1793741088,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3165,8 +3163,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718841,
-  "last_ok_ts": 1793718841,
+  "last_ts": 1793741027,
+  "last_ok_ts": 1793741027,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3175,8 +3173,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718979,
-  "last_ok_ts": 1793718979,
+  "last_ts": 1793741125,
+  "last_ok_ts": 1793741125,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3196,21 +3194,19 @@
   "name": "Надежда (720p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718857,
-  "last_ok_ts": 1793718857,
+  "static_fails": 0,
+  "last_ts": 1793741031,
+  "last_ok_ts": 1793741031,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz2/muzsoyuz.6fw0-58xp-acts-esy0/playlist.m3u8": {
-  "name": "music",
+  "name": "Muz Soyuz (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718932,
-  "last_ok_ts": 1793718932,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3219,42 +3215,38 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718821,
-  "last_ok_ts": 1793718821,
+  "last_ts": 1793741030,
+  "last_ok_ts": 1793741030,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8": {
-  "name": "Hope Channel Russia (720p)",
+  "name": "Надежда",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718960,
-  "last_ok_ts": 1793718960,
+  "static_fails": 0,
+  "last_ts": 1793741080,
+  "last_ok_ts": 1793741080,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://vod.tuva.ru/nauka2/index.m3u8": {
   "name": "Наука",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718861,
-  "last_ok_ts": 1793718861,
+  "static_fails": 0,
+  "last_ts": 1793741031,
+  "last_ok_ts": 1793741031,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://infochh.trkeurasia.ru/hlsinfoch/infochhd.m3u8": {
-  "name": "Eurasia (720p)",
+  "name": "Евразия",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718915,
-  "last_ok_ts": 1793718915,
+  "last_ts": 1793741079,
+  "last_ok_ts": 1793741079,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3263,8 +3255,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718823,
-  "last_ok_ts": 1793718823,
+  "last_ts": 1793741035,
+  "last_ok_ts": 1793741035,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3283,8 +3275,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718934,
-  "last_ok_ts": 1793718934,
+  "last_ts": 1793741094,
+  "last_ok_ts": 1793741094,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3303,8 +3295,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718966,
-  "last_ok_ts": 1793718966,
+  "last_ts": 1793741093,
+  "last_ok_ts": 1793741093,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3313,8 +3305,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718824,
-  "last_ok_ts": 1793718824,
+  "last_ts": 1793741026,
+  "last_ok_ts": 1793741026,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3323,8 +3315,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718940,
-  "last_ok_ts": 1793718940,
+  "last_ts": 1793741099,
+  "last_ok_ts": 1793741099,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3333,8 +3325,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718928,
-  "last_ok_ts": 1793718928,
+  "last_ts": 1793741089,
+  "last_ok_ts": 1793741089,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3343,8 +3335,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718825,
-  "last_ok_ts": 1793718825,
+  "last_ts": 1793741039,
+  "last_ok_ts": 1793741039,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3363,8 +3355,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718950,
-  "last_ok_ts": 1793718950,
+  "last_ts": 1793741107,
+  "last_ok_ts": 1793741107,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3373,18 +3365,18 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718940,
-  "last_ok_ts": 1793718940,
+  "last_ts": 1793741101,
+  "last_ok_ts": 1793741101,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://v4.proofix.ru/0mir/index.m3u8": {
-  "name": "Otkritiy mir. Zdorove (576p)",
+  "name": "Открытый мир. Здоровье",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718939,
-  "last_ok_ts": 1793718939,
+  "last_ts": 1793741097,
+  "last_ok_ts": 1793741097,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3403,8 +3395,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718827,
-  "last_ok_ts": 1793718827,
+  "last_ts": 1793741030,
+  "last_ok_ts": 1793741030,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3413,8 +3405,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718915,
-  "last_ok_ts": 1793718915,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3422,21 +3414,19 @@
   "name": "Govorit Moskva (720p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718957,
-  "last_ok_ts": 1793718957,
+  "static_fails": 0,
+  "last_ts": 1793741082,
+  "last_ok_ts": 1793741082,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8": {
   "name": "Союз",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718953,
-  "last_ok_ts": 1793718953,
+  "last_ts": 1793741108,
+  "last_ok_ts": 1793741108,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3455,8 +3445,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718949,
-  "last_ok_ts": 1793718949,
+  "last_ts": 1793741112,
+  "last_ok_ts": 1793741112,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3471,12 +3461,12 @@
   "last_fail_run": {}
  },
  "https://live1.1tvcrimea.ru/1tvcrimea.m3u8": {
-  "name": "Perviy Krymskiy (720p)",
+  "name": "Первый Крымский",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718940,
-  "last_ok_ts": 1793718940,
+  "last_ts": 1793741099,
+  "last_ok_ts": 1793741099,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3485,8 +3475,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718830,
-  "last_ok_ts": 1793718830,
+  "last_ts": 1793741039,
+  "last_ok_ts": 1793741039,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3495,8 +3485,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718953,
-  "last_ok_ts": 1793718953,
+  "last_ts": 1793741115,
+  "last_ok_ts": 1793741115,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3505,8 +3495,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718831,
-  "last_ok_ts": 1793718831,
+  "last_ts": 1793741036,
+  "last_ok_ts": 1793741036,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3525,8 +3515,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718831,
-  "last_ok_ts": 1793718831,
+  "last_ts": 1793741036,
+  "last_ok_ts": 1793741036,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3545,8 +3535,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718941,
-  "last_ok_ts": 1793718941,
+  "last_ts": 1793741096,
+  "last_ok_ts": 1793741096,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3565,8 +3555,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718954,
-  "last_ok_ts": 1793718954,
+  "last_ts": 1793741104,
+  "last_ok_ts": 1793741104,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3585,8 +3575,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718955,
-  "last_ok_ts": 1793718955,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3605,8 +3595,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718955,
-  "last_ok_ts": 1793718955,
+  "last_ts": 1793741103,
+  "last_ok_ts": 1793741103,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3615,8 +3605,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718953,
-  "last_ok_ts": 1793718953,
+  "last_ts": 1793741104,
+  "last_ok_ts": 1793741104,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3641,26 +3631,24 @@
   "last_fail_run": {}
  },
  "https://hls.tv.3angels.ru/stream.m3u8": {
-  "name": "3ABN Russia (720p)",
+  "name": "Три Ангела (720p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718894,
-  "last_ok_ts": 1793718894,
+  "last_ts": 1793741063,
+  "last_ok_ts": 1793741063,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/playlist.m3u8": {
-  "name": "Huzur TV (1080p) [Not 24/7]",
+  "name": "Хузур ТВ",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718954,
-  "last_ok_ts": 1793718954,
+  "static_fails": 0,
+  "last_ts": 1793741081,
+  "last_ok_ts": 1793741081,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://194.143.148.28:8080/Mir24/index.m3u8": {
   "name": "Тонус ТВ",
@@ -3733,12 +3721,12 @@
   "last_fail_run": {}
  },
  "http://flussonic.mkpnet.ru/tv-17540fb90079a865/video.m3u8": {
-  "name": "entertainment",
+  "name": "Дважды два",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718838,
-  "last_ok_ts": 1793718838,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3757,8 +3745,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718898,
-  "last_ok_ts": 1793718898,
+  "last_ts": 1793741068,
+  "last_ok_ts": 1793741068,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3767,8 +3755,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718839,
-  "last_ok_ts": 1793718839,
+  "last_ts": 1793741036,
+  "last_ok_ts": 1793741036,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3787,8 +3775,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718892,
-  "last_ok_ts": 1793718892,
+  "last_ts": 1793741082,
+  "last_ok_ts": 1793741082,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3803,12 +3791,12 @@
   "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/amedia-hit/index.m3u8": {
-  "name": "movies",
+  "name": "Amedia Hit (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718841,
-  "last_ok_ts": 1793718841,
+  "last_ts": 1793741042,
+  "last_ok_ts": 1793741042,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3827,11 +3815,11 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 1,
-  "last_ts": 1793718868,
-  "last_ok_ts": 1793718868,
+  "last_ts": 1793741091,
+  "last_ok_ts": 1793741091,
   "blocked_until": null,
   "last_fail_run": {
-   "static": 498255
+   "static": 498261
   }
  },
  "http://178.134.1.158:8081/TVXXI/index.m3u8": {
@@ -3849,8 +3837,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718842,
-  "last_ok_ts": 1793718842,
+  "last_ts": 1793741042,
+  "last_ok_ts": 1793741042,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3859,8 +3847,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718842,
-  "last_ok_ts": 1793718842,
+  "last_ts": 1793741047,
+  "last_ok_ts": 1793741047,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3868,41 +3856,39 @@
   "name": "TVK (Russia) (576p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718986,
-  "last_ok_ts": 1793718986,
+  "static_fails": 0,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/cinema/index.m3u8": {
-  "name": "movies",
+  "name": "Cinema (Russia) (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718902,
-  "last_ok_ts": 1793718902,
+  "last_ts": 1793741062,
+  "last_ok_ts": 1793741062,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/Pyatnica/index.m3u8": {
-  "name": "Friday! (576p)",
+  "name": "Пятница!",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718844,
-  "last_ok_ts": 1793718844,
+  "last_ts": 1793741043,
+  "last_ok_ts": 1793741043,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/tvc/index.m3u8": {
-  "name": "TV Centr (576p)",
+  "name": "ЦЕНТР",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718844,
-  "last_ok_ts": 1793718844,
+  "last_ts": 1793741048,
+  "last_ok_ts": 1793741048,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3910,13 +3896,11 @@
   "name": "ОТР",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718878,
-  "last_ok_ts": 1793718878,
+  "static_fails": 0,
+  "last_ts": 1793741058,
+  "last_ok_ts": 1793741058,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://stream.mcquack.net/314/index.m3u8": {
   "name": "Telecafe (576p)",
@@ -3933,8 +3917,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718845,
-  "last_ok_ts": 1793718845,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3943,8 +3927,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718846,
-  "last_ok_ts": 1793718846,
+  "last_ts": 1793741049,
+  "last_ok_ts": 1793741049,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3973,8 +3957,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718846,
-  "last_ok_ts": 1793718846,
+  "last_ts": 1793741046,
+  "last_ok_ts": 1793741046,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -3983,8 +3967,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718846,
-  "last_ok_ts": 1793718846,
+  "last_ts": 1793741045,
+  "last_ok_ts": 1793741045,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4033,8 +4017,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718848,
-  "last_ok_ts": 1793718848,
+  "last_ts": 1793741071,
+  "last_ok_ts": 1793741071,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4139,8 +4123,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718852,
-  "last_ok_ts": 1793718852,
+  "last_ts": 1793741054,
+  "last_ok_ts": 1793741054,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4195,12 +4179,12 @@
   "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/kino-tv/index.m3u8": {
-  "name": "movies",
+  "name": "КиноТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718853,
-  "last_ok_ts": 1793718853,
+  "last_ts": 1793741058,
+  "last_ok_ts": 1793741058,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4219,8 +4203,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718854,
-  "last_ok_ts": 1793718854,
+  "last_ts": 1793741046,
+  "last_ok_ts": 1793741046,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4235,12 +4219,12 @@
   "last_fail_run": {}
  },
  "https://live.smotrim.ru/vgtrk/0/kultura-hd/index.m3u8": {
-  "name": "Russia-K HD (1080p)",
+  "name": "Россия-К HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718855,
-  "last_ok_ts": 1793718855,
+  "last_ts": 1793741092,
+  "last_ok_ts": 1793741092,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4269,8 +4253,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718855,
-  "last_ok_ts": 1793718855,
+  "last_ts": 1793741049,
+  "last_ok_ts": 1793741049,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4285,12 +4269,12 @@
   "last_fail_run": {}
  },
  "http://tv.tuva.ru/machtv/index.m3u8": {
-  "name": "sports 4K",
+  "name": "Match! Ultra (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718856,
-  "last_ok_ts": 1793718856,
+  "last_ts": 1793741053,
+  "last_ok_ts": 1793741053,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4325,12 +4309,12 @@
   "last_fail_run": {}
  },
  "http://stream0.tv41.ru/live.m3u8": {
-  "name": "Shchyolkovskoe TV (576p) [Not 24/7]",
+  "name": "Щёлковское ТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718973,
-  "last_ok_ts": 1793718973,
+  "last_ts": 1793741112,
+  "last_ok_ts": 1793741112,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4365,22 +4349,22 @@
   "last_fail_run": {}
  },
  "https://live.smotrim.ru/vgtrk/0/russia1-hd/index.m3u8": {
-  "name": "Russia-1 HD (1080p)",
+  "name": "Россия-1 HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718860,
-  "last_ok_ts": 1793718860,
+  "last_ts": 1793741059,
+  "last_ok_ts": 1793741059,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://flussonic.linkintel.ru/match/index.m3u8": {
-  "name": "sports 4K",
+  "name": "Match! Ultra (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718860,
-  "last_ok_ts": 1793718860,
+  "last_ts": 1793741048,
+  "last_ok_ts": 1793741048,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4395,12 +4379,12 @@
   "last_fail_run": {}
  },
  "https://live.smotrim.ru/vgtrk/0/russia24-hd/index.m3u8": {
-  "name": "Russia-24 HD (1080p)",
+  "name": "Россия-24 HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718861,
-  "last_ok_ts": 1793718861,
+  "last_ts": 1793741059,
+  "last_ok_ts": 1793741059,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4499,8 +4483,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718864,
-  "last_ok_ts": 1793718864,
+  "last_ts": 1793741049,
+  "last_ok_ts": 1793741049,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4509,8 +4493,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718865,
-  "last_ok_ts": 1793718865,
+  "last_ts": 1793741082,
+  "last_ok_ts": 1793741082,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4595,12 +4579,12 @@
   "last_fail_run": {}
  },
  "http://dmi3y-tv.online/hls/smotrim/T2/CH_RUSSIA24_INT.m3u8": {
-  "name": "Russia-24",
+  "name": "Россия-24",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718888,
-  "last_ok_ts": 1793718888,
+  "last_ts": 1793741060,
+  "last_ok_ts": 1793741060,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -4759,15 +4743,12 @@
  "http://dmi3y-tv.online/hls/zabava/region/MAYK/CH_MAYKOP.m3u8": {
   "name": "Кубань 24 MaikopskoyeTelevidenie",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718912,
-  "last_ok_ts": 1793718912,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741066,
+  "last_ok_ts": 1793741066,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://31.148.5.241/kanal_9/index.m3u8": {
   "name": "ОТР",
@@ -5024,8 +5005,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718929,
-  "last_ok_ts": 1793718929,
+  "last_ts": 1793741065,
+  "last_ok_ts": 1793741065,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5090,12 +5071,12 @@
   "last_fail_run": {}
  },
  "https://live20.bozztv.com/akamaissh101/ssh101/vivarussia/playlist.m3u8": {
-  "name": "music",
+  "name": "VIVA Russia",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718880,
-  "last_ok_ts": 1793718880,
+  "last_ts": 1793741062,
+  "last_ok_ts": 1793741062,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5154,8 +5135,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718906,
-  "last_ok_ts": 1793718906,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5392,16 +5373,14 @@
   "last_fail_run": {}
  },
  "https://live-minidey.cdnvideo.ru/minidey-srt/minidey/playlist.m3u8": {
-  "name": "Ministerstvo idey (1080p)",
+  "name": "Министерство идей",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718933,
-  "last_ok_ts": 1793718933,
+  "static_fails": 0,
+  "last_ts": 1793741058,
+  "last_ok_ts": 1793741058,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://janya-digimix.akamaized.net/vglive-sk-955415/russia/ngrp:angelrussia_all/playlist.m3u8": {
   "name": "Angel TV Russian (720p)",
@@ -5438,21 +5417,21 @@
   "black_fails": 0,
   "silent_fails": 1,
   "static_fails": 1,
-  "last_ts": 1793718939,
-  "last_ok_ts": 1793718939,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
   "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
+   "silent": 498261,
+   "static": 498261
   }
  },
  "https://live.smotrim.ru/vgtrk/0/russia24-hd/1080p.m3u8": {
-  "name": "Russia-24 HD (1080p)",
+  "name": "Россия-24 HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718894,
-  "last_ok_ts": 1793718894,
+  "last_ts": 1793741064,
+  "last_ok_ts": 1793741064,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5487,12 +5466,12 @@
   "last_fail_run": {}
  },
  "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/playlist.m3u8": {
-  "name": "360° News (1080p)",
+  "name": "360° Новости",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718895,
-  "last_ok_ts": 1793718895,
+  "last_ts": 1793741066,
+  "last_ok_ts": 1793741066,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5551,8 +5530,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718900,
-  "last_ok_ts": 1793718900,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5577,12 +5556,12 @@
   "last_fail_run": {}
  },
  "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8": {
-  "name": "movies Russia",
+  "name": "Bollywood HD Russia (576p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718901,
-  "last_ok_ts": 1793718901,
+  "last_ts": 1793741100,
+  "last_ok_ts": 1793741100,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5591,8 +5570,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718901,
-  "last_ok_ts": 1793718901,
+  "last_ts": 1793741068,
+  "last_ok_ts": 1793741068,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5601,8 +5580,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718921,
-  "last_ok_ts": 1793718921,
+  "last_ts": 1793741069,
+  "last_ok_ts": 1793741069,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5611,8 +5590,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718904,
-  "last_ok_ts": 1793718904,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5621,8 +5600,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718904,
-  "last_ok_ts": 1793718904,
+  "last_ts": 1793741070,
+  "last_ok_ts": 1793741070,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5637,22 +5616,24 @@
   "last_fail_run": {}
  },
  "https://dwamdstream110.akamaized.net/hls/live/2017971/dwstream110/master.m3u8": {
-  "name": "news Russian",
+  "name": "DW Russian (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718906,
-  "last_ok_ts": 1793718906,
+  "static_fails": 1,
+  "last_ts": 1793741109,
+  "last_ok_ts": 1793741109,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "https://ext.cdn.nashnet.tv/228.0.0.136/index.m3u8": {
   "name": "Black Sea TV",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718906,
-  "last_ok_ts": 1793718906,
+  "last_ts": 1793741070,
+  "last_ok_ts": 1793741070,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5661,8 +5642,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718906,
-  "last_ok_ts": 1793718906,
+  "last_ts": 1793741060,
+  "last_ok_ts": 1793741060,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5689,12 +5670,12 @@
   "last_fail_run": {}
  },
  "https://rfe-ingest.akamaized.net/hls/live/2033043/tvmc05/master.m3u8": {
-  "name": "Current Time TV (1080p)",
+  "name": "Настоящее Время",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718907,
-  "last_ok_ts": 1793718907,
+  "last_ts": 1793741071,
+  "last_ok_ts": 1793741071,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5703,23 +5684,20 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718950,
-  "last_ok_ts": 1793718950,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://sb.err.ee/live/etvpluss.m3u8": {
   "name": "ETV+ (720p)",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718945,
-  "last_ok_ts": 1793718945,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741077,
+  "last_ok_ts": 1793741077,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://178.124.179.122:8080/BT5/index.m3u8": {
   "name": "Беларусь 5 HD HD",
@@ -5736,8 +5714,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718910,
-  "last_ok_ts": 1793718910,
+  "last_ts": 1793741066,
+  "last_ok_ts": 1793741066,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5755,21 +5733,19 @@
   "name": "FreeДОМ",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718946,
-  "last_ok_ts": 1793718946,
+  "static_fails": 0,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://gcmx3v3owcj.a.trbcdn.net/livemaster/ba7pu_fgej0zelpw.smil/playlist.m3u8?blstid=null": {
   "name": "Apsua TV",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718911,
-  "last_ok_ts": 1793718911,
+  "last_ts": 1793741076,
+  "last_ok_ts": 1793741076,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5797,11 +5773,13 @@
   "name": "Eurosport 2 Russia (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718912,
-  "last_ok_ts": 1793718912,
+  "static_fails": 1,
+  "last_ts": 1793741117,
+  "last_ok_ts": 1793741117,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "static": 498261
+  }
  },
  "https://cityeden.catcast.tv/content/47400/index.m3u8": {
   "name": "music HD",
@@ -5828,28 +5806,28 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718952,
-  "last_ok_ts": 1793718952,
+  "last_ts": 1793741073,
+  "last_ok_ts": 1793741073,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://rtmp.one.by:1300": {
-  "name": "music",
+  "name": "Первый Музыкальный Канал",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718915,
-  "last_ok_ts": 1793718915,
+  "last_ts": 1793741073,
+  "last_ok_ts": 1793741073,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "http://kino-1.catcast.tv/content/38617/index.m3u8": {
-  "name": "movies International",
+  "name": "Kino 1 (Russia) [Not 24/7]",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718915,
-  "last_ok_ts": 1793718915,
+  "last_ts": 1793741072,
+  "last_ok_ts": 1793741072,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5864,22 +5842,22 @@
   "last_fail_run": {}
  },
  "http://rtmp.one.by:2300": {
-  "name": "music",
+  "name": "First Music Channel Russia (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718916,
-  "last_ok_ts": 1793718916,
+  "last_ts": 1793741073,
+  "last_ok_ts": 1793741073,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://aegis-cloudfront-1.tubi.video/6d6d0f24-8445-4b4c-bdf6-44f9e38beaa4/playlist.m3u8": {
-  "name": "outdoor",
+  "name": "Love Nature (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718916,
-  "last_ok_ts": 1793718916,
+  "last_ts": 1793741089,
+  "last_ok_ts": 1793741089,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -5996,12 +5974,12 @@
   "last_fail_run": {}
  },
  "https://hitfm.nfthost.net/hls/hitfm/live_all/playlist.m3u8": {
-  "name": "music",
+  "name": "Hit FM",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718919,
-  "last_ok_ts": 1793718919,
+  "last_ts": 1793741079,
+  "last_ok_ts": 1793741079,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6010,8 +5988,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718919,
-  "last_ok_ts": 1793718919,
+  "last_ts": 1793741086,
+  "last_ok_ts": 1793741086,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6046,12 +6024,12 @@
   "last_fail_run": {}
  },
  "https://streams2.sofast.tv/vglive-sk-462904/playlist.m3u8": {
-  "name": "sports",
+  "name": "MMA-TV.com (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718921,
-  "last_ok_ts": 1793718921,
+  "last_ts": 1793741075,
+  "last_ok_ts": 1793741075,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6096,12 +6074,12 @@
   "last_fail_run": {}
  },
  "https://bsttv.bonus-tv.ru/cdn/kurai/playlist.m3u8": {
-  "name": "Kuraj-TV (576p)",
+  "name": "Курай-ТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718922,
-  "last_ok_ts": 1793718922,
+  "last_ts": 1793741079,
+  "last_ok_ts": 1793741079,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6109,26 +6087,21 @@
   "name": "Крик-ТВ",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793718966,
-  "last_ok_ts": 1793718966,
+  "static_fails": 0,
+  "last_ts": 1793741084,
+  "last_ok_ts": 1793741084,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://rt-sth-krdar-htlive.cdn.ngenix.net/hls/CH_R04_KUBAN24/variant.m3u8": {
   "name": "Кубань 24",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718966,
-  "last_ok_ts": 1793718966,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://stream.mcquack.net/403/index.m3u8": {
   "name": "Наука",
@@ -6151,12 +6124,12 @@
   "last_fail_run": {}
  },
  "https://stream.qazcdn.net/ex6r514/jjtv/playlist.m3u8": {
-  "name": "general HD",
+  "name": "Jibek Joly HD (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718926,
-  "last_ok_ts": 1793718926,
+  "last_ts": 1793741079,
+  "last_ok_ts": 1793741079,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6203,12 +6176,12 @@
   "last_fail_run": {}
  },
  "https://kino-1.catcast.tv/content/37739/index.m3u8": {
-  "name": "Muzyka Kino [Not 24/7]",
+  "name": "Музыка Кино International",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718964,
-  "last_ok_ts": 1793718964,
+  "last_ts": 1793741084,
+  "last_ok_ts": 1793741084,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6223,12 +6196,12 @@
   "last_fail_run": {}
  },
  "https://kino-1.catcast.tv/content/37745/index.m3u8": {
-  "name": "Muzyka 1 [Not 24/7]",
+  "name": "Музыка 1 International",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718931,
-  "last_ok_ts": 1793718931,
+  "last_ts": 1793741083,
+  "last_ok_ts": 1793741083,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6253,12 +6226,12 @@
   "last_fail_run": {}
  },
  "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8": {
-  "name": "outdoor HD",
+  "name": "Love Nature HD (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718932,
-  "last_ok_ts": 1793718932,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6277,8 +6250,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718933,
-  "last_ok_ts": 1793718933,
+  "last_ts": 1793741125,
+  "last_ok_ts": 1793741125,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6287,8 +6260,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718934,
-  "last_ok_ts": 1793718934,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6297,8 +6270,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718935,
-  "last_ok_ts": 1793718935,
+  "last_ts": 1793741111,
+  "last_ok_ts": 1793741111,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6307,8 +6280,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718935,
-  "last_ok_ts": 1793718935,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6323,12 +6296,12 @@
   "last_fail_run": {}
  },
  "https://cdn.ntv.ru/th_style/playlist.m3u8": {
-  "name": "NTV Style (576p)",
+  "name": "НТВ Стиль",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718935,
-  "last_ok_ts": 1793718935,
+  "last_ts": 1793741090,
+  "last_ok_ts": 1793741090,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6357,8 +6330,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718936,
-  "last_ok_ts": 1793718936,
+  "last_ts": 1793741088,
+  "last_ok_ts": 1793741088,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6373,17 +6346,14 @@
   "last_fail_run": {}
  },
  "https://rt-nw-novg-htlive.cdn.ngenix.net/hls/CH_R02_NOVGORODTV/variant.m3u8": {
-  "name": "NovgorOblTV [Geo-blocked]",
+  "name": "Новгородское областное телевидение HD",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718970,
-  "last_ok_ts": 1793718970,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741095,
+  "last_ok_ts": 1793741095,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "http://88.212.7.14/live/otv/playlist.m3u8": {
   "name": "OTV (Латвия)",
@@ -6408,23 +6378,20 @@
  "https://s97982.cdn.ngenix.net/hls/CH_R79_OTT_DV_HVSK_NTK/variant.m3u8": {
   "name": "NTK 21 [Geo-blocked]",
   "black_fails": 0,
-  "silent_fails": 1,
-  "static_fails": 1,
-  "last_ts": 1793718971,
-  "last_ok_ts": 1793718971,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741094,
+  "last_ok_ts": 1793741094,
   "blocked_until": null,
-  "last_fail_run": {
-   "silent": 498255,
-   "static": 498255
-  }
+  "last_fail_run": {}
  },
  "https://cdn.ntv.ru/th_pravo/playlist.m3u8": {
-  "name": "NTV Law (576p)",
+  "name": "НТВ Право",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718960,
-  "last_ok_ts": 1793718960,
+  "last_ts": 1793741087,
+  "last_ok_ts": 1793741087,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6463,8 +6430,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718941,
-  "last_ok_ts": 1793718941,
+  "last_ts": 1793741102,
+  "last_ok_ts": 1793741102,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6479,12 +6446,12 @@
   "last_fail_run": {}
  },
  "https://jz2lo90hnpy.a.trbcdn.net/livemaster/yo8gr_live-5gorrrfpouq.smil/playlist.m3u8": {
-  "name": "OTV-Prim",
+  "name": "ОТВ-Прим",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718941,
-  "last_ok_ts": 1793718941,
+  "last_ts": 1793741099,
+  "last_ok_ts": 1793741099,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6499,12 +6466,12 @@
   "last_fail_run": {}
  },
  "https://ngtrk.dc.beltelecom.by/ngtrk/smil:informacionnyy.smil/playlist.m3u8": {
-  "name": "Perviy Informationniy HD (1080p)",
+  "name": "Первый информационный HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718942,
-  "last_ok_ts": 1793718942,
+  "last_ts": 1793741101,
+  "last_ok_ts": 1793741101,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6513,20 +6480,20 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 1,
-  "last_ts": 1793718969,
-  "last_ok_ts": 1793718969,
+  "last_ts": 1793741118,
+  "last_ok_ts": 1793741118,
   "blocked_until": null,
   "last_fail_run": {
-   "static": 498255
+   "static": 498261
   }
  },
  "https://hlspackager.akamaized.net/live/DB/SILKWAY/SILKWAY/SILKWAY.m3u8": {
-  "name": "general",
+  "name": "Silk Way (1080p)",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718963,
-  "last_ok_ts": 1793718963,
+  "last_ts": 1793741117,
+  "last_ok_ts": 1793741117,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6555,8 +6522,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718945,
-  "last_ok_ts": 1793718945,
+  "last_ts": 1793741103,
+  "last_ok_ts": 1793741103,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6565,8 +6532,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718945,
-  "last_ok_ts": 1793718945,
+  "last_ts": 1793741100,
+  "last_ok_ts": 1793741100,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6575,8 +6542,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718965,
-  "last_ok_ts": 1793718965,
+  "last_ts": 1793741117,
+  "last_ok_ts": 1793741117,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6595,8 +6562,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718948,
-  "last_ok_ts": 1793718948,
+  "last_ts": 1793741098,
+  "last_ok_ts": 1793741098,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6615,8 +6582,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718948,
-  "last_ok_ts": 1793718948,
+  "last_ts": 1793741097,
+  "last_ok_ts": 1793741097,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6625,8 +6592,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718949,
-  "last_ok_ts": 1793718949,
+  "last_ts": 1793741103,
+  "last_ok_ts": 1793741103,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6645,8 +6612,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718953,
-  "last_ok_ts": 1793718953,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6681,22 +6648,22 @@
   "last_fail_run": {}
  },
  "https://stream.qazcdn.net/ex6r514/silkwaycinema/index.m3u8": {
-  "name": "movies",
+  "name": "Silk Way Cinema (1080p) [Geo-blocked]",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718955,
-  "last_ok_ts": 1793718955,
+  "last_ts": 1793741102,
+  "last_ok_ts": 1793741102,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://wl.tvrain.tv/transcode/ngrp:ses_all/playlist.m3u8": {
-  "name": "TV Rain (1080p) [Geo-blocked]",
+  "name": "Дождь",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718956,
-  "last_ok_ts": 1793718956,
+  "last_ts": 1793741116,
+  "last_ok_ts": 1793741116,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6715,8 +6682,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718957,
-  "last_ok_ts": 1793718957,
+  "last_ts": 1793741109,
+  "last_ok_ts": 1793741109,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6735,8 +6702,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718957,
-  "last_ok_ts": 1793718957,
+  "last_ts": 1793741114,
+  "last_ok_ts": 1793741114,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6745,8 +6712,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718958,
-  "last_ok_ts": 1793718958,
+  "last_ts": 1793741111,
+  "last_ok_ts": 1793741111,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6765,8 +6732,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718959,
-  "last_ok_ts": 1793718959,
+  "last_ts": 1793741111,
+  "last_ok_ts": 1793741111,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6831,22 +6798,22 @@
   "last_fail_run": {}
  },
  "https://cdn.ntv.ru/unknown_russia/playlist.m3u8": {
-  "name": "Unknown Russia (1080p)",
+  "name": "Неизвестная Россия",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718962,
-  "last_ok_ts": 1793718962,
+  "last_ts": 1793741107,
+  "last_ok_ts": 1793741107,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://live-ugratv.cdnvideo.ru/ugratv/ugratv/playlist.m3u8": {
-  "name": "Ugra-TV (1080p)",
+  "name": "Югра-ТВ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718963,
-  "last_ok_ts": 1793718963,
+  "last_ts": 1793741117,
+  "last_ok_ts": 1793741117,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6907,12 +6874,12 @@
   }
  },
  "http://tvzvezda.bonus-tv.ru/cdn/zvezdaplus/playlist.m3u8": {
-  "name": "Zvezda Plus HD (1080p)",
+  "name": "Звезда Плюс HD",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718965,
-  "last_ok_ts": 1793718965,
+  "last_ts": 1793741118,
+  "last_ok_ts": 1793741118,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6921,8 +6888,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718965,
-  "last_ok_ts": 1793718965,
+  "last_ts": 1793741105,
+  "last_ok_ts": 1793741105,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6931,8 +6898,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718966,
-  "last_ok_ts": 1793718966,
+  "last_ts": 1793741123,
+  "last_ok_ts": 1793741123,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6961,28 +6928,31 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718968,
-  "last_ok_ts": 1793718968,
+  "last_ts": 1793741116,
+  "last_ok_ts": 1793741116,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://ulytau.tv/hls/master.m3u8": {
-  "name": "general",
+  "name": "Ulytau",
   "black_fails": 0,
-  "silent_fails": 0,
-  "static_fails": 0,
-  "last_ts": 1793718968,
-  "last_ok_ts": 1793718968,
+  "silent_fails": 1,
+  "static_fails": 1,
+  "last_ts": 1793741131,
+  "last_ok_ts": 1793741131,
   "blocked_until": null,
-  "last_fail_run": {}
+  "last_fail_run": {
+   "silent": 498261,
+   "static": 498261
+  }
  },
  "https://qcpdqumitwf.a.trbcdn.net/livemastersrt/pr4mw_lvie-vmesterf-srt.smil/playlist.m3u8": {
   "name": "Вместе-РФ",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718968,
-  "last_ok_ts": 1793718968,
+  "last_ts": 1793741118,
+  "last_ok_ts": 1793741118,
   "blocked_until": null,
   "last_fail_run": {}
  },
@@ -6991,18 +6961,40 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718971,
-  "last_ok_ts": 1793718971,
+  "last_ts": 1793741110,
+  "last_ok_ts": 1793741110,
   "blocked_until": null,
   "last_fail_run": {}
  },
  "https://yaroslavl.mediacdn.ru/cdn/pervyaroslavsk/playlist.m3u8": {
-  "name": "YaPervyy (1080p)",
+  "name": "ЯПервый HD",
+  "black_fails": 0,
+  "silent_fails": 0,
+  "static_fails": 1,
+  "last_ts": 1793741154,
+  "last_ok_ts": 1793741154,
+  "blocked_until": null,
+  "last_fail_run": {
+   "static": 498261
+  }
+ },
+ "https://live-3.otcnet.ru/sportivny/index.m3u8": {
+  "name": "Спортивный",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793718997,
-  "last_ok_ts": 1793718997,
+  "last_ts": 1793741023,
+  "last_ok_ts": 1793741023,
+  "blocked_until": null,
+  "last_fail_run": {}
+ },
+ "https://osir.mediacdn.ru/cdn/osetia/playlist.m3u8": {
+  "name": "Осетия-Ирыстон",
+  "black_fails": 0,
+  "silent_fails": 0,
+  "static_fails": 0,
+  "last_ts": 1793741117,
+  "last_ok_ts": 1793741117,
   "blocked_until": null,
   "last_fail_run": {}
  }
