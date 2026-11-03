@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v3.5 — full filters + quality + EPG."""
+"""Raw Stream Checker v4.1 — auto-learning cascade classifier, quality, EPG."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -10,6 +10,7 @@ from difflib import SequenceMatcher
 import xml.etree.ElementTree as ET
 import concurrent.futures
 import aiohttp
+from rapidfuzz import fuzz, process
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"; DATA.mkdir(exist_ok=True)
@@ -88,115 +89,84 @@ def is_junk(u):
     return False
 
 # ---------- КОНТЕНТ-ФИЛЬТР ----------
-BAD_GROUPS = [
-    "kids", "детск", "children", "cartoon", "мульт", "шопинг",
-    "shop", "магазин", "ювелир", "adult", "18+",
-    "regional", "региональн",
-]
-BAD_TLD = [".ua", ".lv", ".lt", ".ee", ".kz", ".uz", ".by", ".az",
-           ".am", ".ge", ".md", ".kg", ".tj", ".tm", ".pt",
-           ".pl", ".cz", ".sk", ".hu", ".ro", ".bg", ".rs", ".hr",
-           ".de", ".fr", ".it", ".es", ".gb", ".uk", ".us", ".ca"]
+BAD_GROUPS = ["kids","детск","children","cartoon","мульт","шопинг","shop","магазин","ювелир","adult","18+","regional","региональн"]
+BAD_TLD = [".ua",".lv",".lt",".ee",".kz",".uz",".by",".az",".am",".ge",".md",".kg",".tj",".tm",".pt",".pl",".cz",".sk",".hu",".ro",".bg",".rs",".hr",".de",".fr",".it",".es",".gb",".uk",".us",".ca"]
 BAD_WORDS = [
-    "детск", "kids", "child", "cartoon", "мульт", "карусель", "carousel",
-    "в гостях у сказки", "капитан фантастика", "мама тв", "супергерои",
-    "тооку", "тижи", "tiji", "gulli", "baby", "disney", "nick jr",
-    "nicktoons", "jimjam", "мультиландия", "радость моя", "рыжий",
-    "ниндзя", "черепашки", "смешарик", "фиксики",
-    "украин", "ukrain", "україн", "новий канал", "новий", "ictv", "1+1",
-    "2+2", "стб", "тет", "плюс плюс", "plusplus", "нло", "5 канал украина",
-    "прямий", "еспресо", "рада", "freeдом", "майдан", "громад", "галичина",
-    "нтн", "мега", "к1", "к2", "zoom украина", "интер", "inter", "iнтер",
-    "112 украина", "112.ua", "newsone", "ziq", "ukraine", "ukrainian",
-    "беларус", "belarus", "беларусь 1", "беларусь 2", "беларусь 3",
-    "беларусь 4", "беларусь 5", "беларусь 24", "витебск", "гомель",
-    "казах", "kazakh", "qazaq", "jibek", "joly", "mtrk", "silk way",
-    "ulytau", "хабар", "khabar", "ktk", "31 канал", "qazsport", "kazsport",
-    "астана", "astana tv", "первый канал евразия", "channel one eurasia",
-    "узбек", "uzbek", "uzreport", "dasturxon",
-    "киргиз", "kyrgyz", "таджик", "tajik", "туркмен", "turkmen",
-    "армени", "armenia", "h1 армения", "kentron", "shant", "imedi",
-    "rustavi", "gpbc", "азерб", "azerbaijan", "aztv", "itv azerbaijan",
-    "латви", "latvia", "ltv", "эстон", "estonia", "err", "литв",
-    "lithuania", "lrt", "otv латвия", "tbn baltia",
-    "молдов", "moldova", "trm", "prime tv moldova",
-    "rtvi", "russian america", "rt balkan", "rt en espanol",
-    "rt español", "europe", "europa", "european", "international",
-    "cis", "asia", "america", "israel", "channel 9 israel",
-    "областное", "краевое", "городской", "городская", "области",
-    "республики", "края",
-    "shop", "магазин", "ювелир", "leomax", "magnat", "top shop",
-    "нтв витрина", "teleshop",
-    "city eden", "сити эдем", "svoboda", "свобода", "univer",
-    "vitrina", "zoopark", "зоопарк", "doctor", "home 4k", "moy mir",
-    "test", "demo", "promo", "sample",
+    "детск","kids","child","cartoon","мульт","карусель","carousel","в гостях у сказки",
+    "капитан фантастика","мама тв","супергерои","тооку","тижи","tiji","gulli","baby",
+    "disney","nick jr","nicktoons","jimjam","мультиландия","радость моя","рыжий","ниндзя",
+    "черепашки","смешарик","фиксики",
+    "украин","ukrain","україн","новий канал","новий","ictv","1+1","2+2","стб","тет",
+    "плюс плюс","plusplus","нло","прямий","еспресо","рада","freeдом","майдан","громад",
+    "галичина","нтн","мега","к1","к2","zoom украина","интер","inter","iнтер",
+    "112 украина","112.ua","newsone","ziq","ukraine","ukrainian",
+    "беларус","belarus","беларусь 1","беларусь 2","беларусь 3","беларусь 4","беларусь 5",
+    "беларусь 24","витебск","гомель",
+    "казах","kazakh","qazaq","jibek","joly","mtrk","silk way","ulytau","хабар","khabar",
+    "ktk","31 канал","qazsport","kazsport","астана","astana tv","первый канал евразия",
+    "uzbek","uzreport","dasturxon","киргиз","kyrgyz","таджик","tajik","туркмен","turkmen",
+    "армени","armenia","h1 армения","kentron","shant","imedi","rustavi","gpbc",
+    "азерб","azerbaijan","aztv","itv azerbaijan",
+    "латви","latvia","ltv","эстон","estonia","err","литв","lithuania","lrt","otv латвия",
+    "tbn baltia","молдов","moldova","trm","prime tv moldova",
+    "rtvi","russian america","rt balkan","rt en espanol","rt español","europe","europa",
+    "european","international","cis","asia","america","israel","channel 9 israel",
+    "областное","краевое","городской","городская","области","республики","края",
+    "leomax","magnat","top shop","нтв витрина","teleshop",
+    "city eden","сити эдем","svoboda","свобода","univer","vitrina","zoopark","зоопарк",
+    "doctor","home 4k","moy mir","test","demo","promo","sample",
 ]
-FORBIDDEN_TVG_IDS = {
-    "o.ru@sd", "o.ru@international", "mult", "carousel.ru@plus4",
-}
+FORBIDDEN_TVG_IDS = {"o.ru@sd","o.ru@international","mult","carousel.ru@plus4"}
 
 def is_forbidden(name, tid, tvg_name, grp):
     parts = [name or "", tid or "", tvg_name or "", grp or ""]
     text = " ".join(parts).lower()
-
     t_low = (tid or "").lower().strip()
     for tld in BAD_TLD:
-        if tld in t_low:
-            return f"tld:{tld}"
-
+        if tld in t_low: return f"tld:{tld}"
     for bg in BAD_GROUPS:
-        if bg in (grp or "").lower():
-            return f"group:{bg}"
-
+        if bg in (grp or "").lower(): return f"group:{bg}"
     t_base = t_low.split("@")[0]
-    if t_low in FORBIDDEN_TVG_IDS or t_base in FORBIDDEN_TVG_IDS:
-        return f"tvid:{t_low}"
-
+    if t_low in FORBIDDEN_TVG_IDS or t_base in FORBIDDEN_TVG_IDS: return f"tvid:{t_low}"
     for bw in BAD_WORDS:
-        if bw in text:
-            return f"word:{bw}"
-
+        if bw in text: return f"word:{bw}"
     return None
 
-# ---------- ГРУППЫ ----------
-GROUP_NORMALIZE = {
-    "sport": "⚽ Спорт", "sports": "⚽ Спорт", "спорт": "⚽ Спорт",
-    "news": "📰 Новостные", "новости": "📰 Новостные", "новостные": "📰 Новостные",
-    "movie": "🎬 Кино", "movies": "🎬 Кино", "cinema": "🎬 Кино", "кино": "🎬 Кино",
-    "series": "📺 Сериалы", "сериалы": "📺 Сериалы",
-    "music": "🎵 Музыкальные", "музыка": "🎵 Музыкальные", "музыкальные": "🎵 Музыкальные",
-    "kids": "🧸 Детские", "children": "🧸 Детские", "family": "🧸 Детские",
-    "animation": "🧸 Детские", "cartoon": "🧸 Детские",
-    "детские": "🧸 Детские", "детям": "🧸 Детские",
-    "documentary": "🎥 Документальные", "history": "🎥 Документальные",
-    "документальные": "🎥 Документальные",
-    "science": "🌍 Познавательные", "education": "🌍 Познавательные",
-    "познавательные": "🌍 Познавательные",
-    "entertainment": "🎭 Развлекательные", "comedy": "🎭 Развлекательные",
-    "lifestyle": "🎭 Развлекательные", "развлекательные": "🎭 Развлекательные",
-    "general": "📡 Федеральные", "федеральные": "📡 Федеральные",
-    "regional": "🏙 Региональные", "региональные": "🏙 Региональные",
-    "religious": "🙏 Религиозные", "religion": "🙏 Религиозные",
-    "религиозные": "🙏 Религиозные",
-    "auto": "🚗 Авто", "авто": "🚗 Авто",
-    "cooking": "🍳 Кулинарные", "food": "🍳 Кулинарные", "кулинарные": "🍳 Кулинарные",
-    "travel": "🌍 Путешествия", "путешествия": "🌍 Путешествия",
-    "culture": "🎭 Культура", "культура": "🎭 Культура",
-    "business": "📰 Бизнес", "бизнес": "📰 Бизнес",
-    "weather": "📰 Погода", "погода": "📰 Погода",
-    "shop": "🛒 Магазины", "shopping": "🛒 Магазины", "магазины": "🛒 Магазины",
-    "undefined": "📦 Разное", "other": "📦 Разное", "misc": "📦 Разное",
-    "разное": "📦 Разное",
+# ---------- КАТЕГОРИИ ----------
+CATEGORY_MAP = {
+    "sports": "⚽ Спорт","sport": "⚽ Спорт","news": "📰 Новостные",
+    "movies": "🎬 Кино","movie": "🎬 Кино","cinema": "🎬 Кино",
+    "series": "📺 Сериалы","music": "🎵 Музыкальные",
+    "kids": "🧸 Детские","children": "🧸 Детские","family": "🧸 Детские",
+    "animation": "🧸 Детские","cartoon": "🧸 Детские",
+    "documentary": "🎥 Документальные","history": "🎥 Документальные",
+    "science": "🌍 Познавательные","education": "🌍 Познавательные",
+    "entertainment": "🎭 Развлекательные","comedy": "🎭 Развлекательные",
+    "lifestyle": "🎭 Развлекательные","general": "📡 Федеральные",
+    "regional": "🏙 Региональные","religious": "🙏 Религиозные","religion": "🙏 Религиозные",
+    "auto": "🚗 Авто","cooking": "🍳 Кулинарные","food": "🍳 Кулинарные",
+    "travel": "🌍 Путешествия","culture": "🎭 Культура","business": "📰 Бизнес",
+    "weather": "📰 Погода","shop": "🛒 Магазины","shopping": "🛒 Магазины",
+    "outdoor": "🌍 Природа","classic": "🎭 Классика",
+    "undefined": "📦 Разное","other": "📦 Разное","misc": "📦 Разное","разное": "📦 Разное",
 }
-
-def normalize_group(raw):
-    if not raw: return None
-    g = raw.strip().lower()
-    g_clean = re.sub(r'[^\w\s]', '', g).strip()
-    if g_clean in GROUP_NORMALIZE: return GROUP_NORMALIZE[g_clean]
-    for key, val in GROUP_NORMALIZE.items():
-        if key in g_clean: return val
-    return raw.strip()
+KEYWORD_RULES = {
+    "⚽ Спорт": ["спорт","sport","футбол","football","матч","match","хокке","hockey","теннис","бокс","ufc","mma","арена","arena","биатлон"],
+    "📰 Новостные": ["новост","news","известия","рбк","вести","360","дождь","тасс","lenta","информ","24"],
+    "🎬 Кино": ["кино","cinema","movie","фильм","film","боевик","комедия","ужас","детектив","премьера","tv1000","кинопоказ","иллюзион","победа"],
+    "📺 Сериалы": ["сериал","series","serial","дорам","драма","мелодрам"],
+    "🎵 Музыкальные": ["music","музык","муз","mtv","vh1","ru.tv","шансон","europa plus","bridge","top hit"],
+    "🎭 Развлекательные": ["развлек","юмор","comedy","шоу","тнт","пятница","суббота","перец"],
+    "🌍 Познавательные": ["science","наука","discovery","nat geo","history","истор","viasat","nano","животн","природа","охота","рыбалк","путешеств","365"],
+    "🎥 Документальные": ["документ","documental","tlc","dmax","военн","биограф","катастроф"],
+    "🧸 Детские": ["детск","child","kids","cartoon","мульт","nickelodeon","карусель","disney","boomerang","смешарик","малыш","tiji","аниме","anime","junior"],
+    "🙏 Религиозные": ["религ","церков","православ","ислам","спас","soyuz","царь","3abn","троиц"],
+    "🚗 Авто": ["авто","auto","drive","драйв"],
+    "🍳 Кулинарные": ["кухня","еда","food","cooking","кулинар"],
+    "🎭 Культура": ["культур","culture","искусств","театр"],
+    "📰 Бизнес": ["бизнес","business","деньги"],
+    "📰 Погода": ["погода","weather"],
+}
 
 NOISE = {"тв","tv","hd","uhd","fhd","sd","4k","1080p","720p","full","канал","channel","online","live","stream"}
 def norm_name(s):
@@ -216,6 +186,12 @@ def extract_suffix(tvg_id):
     if low in ("hd","fhd","uhd","4k","1080p","720p"): return sfx.upper()
     return sfx
 
+def normalize_api_category(raw):
+    if not raw: return None
+    g = raw.strip().lower()
+    if ";" in g: g = g.split(";")[0].strip()
+    return CATEGORY_MAP.get(g)
+
 # ---------- API ----------
 def download_sync(url, timeout=180):
     if not url: return None
@@ -234,7 +210,7 @@ def load_api_categories():
     if p.exists():
         try:
             d = json.loads(p.read_text("utf-8"))
-            if d.get("v") == 2 and time.time() - d.get("ts", 0) < ttl:
+            if d.get("v") == 3 and time.time() - d.get("ts", 0) < ttl:
                 return d.get("cats", {}), d.get("names", {}), d.get("ru", {})
         except: pass
     print("[*] Загрузка категорий из iptv-org API...")
@@ -255,7 +231,7 @@ def load_api_categories():
                 if alt: names[alt.lower()] = cid
             for n in ([nm] if nm else []) + list(ch.get("alt_names") or []):
                 if n and has_cyrillic(n): ru[cid] = n.strip(); break
-        _save(p, {"v": 2, "ts": int(time.time()), "cats": cats, "names": names, "ru": ru})
+        _save(p, {"v": 3, "ts": int(time.time()), "cats": cats, "names": names, "ru": ru})
         print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён, {len(ru)} русских")
         return cats, names, ru
     except Exception as e:
@@ -288,6 +264,83 @@ def load_api_logos():
         return logos
     except Exception as e:
         print(f"[!] API логотипов: {e}"); return {}
+
+# ---------- АВТО-ОБУЧЕНИЕ ----------
+LEARNED_FILE = DATA/"learned_categories.json"
+def load_learned():
+    d = _load(LEARNED_FILE, {})
+    cutoff = time.time() - 60 * 86400
+    return {k: v for k, v in d.items() if v.get("ts", 0) > cutoff}
+
+def save_learned(learned):
+    _save(LEARNED_FILE, learned)
+
+def learn_category(learned, norm_nm, category, method, confidence):
+    """Авто-запоминание категории. Только при confidence >= 0.8."""
+    if confidence < 0.8: return
+    if not norm_nm or len(norm_nm) < 2: return
+    learned[norm_nm] = {"cat": category, "method": method,
+                        "conf": confidence, "ts": int(time.time())}
+
+# ---------- КАСКАДНАЯ КЛАССИФИКАЦИЯ ----------
+def classify_channel(ch, api_cats, api_names, learned):
+    """
+    Returns (category, confidence, method).
+    Уровни: learned (0.95) → API id (1.0) → API name (0.95) →
+            fuzzy (0.8) → group (0.7) → keyword (0.6) → none (0.0)
+    """
+    name = ch.get("name", "").strip()
+    tvg_id = (ch.get("tvg_id") or "").split("@")[0].strip().lower()
+    tvg_name = ch.get("tvg_name", "").strip()
+    group = ch.get("group", "").strip()
+    nn = norm_name(name)
+
+    # 0. Learned (авто-обучение)
+    if nn and nn in learned:
+        rec = learned[nn]
+        return rec["cat"], min(rec.get("conf", 0.95), 0.95), "learned"
+
+    # 1. API по tvg-id
+    if tvg_id and tvg_id in api_cats:
+        norm = normalize_api_category(api_cats[tvg_id])
+        if norm: return norm, 1.0, "api_id"
+
+    # 2. API по имени
+    if nn in api_names:
+        cid = api_names[nn]
+        if cid in api_cats:
+            norm = normalize_api_category(api_cats[cid])
+            if norm: return norm, 0.95, "api_name"
+
+    # 3. Fuzzy по эталонным именам API
+    if api_names and name:
+        all_names = list(api_names.keys())
+        try:
+            best = process.extractOne(name.lower(), all_names, scorer=fuzz.ratio, score_cutoff=88)
+        except Exception:
+            best = None
+        if best:
+            matched_name, score, _ = best
+            cid = api_names.get(matched_name)
+            if cid and cid in api_cats:
+                norm = normalize_api_category(api_cats[cid])
+                if norm: return norm, 0.8, "fuzzy"
+
+    # 4. По группе
+    if group:
+        g_clean = re.sub(r'[^\w\s]', '', group.strip().lower()).strip()
+        for key, val in CATEGORY_MAP.items():
+            if g_clean == key or g_clean.startswith(key):
+                return val, 0.7, "group"
+
+    # 5. По ключевым словам
+    text = f"{name} {tvg_name} {group}".lower()
+    for cat, kws in KEYWORD_RULES.items():
+        for kw in kws:
+            if kw in text:
+                return cat, 0.6, "keyword"
+
+    return "📦 Разное", 0.0, "none"
 
 # ---------- EPG ----------
 def build_epg(text):
@@ -367,16 +420,12 @@ def resolve_epg(name, bn, bt, bp):
 def find_ru(name, tvg_id, bn, bt, bp, ru_disp, api_names, api_ru):
     base = tvg_id.split("@")[0] if tvg_id else ""
     sfx = extract_suffix(tvg_id)
-    if base and base in ru_disp:
-        return ((ru_disp[base] + " " + sfx).strip() if sfx else ru_disp[base])
+    if base and base in ru_disp: return ((ru_disp[base] + " " + sfx).strip() if sfx else ru_disp[base])
     cid, _ = resolve_epg(name, bn, bt, bp)
-    if cid and cid in ru_disp:
-        return ((ru_disp[cid] + " " + sfx).strip() if sfx else ru_disp[cid])
+    if cid and cid in ru_disp: return ((ru_disp[cid] + " " + sfx).strip() if sfx else ru_disp[cid])
     api_cid = api_names.get(norm_name(name)) or base
-    if api_cid and api_cid in api_ru:
-        return ((api_ru[api_cid] + " " + sfx).strip() if sfx else api_ru[api_cid])
-    if cid and cid in api_ru:
-        return ((api_ru[cid] + " " + sfx).strip() if sfx else api_ru[cid])
+    if api_cid and api_cid in api_ru: return ((api_ru[api_cid] + " " + sfx).strip() if sfx else api_ru[api_cid])
+    if cid and cid in api_ru: return ((api_ru[cid] + " " + sfx).strip() if sfx else api_ru[cid])
     tr = translit(norm_name(name))
     if tr and tr in bt:
         c = bt[tr]
@@ -497,19 +546,12 @@ def is_quality_fresh(u, quality):
 def track_problem(problems, u, name, kind, ok, run_id=None):
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
-        "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
-        "last_fail_run": {},
+        "last_ts": 0, "last_ok_ts": 0, "blocked_until": None, "last_fail_run": {},
     })
-    rec.setdefault("black_fails", 0)
-    rec.setdefault("silent_fails", 0)
-    rec.setdefault("static_fails", 0)
+    rec.setdefault("black_fails", 0); rec.setdefault("silent_fails", 0); rec.setdefault("static_fails", 0)
     rec.setdefault("last_fail_run", {})
-
-    if run_id is None:
-        run_id = int(time.time() // 3600)
-
+    if run_id is None: run_id = int(time.time() // 3600)
     rec["name"] = name; rec["last_ts"] = int(time.time())
-
     if ok:
         rec["last_ok_ts"] = int(time.time())
         rec["black_fails"] = 0; rec["silent_fails"] = 0; rec["static_fails"] = 0
@@ -520,7 +562,6 @@ def track_problem(problems, u, name, kind, ok, run_id=None):
             key = f"{kind}_fails"
             rec[key] = rec.get(key, 0) + 1
             rec["last_fail_run"][kind] = run_id
-
         thr = CFG.get("problem_threshold", 5); ttl = CFG.get("problem_block_ttl_days", 30)
         if (rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr
             or rec.get("static_fails", 0) >= thr):
@@ -569,18 +610,15 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
     black_dur = CFG.get("quality_black_min_duration", 3.0)
     audio_db = CFG.get("quality_audio_min_db", -70)
     static_dur = CFG.get("quality_static_min_duration", 5.0)
-
     filters = []
     if check_black:
         filters.append(f"blackdetect=d={black_dur}:pix_th=0.05")
         filters.append("signalstats")
     if check_static:
         filters.append(f"freezedetect=n=0.02:d={static_dur}")
-
     hdr = "User-Agent: " + ua + "\r\n"
     if ref: hdr += "Referer: " + ref + "\r\n"
     if cookie: hdr += "Cookie: " + cookie + "\r\n"
-
     cmd = ["ffmpeg", "-hide_banner", "-nostats", "-loglevel", "info", "-headers", hdr,
            "-t", str(sample), "-i", u]
     if filters: cmd += ["-vf", ",".join(filters)]
@@ -588,7 +626,6 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
     cmd += ["-map", "0:v?"]
     if check_audio and has_audio_track: cmd += ["-map", "0:a?"]
     cmd += ["-f", "null", "-"]
-
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=timeout, text=True)
         err = r.stderr
@@ -603,16 +640,14 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
         is_static = check_static and "freeze_start" in err
         is_silent = False
         if check_audio:
-            if not has_audio_track:
-                is_silent = True
+            if not has_audio_track: is_silent = True
             else:
                 matches = re.findall(r"mean_volume:\s*(-inf|-?\d+(?:\.\d+)?)\s*dB", err)
                 if matches:
                     vals = [float(v) for v in matches if v != "-inf"]
                     if vals: is_silent = max(vals) < audio_db
         return is_black, is_static, is_silent
-    except:
-        return False, False, False
+    except: return False, False, False
 
 async def hls_variant(session, u, ua, ref):
     if not u.endswith(".m3u8"): return u
@@ -646,14 +681,12 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
     quality_enabled = check_black or check_audio or check_static
-
     async with sem:
         for u in ch["urls"]:
             if is_dead_cached(u, dead): continue
             if is_problem_blocked(u, problems): continue
             host = host_of(u)
             if host_blocked(host, hosts): continue
-
             use_warm = not quality_enabled or is_quality_fresh(u, quality)
             if use_warm:
                 wc = warm.get(u)
@@ -665,13 +698,10 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     ch["width"] = wc.get("width", 0)
                     ch["codec"] = wc.get("codec", "")
                     return ch
-
             ref = ch.get("extvlc", {}).get("http-referrer") or get_ref(u)
             cookie = ch.get("extvlc", {}).get("http-cookie")
             need_quality = quality_enabled and (
-                DEEP_CHECK or is_problematic(u, problems) or not is_quality_fresh(u, quality)
-            )
-
+                DEEP_CHECK or is_problematic(u, problems) or not is_quality_fresh(u, quality))
             for ua_key in pick_ua_order(host, ua_cache, ua_scores):
                 ua = UAS[ua_key]
                 try:
@@ -681,14 +711,12 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if status == 429: continue
                     if not status:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
-
                     target = await hls_variant(session, u, ua, ref)
                     t = get_timeout(u, tmo); t0 = time.time()
                     info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, t)
                     upd_timeout(tmo, u, (time.time()-t0)*1000)
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
-
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False))
@@ -696,12 +724,10 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                         if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black, run_id=run_id)
                         if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent, run_id=run_id)
                         if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static, run_id=run_id)
-
                         if is_black or is_silent or is_static:
                             quality.pop(u, None); continue
                         quality[u] = {"ts": int(time.time()), "black_ok": True,
                                       "audio_ok": True, "static_ok": True}
-
                     ua_cache[host] = ua_key
                     upd_ua_score(ua_scores, host, ua_key, True)
                     upd_host_stat(hosts, host, True)
@@ -719,17 +745,7 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
             mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
         return None
 
-# ---------- РЕЗОЛВЫ ----------
-def resolve_category(ch, api_cats, api_names):
-    grp = normalize_group(ch.get("group", ""))
-    if grp: return grp
-    tid = (ch.get("tvg_id") or "").split("@")[0]
-    if tid and tid in api_cats: return normalize_group(api_cats[tid]) or "📦 Разное"
-    nm = ch.get("name", "").lower().strip()
-    if nm in api_names and api_names[nm] in api_cats:
-        return normalize_group(api_cats[api_names[nm]]) or "📦 Разное"
-    return "📦 Разное"
-
+# ---------- РЕЗОЛВ EPG/ЛОГО ----------
 def resolve_logo(ch, api_logos):
     logo = (ch.get("logo") or "").strip()
     if logo and logo.startswith("https://"): return logo
@@ -781,7 +797,7 @@ def write_playlist(channels):
         lines.append(c["working_url"])
     (ROOT / CFG.get("output_m3u", "playlist.m3u")).write_text("\n".join(lines) + "\n", "utf-8")
 
-def write_readme(report, working, elapsed, problems, filtered_stats):
+def write_readme(report, working, elapsed, problems, filtered_stats, unmatched_count):
     repo = os.environ.get("GITHUB_REPOSITORY", "user/repo")
     branch = os.environ.get("GITHUB_REF_NAME", "main") or "main"
     raw = "https://raw.githubusercontent.com/" + repo + "/" + branch
@@ -789,23 +805,21 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
     pct = work/total*100 if total else 0
     with_epg = report.get("with_epg", 0); with_logo = report.get("with_logo", 0)
     epg_pct = with_epg/work*100 if work else 0; logo_pct = with_logo/work*100 if work else 0
-
     def bar(p, w=20):
         n = max(0, min(w, int(p/100*w))); return "█"*n + "░"*(w-n)
-
     ua_stats = Counter(c.get("working_ua_key","?") for c in working)
     grp_stats = Counter(c.get("category") or "📦 Разное" for c in working)
+    method_stats = Counter(c.get("method","?") for c in working)
     date_safe = report["generated_at"][:10].replace("-", ".")
     l_a = urllib.parse.quote("живых"); l_t = urllib.parse.quote("всего")
     l_e = urllib.parse.quote("EPG"); l_l = urllib.parse.quote("с лого")
     l_u = urllib.parse.quote("обновлено")
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
-
     L = [
-        "# 🎯 Raw Stream Checker", "",
-        "Автономный парсер и чекер IPTV: URL и контент-фильтры, EPG, лого, "
-        "детект чёрного экрана, звука и статики.", "",
+        "# 🎯 Raw Stream Checker v4.1", "",
+        "Каскадная классификация с **авто-обучением**: API → learned (авто) → fuzzy → group → keyword. "
+        "Quality checks (black/signalstats/static/audio), EPG, лого.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -821,12 +835,23 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
         f"| С лого | **{with_logo}** ({logo_pct:.1f}%) |",
         f"| Время | **{elapsed:.1f} s** |",
         f"| Режим | **{mode}** |",
+        f"| Без категории (low conf) | **{unmatched_count}** |",
         f"| Обновлено | `{report['generated_at']}` |", "",
         "### Живучесть", "", "```",
         f"LIVE  {bar(pct)}  {pct:5.1f}%  ({work}/{total})", "```", "",
     ]
+    if method_stats:
+        L += ["## 🎯 Как классифицированы", "", "| Метод | Confidence | Каналов |", "|---|---|---|"]
+        mc = {"api_id":1.0,"api_name":0.95,"learned":0.95,"fuzzy":0.8,"group":0.7,"keyword":0.6,"none":0.0,"?":0.0}
+        for k, v in method_stats.most_common():
+            L.append(f"| `{k}` | {mc.get(k,0):.2f} | {v} |")
+        L.append("")
+    if grp_stats:
+        L += ["## 🗂 Категории", "", "| Категория | Каналов |", "|---|---:|"]
+        for k, v in grp_stats.most_common(30): L.append(f"| {k} | {v} |")
+        L.append("")
     if filtered_stats:
-        L += ["## 🚫 Отфильтровано при парсинге", "", "| Причина | Каналов |", "|---|---:|"]
+        L += ["## 🚫 Отфильтровано", "", "| Причина | Каналов |", "|---|---:|"]
         for reason, cnt in sorted(filtered_stats.items(), key=lambda x: -x[1]):
             L.append(f"| {reason} | {cnt} |")
         L.append("")
@@ -834,11 +859,6 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
         L += ["## 🎭 User-Agent", "", "| UA | Каналов |", "|---|---:|"]
         for k, v in ua_stats.most_common(): L.append(f"| `{k}` | {v} |")
         L.append("")
-    if grp_stats:
-        L += ["## 🗂 Категории", "", "| Категория | Каналов |", "|---|---:|"]
-        for k, v in grp_stats.most_common(30): L.append(f"| {k} | {v} |")
-        L.append("")
-
     now = time.time()
     blocked = [(u, r) for u, r in problems.items() if r.get("blocked_until") and r["blocked_until"] > now]
     if blocked:
@@ -853,23 +873,11 @@ def write_readme(report, working, elapsed, problems, filtered_stats):
             L.append(f"| {r.get('name','?')} | {', '.join(reasons) or '?'} | {until} |")
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
-
-    L += ["## 🎛 Управление", "",
-          "**URL-фильтры:** `blocklist.json`",
-          "**Контент-фильтры:** `checker.py` — `BAD_GROUPS`, `BAD_TLD`, `BAD_WORDS`",
-          "**Разблокировать:** `problems.json` → `\"blocked_until\": null`",
-          "**Сменить EPG:** `config.json` → `epg_url`, `epg_url_fallback`",
-          "**Запустить:** Actions → Raw Check → Run workflow (галочка `deep`)", "",
-          "## ⚙️ Как это работает", "",
-          "- **Источники:** `sources.txt`",
-          "- **URL-фильтр:** расширения, порты, хосты, префиксы, приватные IP",
-          "- **Контент-фильтр:** группы, TLD, слова в `name`+`tvg-id`+`tvg-name`+`group`",
-          "- **Категории:** M3U → API iptv-org → `📦 Разное`",
-          "- **Логотипы:** M3U (HTTPS) → API iptv-org",
-          "- **EPG:** iptvx.one (+ fallback), fuzzy, русские имена",
-          "- **Quality:** `ffmpeg` black + signalstats + static + audio",
-          "- **Quality cache:** 7 дней (deep игнорирует)",
-          "- **Трекинг:** 5 фейлов в РАЗНЫХ прогонах → блок 30 дней", "",
+    L += ["## ⚙️ Как это работает", "",
+          "**Авто-обучение:** каналы с fuzzy-матчем ≥88% кэшируются в `data/learned_categories.json` (60 дней). "
+          "Следующий прогон — без fuzzy, мгновенно.", "",
+          "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`", "",
+          "**Quality:** `ffmpeg` black + signalstats + static + audio (5 фейлов в разных прогонах → блок 30 дней)", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -886,37 +894,34 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v3.5 [{mode}] ===")
+    print(f"=== Raw Stream Checker v4.1 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
         print("[!] sources.txt пуст"); return
-
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
     quality_enabled = check_black or check_audio or check_static
     if quality_enabled:
         print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}")
-        if DEEP_CHECK: print("[!] DEEP режим: игнорируем quality cache")
-
+        if DEEP_CHECK: print("[!] DEEP: игнорируем quality cache")
     api_cats, api_names, api_ru = load_api_categories()
     api_logos = load_api_logos()
     bn, bt, bp, ic, ru_disp, prog_ids = load_epg()
-
     ua_cache = load_ua_cache(); ua_scores = load_ua_scores()
     warm = load_warm(); dead = load_dead(); tmo = load_tmo(); hosts = load_hosts()
     problems = load_problems(); quality = load_quality()
-    print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)} problems={len(problems)} quality={len(quality)}")
-
+    learned = load_learned()
+    print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)} problems={len(problems)} quality={len(quality)} learned={len(learned)}")
     filtered_stats = Counter()
-
+    low_conf_count = 0
+    conf_threshold = CFG.get("confidence_threshold", 0.7)
     try:
         conn = aiohttp.TCPConnector(limit=100, ssl=False, ttl_dns_cache=300)
         async with aiohttp.ClientSession(connector=conn) as session:
             print("[*] Загрузка источников...")
             src_results = await asyncio.gather(*(fetch_src(session, n, u) for n, u, _ in sources))
-
             channels = []
             seen = set()
             for (sname, _, prio), (_, text) in zip(sources, src_results):
@@ -927,42 +932,42 @@ async def main():
                 for ch in parsed:
                     n, u, a = ch["name"], ch["url"], ch["attrs"]
                     if is_junk(u): junk += 1; continue
-
                     tid = a.get("tvg-id","")
                     tvg_name = a.get("tvg-name","")
                     grp = a.get("group-title","")
                     reason = is_forbidden(n, tid, tvg_name, grp)
                     if reason:
                         filtered += 1
-                        key = reason.split(":")[0]
-                        filtered_stats[key] += 1
+                        filtered_stats[reason.split(":")[0]] += 1
                         continue
-
                     key = (n.lower(), u)
                     if key in seen: continue
                     seen.add(key)
-                    chan = {"name": n, "url": u,
-                            "tvg_id": tid, "tvg_name": tvg_name,
+                    chan = {"name": n, "url": u, "tvg_id": tid, "tvg_name": tvg_name,
                             "logo": a.get("tvg-logo",""), "group": grp,
                             "extvlc": ch["extvlc"], "urls": [u]}
-                    chan["category"] = resolve_category(chan, api_cats, api_names)
+                    cat, conf, method = classify_channel(chan, api_cats, api_names, learned)
+                    chan["category"] = cat
+                    chan["confidence"] = conf
+                    chan["method"] = method
+                    if conf < conf_threshold: low_conf_count += 1
+                    # Авто-обучение: если fuzzy сработал — запоминаем
+                    if method == "fuzzy" and conf >= 0.8:
+                        learn_category(learned, norm_name(n), cat, method, conf)
                     chan["logo"] = resolve_logo(chan, api_logos)
                     chan["has_epg"] = resolve_epg_for_channel(chan, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru) if prog_ids else False
                     channels.append(chan); kept += 1
                 print(f"[+] {sname}: {kept} (мусор: {junk}, фильтр: {filtered})")
-
             if filtered_stats:
                 print(f"[*] Отфильтровано: " + ", ".join(f"{k}={v}" for k, v in filtered_stats.most_common()))
-
             epg_pre = sum(1 for c in channels if c.get("has_epg"))
             logo_pre = sum(1 for c in channels if c.get("logo"))
-            print(f"[*] Всего: {len(channels)} | с EPG: {epg_pre} | с лого: {logo_pre}")
+            print(f"[*] Всего: {len(channels)} | с EPG: {epg_pre} | с лого: {logo_pre} | low-conf: {low_conf_count}")
+            print(f"[*] Learned обновлён: {len(learned)} записей")
             if not channels: return
-
             executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
             loop = asyncio.get_running_loop()
             sem = asyncio.Semaphore(CFG.get("concurrency", 80))
-
             done = 0; ok = 0; fail = 0
             async def wrap(ch):
                 nonlocal done, ok, fail
@@ -975,11 +980,9 @@ async def main():
                 if done % step == 0 or done == len(channels) or done == 1:
                     print_progress(done, len(channels), ok, fail)
                 return r
-
             print(f"[*] Проверка ({len(channels)} шт.)...")
             rs = await asyncio.gather(*[wrap(c) for c in channels], return_exceptions=True)
             executor.shutdown()
-
             alive = [r for r in rs if r and not isinstance(r, Exception)]
             threshold = max(10, int(len(channels) * 0.15))
             if len(alive) < threshold:
@@ -989,35 +992,31 @@ async def main():
                     "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 }, ensure_ascii=False, indent=2), "utf-8")
                 return
-
             write_playlist(alive)
             report = {
                 "total": len(channels), "alive": len(alive), "dead": len(channels)-len(alive),
                 "with_epg": sum(1 for c in alive if c.get("has_epg")),
                 "with_logo": sum(1 for c in alive if c.get("logo")),
-                "filtered": dict(filtered_stats),
-                "mode": mode,
+                "filtered": dict(filtered_stats), "mode": mode,
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
                               "group": c.get("category",""), "height": c.get("height",0),
-                              "logo": c.get("logo",""), "epg": c.get("has_epg", False)} for c in alive],
+                              "logo": c.get("logo",""), "epg": c.get("has_epg", False),
+                              "method": c.get("method",""), "confidence": c.get("confidence",0)} for c in alive],
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
-            write_readme(report, alive, time.time()-started, problems, filtered_stats)
-
+            write_readme(report, alive, time.time()-started, problems, filtered_stats, low_conf_count)
             elapsed = time.time() - started
             print("=========================================")
             print(f"[+] Готово за {elapsed:.1f}s [{mode}]")
             print(f"[+] Всего: {len(channels)} | Живых: {len(alive)} | EPG: {report['with_epg']} | Лого: {report['with_logo']}")
-            if filtered_stats:
-                print(f"[+] Отфильтровано: {sum(filtered_stats.values())}")
+            print(f"[+] Low-conf: {low_conf_count} | Learned: {len(learned)}")
     finally:
         print("[*] Сохранение кэша...")
         save_ua_cache(ua_cache); save_ua_scores(ua_scores)
         save_warm({k: v for k, v in warm.items() if time.time() - v.get("ts",0) < 86400 * 7})
         save_dead(dead); save_tmo(tmo); save_hosts(hosts)
-        save_problems(problems); save_quality(quality)
+        save_problems(problems); save_quality(quality); save_learned(learned)
         print("[*] Кэш сохранен.")
-
 if __name__ == "__main__":
     asyncio.run(main())
