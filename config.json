@@ -1,0 +1,9 @@
+{
+  "concurrency": 80,
+  "http_timeout": 5,
+  "ffprobe_timeout": 8,
+  "ffprobe_threads": 50,
+  "ffprobe_probesize": 32768,
+  "ffprobe_analyzeduration": 1000000,
+  "output_m3u": "playlist.m3u"
+}
