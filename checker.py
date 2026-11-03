@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v4.1 — auto-learning cascade classifier, quality, EPG."""
-import asyncio, json, os, re, sys, time, subprocess, io, gzip
+"""Raw Stream Checker v5.0 — stealth + smart dedup + bitrate + HEAD fallback + rotation."""
+import asyncio, json, os, re, sys, time, subprocess, io, gzip, random
 import urllib.parse, urllib.request
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from collections import Counter
+from collections import Counter, defaultdict
 from urllib.parse import urlparse, urljoin
 from difflib import SequenceMatcher
 import xml.etree.ElementTree as ET
@@ -35,7 +35,7 @@ CFG = _load(ROOT/"config.json", {})
 UAS = _load(ROOT/"useragents.json", {})
 BLK = _load(ROOT/"blocklist.json", {})
 
-# ---------- ПАРСИНГ ----------
+# ---------- ПАРСИНГ (с #EXTHTTP и #KODIPROP) ----------
 ATTR_RE = re.compile(r'([A-Za-z0-9_\-]+)="([^"]*)"')
 def split_extinf(line):
     in_q = False
@@ -54,11 +54,23 @@ def parse_m3u(text):
             if not m: continue
             attrs_str, name = split_extinf(m.group(1))
             attrs = dict(ATTR_RE.findall(attrs_str))
-            cur = {"name": name, "attrs": attrs, "extvlc": {}, "url": None}
+            cur = {"name": name, "attrs": attrs, "extvlc": {}, "kodiprop": {},
+                   "exthttp": {}, "url": None}
         elif cur is not None and line.startswith("#EXTVLCOPT:"):
             kv = line[len("#EXTVLCOPT:"):].strip()
             if "=" in kv:
                 k, v = kv.split("=", 1); cur["extvlc"][k.strip().lower()] = v.strip()
+        elif cur is not None and line.startswith("#KODIPROP:"):
+            kv = line[len("#KODIPROP:"):].strip()
+            if "=" in kv:
+                k, v = kv.split("=", 1); cur["kodiprop"][k.strip()] = v.strip()
+        elif cur is not None and line.startswith("#EXTHTTP:"):
+            js = line[len("#EXTHTTP:"):].strip()
+            try:
+                parsed = json.loads(js)
+                if isinstance(parsed, dict):
+                    cur["exthttp"] = {str(k): str(v) for k, v in parsed.items()}
+            except: pass
         elif line.startswith("#"): continue
         elif cur is not None:
             cur["url"] = line; out.append(cur); cur = None
@@ -276,7 +288,6 @@ def save_learned(learned):
     _save(LEARNED_FILE, learned)
 
 def learn_category(learned, norm_nm, category, method, confidence):
-    """Авто-запоминание категории. Только при confidence >= 0.8."""
     if confidence < 0.8: return
     if not norm_nm or len(norm_nm) < 2: return
     learned[norm_nm] = {"cat": category, "method": method,
@@ -284,39 +295,30 @@ def learn_category(learned, norm_nm, category, method, confidence):
 
 # ---------- КАСКАДНАЯ КЛАССИФИКАЦИЯ ----------
 def classify_channel(ch, api_cats, api_names, learned):
-    """
-    Returns (category, confidence, method).
-    Уровни: learned (0.95) → API id (1.0) → API name (0.95) →
-            fuzzy (0.8) → group (0.7) → keyword (0.6) → none (0.0)
-    """
     name = ch.get("name", "").strip()
     tvg_id = (ch.get("tvg_id") or "").split("@")[0].strip().lower()
     tvg_name = ch.get("tvg_name", "").strip()
     group = ch.get("group", "").strip()
     nn = norm_name(name)
 
-    # 0. Learned (авто-обучение)
     if nn and nn in learned:
         rec = learned[nn]
         return rec["cat"], min(rec.get("conf", 0.95), 0.95), "learned"
 
-    # 1. API по tvg-id
     if tvg_id and tvg_id in api_cats:
         norm = normalize_api_category(api_cats[tvg_id])
         if norm: return norm, 1.0, "api_id"
 
-    # 2. API по имени
     if nn in api_names:
         cid = api_names[nn]
         if cid in api_cats:
             norm = normalize_api_category(api_cats[cid])
             if norm: return norm, 0.95, "api_name"
 
-    # 3. Fuzzy по эталонным именам API
     if api_names and name:
-        all_names = list(api_names.keys())
         try:
-            best = process.extractOne(name.lower(), all_names, scorer=fuzz.ratio, score_cutoff=88)
+            best = process.extractOne(name.lower(), list(api_names.keys()),
+                                       scorer=fuzz.ratio, score_cutoff=88)
         except Exception:
             best = None
         if best:
@@ -326,19 +328,16 @@ def classify_channel(ch, api_cats, api_names, learned):
                 norm = normalize_api_category(api_cats[cid])
                 if norm: return norm, 0.8, "fuzzy"
 
-    # 4. По группе
     if group:
         g_clean = re.sub(r'[^\w\s]', '', group.strip().lower()).strip()
         for key, val in CATEGORY_MAP.items():
             if g_clean == key or g_clean.startswith(key):
                 return val, 0.7, "group"
 
-    # 5. По ключевым словам
     text = f"{name} {tvg_name} {group}".lower()
     for cat, kws in KEYWORD_RULES.items():
         for kw in kws:
-            if kw in text:
-                return cat, 0.6, "keyword"
+            if kw in text: return cat, 0.6, "keyword"
 
     return "📦 Разное", 0.0, "none"
 
@@ -482,12 +481,18 @@ def save_quality(c):
     _save(DATA/"quality_cache.json", {k: v for k, v in c.items() if v.get("ts", 0) > cutoff})
 
 def pick_ua_order(host, ua_cache, ua_scores):
-    saved = ua_cache.get(host); scores = ua_scores.get(host, {})
+    """Первый — learned UA хоста (если есть). Остальные — случайно перемешаны (ротация)."""
+    saved = ua_cache.get(host)
+    scores = ua_scores.get(host, {})
     keys = sorted(UAS.keys(), key=lambda k: (-scores.get(k, 0), -CFG.get("ua_weights", {}).get(k, 1)))
     if saved and saved in UAS:
         if saved in keys: keys.remove(saved)
-        keys.insert(0, saved); return keys[:3]
-    return keys[:5]
+        rest = keys[:4]
+        random.shuffle(rest)
+        return [saved] + rest
+    top = keys[:5]
+    random.shuffle(top)
+    return top
 
 def upd_ua_score(ua_scores, host, key, ok):
     s = ua_scores.setdefault(host, {}); s[key] = s.get(key, 0) + (2 if ok else -1)
@@ -569,37 +574,83 @@ def track_problem(problems, u, name, kind, ok, run_id=None):
             print(f"  [BLOCK] {name}: {ttl} дн "
                   f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
 
-# ---------- ПРОВЕРКА ПОТОКА ----------
+# ---------- СТЕЛС: ЗАГОЛОВКИ ----------
+def build_http_headers(ua, ref, cookie, exthttp=None):
+    headers = {
+        "User-Agent": ua,
+        "Accept": "*/*",
+        "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+        "Accept-Encoding": "identity",
+        "Connection": "keep-alive",
+    }
+    if ref:
+        headers["Referer"] = ref
+        if "wink.ru" in ref:
+            headers["Origin"] = "https://wink.ru"
+        elif "rutube.ru" in ref:
+            headers["Origin"] = "https://rutube.ru"
+    if cookie:
+        headers["Cookie"] = cookie
+    if exthttp and isinstance(exthttp, dict):
+        for k, v in exthttp.items():
+            if k.lower() not in ("host", "content-length"):
+                headers[k] = v
+    return headers
+
 def get_ref(u):
     h = host_of(u)
     if "wink.ru" in h: return "https://wink.ru/"
     if "rutube.ru" in h: return "https://rutube.ru/"
     return None
 
-def ffprobe_check(u, ua, ref, cookie, tmo):
-    hdr = "User-Agent: " + ua + "\r\n"
-    if ref: hdr += "Referer: " + ref + "\r\n"
-    if cookie: hdr += "Cookie: " + cookie + "\r\n"
+# ---------- HTTP PRE (HEAD → GET fallback) ----------
+async def http_pre(session, u, ua, ref, exthttp=None):
+    h = build_http_headers(ua, ref, None, exthttp)
+    # Пробуем HEAD (быстрее, меньше трафика)
+    try:
+        async with session.head(u, headers=h, timeout=aiohttp.ClientTimeout(total=CFG.get("http_timeout",5)),
+                                 allow_redirects=True, ssl=False) as r:
+            if r.status in (200, 206): return r.status
+            if r.status in (403, 404, 410, 451): return r.status
+            # 405 (Method Not Allowed) или другой → пробуем GET
+    except: pass
+    # Fallback: GET с Range
+    h["Range"] = "bytes=0-2048"
+    try:
+        async with session.get(u, headers=h, timeout=aiohttp.ClientTimeout(total=CFG.get("http_timeout",5)),
+                               allow_redirects=True, ssl=False) as r:
+            return r.status
+    except: return 0
+
+# ---------- FFPROBE (с bitrate) ----------
+def ffprobe_check(u, ua, ref, cookie, tmo, exthttp=None):
+    h = build_http_headers(ua, ref, cookie, exthttp)
+    hdr_str = "".join(f"{k}: {v}\r\n" for k, v in h.items())
     cmd = ["ffprobe","-hide_banner","-loglevel","error","-of","json",
-           "-show_entries","stream=codec_type,codec_name,width,height",
-           "-headers",hdr,
-           "-probesize",str(CFG.get("ffprobe_probesize", 32768)),
-           "-analyzeduration",str(CFG.get("ffprobe_analyzeduration", 1000000)),
-           "-rw_timeout",str(int(tmo * 1_000_000)),
-           "-i",u]
+           "-show_entries","stream=codec_type,codec_name,width,height:format=bit_rate",
+           "-headers", hdr_str,
+           "-probesize", str(CFG.get("ffprobe_probesize", 32768)),
+           "-analyzeduration", str(CFG.get("ffprobe_analyzeduration", 1000000)),
+           "-rw_timeout", str(int(tmo * 1_000_000)),
+           "-i", u]
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=tmo+3)
         if r.returncode != 0: return None
-        streams = json.loads(r.stdout or b"{}").get("streams") or []
+        data = json.loads(r.stdout or b"{}")
+        streams = data.get("streams") or []
         has_video = any(s.get("codec_type") == "video" for s in streams)
         has_audio = any(s.get("codec_type") == "audio" for s in streams)
         if not has_video: return None
         v = next(s for s in streams if s.get("codec_type") == "video")
+        fmt = data.get("format") or {}
+        try: bitrate = int(fmt.get("bit_rate", 0) or 0)
+        except: bitrate = 0
         return {"codec": v.get("codec_name"), "width": v.get("width") or 0,
-                "height": v.get("height") or 0, "has_audio": has_audio}
+                "height": v.get("height") or 0, "has_audio": has_audio,
+                "bitrate": bitrate}
     except: return None
 
-def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
+def ffmpeg_quality(u, ua, ref, cookie, has_audio_track, exthttp=None):
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
@@ -616,10 +667,9 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
         filters.append("signalstats")
     if check_static:
         filters.append(f"freezedetect=n=0.02:d={static_dur}")
-    hdr = "User-Agent: " + ua + "\r\n"
-    if ref: hdr += "Referer: " + ref + "\r\n"
-    if cookie: hdr += "Cookie: " + cookie + "\r\n"
-    cmd = ["ffmpeg", "-hide_banner", "-nostats", "-loglevel", "info", "-headers", hdr,
+    h = build_http_headers(ua, ref, cookie, exthttp)
+    hdr_str = "".join(f"{k}: {v}\r\n" for k, v in h.items())
+    cmd = ["ffmpeg", "-hide_banner", "-nostats", "-loglevel", "info", "-headers", hdr_str,
            "-t", str(sample), "-i", u]
     if filters: cmd += ["-vf", ",".join(filters)]
     if check_audio and has_audio_track: cmd += ["-af", "volumedetect"]
@@ -649,11 +699,10 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
         return is_black, is_static, is_silent
     except: return False, False, False
 
-async def hls_variant(session, u, ua, ref):
+async def hls_variant(session, u, ua, ref, exthttp=None):
     if not u.endswith(".m3u8"): return u
     try:
-        h = {"User-Agent": ua}
-        if ref: h["Referer"] = ref
+        h = build_http_headers(ua, ref, None, exthttp)
         async with session.get(u, headers=h, timeout=aiohttp.ClientTimeout(total=8), ssl=False) as r:
             if r.status != 200: return u
             txt = await r.text()
@@ -666,15 +715,6 @@ async def hls_variant(session, u, ua, ref):
                         if nxt and not nxt.startswith("#"): return urljoin(u, nxt)
     except: pass
     return u
-
-async def http_pre(session, u, ua, ref):
-    h = {"User-Agent": ua, "Range": "bytes=0-2048"}
-    if ref: h["Referer"] = ref
-    try:
-        async with session.get(u, headers=h, timeout=aiohttp.ClientTimeout(total=CFG.get("http_timeout",5)),
-                               allow_redirects=True, ssl=False) as r:
-            return r.status
-    except: return 0
 
 async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts, problems, quality):
     check_black = CFG.get("check_black_screen", False)
@@ -697,29 +737,31 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     ch["height"] = wc.get("height", 0)
                     ch["width"] = wc.get("width", 0)
                     ch["codec"] = wc.get("codec", "")
+                    ch["bitrate"] = wc.get("bitrate", 0)
                     return ch
             ref = ch.get("extvlc", {}).get("http-referrer") or get_ref(u)
             cookie = ch.get("extvlc", {}).get("http-cookie")
+            exthttp = ch.get("exthttp") or None
             need_quality = quality_enabled and (
                 DEEP_CHECK or is_problematic(u, problems) or not is_quality_fresh(u, quality))
             for ua_key in pick_ua_order(host, ua_cache, ua_scores):
                 ua = UAS[ua_key]
                 try:
-                    status = await http_pre(session, u, ua, ref)
+                    status = await http_pre(session, u, ua, ref, exthttp)
                     if status in (403, 404, 410, 451):
                         mark_dead(dead, u, False); upd_host_stat(hosts, host, False); break
                     if status == 429: continue
                     if not status:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
-                    target = await hls_variant(session, u, ua, ref)
+                    target = await hls_variant(session, u, ua, ref, exthttp)
                     t = get_timeout(u, tmo); t0 = time.time()
-                    info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, t)
+                    info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, t, exthttp)
                     upd_timeout(tmo, u, (time.time()-t0)*1000)
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
-                            executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False))
+                            executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False), exthttp)
                         run_id = int(time.time() // 3600)
                         if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black, run_id=run_id)
                         if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent, run_id=run_id)
@@ -734,10 +776,11 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     mark_dead(dead, u, True)
                     warm[u] = {"ts": int(time.time()), "ua_key": ua_key,
                                "codec": info.get("codec",""), "height": info.get("height",0),
-                               "width": info.get("width",0)}
+                               "width": info.get("width",0), "bitrate": info.get("bitrate",0)}
                     ch["working_url"] = u; ch["working_ua_key"] = ua_key
                     ch["working_ua"] = ua; ch["height"] = info.get("height", 0)
                     ch["width"] = info.get("width", 0); ch["codec"] = info.get("codec", "")
+                    ch["bitrate"] = info.get("bitrate", 0)
                     return ch
                 except Exception as e:
                     print(f"  err {ch['name']}: {e}")
@@ -777,6 +820,33 @@ def resolve_epg_for_channel(ch, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru
             return True
     return False
 
+# ---------- УМНАЯ ДЕДУПЛИКАЦИЯ ПО КАЧЕСТВУ ----------
+def dedup_by_quality(alive):
+    """
+    Группирует по norm_name, в каждой группе сортирует по height desc,
+    берёт лучший как основной, остальные URLs — fallback.
+    """
+    groups = defaultdict(list)
+    for c in alive:
+        key = norm_name(c["name"]) or c["name"].lower()
+        groups[key].append(c)
+    result = []
+    for key, grp in groups.items():
+        # Сортируем: высокое разрешение → выше битрейт → есть EPG
+        grp.sort(key=lambda x: (
+            -(x.get("height") or 0),
+            -(x.get("bitrate") or 0),
+            0 if x.get("has_epg") else 1,
+        ))
+        main = dict(grp[0])
+        urls = []
+        for c in grp:
+            if c["working_url"] not in urls:
+                urls.append(c["working_url"])
+        main["urls"] = urls
+        result.append(main)
+    return result
+
 # ---------- ГЕНЕРАЦИЯ ----------
 def write_playlist(channels):
     epg_url = CFG.get("epg_url", "")
@@ -794,10 +864,13 @@ def write_playlist(channels):
         if c.get("working_ua"): lines.append('#EXTVLCOPT:http-user-agent=' + c["working_ua"])
         if c.get("extvlc",{}).get("http-referrer"):
             lines.append('#EXTVLCOPT:http-referrer=' + c["extvlc"]["http-referrer"])
-        lines.append(c["working_url"])
+        if c.get("extvlc",{}).get("http-cookie"):
+            lines.append('#EXTVLCOPT:http-cookie=' + c["extvlc"]["http-cookie"])
+        urls = [c["working_url"]] + [u for u in c.get("urls", []) if u != c["working_url"]]
+        for u in urls: lines.append(u)
     (ROOT / CFG.get("output_m3u", "playlist.m3u")).write_text("\n".join(lines) + "\n", "utf-8")
 
-def write_readme(report, working, elapsed, problems, filtered_stats, unmatched_count):
+def write_readme(report, working, elapsed, problems, filtered_stats, top_filtered, low_conf_count):
     repo = os.environ.get("GITHUB_REPOSITORY", "user/repo")
     branch = os.environ.get("GITHUB_REF_NAME", "main") or "main"
     raw = "https://raw.githubusercontent.com/" + repo + "/" + branch
@@ -810,20 +883,24 @@ def write_readme(report, working, elapsed, problems, filtered_stats, unmatched_c
     ua_stats = Counter(c.get("working_ua_key","?") for c in working)
     grp_stats = Counter(c.get("category") or "📦 Разное" for c in working)
     method_stats = Counter(c.get("method","?") for c in working)
+    # Топ источников по качеству (1080p+)
+    hd_count = sum(1 for c in working if (c.get("height") or 0) >= 1000)
     date_safe = report["generated_at"][:10].replace("-", ".")
     l_a = urllib.parse.quote("живых"); l_t = urllib.parse.quote("всего")
     l_e = urllib.parse.quote("EPG"); l_l = urllib.parse.quote("с лого")
-    l_u = urllib.parse.quote("обновлено")
+    l_h = urllib.parse.quote("HD+"); l_u = urllib.parse.quote("обновлено")
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
     L = [
-        "# 🎯 Raw Stream Checker v4.1", "",
-        "Каскадная классификация с **авто-обучением**: API → learned (авто) → fuzzy → group → keyword. "
-        "Quality checks (black/signalstats/static/audio), EPG, лого.", "",
+        "# 🎯 Raw Stream Checker v5.0", "",
+        "Stealth-заголовки (Accept, Origin, Language), умная дедупликация по качеству, "
+        "проверка битрейта, HEAD→GET fallback, ротация UA, авто-обучение категорий, "
+        "детект чёрного экрана (signalstats), EPG, лого.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
         f"![лого](https://img.shields.io/badge/{l_l}-{with_logo}-purple?style=flat-square) "
+        f"![HD+](https://img.shields.io/badge/{l_h}-{hd_count}-success?style=flat-square) "
         f"![режим](https://img.shields.io/badge/{l_m}-{date_safe}-orange?style=flat-square)", "",
         "## 🔗 Ссылки", "", "**Плейлист:**", "```", raw + "/playlist.m3u", "```", "",
         "**Отчёт:**", "```", raw + "/report.json", "```", "",
@@ -833,27 +910,28 @@ def write_readme(report, working, elapsed, problems, filtered_stats, unmatched_c
         f"| Мёртвых | **{dead}** |",
         f"| С EPG | **{with_epg}** ({epg_pct:.1f}%) |",
         f"| С лого | **{with_logo}** ({logo_pct:.1f}%) |",
+        f"| **HD+ (720p+)** | **{hd_count}** ({hd_count/work*100 if work else 0:.1f}%) |",
         f"| Время | **{elapsed:.1f} s** |",
         f"| Режим | **{mode}** |",
-        f"| Без категории (low conf) | **{unmatched_count}** |",
+        f"| Low-conf | **{low_conf_count}** |",
         f"| Обновлено | `{report['generated_at']}` |", "",
         "### Живучесть", "", "```",
         f"LIVE  {bar(pct)}  {pct:5.1f}%  ({work}/{total})", "```", "",
     ]
     if method_stats:
-        L += ["## 🎯 Как классифицированы", "", "| Метод | Confidence | Каналов |", "|---|---|---|"]
+        L += ["## 🎯 Методы классификации", "", "| Метод | Confidence | Каналов |", "|---|---|---|"]
         mc = {"api_id":1.0,"api_name":0.95,"learned":0.95,"fuzzy":0.8,"group":0.7,"keyword":0.6,"none":0.0,"?":0.0}
         for k, v in method_stats.most_common():
             L.append(f"| `{k}` | {mc.get(k,0):.2f} | {v} |")
         L.append("")
+    if top_filtered:
+        L += ["## 🚫 Топ причин фильтрации", "", "| Причина | Каналов | Пример |", "|---|---:|---|"]
+        for reason, cnt, example in top_filtered[:10]:
+            L.append(f"| `{reason}` | {cnt} | _{example}_ |")
+        L.append("")
     if grp_stats:
         L += ["## 🗂 Категории", "", "| Категория | Каналов |", "|---|---:|"]
         for k, v in grp_stats.most_common(30): L.append(f"| {k} | {v} |")
-        L.append("")
-    if filtered_stats:
-        L += ["## 🚫 Отфильтровано", "", "| Причина | Каналов |", "|---|---:|"]
-        for reason, cnt in sorted(filtered_stats.items(), key=lambda x: -x[1]):
-            L.append(f"| {reason} | {cnt} |")
         L.append("")
     if ua_stats:
         L += ["## 🎭 User-Agent", "", "| UA | Каналов |", "|---|---:|"]
@@ -874,10 +952,16 @@ def write_readme(report, working, elapsed, problems, filtered_stats, unmatched_c
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
     L += ["## ⚙️ Как это работает", "",
-          "**Авто-обучение:** каналы с fuzzy-матчем ≥88% кэшируются в `data/learned_categories.json` (60 дней). "
-          "Следующий прогон — без fuzzy, мгновенно.", "",
+          "**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. "
+          "HEAD pre-check → GET fallback. Ротация UA (learned первый, остальные — random).", "",
+          "**Дедупликация:** каналы с одинаковым именем группируются, выбирается лучшее разрешение. "
+          "Остальные URLs — как fallback для плеера.", "",
+          "**Битрейт:** ffprobe извлекает `format=bit_rate`. В report.json у каждого канала есть `bitrate`.", "",
           "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`", "",
-          "**Quality:** `ffmpeg` black + signalstats + static + audio (5 фейлов в разных прогонах → блок 30 дней)", "",
+          "**Авто-обучение:** fuzzy ≥88% → `data/learned_categories.json` (60 дней). "
+          "Следующий прогон — `learned` метод (мгновенно).", "",
+          "**`#EXTHTTP` и `#KODIPROP`:** парсятся и передаются в заголовки ffprobe/ffmpeg.", "",
+          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок 30 дней.", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -894,7 +978,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v4.1 [{mode}] ===")
+    print(f"=== Raw Stream Checker v5.0 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
@@ -915,6 +999,7 @@ async def main():
     learned = load_learned()
     print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)} problems={len(problems)} quality={len(quality)} learned={len(learned)}")
     filtered_stats = Counter()
+    filtered_examples = {}
     low_conf_count = 0
     conf_threshold = CFG.get("confidence_threshold", 0.7)
     try:
@@ -938,20 +1023,22 @@ async def main():
                     reason = is_forbidden(n, tid, tvg_name, grp)
                     if reason:
                         filtered += 1
-                        filtered_stats[reason.split(":")[0]] += 1
+                        key = reason.split(":")[0]
+                        filtered_stats[key] += 1
+                        if key not in filtered_examples: filtered_examples[key] = reason.split(":",1)[-1][:30]
                         continue
                     key = (n.lower(), u)
                     if key in seen: continue
                     seen.add(key)
                     chan = {"name": n, "url": u, "tvg_id": tid, "tvg_name": tvg_name,
                             "logo": a.get("tvg-logo",""), "group": grp,
-                            "extvlc": ch["extvlc"], "urls": [u]}
+                            "extvlc": ch["extvlc"], "kodiprop": ch.get("kodiprop",{}),
+                            "exthttp": ch.get("exthttp",{}), "urls": [u]}
                     cat, conf, method = classify_channel(chan, api_cats, api_names, learned)
                     chan["category"] = cat
                     chan["confidence"] = conf
                     chan["method"] = method
                     if conf < conf_threshold: low_conf_count += 1
-                    # Авто-обучение: если fuzzy сработал — запоминаем
                     if method == "fuzzy" and conf >= 0.8:
                         learn_category(learned, norm_name(n), cat, method, conf)
                     chan["logo"] = resolve_logo(chan, api_logos)
@@ -963,8 +1050,10 @@ async def main():
             epg_pre = sum(1 for c in channels if c.get("has_epg"))
             logo_pre = sum(1 for c in channels if c.get("logo"))
             print(f"[*] Всего: {len(channels)} | с EPG: {epg_pre} | с лого: {logo_pre} | low-conf: {low_conf_count}")
-            print(f"[*] Learned обновлён: {len(learned)} записей")
+            print(f"[*] Learned: {len(learned)}")
             if not channels: return
+            # Перемешиваем для распределения нагрузки по CDN
+            random.shuffle(channels)
             executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
             loop = asyncio.get_running_loop()
             sem = asyncio.Semaphore(CFG.get("concurrency", 80))
@@ -992,25 +1081,37 @@ async def main():
                     "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 }, ensure_ascii=False, indent=2), "utf-8")
                 return
+            # Умная дедупликация по качеству
+            before_dedup = len(alive)
+            alive = dedup_by_quality(alive)
+            print(f"[*] Дедупликация: {before_dedup} → {len(alive)} (склеено {before_dedup - len(alive)})")
             write_playlist(alive)
+            # Статистика битрейта
+            low_bitrate = sum(1 for c in alive if 0 < (c.get("bitrate") or 0) < 200000)
             report = {
                 "total": len(channels), "alive": len(alive), "dead": len(channels)-len(alive),
                 "with_epg": sum(1 for c in alive if c.get("has_epg")),
                 "with_logo": sum(1 for c in alive if c.get("logo")),
-                "filtered": dict(filtered_stats), "mode": mode,
+                "hd_plus": sum(1 for c in alive if (c.get("height") or 0) >= 1000),
+                "low_bitrate": low_bitrate,
+                "filtered": dict(filtered_stats),
+                "mode": mode,
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "channels": [{"name": c["name"], "url": c["working_url"], "ua": c["working_ua_key"],
                               "group": c.get("category",""), "height": c.get("height",0),
+                              "bitrate": c.get("bitrate",0),
                               "logo": c.get("logo",""), "epg": c.get("has_epg", False),
-                              "method": c.get("method",""), "confidence": c.get("confidence",0)} for c in alive],
+                              "method": c.get("method",""), "confidence": c.get("confidence",0),
+                              "fallbacks": len(c.get("urls", []))-1} for c in alive],
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
-            write_readme(report, alive, time.time()-started, problems, filtered_stats, low_conf_count)
+            top_filtered = [(k, v, filtered_examples.get(k,"")) for k, v in filtered_stats.most_common()]
+            write_readme(report, alive, time.time()-started, problems, filtered_stats, top_filtered, low_conf_count)
             elapsed = time.time() - started
             print("=========================================")
             print(f"[+] Готово за {elapsed:.1f}s [{mode}]")
             print(f"[+] Всего: {len(channels)} | Живых: {len(alive)} | EPG: {report['with_epg']} | Лого: {report['with_logo']}")
-            print(f"[+] Low-conf: {low_conf_count} | Learned: {len(learned)}")
+            print(f"[+] HD+: {report['hd_plus']} | Low-bitrate: {low_bitrate} | Learned: {len(learned)}")
     finally:
         print("[*] Сохранение кэша...")
         save_ua_cache(ua_cache); save_ua_scores(ua_scores)
