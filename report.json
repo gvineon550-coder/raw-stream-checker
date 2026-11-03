@@ -1,0 +1,5279 @@
+{
+  "total": 1051,
+  "alive": 753,
+  "dead": 298,
+  "generated_at": "2026-11-03T12:02:32Z",
+  "channels": [
+    {
+      "name": "2x2 SD (576p)",
+      "url": "http://stream.mcquack.net/187/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "5 minut tishiny (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/5_minut_tishiny/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "360° (1080p)",
+      "url": "https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/CkxfR1xNUAJwTgtXTBZTAJli/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "360° (576p) [Geo-blocked]",
+      "url": "https://streaming.thestream.cyou/live/7000.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "360° Новости",
+      "url": "https://edge-tv-ll.facecast.io/evacoder_hls_hi/UBZfFgtKB1JwTwoDERNQVGGs/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "365 days TV (576p)",
+      "url": "http://stream.mcquack.net/70/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": ".black (576p)",
+      "url": "http://stream.mcquack.net/263/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": ".red (576p)",
+      "url": "http://5.188.159.128:8070/RED/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": ".red (576p)",
+      "url": "http://stream.mcquack.net/69/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": ".sci-fi (576p)",
+      "url": "http://stream.mcquack.net/180/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Afontovo",
+      "url": "https://stream.afontovo.ru/hd.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Amedia Hit (1080p)",
+      "url": "http://stream.mcquack.net/162/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "ART (576p)",
+      "url": "http://89.104.114.24:8080/art/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Auto Plus",
+      "url": "https://stream8.cinerama.uz/1036/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Avto24 (576p)",
+      "url": "http://stream.mcquack.net/78/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Balabol (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Balabol/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Blokbaster HD (1080p)",
+      "url": "http://stream.mcquack.net/364/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Boks TV (576p)",
+      "url": "http://stream.mcquack.net/154/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE (576p)",
+      "url": "http://stream.mcquack.net/318/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE Classic (576p)",
+      "url": "http://stream.mcquack.net/272/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE Deluxe HD (576p)",
+      "url": "http://stream.mcquack.net/92/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "BRIDGE Hits (576p)",
+      "url": "http://stream.mcquack.net/320/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel (720p)",
+      "url": "http://185.37.150.46/Karusel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel (576p)",
+      "url": "https://stream.smotrim.ru/hls2/karusel/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel SD (576p)",
+      "url": "http://stream.mcquack.net/120/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Channel 5 International (576p)",
+      "url": "http://178.134.1.158:8081/5channel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Channel 5 International (576i)",
+      "url": "https://cdn4.skygo.mn/live/disk1/Channel_5/HLSv3-FTA/Channel_5.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Channel 8 (576p)",
+      "url": "http://45.11.139.43:8555/8kanal/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Channel 8 (576p)",
+      "url": "http://tshift-1.telecoma.tv/8channel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Channel 8 (576p)",
+      "url": "https://v4.proofix.ru/8tv-russia/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Channel 8 Krasnoyarsk HD (1080p)",
+      "url": "https://tshift-1.telecoma.tv/8channel/tracks-v1a1/mono.ts.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Channel 8 Novosibirsk (480i)",
+      "url": "https://live-8knsk.cdnvideo.ru/8knsk/stream1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Channel One (576p)",
+      "url": "http://178.217.49.7/1/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Channel One HD (720p)",
+      "url": "https://stream8.cinerama.uz/1214/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Cinema",
+      "url": "https://stream8.cinerama.uz/1227/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Classic Music (1080p)",
+      "url": "http://stream.mcquack.net/312/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Da Vinci (576p)",
+      "url": "http://stream.mcquack.net/238/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "DanceHits80",
+      "url": "http://dancehits80.denvs.ru:8080/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 432
+    },
+    {
+      "name": "Dikaya rybalka HD (1080p)",
+      "url": "http://stream.mcquack.net/275/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Doctor (576i)",
+      "url": "https://stream8.cinerama.uz/1409/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dom kino Premium HD (1080p)",
+      "url": "http://stream.mcquack.net/108/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Domashniy SD (576p)",
+      "url": "http://stream.mcquack.net/227/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Dorama",
+      "url": "https://stream8.cinerama.uz/1273/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dorama HD (1080p)",
+      "url": "http://stream.mcquack.net/412/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Drive (576i)",
+      "url": "https://stream8.cinerama.uz/1421/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dushevnoe HD (1080p)",
+      "url": "http://stream.mcquack.net/213/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Enisey (576p)",
+      "url": "http://tshift-1.telecoma.tv/enisei/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Europa Plus TV SD (576p)",
+      "url": "http://stream.mcquack.net/184/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Evrokino HD (1080p)",
+      "url": "http://stream.mcquack.net/385/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "FAN (576p)",
+      "url": "http://stream.mcquack.net/420/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Fashion&LifeStyle (1080p)",
+      "url": "http://stream.mcquack.net/119/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Fon Music (576p)",
+      "url": "http://stream.mcquack.net/317/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "FoodTime (1080p)",
+      "url": "http://stream.mcquack.net/216/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Fox (576p)",
+      "url": "http://stream.mcquack.net/182/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Fox Life (576p)",
+      "url": "http://stream.mcquack.net/129/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Friday! (576p)",
+      "url": "http://stream.mcquack.net/181/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Glazami Turista (576i)",
+      "url": "https://stream8.cinerama.uz/1423/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Groznyj",
+      "url": "https://balancer.facecast.io/evacoder_hls_hi/UUMLQVAYVlZyH14GRENQVV0G/2/720-3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Gulli Girl (720p)",
+      "url": "https://stream8.cinerama.uz/1445/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Gulli Girl (576p)",
+      "url": "http://stream.mcquack.net/305/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Hit HD (1080p)",
+      "url": "http://stream.mcquack.net/363/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Horoshee Kino (720p)",
+      "url": "https://live-rian.cdnvideo.ru/rian/rus-radio/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Indiyskoye Kino (576p)",
+      "url": "http://188.113.190.12/329/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Indiyskoye Kino (576p)",
+      "url": "http://stream.mcquack.net/104/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Indiyskoye Kino",
+      "url": "https://stream8.cinerama.uz/1060/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Insayt TV (2160p)",
+      "url": "https://stream8.cinerama.uz/1416/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Insayt TV (1080p)",
+      "url": "http://stream.mcquack.net/361/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 2160
+    },
+    {
+      "name": "Istoki (1080p)",
+      "url": "https://istoki.tv/live/stream1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kapitan Fantastika (1080p)",
+      "url": "http://stream.mcquack.net/144/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "KHL (576p)",
+      "url": "http://stream.mcquack.net/166/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "KHL Prime (1080p)",
+      "url": "http://stream.mcquack.net/178/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kino TV HD (1080p)",
+      "url": "http://176.118.197.101/KinoTvHD/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kino TV SD (576p)",
+      "url": "http://stream.mcquack.net/221/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "KinoHit (576p)",
+      "url": "http://stream.mcquack.net/126/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "KinoHit",
+      "url": "https://stream8.cinerama.uz/1055/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinokomedija (576p)",
+      "url": "http://stream.mcquack.net/265/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinomix (576p)",
+      "url": "http://93.170.254.17/Kinomiks/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinomix (576p)",
+      "url": "http://stream.mcquack.net/133/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinopokaz (576p)",
+      "url": "http://stream.mcquack.net/64/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinopokaz",
+      "url": "https://stream8.cinerama.uz/1057/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinopremyera (1080p)",
+      "url": "http://5.188.159.128:8070/KINOPREMIERA/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinopremyera",
+      "url": "https://stream8.cinerama.uz/1207/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinosemja (576p)",
+      "url": "http://stream.mcquack.net/170/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinosvidanie (576p)",
+      "url": "http://5.188.159.128:8070/kinosvidanie/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinosvidanie (576p)",
+      "url": "http://stream.mcquack.net/171/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kinosvidanie",
+      "url": "https://stream8.cinerama.uz/1203/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinouzhas (576p)",
+      "url": "http://stream.mcquack.net/278/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Komedia (576p)",
+      "url": "http://stream.mcquack.net/68/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Komediynoe HD (1080p)",
+      "url": "http://stream.mcquack.net/74/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kongress TV (1080p)",
+      "url": "https://live-3.otcnet.ru/congresstv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kongress TV (1080p)",
+      "url": "https://stitch.teletarget.ru/api/v1/hls/504/158/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Kuhnya (576p)",
+      "url": "http://stream.mcquack.net/179/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kulinar TV (576p)",
+      "url": "https://api.alpaca.t62a.com/hls/9110/stream0.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "KVN TV (576p)",
+      "url": "http://178.124.179.122:8080/KVN-TV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Law TV (1080p)",
+      "url": "http://stream.mcquack.net/406/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Maidan (720p)",
+      "url": "https://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Mama (576p)",
+      "url": "http://stream.mcquack.net/79/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Match! Arena (576p)",
+      "url": "http://stream.mcquack.net/163/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Boets (576p)",
+      "url": "http://stream.mcquack.net/112/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Igra (576p)",
+      "url": "http://stream.mcquack.net/188/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Strana (576p)",
+      "url": "http://stream.mcquack.net/143/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Ultra (720p)",
+      "url": "http://stream.mcquack.net/169/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mir (576p)",
+      "url": "http://45.153.24.78/MIR/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mir (576p)",
+      "url": "https://tvcdn01.oktv.kz/tv/mir/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mir",
+      "url": "https://stream8.cinerama.uz/1218/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mir 24 (576p)",
+      "url": "http://5.188.159.128:8070/mir_24/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mir 24",
+      "url": "https://stream8.cinerama.uz/1219/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mir HD (1080p) [Not 24/7]",
+      "url": "http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mirtv_2500/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mir Kazakhstan (576p)",
+      "url": "http://tvcdn01.esilnet.kz/tv/mir/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "MMA-TV.com",
+      "url": "https://stream8.cinerama.uz/1226/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mosfilm Gold Collection (576p)",
+      "url": "http://stream.mcquack.net/369/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Moskva 24 (1080p)",
+      "url": "https://stream.smotrim.ru/hls/givc8/playlist.m3u8?entity=channel&id=798&sign=37881ef2e289f062ceff0dca6c24dc58",
+      "ua": "HlsWinkPlayer",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Moskva 24 (720p)",
+      "url": "https://stream.smotrim.ru/hls2/givc9/playlist_4.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Moskva 24 (576p)",
+      "url": "https://stream.smotrim.ru/hls2/moscow_24/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Moskva. Doveriye (576p)",
+      "url": "https://stream.smotrim.ru/hls2/doverie/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Moy mir (720p)",
+      "url": "https://moymir.ru/hls/onair.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Moya Planeta (576p)",
+      "url": "http://stream.mcquack.net/124/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Moya stikhiya HD (1080p)",
+      "url": "http://stream.mcquack.net/141/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mult (576p)",
+      "url": "http://stream.mcquack.net/232/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mult i muzyka (576p)",
+      "url": "http://stream.mcquack.net/82/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Multilandia",
+      "url": "https://stream8.cinerama.uz/1440/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muz-TV (576p)",
+      "url": "http://stream.mcquack.net/86/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muz-TV",
+      "url": "https://stream8.cinerama.uz/1200/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muzhskoe kino (576p)",
+      "url": "http://stream.mcquack.net/107/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Muzyka Live (576p)",
+      "url": "http://stream.mcquack.net/303/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muzyka Pervogo (576p)",
+      "url": "http://stream.mcquack.net/153/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muzyka Pervogo",
+      "url": "https://stream8.cinerama.uz/1201/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Nano (576p)",
+      "url": "http://stream.mcquack.net/419/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nashe HD (576p)",
+      "url": "http://stream.mcquack.net/217/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nashe muzhskoe HD (1080p)",
+      "url": "http://stream.mcquack.net/362/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nashe Novoe Kino",
+      "url": "https://stream8.cinerama.uz/1051/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "National Geographic (576p)",
+      "url": "http://stream.mcquack.net/116/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nauka (576p)",
+      "url": "http://stream.mcquack.net/125/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nevskiy (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Nevskiy/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Nick Jr. (576p)",
+      "url": "http://stream.mcquack.net/220/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Nick Jr. (576p)",
+      "url": "https://stream8.cinerama.uz/1501/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Nickelodeon (576p)",
+      "url": "http://stream.mcquack.net/443/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nicktoons CIS (1080p)",
+      "url": "https://stream8.cinerama.uz/1502/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "NST (576p)",
+      "url": "http://stream.mcquack.net/207/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NST (576p)",
+      "url": "https://vod.tuva.ru/nst/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV",
+      "url": "https://stream8.cinerama.uz/1023/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV HD (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/ntv0_hd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "NTV Mir (576p)",
+      "url": "http://5.188.159.128:8070/ntvmir_TV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV SD (576p)",
+      "url": "https://cdn.ntv.ru/ntv-spb/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "NTV Series (576p)",
+      "url": "http://stream.mcquack.net/301/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV Vitrina (720p)",
+      "url": "https://cdn.ntv.ru/vitrina/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 404
+    },
+    {
+      "name": "O! (576p)",
+      "url": "http://stream.mcquack.net/60/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Ohotnik i rybolov (576i)",
+      "url": "https://stream8.cinerama.uz/1413/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Ohotnik i rybolov HD (1080p)",
+      "url": "http://stream.mcquack.net/194/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Okhota i rybalka (576p)",
+      "url": "http://stream.mcquack.net/155/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Okhota i rybalka",
+      "url": "https://stream8.cinerama.uz/1038/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Okko Futbol (576p)",
+      "url": "http://178.124.179.122:8080/Setanta1/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Ostrosyuzhetnoye HD (1080p)",
+      "url": "http://stream.mcquack.net/214/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Peretz International (576p)",
+      "url": "http://stream.mcquack.net/121/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Perviy otdel (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Perviy_otdel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Pes (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Pes/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Premialnoe HD (1080p)",
+      "url": "http://stream.mcquack.net/421/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Priklyucheniya HD (1080p)",
+      "url": "http://stream.mcquack.net/198/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Pro Business (720p)",
+      "url": "https://tv-streaming.bsh.ru:21938/probusiness/probusiness.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Prodvizhenie (1080p)",
+      "url": "https://streaming.astrakhan.ru/proastrakhanhd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Prodvizhenie (576p)",
+      "url": "http://origin5.mediacdn.ru/live/prodvizhenie_new/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Prosveshchenie (576p)",
+      "url": "http://cdn-01.bonus-tv.ru/prosveschenie_edge/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Radio 1 (720p) [Geo-blocked]",
+      "url": "https://stream.radio1.ru/memfs/49dee7fe-77ba-4e6b-8cdc-fa840535b242.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Radio Rossii (720p)",
+      "url": "https://stream.smotrim.ru/hls2/radio_rus/playlist_4.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Radost Moya (576p)",
+      "url": "https://radm.mediacdn.ru/cdn/radost/playlist_sdhigh.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Retro (576p)",
+      "url": "http://stream.mcquack.net/191/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Retro",
+      "url": "https://stream8.cinerama.uz/1047/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Rodnoe Kino (576p)",
+      "url": "http://stream.mcquack.net/242/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Rodnoe Kino",
+      "url": "https://stream8.cinerama.uz/1052/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Rossiya 1 Vainah (576i)",
+      "url": "https://live.chechensoft.ru/vainahtv/ngrp:vaynahtv_all/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 484
+    },
+    {
+      "name": "RT (720p)",
+      "url": "http://212.5.144.156:8080/rt/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "RT Balkan (1080p)",
+      "url": "https://rt-srb.rttv.com/dvr/rtbalkan/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
+    },
+    {
+      "name": "RT Balkan (1080p)",
+      "url": "https://rt-srb.rttv.com/live/rtbalkan/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
+    },
+    {
+      "name": "RT en Espanol (720p)",
+      "url": "https://live-evg10.tv360.bitel.com.pe/bitel/rt/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
+    },
+    {
+      "name": "RT en Espanol (576p)",
+      "url": "https://streaming.thestream.cyou/live/46.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "RT en Espanol (576p)",
+      "url": "https://streamtv.onliv3.online:1936/exito-tv/exito-tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
+    },
+    {
+      "name": "RT HD (1080p)",
+      "url": "https://wisewatchoott.wiseplayout.com/RT/master.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "RTG int.",
+      "url": "http://213.91.179.28:8000/play/a0bw",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "RTG TV HD (1080p)",
+      "url": "http://stream.mcquack.net/164/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "RTVi (576p)",
+      "url": "https://shift03.isp.bg/RTVi/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "RU.TV",
+      "url": "https://stream8.cinerama.uz/1202/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "RU.TV SD (576p)",
+      "url": "http://stream.mcquack.net/109/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-1",
+      "url": "https://stream8.cinerama.uz/1020/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-1 HD (1080p)",
+      "url": "https://stream.smotrim.ru/hls2/russia_hd/playlist_6.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russia-1 SD (576p)",
+      "url": "http://109.207.243.18/2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-24 (720p)",
+      "url": "https://stream.smotrim.ru/hls2/russia24nl_smotrim/playlist_5.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russia-24",
+      "url": "https://stream8.cinerama.uz/1021/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-K (576p)",
+      "url": "http://stream.mcquack.net/229/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-K HD (1080p)",
+      "url": "https://stream.smotrim.ru/hls2/russia_k/playlist_5.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russian MusicBox (576p)",
+      "url": "http://stream.mcquack.net/319/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russkiy Bestseller (576p)",
+      "url": "http://stream.mcquack.net/208/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russkiy Detektiv (576p)",
+      "url": "http://stream.mcquack.net/204/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russkiy roman (576p)",
+      "url": "http://stream.mcquack.net/266/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russkiy roman (576p)",
+      "url": "https://vod.tuva.ru/rusroman/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Rybolov (576p)",
+      "url": "http://stream.mcquack.net/264/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Ryzhiy (576i)",
+      "url": "https://stream8.cinerama.uz/1407/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Sankt-Peterburg HD (720p)",
+      "url": "https://stream.smotrim.ru/hls2/ext_spbtv/playlist_5.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Sarafan (576p)",
+      "url": "http://stream.mcquack.net/81/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Shanson TV (576p) [Geo-blocked]",
+      "url": "https://streaming.thestream.cyou/live/7009.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Shanson TV (576p)",
+      "url": "http://catchup.videoline.ru/shanson/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Shef (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Shef/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Shokiruyushchee HD (1080p)",
+      "url": "http://stream.mcquack.net/75/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Shopping Live (720p)",
+      "url": "https://nonmirya7cc.a.trbcdn.net/livemaster/tzrz5_sazlypl5ot.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Shopping Live (576p) [Not 24/7]",
+      "url": "http://serv30.vintera.tv:8081/shoppinglive/shoppinglive_stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Skoraya pomoshch (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/Skoraja_pomosh/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Smile TV (720p)",
+      "url": "https://5d23269b3ec0c.streamlock.net/WEB_Smilik/ngrp:Smilik.stream-adaptive/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Smotrim 100% Detskoe (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv05/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Smotrim 100% Fakty (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv06/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Smotrim 100% Klassika (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv03/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Smotrim 100% Lyubov (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv01/playlist_2.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Smotrim 100% Muzhskoe (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv02/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Smotrim 100% Prazdnik (720p)",
+      "url": "https://stream.smotrim.ru/hls/fasttv04/playlist_3.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Sochi Live HD (720p) [Not 24/7]",
+      "url": "http://serv30.vintera.tv:8081/sochi/sochi_stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Solnce (576p)",
+      "url": "http://217.114.191.150/Solnce/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Solnce (576p)",
+      "url": "http://stream.mcquack.net/118/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Solnce (576p)",
+      "url": "https://tv.mediacdn.ru/live/solntse/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "SONGTV Russia",
+      "url": "https://songtv.hls.iptvdc.com/web-russia/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Soyuzny (480p)",
+      "url": "http://178.124.179.122:8080/TRO/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Spas (576p)",
+      "url": "https://tvspas.mediacdn.ru/cdn/spas/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 270
+    },
+    {
+      "name": "Sportivnyy (1080p)",
+      "url": "https://live-3.otcnet.ru/sportivny/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Star Cinema",
+      "url": "https://dash2.antik.sk/live/test_star_cinema_atktv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Star Family (1080p)",
+      "url": "https://dash2.antik.sk/live/test_star_family_atktv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "START Air (576p)",
+      "url": "http://stream.mcquack.net/128/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "STS (576p)",
+      "url": "http://tshift-1.telecoma.tv/sts/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "STS HD (1080p)",
+      "url": "http://stream.mcquack.net/138/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "STS International (576p)",
+      "url": "http://178.134.1.158:8081/CTC/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "STS kids (576p)",
+      "url": "http://stream.mcquack.net/197/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "STS Love (576p)",
+      "url": "http://stream.mcquack.net/183/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Subbota! (576p)",
+      "url": "http://217.114.191.150/Subbota/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Subbota! HD (1080p)",
+      "url": "http://stream.mcquack.net/269/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "SuperGeroi (576p)",
+      "url": "http://109.94.1.3:8080/132/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Svoboda",
+      "url": "http://88.212.15.50/live/svoboda/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "T24 (576p)",
+      "url": "http://178.134.1.158:8081/t24/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "T24 (576p)",
+      "url": "http://stream.mcquack.net/209/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "T24",
+      "url": "https://stream8.cinerama.uz/1037/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Telecafe",
+      "url": "https://stream8.cinerama.uz/1035/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TeleDom",
+      "url": "https://iam-profi.ru/hls-live/livepkgr/_definst_/liveevent/td720.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "TiJi (576p)",
+      "url": "http://stream.mcquack.net/111/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TiJi (576p)",
+      "url": "https://stream8.cinerama.uz/1441/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TNT SD (576p)",
+      "url": "http://stream.mcquack.net/135/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TNV-Planet",
+      "url": "https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TNV-Tatarstan (720p)",
+      "url": "https://user91229.clients-cdnnow.ru/hls/user91229_1.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Tochka RF (1080p)",
+      "url": "http://stream.mcquack.net/161/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Tooku (1080p)",
+      "url": "http://live-saha.cdnvideo.ru/saha/tooky/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TV 21 International (576p)",
+      "url": "http://stream.mcquack.net/152/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV1000 Russian Kino Global",
+      "url": "http://213.91.179.28:8000/play/a0bx",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "TV PRO",
+      "url": "http://rtmp.tvpro-online.ru/hls/ch1.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV-3 (576p)",
+      "url": "http://178.124.179.122:8080/TB-3/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "U (576p)",
+      "url": "http://178.134.1.158:8081/U/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "U (576p)",
+      "url": "http://stream.mcquack.net/230/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "UDAR (1080p)",
+      "url": "http://5.188.159.128:8070/udar/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Detskiy (576p)",
+      "url": "https://stream8.cinerama.uz/1033/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Univer TV (1080p) [Not 24/7]",
+      "url": "https://cdn.universmotri.ru/live/smil:mbr.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Univer TV (1080p)",
+      "url": "https://cdn.universmotri.ru/live/smil:univer.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Usadba (576p)",
+      "url": "http://stream.mcquack.net/211/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "V gostyakh u skazki (576p)",
+      "url": "http://stream.mcquack.net/93/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "V mire zhivotnykh (1080p)",
+      "url": "http://stream.mcquack.net/241/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Vesti FM (720p)",
+      "url": "https://stream.smotrim.ru/hls2/vesti_fm/playlist_4.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "viju Explore (576p)",
+      "url": "http://stream.mcquack.net/239/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju History (576p)",
+      "url": "http://178.124.179.122:8080/HistoryHD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 432
+    },
+    {
+      "name": "viju History (576p)",
+      "url": "http://stream.mcquack.net/101/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju Nature",
+      "url": "https://stream8.cinerama.uz/1228/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju TV1000 (576p)",
+      "url": "http://stream.mcquack.net/110/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju TV1000 action (576p)",
+      "url": "http://stream.mcquack.net/100/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju TV1000 action",
+      "url": "https://stream8.cinerama.uz/1225/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju TV1000 russkoe",
+      "url": "https://stream8.cinerama.uz/1058/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju TV1000 russkoe",
+      "url": "https://stream8.cinerama.uz/1059/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Comedy HD (1080p)",
+      "url": "http://stream.mcquack.net/201/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Megahit HD (1080p)",
+      "url": "http://stream.mcquack.net/200/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Planet HD (1080p)",
+      "url": "http://stream.mcquack.net/240/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Premiere HD (1080p)",
+      "url": "http://stream.mcquack.net/202/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Serial HD (1080p)",
+      "url": "http://stream.mcquack.net/311/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Sport (576p)",
+      "url": "http://stream.mcquack.net/333/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Sport",
+      "url": "https://stream8.cinerama.uz/1229/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Vitrina TV (720p)",
+      "url": "https://live-11cinema.cdnvideo.ru/11cinema/11cinema/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Vkus (576p)",
+      "url": "http://178.134.1.158:8081/vkus/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Vmeste-RF (576p) [Geo-blocked]",
+      "url": "https://streaming.thestream.cyou/live/7006.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Voprosy i Otvety (576p)",
+      "url": "http://stream.mcquack.net/76/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Vremya (576p)",
+      "url": "http://stream.mcquack.net/237/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zagorodnaya Zhizn (576p)",
+      "url": "http://185.57.68.33/40/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zagorodnaya Zhizn",
+      "url": "https://stream8.cinerama.uz/1044/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zhara (576p)",
+      "url": "http://stream.mcquack.net/386/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Zhivaya priroda (1080p)",
+      "url": "http://stream.mcquack.net/83/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zhivaya priroda HD (1080p)",
+      "url": "http://stream.mcquack.net/225/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Zoopark (576i)",
+      "url": "https://stream8.cinerama.uz/1417/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zvezda",
+      "url": "https://stream8.cinerama.uz/1050/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zvezda HD (1080p) [Not 24/7]",
+      "url": "https://tvchannelstream1.tvzvezda.ru/cdn/tvzvezda/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Аист ТВ (1080p)",
+      "url": "http://live2-aisttv.cdnvideo.ru/aisttv2/aisttv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Арис 24 (720p) [Not 24/7]",
+      "url": "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Астрахань 24 (720p)",
+      "url": "https://streaming.astrakhan.ru/astrakhan24/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Астрахань.Ru Sport (720p)",
+      "url": "https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Астрахань.Ru TV (480p)",
+      "url": "https://streaming.astrakhan.ru/astrakhanrulivehd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Белгород 24 (1080p)",
+      "url": "https://belnovosti.cdn.easyhoster.ru:8443/stream.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Большая Азия (720p)",
+      "url": "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "БСТ 24 (Братск)",
+      "url": "http://bst.bratsk.ru/hls/bst2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Вера 24",
+      "url": "https://5f05e059699ae.streamlock.net/WEB_Vera24/ngrp:Vera24.stream-adaptive/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Ветта 24 (Пермь) (576p) [Not 24/7]",
+      "url": "http://serv24.vintera.tv:8081/vetta/vetta_office/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Волга (HD)",
+      "url": "http://tele2dvrnat01-02.cdnvideo.ru/stream/NAT_Volga/hls/1920x1080@4504/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Губерния (Самара) (576p)",
+      "url": "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Евразия (Орск) (720p)",
+      "url": "https://infochh.trkeurasia.ru/hlsinfoch/infochhd.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Енисей (1080p) [Not 24/7]",
+      "url": "https://hls-eniseytv.cdnvideo.ru/eniseytv/stream1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Известия (1080p)",
+      "url": "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "К16 (Саров) (406p) [Not 24/7]",
+      "url": "http://serv25.vintera.tv:8081/test/k16/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 406
+    },
+    {
+      "name": "КИНОТВ",
+      "url": "https://vod.tuva.ru/kinotv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Красная линия (480p)",
+      "url": "http://s55766.cdn.ngenix.net/s55766-media-origin/rline_high/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Красная линия (288p)",
+      "url": "http://s55766.cdn.ngenix.net/s55766-media-origin/rline_low/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 288
+    },
+    {
+      "name": "ЛДПР ТВ (1080p)",
+      "url": "http://46.46.143.222:1935/live/mp4:ldpr.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "ЛДПР ТВ (720p)",
+      "url": "http://46.46.143.222:1935/live/mp4:ldpr.stream_720p/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "ЛДПР ТВ (480p)",
+      "url": "http://46.46.143.222:1935/live/mp4:ldpr.stream_480p/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "Миллет (720p)",
+      "url": "https://live1.1tvcrimea.ru/milletlive.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Мир 24 (1080p)",
+      "url": "http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mir24_2500/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Мир Белагорья (720p) [Geo-blocked]",
+      "url": "http://mirbelogorya.ru:8080/mirbelogorya/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Мир Белогорья (720p) [Geo-blocked]",
+      "url": "http://stream.tvbelgorod.ru:8080/mirbelogorya/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "МТВ (Волгоград) (720p) [Not 24/7]",
+      "url": "http://hls.volgograd1vtv.cdnvideo.ru/volgograd1vtv/volgograd1vtv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Муз союз (576p)",
+      "url": "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz2/muzsoyuz.6fw0-58xp-acts-esy0/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Надежда (720p)",
+      "url": "https://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Надежда (720p)",
+      "url": "https://tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Нано ТВ HD (576p)",
+      "url": "http://s1.tv-nano.com/Nano_rec/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 270
+    },
+    {
+      "name": "Наука",
+      "url": "https://vod.tuva.ru/nauka2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "НВК Саха (1080p) [Not 24/7]",
+      "url": "https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Нижний Новгород 24 (720p) [Not 24/7]",
+      "url": "https://live-vestinn.cdnvideo.ru/vestinn/nn24-khl/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Ника ТВ (576p) [Not 24/7]",
+      "url": "https://live-nikatv.cdnvideo.ru/nikatv/nikatv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "НТМ (Народное телевидение Мордовии) (720p) [Not 24/7]",
+      "url": "https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "НТС (Севастополь) (1080p) [Not 24/7]",
+      "url": "https://peqk71plnjy.a.trbcdn.net/livemaster/w4kz7pki62_nts_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "ОСН",
+      "url": "http://osnmedia.servicecdn.ru/streams/17603_88089/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Открытый мир. Здоровье (576p)",
+      "url": "https://v4.proofix.ru/0mir/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Первый Крымский (720p)",
+      "url": "https://live1.1tvcrimea.ru/1tvcrimea.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 540
+    },
+    {
+      "name": "Прима (1080p)",
+      "url": "https://tele2dvrnat01-02.cdnvideo.ru/stream/NAT_Prima/hls/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Пятница! (576p)",
+      "url": "https://vod.tuva.ru/friday/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Радио Говорит Москва (Веб-камера) (720p)",
+      "url": "https://video.govoritmoskva.ru/rufm/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "РБК (СПБ) (576p)",
+      "url": "https://online-video.rbc.ru/spb/rbctv_spb.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 270
+    },
+    {
+      "name": "РБК-ТВ",
+      "url": "http://online-video.rbc.ru/online2/rbctv.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "С1 (Сургут) (1080p) [Not 24/7]",
+      "url": "https://sitv.ru/hls/stv.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Север (Нарьян-Мар)",
+      "url": "https://2vko9pchwon.a.trbcdn.net/livemaster/8ilgc_cw63ucn03p.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Симферополь 24",
+      "url": "https://simf.1tvcrimea.ru/simferopol24.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Смайл ТВ",
+      "url": "https://5f05e059699ae.streamlock.net/WEB_Smilik/ngrp:Smilik.stream-adaptive/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Солнце (576p)",
+      "url": "http://tv.mediacdn.ru/live/solntse/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 360
+    },
+    {
+      "name": "Сочи 24 HD (720p)",
+      "url": "http://serv30.vintera.tv:8081/sochi/sochi24_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Союз (576p)",
+      "url": "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Страна FM (720p) [Not 24/7]",
+      "url": "http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "ТВ Центр",
+      "url": "https://tvc-hls.cdnvideo.ru/tvc-res/smil:vd9221.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 480
+    },
+    {
+      "name": "ТВК 24 (576p)",
+      "url": "https://air.tvk6.ru/tvk24/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Твое TV HD (1080p)",
+      "url": "http://tvoetv.space:8080/tvoetv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Твое ТВ Юмор (1080p)",
+      "url": "http://tvoetv.space:8080/tvoetv_humor/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Телеканал 86 (Сургут) (1080p) [Not 24/7]",
+      "url": "https://sitv.ru/hls/s86.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Телерадиокомпания 555 (Алушта) (720p)",
+      "url": "http://trk555.tv:8888/live",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Телплюс ТВ (Астрахань) (360p) [Not 24/7]",
+      "url": "https://streaming.astrakhan.ru/telplushd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "ТКР (Рязань) (1080p) [Not 24/7]",
+      "url": "http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Толк HD (720p)",
+      "url": "http://live-tolknews.cdnvideo.ru/tolknews/stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Три Ангела (720p)",
+      "url": "https://hls.tv.3angels.ru/stream.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 270
+    },
+    {
+      "name": "Хузур ТВ (1080p) [Not 24/7]",
+      "url": "https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Щёлковское ТВ (576p) [Not 24/7]",
+      "url": "http://stream0.tv41.ru/live.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Ювелирочка ТВ (576p)",
+      "url": "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "2x2 (576p)",
+      "url": "http://flussonic.mkpnet.ru/tv-17540fb90079a865/video.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Duma TV (720p)",
+      "url": "http://185.23.80.23:8080/DumaTV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 720
+    },
+    {
+      "name": "Unknown Russia HD (1080p)",
+      "url": "http://185.23.80.23:8080/NeizvestnayaRossia/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nano HD (1080p)",
+      "url": "http://185.23.80.23:8080/NANO_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TV BRICS Russian (1080p)",
+      "url": "http://185.23.80.23:8080/TVBRICS/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "2x2 (576p)",
+      "url": "http://185.23.80.23:8080/2x2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "ART (576p)",
+      "url": "http://185.23.80.23:8080/ART/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "REN TV (576p)",
+      "url": "http://185.23.80.23:8080/REN/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE (576p)",
+      "url": "http://178.134.1.158:8081/BRIDGE/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE Rock (576p)",
+      "url": "http://178.134.1.158:8081/BRIDGEROCK/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "REN TV International (576p)",
+      "url": "http://178.134.1.158:8081/RENTV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Baby Time (576p)",
+      "url": "http://178.134.1.158:8081/babytime/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": ".red HD (1080p)",
+      "url": "http://178.134.1.158:8081/red/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TV 21 (576p)",
+      "url": "http://178.134.1.158:8081/TVXXI/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Tonus (576p)",
+      "url": "http://194.143.148.28:8080/Mir24/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "AIST TV (576p)",
+      "url": "http://194.143.148.28:8080/Aist/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "BRIDGE (576p)",
+      "url": "http://194.143.148.28:8080/RT_DOC/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "REN TV (576p)",
+      "url": "http://flussonic.linkintel.ru/ren_tv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Friday! (576p)",
+      "url": "http://flussonic.linkintel.ru/Pyatnica/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV-3 (576p)",
+      "url": "http://flussonic.linkintel.ru/tv-3/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV HD (1080p)",
+      "url": "http://flussonic.linkintel.ru/ntv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Mult (576p)",
+      "url": "http://flussonic.linkintel.ru/Mult/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TNT (576p)",
+      "url": "http://flussonic.linkintel.ru/tnt/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "STS (576p)",
+      "url": "http://flussonic.linkintel.ru/sts/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Che! (576p)",
+      "url": "http://flussonic.linkintel.ru/che/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel (576p)",
+      "url": "http://flussonic.linkintel.ru/Karusel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV Centr (576p)",
+      "url": "http://flussonic.linkintel.ru/tvc/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zvezda (576p)",
+      "url": "http://flussonic.linkintel.ru/zvezda/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "OTR (576p)",
+      "url": "http://flussonic.linkintel.ru/otr/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TNT4 (576p)",
+      "url": "http://flussonic.linkintel.ru/tnt4/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Amedia Hit (576p)",
+      "url": "http://flussonic.linkintel.ru/amedia-hit/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Cinema (576p)",
+      "url": "http://flussonic.linkintel.ru/cinema/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kino TV (576p)",
+      "url": "http://flussonic.linkintel.ru/kino-tv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Ultra (576p)",
+      "url": "http://flussonic.linkintel.ru/match/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mama (576p)",
+      "url": "http://flussonic.linkintel.ru/mama/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muzyka Pervogo (576p)",
+      "url": "http://88.212.15.50/live/test_muzyka_pervogo/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV-3 HD (1080p)",
+      "url": "http://stream.mcquack.net/136/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TNT4 (576p)",
+      "url": "http://stream.mcquack.net/106/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Telecafe (576p)",
+      "url": "http://stream.mcquack.net/314/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Doctor (576p)",
+      "url": "http://stream.mcquack.net/80/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Travel+Adventure HD (1080p)",
+      "url": "http://stream.mcquack.net/206/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "UDAR (1080p)",
+      "url": "http://stream.mcquack.net/279/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "BRIDGE Classic (576p)",
+      "url": "http://5.188.159.128:8070/Bridge_TV_Classic/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "BRIDGE Hits (576p)",
+      "url": "http://5.188.159.128:8070/Bridge_TV_Hits/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "FON Music (576p)",
+      "url": "https://stream8.cinerama.uz/1272/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "1HD Music Television (1080p)",
+      "url": "https://stream8.cinerama.uz/1267/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mult (576p)",
+      "url": "https://stream8.cinerama.uz/1246/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mama (576p)",
+      "url": "https://stream8.cinerama.uz/1244/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "365 days TV (576p)",
+      "url": "https://stream8.cinerama.uz/1242/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Arsenal (576p)",
+      "url": "https://stream8.cinerama.uz/1414/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Kapitan Fantastika (576p)",
+      "url": "https://stream8.cinerama.uz/1406/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "V gostyakh u skazki (1080p)",
+      "url": "https://stream8.cinerama.uz/1270/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Smile TV (720p)",
+      "url": "https://stream8.cinerama.uz/1425/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kuhnya (576p)",
+      "url": "https://stream8.cinerama.uz/1236/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV Centr (576p)",
+      "url": "https://stream8.cinerama.uz/1025/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Tochka otryva (576p)",
+      "url": "https://stream8.cinerama.uz/1031/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Usadba (576p)",
+      "url": "https://stream8.cinerama.uz/1427/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zdorovoe TV (576p)",
+      "url": "https://stream8.cinerama.uz/1428/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Domashnie Zhivotnye (576p)",
+      "url": "https://stream8.cinerama.uz/1426/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dikij (576p)",
+      "url": "https://stream3.cinerama.uz/1230/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Priklyucheniya (576p)",
+      "url": "https://stream8.cinerama.uz/1420/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Zhivaya Planeta (576p)",
+      "url": "https://stream8.cinerama.uz/1250/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-K (576p)",
+      "url": "https://stream8.cinerama.uz/1048/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kinoseriya (576p)",
+      "url": "https://fs.uplink.kz/kinoseria/mono.m3u8?token=onlinetv",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "KVN TV (576p)",
+      "url": "https://fs.uplink.kz/kvn_tv/mono.m3u8?token=onlinetv",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV Centr (576p)",
+      "url": "https://fs.uplink.kz/tvc/mono.m3u8?token=onlinetv",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Dorama (576p)",
+      "url": "https://fs.uplink.kz/dorama/mono.m3u8?token=onlinetv",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Baby Time (576p)",
+      "url": "https://fs.uplink.kz/baby_time/mono.m3u8?token=onlinetv",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-1 HD (1080p)",
+      "url": "https://live.smotrim.ru/vgtrk/0/russia1-hd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Russia-24 HD (1080p)",
+      "url": "https://live.smotrim.ru/vgtrk/0/russia24-hd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Ultra (576p)",
+      "url": "http://45.132.87.69:8080/match/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Match! Ultra (576p)",
+      "url": "http://tv.tuva.ru/machtv/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "FashionTV (1080p)",
+      "url": "http://fashionlive.mediacdn.ru/cdn/fashiontv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 270
+    },
+    {
+      "name": "Russia-K HD (1080p)",
+      "url": "https://live.smotrim.ru/vgtrk/0/kultura-hd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV Centr International (576p)",
+      "url": "https://stream8.cinerama.uz/1281/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TV-3 (576p)",
+      "url": "http://176.118.197.101/TB3/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Bollywood HD (576p)",
+      "url": "http://176.118.197.101/Bollywood_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "START Air (1080p)",
+      "url": "http://176.118.197.101/START_AIR/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TNT (576p)",
+      "url": "http://176.118.197.101/THT/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Che! (576p)",
+      "url": "http://176.118.197.101/Che/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "1HD Music Television (1080p)",
+      "url": "http://176.118.197.101/1HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Komedia (576p)",
+      "url": "http://176.118.197.101/Komediya/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "KHL (576p)",
+      "url": "http://176.118.197.101/KHL/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "RBK-TV (576p)",
+      "url": "http://176.118.197.101/RBK/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "STS (576p)",
+      "url": "http://176.118.197.101/CTC/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "NTV (576p)",
+      "url": "http://176.118.197.101/NTV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "2x2 (576p)",
+      "url": "http://176.118.197.101/2x2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Evrokino (576p)",
+      "url": "http://176.118.197.101/Evrokino/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mir Seriala (576p)",
+      "url": "http://176.118.197.101/MirSeriala/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-24 (576p)",
+      "url": "http://176.118.197.101/Rossiya24/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-1 HD (1080p)",
+      "url": "http://176.118.197.101/RossiyaHD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Retro (576p)",
+      "url": "http://176.118.197.101/Retro/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Nostalgia (576p)",
+      "url": "http://176.118.197.101/Nostalgiya/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Illusion+ (576p)",
+      "url": "http://176.118.197.101/Illuzion+/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel (576p)",
+      "url": "http://88.212.15.50/live/test_karusel/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Vremya (576p)",
+      "url": "http://88.212.15.50/live/test_vremya/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dom kino (576p)",
+      "url": "http://88.212.15.50/live/test_dom_kino/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Dom kino Premium (576p)",
+      "url": "http://88.212.15.50/live/test_dom_kino_premium/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Telecafe (576p)",
+      "url": "http://88.212.15.50/live/test_telecafe_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Bober (576p)",
+      "url": "http://88.212.15.50/live/test_bober/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Poehali! (576p)",
+      "url": "http://88.212.15.50/live/test_poehali/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-24",
+      "url": "http://dmi3y-tv.online/hls/smotrim/T2/CH_RUSSIA24_INT.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Novorossiya TV (1080p) [Geo-blocked]",
+      "url": "http://31.131.139.253:9002/novoros/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Oplot TV (1080p) [Geo-blocked]",
+      "url": "http://31.131.139.253:9002/oplot_hd/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "6 TV Gorlovka (720p) [Geo-blocked]",
+      "url": "http://91.214.48.158:4022/udp/224.2.2.4:10000",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Channel 8 International (576p) [Geo-blocked]",
+      "url": "http://live-11cinema.cdnvideo.net/11cinemanet/11cinemanet/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "360°",
+      "url": "https://edge-tv-ll.facecast.io/evacoder_hls_hi/UBZfFgtKB1JwTwoDERNQVGGs/0.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Channel One Europa (480p)",
+      "url": "https://streaming.thestream.cyou/live/210-req_offset_28000000-req_window_0-1k_v5.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Kuban 24 (480p) [Geo-blocked]",
+      "url": "http://dmi3y-tv.online/hls/zabava/region/MAYK/CH_MAYKOP.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1920
+    },
+    {
+      "name": "Oplot TV (1080p) [Geo-blocked]",
+      "url": "http://31.131.141.195:8000/play/a006/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "RT en Espanol (1080p)",
+      "url": "http://168.196.127.137:6001/play/a0a9/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Channel One (576p)",
+      "url": "http://31.148.5.241/kanal_1/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-1 (576p)",
+      "url": "http://31.148.5.241/kanal_2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Match! Ultra (1080p)",
+      "url": "http://31.148.5.241/kanal_3/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "NTV (576p)",
+      "url": "http://31.148.5.241/kanal_4/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Channel 5 (576p)",
+      "url": "http://31.148.5.241/kanal_5/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-K (576p)",
+      "url": "http://31.148.5.241/kanal_6/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russia-24 (576p)",
+      "url": "http://31.148.5.241/kanal_7/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Carousel (576p)",
+      "url": "http://31.148.5.241/kanal_8/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "OTR (576p)",
+      "url": "http://31.148.5.241/kanal_9/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV Centr (576p)",
+      "url": "http://31.148.5.241/kanal_10/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "REN TV (576p)",
+      "url": "http://31.148.5.241/kanal_11/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Spas (576p)",
+      "url": "http://31.148.5.241/kanal_12/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "STS (576p)",
+      "url": "http://31.148.5.241/kanal_13/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Domashniy (576p)",
+      "url": "http://31.148.5.241/kanal_14/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TV-3 (576p)",
+      "url": "http://31.148.5.241/kanal_15/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Friday! (576p)",
+      "url": "http://31.148.5.241/kanal_16/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Zvezda (576p)",
+      "url": "http://31.148.5.241/kanal_17/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Mir (576p)",
+      "url": "http://31.148.5.241/kanal_18/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "TNT (576p)",
+      "url": "http://31.148.5.241/kanal_19/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Muz-TV (576p)",
+      "url": "http://31.148.5.241/kanal_20/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Rus (576p)",
+      "url": "http://31.148.5.241/kanal_21/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "viju+ Sport (576p)",
+      "url": "http://31.148.5.241/Viasat_Sport/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Russian Extreme Ultra (1440p)",
+      "url": "http://46.53.200.153:7777/play/test_krask1/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju Explore (576p)",
+      "url": "http://46.53.200.153:7777/play/a01i/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju History (576p)",
+      "url": "http://46.53.200.153:7777/play/a01j/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju Nature (576p)",
+      "url": "http://46.53.200.153:7777/play/a01k/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "TV 21 International (576p)",
+      "url": "http://46.53.200.153:7777/play/TV-21M/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Saphire (1080p)",
+      "url": "http://46.53.200.153:7777/play/Sapfir_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Nash Kinopokaz HD (576p)",
+      "url": "http://46.53.200.153:7777/play/SRT_Nash_kinopokaz/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "RTG TV HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/a00u/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju+ Comedy HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Viju_Comedy_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju+ Megahit HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Viju_Megahit_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "viju+ Premiere HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Viju_Premiere/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju+ Serial HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Viju_Serial_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Shanson TV (576p)",
+      "url": "http://46.53.200.153:7777/play/Shanson_TV/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Europa Plus TV Belarus (576p)",
+      "url": "http://46.53.200.153:7777/play/EuropaPlus/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Live Music Channel HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Live_music_channel/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju+ Sport HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/a01l/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju+ Sport (576p)",
+      "url": "http://46.53.200.153:7777/play/Viasat_Sport/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "viju TV1000 novella HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/VIJU_TV_1000_novella/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju TV1000 romantica HD (1080p)",
+      "url": "http://46.53.200.153:7777/play/Viju_Drama/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju TV1000 (576p)",
+      "url": "http://46.53.200.153:7777/play/TV_1000/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju TV1000 action (576p)",
+      "url": "http://46.53.200.153:7777/play/a01h/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "viju TV1000 russkoe (576p)",
+      "url": "http://46.53.200.153:7777/play/a01g/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "Discovery Channel (1080p)",
+      "url": "http://stream.mcquack.net/177/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Investigation Discovery (1080p)",
+      "url": "http://stream.mcquack.net/205/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "TLC (1080p)",
+      "url": "http://stream.mcquack.net/168/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Animal Planet (1080p)",
+      "url": "http://stream.mcquack.net/114/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Food Network (1080p)",
+      "url": "http://stream.mcquack.net/298/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Travel Channel (1080p)",
+      "url": "http://stream.mcquack.net/231/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "O! International (720p)",
+      "url": "http://88.212.15.50/live/test_telekanal_o/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "VIVA Russia",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/vivarussia/playlist.m3u8",
+      "ua": "AndroidTV",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Ministerstvo idey (1080p)",
+      "url": "https://live-minidey.cdnvideo.ru/minidey-srt/minidey/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Oplot 2 (720p) [Geo-blocked]",
+      "url": "http://91.224.16.9:7779/Oplot_2/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Cartoon Classics",
+      "url": "http://88.218.242.237:8001/Cartoon_Classics",
+      "ua": "Wink",
+      "group": "",
+      "height": 0
+    },
+    {
+      "name": "NTV Svoya igra (1080p)",
+      "url": "https://cdn-dvr.ntv.ru/th_svoya_igra/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "Match! Premier (576p)",
+      "url": "http://185.23.80.23:8080/MATCH_PREMIER/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 576
+    },
+    {
+      "name": "Home 4K",
+      "url": "http://88.212.7.14/live/test_home_uhd_tizen/playlist.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "NTV Sledstviye veli (1080p) [Geo-blocked]",
+      "url": "https://mhd116.iptv2022.com/x/t4hRFz1R89Q6kjp3CL3WVQ,1792610109/streaming/sledstvie_veli_hd/324/1/index.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 240
+    },
+    {
+      "name": "Russia-24 HD (1080p)",
+      "url": "https://live.smotrim.ru/vgtrk/0/russia24-hd/1080p.m3u8",
+      "ua": "Wink",
+      "group": "",
+      "height": 1080
+    },
+    {
+      "name": "3ABN Russia (720p)",
+      "url": "https://hls.tv.3angels.ru/stream.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 270
+    },
+    {
+      "name": "86 (1080p) [Not 24/7]",
+      "url": "https://sitv.ru/hls/s86.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "360° News (1080p)",
+      "url": "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "555 (720p)",
+      "url": "http://trk555.tv:8888/live",
+      "ua": "HlsWinkPlayer",
+      "group": "General",
+      "height": 0
+    },
+    {
+      "name": "Abaza TV (1080p)",
+      "url": "https://public.apsny.camera/tv_abaza_tv_to_site/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "AIST TV (1080p)",
+      "url": "http://live2-aisttv.cdnvideo.ru/aisttv2/aisttv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Angel TV Russian (720p)",
+      "url": "https://janya-digimix.akamaized.net/vglive-sk-955415/russia/ngrp:angelrussia_all/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 720
+    },
+    {
+      "name": "Animal Planet (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/114/index.m3u8",
+      "ua": "Wink",
+      "group": "Documentary",
+      "height": 1080
+    },
+    {
+      "name": "Apsua TV",
+      "url": "https://gcmx3v3owcj.a.trbcdn.net/livemaster/ba7pu_fgej0zelpw.smil/playlist.m3u8?blstid=null",
+      "ua": "HlsWinkPlayer",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Aqlvoy",
+      "url": "https://stream8.cinerama.uz/1205/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 576
+    },
+    {
+      "name": "Aris 24 (720p) [Not 24/7]",
+      "url": "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Arkhyz 24 (1080p)",
+      "url": "https://live.mediacdn.ru/sr1/arhis24/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Armenia TV Satellite (576p)",
+      "url": "http://stream.mcquack.net/175/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "ART (Russia) (576p)",
+      "url": "http://89.104.114.24:8080/art/index.m3u8",
+      "ua": "Wink",
+      "group": "Culture",
+      "height": 576
+    },
+    {
+      "name": "Astrahan 24 (720p)",
+      "url": "https://streaming.astrakhan.ru/astrakhan24/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 360
+    },
+    {
+      "name": "Astrahan.Ru Sport (720p)",
+      "url": "https://streaming.astrakhan.ru/astrakhanrusporthd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 240
+    },
+    {
+      "name": "Astrahan.Ru TV (480p)",
+      "url": "https://streaming.astrakhan.ru/astrakhanrulivehd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 240
+    },
+    {
+      "name": "ATR (1080p)",
+      "url": "http://stream.mcquack.net/244/index.m3u8",
+      "ua": "Wink",
+      "group": "Culture",
+      "height": 1080
+    },
+    {
+      "name": "BabyFirst (720p)",
+      "url": "https://cdn.fast.jwp.services/v1/channel/1_jB6940Ei_TvhvIHDL/manifest.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 360
+    },
+    {
+      "name": "Belarus-1 (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/_definst_/smil:belarus1.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-1 HD (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus1.smil/playlist.m3u8",
+      "ua": "TiviMate",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-2 HD (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus2.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-3 HD (1080p) [Not 24/7]",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus3.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Culture",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-4 Gomel",
+      "url": "https://live.dc.beltelecom.by/trkgomel/trkgomel.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-4 Vitebsk (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/vtv/bt4.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Belarus-5 (1080p) [Not 24/7]",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus5.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 1080
+    },
+    {
+      "name": "Belarus-5 HD (1080p)",
+      "url": "http://178.124.179.122:8080/BT5/index.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 576
+    },
+    {
+      "name": "Belarus-24 (576p)",
+      "url": "http://ott-7.sevstar.net/belarus24/index.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 576
+    },
+    {
+      "name": "Belarus-24 HD (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus24.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Belgorod 24 (1080p)",
+      "url": "https://belnovosti.cdn.easyhoster.ru:8443/stream.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Big Asia (720p)",
+      "url": "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 720
+    },
+    {
+      "name": "Black Sea TV",
+      "url": "https://ext.cdn.nashnet.tv/228.0.0.136/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Bollywood HD Russia (576p)",
+      "url": "https://xykt-fix.github.io/cinerama_edge01/hls/BOLLYWOOD_RU/Movie009.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 576
+    },
+    {
+      "name": "BST (576p)",
+      "url": "https://bsttv.bonus-tv.ru/cdn/bst/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 576
+    },
+    {
+      "name": "Bug-TV (1080p)",
+      "url": "http://46.53.200.153:7777/play/Bug_TV_HD/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Carousel +4 (720p)",
+      "url": "http://185.37.150.46/Karusel/index.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 576
+    },
+    {
+      "name": "Cartoon Classics (Russia)",
+      "url": "http://88.218.242.237:8001/Cartoon_Classics",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 0
+    },
+    {
+      "name": "Cartoonito CEE",
+      "url": "http://193.33.39.108:9019/play/a00t",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 0
+    },
+    {
+      "name": "Channel 5 (Russia) (576p)",
+      "url": "http://31.148.5.241/kanal_5/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Channel 7 (Kazakhstan) (576p)",
+      "url": "http://stream.mcquack.net/27/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Channel 8 (Russia) (576p)",
+      "url": "http://45.11.139.43:8555/8kanal/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 576
+    },
+    {
+      "name": "Channel 9 (Israel) (1080p)",
+      "url": "https://contact.gostreaming.tv/Con-11/index.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Channel 12 (1080p)",
+      "url": "https://12channel.bonus-tv.ru/cdn/12channel/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Channel One (Russia) Europa (480p)",
+      "url": "https://streaming.thestream.cyou/live/210-req_offset_28000000-req_window_0-1k_v5.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Channel-16 (406p) [Not 24/7]",
+      "url": "http://serv25.vintera.tv:8081/test/k16/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 406
+    },
+    {
+      "name": "Cinema (Russia) (576p)",
+      "url": "http://flussonic.linkintel.ru/cinema/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 576
+    },
+    {
+      "name": "City Eden AutoGid [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/47515/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Auto",
+      "height": 0
+    },
+    {
+      "name": "City Eden Birma Play [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/34364/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "City Eden Classic Music [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/47400/index.m3u8",
+      "ua": "VLC",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoAction [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/41333/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoArt [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/38398/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoAsia [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/34393/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 692
+    },
+    {
+      "name": "City Eden KinoDetektiv [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/41327/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoDok [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/38354/index.m3u8",
+      "ua": "VLC",
+      "group": "Documentary;Series",
+      "height": 720
+    },
+    {
+      "name": "City Eden KinoDrama [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/45269/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoFantastika [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/45268/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoKlassika [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/34185/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden KinoKomediya [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/41331/index.m3u8",
+      "ua": "VLC",
+      "group": "Movies",
+      "height": 720
+    },
+    {
+      "name": "City Eden KinoMistika [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/40783/index.m3u8",
+      "ua": "VLC",
+      "group": "Movies",
+      "height": 0
+    },
+    {
+      "name": "City Eden MedZdrav [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/47519/index.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "Lifestyle",
+      "height": 0
+    },
+    {
+      "name": "City Eden Play [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/34100/index.m3u8",
+      "ua": "AndroidTV",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "City Eden Recepty Gurmana [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/47516/index.m3u8",
+      "ua": "VLC",
+      "group": "Cooking",
+      "height": 0
+    },
+    {
+      "name": "City Eden Sirtaki TV [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/46421/index.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "City Eden TeleNovella [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/46209/index.m3u8",
+      "ua": "TiviMate",
+      "group": "Series",
+      "height": 0
+    },
+    {
+      "name": "City Eden TV [Not 24/7]",
+      "url": "https://cityeden.catcast.tv/content/34246/index.m3u8",
+      "ua": "TiviMate",
+      "group": "General;Religious",
+      "height": 0
+    },
+    {
+      "name": "Current Time TV (1080p)",
+      "url": "https://rfe-ingest.akamaized.net/hls/live/2033043/tvmc05/master.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Dacha (1080p)",
+      "url": "https://dash2.antik.sk/live/test_dacha_tv_atktv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Dagestan (1080p)",
+      "url": "https://dagestan.mediacdn.ru/cdn/dagestan/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 360
+    },
+    {
+      "name": "Dasturxon TV (576p)",
+      "url": "https://stream8.cinerama.uz/1206/tracks-v1a1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Discovery Channel (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/177/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Domashniy (576p)",
+      "url": "http://stream.mcquack.net/227/index.m3u8",
+      "ua": "Wink",
+      "group": "Lifestyle",
+      "height": 1080
+    },
+    {
+      "name": "DW Russian (1080p)",
+      "url": "https://dwamdstream110.akamaized.net/hls/live/2017971/dwstream110/master.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 270
+    },
+    {
+      "name": "ETV+ (720p)",
+      "url": "https://sb.err.ee/live/etvpluss.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 396
+    },
+    {
+      "name": "Eurasia (720p)",
+      "url": "https://infochh.trkeurasia.ru/hlsinfoch/infochhd.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Euronews Russian (720p)",
+      "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-ru/25071/index.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 240
+    },
+    {
+      "name": "Eurosport 1 Russia (1080p)",
+      "url": "https://s7.iptv-24.net/1439/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 480
+    },
+    {
+      "name": "Eurosport 2 Russia (1080p)",
+      "url": "https://s7.iptv-24.net/1452/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 480
+    },
+    {
+      "name": "Fauna (576p)",
+      "url": "http://stream.mcquack.net/401/index.m3u8",
+      "ua": "Wink",
+      "group": "Education",
+      "height": 576
+    },
+    {
+      "name": "First Music Channel (1080p)",
+      "url": "http://rtmp.one.by:1300",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "First Music Channel Russia (1080p)",
+      "url": "http://rtmp.one.by:2300",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "Food Network (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/298/index.m3u8",
+      "ua": "Wink",
+      "group": "Cooking",
+      "height": 1080
+    },
+    {
+      "name": "Fox (Russia) (576p)",
+      "url": "http://stream.mcquack.net/182/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "FREEDOM (1080p)",
+      "url": "https://dash4.antik.sk/live/test_uatv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 576
+    },
+    {
+      "name": "Gagsnetwork (576p)",
+      "url": "http://stream.mcquack.net/458/index.m3u8",
+      "ua": "Wink",
+      "group": "Comedy",
+      "height": 1080
+    },
+    {
+      "name": "Govorit Moskva (720p)",
+      "url": "https://video.govoritmoskva.ru/rufm/index.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 720
+    },
+    {
+      "name": "Gubernia Samara (576p)",
+      "url": "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Hit FM",
+      "url": "https://hitfm.nfthost.net/hls/hitfm/live_all/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 1080
+    },
+    {
+      "name": "Hope Channel Russia (720p)",
+      "url": "https://live-tvhope.cdnvideo.ru/tvhope-pull/tvhope_1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 720
+    },
+    {
+      "name": "Huzur TV (1080p) [Not 24/7]",
+      "url": "https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 1080
+    },
+    {
+      "name": "Ingushetia (1080p)",
+      "url": "https://ingushetia.mediacdn.ru/cdn/ingushetia/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Investigation Discovery (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/205/index.m3u8",
+      "ua": "Wink",
+      "group": "Documentary",
+      "height": 1080
+    },
+    {
+      "name": "Izvestia (1080p)",
+      "url": "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Jibek Joly HD (1080p)",
+      "url": "https://stream.qazcdn.net/ex6r514/jjtv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "Kentron TV (1080p)",
+      "url": "http://stream.mcquack.net/39/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Kino 1 (Russia) [Not 24/7]",
+      "url": "http://kino-1.catcast.tv/content/38617/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 432
+    },
+    {
+      "name": "Kino 1 (Ukraine) (1080p)",
+      "url": "http://stream.mcquack.net/395/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 1080
+    },
+    {
+      "name": "Kino 2 (1080p)",
+      "url": "http://stream.mcquack.net/465/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 1080
+    },
+    {
+      "name": "Krik-TV (1080p)",
+      "url": "http://cdn-01.bonus-tv.ru/kriktv_edge/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "KTK (576p)",
+      "url": "http://stream.mcquack.net/26/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "KTK HD (720p) [Not 24/7]",
+      "url": "http://89.218.30.37/ktklive/live.hq/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Kuban 24 SD [Geo-blocked]",
+      "url": "https://rt-sth-krdar-htlive.cdn.ngenix.net/hls/CH_R04_KUBAN24/variant.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1920
+    },
+    {
+      "name": "Kuraj-TV (576p)",
+      "url": "https://bsttv.bonus-tv.ru/cdn/kurai/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "LDPR TV (1080p)",
+      "url": "http://46.46.143.222:1935/live/mp4:ldpr.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Life TV (Estonia) (432p) [Not 24/7]",
+      "url": "http://lifetv.bitflip.ee/live/stream1_1/index.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 432
+    },
+    {
+      "name": "Love Nature (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/6d6d0f24-8445-4b4c-bdf6-44f9e38beaa4/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Outdoor",
+      "height": 240
+    },
+    {
+      "name": "Love Nature HD (1080p)",
+      "url": "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8",
+      "ua": "Wink",
+      "group": "Outdoor",
+      "height": 1080
+    },
+    {
+      "name": "Lugansk 24",
+      "url": "https://streaming.televizor-24-tochka.ru/live/29.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "Magnat (1080p)",
+      "url": "https://s1.tv-nano.com/Magnat_HD_5119705/video.m3u8",
+      "ua": "Wink",
+      "group": "Shop",
+      "height": 1080
+    },
+    {
+      "name": "Makon TV (576i)",
+      "url": "https://stream8.cinerama.uz/1497/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Mana Tserkov' Onlayn (1080p) [Not 24/7]",
+      "url": "https://w2.manasat.com/tserkov-online/smil:tserkov-online.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 486
+    },
+    {
+      "name": "Millet (720p)",
+      "url": "https://live1.1tvcrimea.ru/milletlive.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 720
+    },
+    {
+      "name": "Mir 24 (1080p)",
+      "url": "http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mir24_2500/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Mir Belogorya (720p) [Geo-blocked]",
+      "url": "http://mirbelogorya.ru:8080/mirbelogorya/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "MMA-TV.com (1080p)",
+      "url": "https://streams2.sofast.tv/vglive-sk-462904/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 360
+    },
+    {
+      "name": "Moldova 1 (1080p)",
+      "url": "https://v0.trm.md/static/streaming-playlists/hls/9b79338b-1870-4cd7-91d4-0f6ce5cac7ca/master.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Moldova 2 (1080p)",
+      "url": "https://v0.trm.md/static/streaming-playlists/hls/d5fafab0-9c37-4746-9e7a-b2d6c0427015/master.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "MTRK (576p)",
+      "url": "https://tvcdn01.esilnet.kz/tv/mtrk/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "MTV Volgograd (720p) [Not 24/7]",
+      "url": "http://hls.volgograd1vtv.cdnvideo.ru/volgograd1vtv/volgograd1vtv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Muz Soyuz (576p)",
+      "url": "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz2/muzsoyuz.6fw0-58xp-acts-esy0/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Music;Religious",
+      "height": 1080
+    },
+    {
+      "name": "Muzyka 1 [Not 24/7]",
+      "url": "https://kino-1.catcast.tv/content/37745/index.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 0
+    },
+    {
+      "name": "Muzyka Kino [Not 24/7]",
+      "url": "https://kino-1.catcast.tv/content/37739/index.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 432
+    },
+    {
+      "name": "Nashe Lubimoe Kino Ukraine (1080p)",
+      "url": "http://stream.mcquack.net/456/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 1080
+    },
+    {
+      "name": "Nauka (Ukraine) (576p)",
+      "url": "http://stream.mcquack.net/403/index.m3u8",
+      "ua": "Wink",
+      "group": "Science",
+      "height": 576
+    },
+    {
+      "name": "Nick Jr. (Russia) (576p)",
+      "url": "http://stream.mcquack.net/220/index.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 576
+    },
+    {
+      "name": "Nickelodeon (Russia) (576p)",
+      "url": "http://stream.mcquack.net/443/index.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 1080
+    },
+    {
+      "name": "Nickelodeon CIS (1080p)",
+      "url": "https://stream8.cinerama.uz/1500/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Kids",
+      "height": 480
+    },
+    {
+      "name": "Nika TV (576p) [Not 24/7]",
+      "url": "https://live-nikatv.cdnvideo.ru/nikatv/nikatv.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Nostalgia (Russia) (576p)",
+      "url": "http://176.118.197.101/Nostalgiya/index.m3u8",
+      "ua": "Wink",
+      "group": "Classic",
+      "height": 576
+    },
+    {
+      "name": "NovgorOblTV [Geo-blocked]",
+      "url": "https://rt-nw-novg-htlive.cdn.ngenix.net/hls/CH_R02_NOVGORODTV/variant.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1920
+    },
+    {
+      "name": "Novyi Channel (1080p)",
+      "url": "http://stream.mcquack.net/157/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "NTK 21 [Geo-blocked]",
+      "url": "https://s97982.cdn.ngenix.net/hls/CH_R79_OTT_DV_HVSK_NTK/variant.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1920
+    },
+    {
+      "name": "NTK (576p)",
+      "url": "http://stream.mcquack.net/389/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "NTM (720p) [Not 24/7]",
+      "url": "https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "NTS (1080p) [Not 24/7]",
+      "url": "https://peqk71plnjy.a.trbcdn.net/livemaster/w4kz7pki62_nts_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "NTV (Russia) +1 (576p)",
+      "url": "https://cdn.ntv.ru/ntv1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "NTV (Russia) +2 (576p)",
+      "url": "https://cdn.ntv.ru/ntv2/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "NTV (Russia) +4 (576p)",
+      "url": "https://cdn.ntv.ru/ntv4/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "NTV (Russia) +7 (576p)",
+      "url": "https://cdn.ntv.ru/ntv7/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "NTV Law (576p)",
+      "url": "https://cdn.ntv.ru/th_pravo/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 360
+    },
+    {
+      "name": "NTV Style (576p)",
+      "url": "https://cdn.ntv.ru/th_style/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Lifestyle",
+      "height": 360
+    },
+    {
+      "name": "NVK Sakha (1080p) [Not 24/7]",
+      "url": "https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "O'zbekiston (576p)",
+      "url": "https://stream8.cinerama.uz/1001/tracks-v1a1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Oplot TV SD (1080p) [Geo-blocked]",
+      "url": "http://31.131.139.253:9002/oplot_hd/index.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 0
+    },
+    {
+      "name": "OSN",
+      "url": "http://osnmedia.servicecdn.ru/streams/17603_88089/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 360
+    },
+    {
+      "name": "Ost West 24 (1080p)",
+      "url": "http://stream.mcquack.net/455/index.m3u8",
+      "ua": "Wink",
+      "group": "Culture;News",
+      "height": 1080
+    },
+    {
+      "name": "Otkritiy mir. Zdorove (576p)",
+      "url": "https://v4.proofix.ru/0mir/index.m3u8",
+      "ua": "Wink",
+      "group": "Lifestyle",
+      "height": 576
+    },
+    {
+      "name": "OTV (Estonia)",
+      "url": "http://88.212.7.14/live/otv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "OTV-Prim",
+      "url": "https://jz2lo90hnpy.a.trbcdn.net/livemaster/yo8gr_live-5gorrrfpouq.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Perviy Informationniy HD (1080p)",
+      "url": "https://ngtrk.dc.beltelecom.by/ngtrk/smil:informacionnyy.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Perviy Krymskiy (720p)",
+      "url": "https://live1.1tvcrimea.ru/1tvcrimea.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 540
+    },
+    {
+      "name": "Pervyy gorodskoy. Odessa (576p)",
+      "url": "http://91.194.79.46:8081/stream2/channel2/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Pervyy Respublikanskiy",
+      "url": "https://streaming.televizor-24-tochka.ru/live/27.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 240
+    },
+    {
+      "name": "Prima (Russia) (1080p)",
+      "url": "https://tele2dvrnat01-02.cdnvideo.ru/stream/NAT_Prima/hls/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 720
+    },
+    {
+      "name": "Qazaqstan International",
+      "url": "https://stream8.cinerama.uz/1431/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Quiz TV (1080p)",
+      "url": "http://stream.mcquack.net/397/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Rada TV (720p)",
+      "url": "https://cdn15.live-tv.cloud/ua_infinitas_tv/rada-abr/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Legislative",
+      "height": 720
+    },
+    {
+      "name": "Radio 1 (Russia) (720p) [Geo-blocked]",
+      "url": "https://stream.radio1.ru/memfs/49dee7fe-77ba-4e6b-8cdc-fa840535b242.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Radio Mir (720p)",
+      "url": "https://stream1.dc.beltelecom.by/radiomir/studio.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "RAZ 1 (1080p)",
+      "url": "http://stream.mcquack.net/463/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "RAZ 2 (1080p)",
+      "url": "http://stream.mcquack.net/464/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "RAZ 3 International",
+      "url": "https://dash2.antik.sk/live/kvartal_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Red Line (480p)",
+      "url": "http://s55766.cdn.ngenix.net/s55766-media-origin/rline_high/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 480
+    },
+    {
+      "name": "Rika TV (480p)",
+      "url": "https://live-rikatv.cdnvideo.ru/rikatv/rikatv_tcode.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 480
+    },
+    {
+      "name": "RT Documentary Russian (1080p)",
+      "url": "https://rt-doc.rttv.com/dvr/rtdru/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Documentary",
+      "height": 720
+    },
+    {
+      "name": "RTR-Planeta (720p) [Geo-blocked]",
+      "url": "https://stream.smotrim.ru/hls/planeta_rtr_sng/playlist.m3u8?entity=channel&id=512&sign=2abaa592de074d65809a10b6bacc4410",
+      "ua": "Wink",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "RTR-Planeta Asia",
+      "url": "https://streaming.televizor-24-tochka.ru/live/211.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "RTR-Planeta Europe (720p) [Geo-blocked]",
+      "url": "https://stream.smotrim.ru/hls/planeta_rtr_euro/playlist.m3u8?entity=channel&id=510&sign=5c0ac65d75140fac2fd938d77c92138d",
+      "ua": "Wink",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "RTVi US (1080p)",
+      "url": "https://amg17233-amg17233c1-wisptv-us-6409.playouts.now.amagi.tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "S1 (1080p) [Not 24/7]",
+      "url": "https://sitv.ru/hls/stv.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Salyam (576p)",
+      "url": "https://bsttv.bonus-tv.ru/cdn/salyam/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 576
+    },
+    {
+      "name": "Setanta Sports 1 Eurasia (1080p)",
+      "url": "http://stream.mcquack.net/234/index.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 1080
+    },
+    {
+      "name": "Setanta Sports 2 Eurasia (1080p)",
+      "url": "http://stream.mcquack.net/235/index.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 1080
+    },
+    {
+      "name": "Sever",
+      "url": "https://2vko9pchwon.a.trbcdn.net/livemaster/8ilgc_cw63ucn03p.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Sevimli TV (1080p)",
+      "url": "https://stream8.cinerama.uz/1017/tracks-v1a1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Family",
+      "height": 1080
+    },
+    {
+      "name": "Shanson TV SD (576p)",
+      "url": "http://catchup.videoline.ru/shanson/index.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 576
+    },
+    {
+      "name": "Shchyolkovskoe TV (576p) [Not 24/7]",
+      "url": "http://stream0.tv41.ru/live.m3u8",
+      "ua": "HlsWinkPlayer",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Silk Way (1080p)",
+      "url": "https://hlspackager.akamaized.net/live/DB/SILKWAY/SILKWAY/SILKWAY.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 480
+    },
+    {
+      "name": "Silk Way Cinema (1080p) [Geo-blocked]",
+      "url": "https://stream.qazcdn.net/ex6r514/silkwaycinema/index.m3u8",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 360
+    },
+    {
+      "name": "Simferopol 24",
+      "url": "https://simf.1tvcrimea.ru/simferopol24.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Smotrim Chestnyy Detektiv (1080p)",
+      "url": "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-01.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Series",
+      "height": 1080
+    },
+    {
+      "name": "Sochi24 (720p)",
+      "url": "http://serv30.vintera.tv:8081/sochi/sochi24_tv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General;News",
+      "height": 720
+    },
+    {
+      "name": "Sochi Live (720p) [Not 24/7]",
+      "url": "http://serv30.vintera.tv:8081/sochi/sochi_stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Soyuz (576p)",
+      "url": "https://hls-tvsoyuz.cdnvideo.ru/tvsoyuz/soyuz/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 1080
+    },
+    {
+      "name": "Sport 1 Baltic (1080p)",
+      "url": "http://stream.mcquack.net/461/index.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 1080
+    },
+    {
+      "name": "Strana FM",
+      "url": "https://live-stranafm.cdnvideo.ru/stranafm/smil:stranafm.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Music",
+      "height": 720
+    },
+    {
+      "name": "STV (Belarus) HD (720p)",
+      "url": "https://ctv.dc.beltelecom.by/ctv/ctv.stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Surgut 24",
+      "url": "https://sitv.ru/vgtrk/stv.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Svoyo TV (1080p)",
+      "url": "https://svoetv.mediacdn.ru/cdn/svoetv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Taraqqiyot TV",
+      "url": "https://stream8.cinerama.uz/1204/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 576
+    },
+    {
+      "name": "Tavriya",
+      "url": "https://streaming.televizor-24-tochka.ru/live/24.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "TBN Baltia (1080p)",
+      "url": "http://dc.tbnbaltia.eu:8088/dvr/rewind-21600.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 1080
+    },
+    {
+      "name": "TDK 42",
+      "url": "https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 720
+    },
+    {
+      "name": "Telekanal Krasnodar (1080p)",
+      "url": "https://live-tvkrasnodar.cdnvideo.ru/tvkrasnodar/tvkrasnodar.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Telplus (360p) [Not 24/7]",
+      "url": "https://streaming.astrakhan.ru/telplushd/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 240
+    },
+    {
+      "name": "Terra (576p)",
+      "url": "http://stream.mcquack.net/402/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 576
+    },
+    {
+      "name": "TKR (1080p) [Not 24/7]",
+      "url": "http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 720
+    },
+    {
+      "name": "TLC (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/168/index.m3u8",
+      "ua": "Wink",
+      "group": "Lifestyle",
+      "height": 1080
+    },
+    {
+      "name": "TNT (Russia) (576p)",
+      "url": "http://stream.mcquack.net/135/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Tolk (720p)",
+      "url": "http://live-tolknews.cdnvideo.ru/tolknews/stream/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 720
+    },
+    {
+      "name": "Trace Sport Stars Russia (720p)",
+      "url": "https://stream8.cinerama.uz/1274/tracks-v1a1/mono.m3u8",
+      "ua": "Wink",
+      "group": "Sports",
+      "height": 1080
+    },
+    {
+      "name": "Travel Channel (Russia) (1080p)",
+      "url": "http://stream.mcquack.net/231/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Travelxp Russia (1080p)",
+      "url": "http://stream.mcquack.net/451/index.m3u8",
+      "ua": "Wink",
+      "group": "Travel",
+      "height": 1080
+    },
+    {
+      "name": "Trofei (1080p)",
+      "url": "http://stream.mcquack.net/357/index.m3u8",
+      "ua": "Wink",
+      "group": "Outdoor",
+      "height": 1080
+    },
+    {
+      "name": "TSV (1080p)",
+      "url": "https://tsv.md/stream/hls/tsv-online/index.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 1080
+    },
+    {
+      "name": "Turkmenistan (406p) [Not 24/7]",
+      "url": "https://alpha.tv.online.tm/hls/ch007.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 226
+    },
+    {
+      "name": "TV Mana Russkiy (1080p)",
+      "url": "https://w1.manasat.com/tvmana-leste/smil:tvmana-leste.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 1080
+    },
+    {
+      "name": "TV Rain (1080p) [Geo-blocked]",
+      "url": "https://wl.tvrain.tv/transcode/ngrp:ses_all/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "TV-3 Belarus (576p)",
+      "url": "http://178.124.179.122:8080/TB-3/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 360
+    },
+    {
+      "name": "TVK (Russia) (576p)",
+      "url": "https://air.tvk6.ru/tvk24/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 360
+    },
+    {
+      "name": "Tvoe TV (1080p)",
+      "url": "http://tvoetv.space:8080/tvoetv/index.m3u8",
+      "ua": "Wink",
+      "group": "Entertainment",
+      "height": 1080
+    },
+    {
+      "name": "Tvoye TV Yumor (1080p)",
+      "url": "http://tvoetv.space:8080/tvoetv_humor/index.m3u8",
+      "ua": "Wink",
+      "group": "Comedy",
+      "height": 1080
+    },
+    {
+      "name": "TVRUS",
+      "url": "http://213.91.179.28:8000/play/a082",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 0
+    },
+    {
+      "name": "Ugra-TV (1080p)",
+      "url": "https://live-ugratv.cdnvideo.ru/ugratv/ugratv/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Ulytau",
+      "url": "https://ulytau.tv/hls/master.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Unknown Russia (1080p)",
+      "url": "https://cdn.ntv.ru/unknown_russia/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 360
+    },
+    {
+      "name": "UzReport TV (1080p)",
+      "url": "https://stream8.cinerama.uz/1015/tracks-v1a1/playlist.m3u8",
+      "ua": "Wink",
+      "group": "News",
+      "height": 1080
+    },
+    {
+      "name": "Vera 24",
+      "url": "https://5f05e059699ae.streamlock.net/WEB_Vera24/ngrp:Vera24.stream-adaptive/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Religious",
+      "height": 720
+    },
+    {
+      "name": "Vetta 24 (576p) [Not 24/7]",
+      "url": "http://serv24.vintera.tv:8081/vetta/vetta_office/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 480
+    },
+    {
+      "name": "Viasat Epic Drama Ukraine (576p)",
+      "url": "http://195.189.60.253/118/index.m3u8",
+      "ua": "Wink",
+      "group": "Series",
+      "height": 576
+    },
+    {
+      "name": "Viasat Kino Comedy",
+      "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk4Mzcmc3Q9UzRPS1VZemNocmREQWhnSTJkTDJ5QQ%3D%3D&master=249",
+      "ua": "Wink",
+      "group": "Comedy;Movies",
+      "height": 1080
+    },
+    {
+      "name": "Viasat Kino World",
+      "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDgvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk5NDcmc3Q9N3ROblpCZy02WTBka1RuekRIZjU0QQ%3D%3D&master=102",
+      "ua": "Wink",
+      "group": "Movies",
+      "height": 1080
+    },
+    {
+      "name": "Viasat Serial",
+      "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDUvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA2MDExNzAmc3Q9VS12czVHQmhOdF9WQXJ4bHVYVzR2dw%3D%3D&master=599",
+      "ua": "Wink",
+      "group": "Movies;Series",
+      "height": 1080
+    },
+    {
+      "name": "Vitebsk (576p)",
+      "url": "http://46.53.200.153:7777/play/a00h/index.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 0
+    },
+    {
+      "name": "Vmeste-RF",
+      "url": "https://qcpdqumitwf.a.trbcdn.net/livemastersrt/pr4mw_lvie-vmesterf-srt.smil/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    },
+    {
+      "name": "Volga",
+      "url": "http://tele2dvrnat01-02.cdnvideo.ru/stream/NAT_Volga/hls/1920x1080@4504/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 720
+    },
+    {
+      "name": "Yuvelirochka (576p)",
+      "url": "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Shop",
+      "height": 1080
+    },
+    {
+      "name": "Za! TV",
+      "url": "https://streaming.televizor-24-tochka.ru/live/25.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 240
+    },
+    {
+      "name": "Zvezda HD (1080p)",
+      "url": "https://tvzvezda.bonus-tv.ru/cdn/tvzvezda/playlist.m3u8",
+      "ua": "Wink",
+      "group": "General",
+      "height": 720
+    },
+    {
+      "name": "Zvezda Plus HD (1080p)",
+      "url": "http://tvzvezda.bonus-tv.ru/cdn/zvezdaplus/playlist.m3u8",
+      "ua": "Wink",
+      "group": "Undefined",
+      "height": 1080
+    }
+  ]
+}
