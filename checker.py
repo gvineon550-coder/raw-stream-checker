@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v3 — EPG, quality checks, optimization."""
+"""Raw Stream Checker v3 — EPG, quality (black/audio/static), optimization."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -267,8 +267,7 @@ def load_epg():
                       "ic": ic, "ru": ru, "prog_ids": list(prog_ids)})
             print(f"[*] EPG загружен: {len(bn)} имён, {len(prog_ids)} программ")
             return bn, bt, bp, ic, ru, prog_ids
-    print("[!] EPG не загружен — программа не будет работать")
-    return {}, {}, {}, {}, {}, set()
+    print("[!] EPG не загружен"); return {}, {}, {}, {}, {}, set()
 
 def resolve_epg(name, bn, bt, bp):
     nn = norm_name(name)
@@ -410,7 +409,8 @@ def is_problem_blocked(u, problems):
 def is_problematic(u, problems):
     rec = problems.get(u)
     if not rec: return False
-    return rec.get("black_fails", 0) > 0 or rec.get("silent_fails", 0) > 0
+    return (rec.get("black_fails", 0) > 0 or rec.get("silent_fails", 0) > 0
+            or rec.get("static_fails", 0) > 0)
 
 def is_quality_fresh(u, quality):
     if DEEP_CHECK: return False
@@ -421,20 +421,27 @@ def is_quality_fresh(u, quality):
 
 def track_problem(problems, u, name, kind, ok):
     rec = problems.setdefault(u, {
-        "name": name, "black_fails": 0, "silent_fails": 0,
+        "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
         "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
     })
+    # backfill для старых записей
+    rec.setdefault("black_fails", 0)
+    rec.setdefault("silent_fails", 0)
+    rec.setdefault("static_fails", 0)
     rec["name"] = name; rec["last_ts"] = int(time.time())
     if kind == "black": rec["black_fails"] = 0 if ok else rec.get("black_fails", 0) + 1
     elif kind == "silent": rec["silent_fails"] = 0 if ok else rec.get("silent_fails", 0) + 1
+    elif kind == "static": rec["static_fails"] = 0 if ok else rec.get("static_fails", 0) + 1
     if ok:
         rec["last_ok_ts"] = int(time.time())
         rec["blocked_until"] = None
     else:
         thr = CFG.get("problem_threshold", 3); ttl = CFG.get("problem_block_ttl_days", 30)
-        if rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr:
+        if (rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr
+            or rec.get("static_fails", 0) >= thr):
             rec["blocked_until"] = int(time.time() + ttl * 86400)
-            print(f"  [BLOCK] {name}: блок на {ttl} дн (black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)})")
+            print(f"  [BLOCK] {name}: блок на {ttl} дн "
+                  f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
 
 # ---------- ПРОВЕРКА ПОТОКА ----------
 def get_ref(u):
@@ -467,32 +474,43 @@ def ffprobe_check(u, ua, ref, cookie, tmo):
     except: return None
 
 def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
+    """Возвращает (is_black, is_static, is_silent)."""
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
-    if not check_black and not check_audio: return False, False
-    if check_audio and not has_audio_track and not check_black: return False, True
-    
+    check_static = CFG.get("check_static_image", False)
+    if not (check_black or check_audio or check_static):
+        return False, False, False
+
     sample = CFG.get("quality_check_sample_sec", 2)
     timeout = CFG.get("quality_check_timeout_sec", 15)
     black_dur = CFG.get("quality_black_min_duration", 0.5)
     audio_db = CFG.get("quality_audio_min_db", -60)
-    
+    static_dur = CFG.get("quality_static_min_duration", 1.5)
+
+    filters = []
+    if check_black: filters.append(f"blackdetect=d={black_dur}:pix_th=0.10")
+    if check_static: filters.append(f"freezedetect=n=0.003:d={static_dur}")
+
     hdr = "User-Agent: " + ua + "\r\n"
     if ref: hdr += "Referer: " + ref + "\r\n"
     if cookie: hdr += "Cookie: " + cookie + "\r\n"
-    
+
     cmd = ["ffmpeg", "-hide_banner", "-nostats", "-headers", hdr,
            "-t", str(sample), "-i", u]
-    if check_black: cmd += ["-vf", f"blackdetect=d={black_dur}:pix_th=0.10"]
-    if check_audio and has_audio_track: cmd += ["-af", "volumedetect"]
+    if filters:
+        cmd += ["-vf", ",".join(filters)]
+    if check_audio and has_audio_track:
+        cmd += ["-af", "volumedetect"]
     cmd += ["-map", "0:v?"]
-    if check_audio and has_audio_track: cmd += ["-map", "0:a?"]
+    if check_audio and has_audio_track:
+        cmd += ["-map", "0:a?"]
     cmd += ["-f", "null", "-"]
-    
+
     try:
         r = subprocess.run(cmd, capture_output=True, timeout=timeout, text=True)
         err = r.stderr
         is_black = check_black and "black_start" in err
+        is_static = check_static and "freeze_start" in err
         is_silent = False
         if check_audio:
             if not has_audio_track:
@@ -502,9 +520,9 @@ def ffmpeg_quality(u, ua, ref, cookie, has_audio_track):
                 if m:
                     val = m.group(1)
                     is_silent = (val == "-inf") or (float(val) < audio_db)
-        return is_black, is_silent
+        return is_black, is_static, is_silent
     except:
-        return False, False
+        return False, False, False
 
 async def hls_variant(session, u, ua, ref):
     if not u.endswith(".m3u8"): return u
@@ -536,16 +554,16 @@ async def http_pre(session, u, ua, ref):
 async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts, problems, quality):
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
-    quality_enabled = check_black or check_audio
-    
+    check_static = CFG.get("check_static_image", False)
+    quality_enabled = check_black or check_audio or check_static
+
     async with sem:
         for u in ch["urls"]:
             if is_dead_cached(u, dead): continue
             if is_problem_blocked(u, problems): continue
             host = host_of(u)
             if host_blocked(host, hosts): continue
-            
-            # Warm cache: только если quality не включён ИЛИ канал свежий в quality
+
             use_warm = not quality_enabled or is_quality_fresh(u, quality)
             if use_warm:
                 wc = warm.get(u)
@@ -557,13 +575,13 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     ch["width"] = wc.get("width", 0)
                     ch["codec"] = wc.get("codec", "")
                     return ch
-            
+
             ref = ch.get("extvlc", {}).get("http-referrer") or get_ref(u)
             cookie = ch.get("extvlc", {}).get("http-cookie")
             need_quality = quality_enabled and (
                 DEEP_CHECK or is_problematic(u, problems) or not is_quality_fresh(u, quality)
             )
-            
+
             for ua_key in pick_ua_order(host, ua_cache, ua_scores):
                 ua = UAS[ua_key]
                 try:
@@ -573,27 +591,27 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if status == 429: continue
                     if not status:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
-                    
+
                     target = await hls_variant(session, u, ua, ref)
                     t = get_timeout(u, tmo); t0 = time.time()
                     info = await loop.run_in_executor(executor, ffprobe_check, target, ua, ref, cookie, t)
                     upd_timeout(tmo, u, (time.time()-t0)*1000)
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
-                    
+
                     if need_quality:
-                        is_black, is_silent = await loop.run_in_executor(
+                        is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False))
                         if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black)
                         if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent)
-                        
-                        if is_black or is_silent:
-                            # Проблема: не кешируем, пробуем следующий URL
+                        if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static)
+
+                        if is_black or is_silent or is_static:
                             quality.pop(u, None)
                             continue
-                        # Чистый: кешируем качество
-                        quality[u] = {"ts": int(time.time()), "black_ok": True, "audio_ok": True}
-                    
+                        quality[u] = {"ts": int(time.time()), "black_ok": True,
+                                      "audio_ok": True, "static_ok": True}
+
                     ua_cache[host] = ua_key
                     upd_ua_score(ua_scores, host, ua_key, True)
                     upd_host_stat(hosts, host, True)
@@ -679,23 +697,23 @@ def write_readme(report, working, elapsed, problems):
     pct = work/total*100 if total else 0
     with_epg = report.get("with_epg", 0); with_logo = report.get("with_logo", 0)
     epg_pct = with_epg/work*100 if work else 0; logo_pct = with_logo/work*100 if work else 0
-    
+
     def bar(p, w=20):
         n = max(0, min(w, int(p/100*w))); return "█"*n + "░"*(w-n)
-    
+
     ua_stats = Counter(c.get("working_ua_key","?") for c in working)
     grp_stats = Counter(c.get("category") or "📦 Разное" for c in working)
     date_safe = report["generated_at"][:10].replace("-", ".")
-    
     l_a = urllib.parse.quote("живых"); l_t = urllib.parse.quote("всего")
     l_e = urllib.parse.quote("EPG"); l_l = urllib.parse.quote("с лого")
     l_u = urllib.parse.quote("обновлено")
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
-    
+
     L = [
         "# 🎯 Raw Stream Checker", "",
-        "Автономный парсер и чекер IPTV с EPG, лого, детектом чёрного экрана и звука.", "",
+        "Автономный парсер и чекер IPTV с EPG, лого, детектом чёрного экрана, "
+        "отсутствия звука и статичной картинки.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -725,7 +743,7 @@ def write_readme(report, working, elapsed, problems):
         L += ["## 🗂 Категории", "", "| Категория | Каналов |", "|---|---:|"]
         for k, v in grp_stats.most_common(30): L.append(f"| {k} | {v} |")
         L.append("")
-    
+
     now = time.time()
     blocked = [(u, r) for u, r in problems.items() if r.get("blocked_until") and r["blocked_until"] > now]
     if blocked:
@@ -734,27 +752,24 @@ def write_readme(report, working, elapsed, problems):
             reasons = []
             if r.get("black_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("чёрный")
             if r.get("silent_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("без звука")
+            if r.get("static_fails", 0) >= CFG.get("problem_threshold", 3): reasons.append("статичная картинка")
             until = datetime.fromtimestamp(r["blocked_until"], timezone.utc).strftime("%Y-%m-%d")
             L.append(f"| {r.get('name','?')} | {', '.join(reasons) or '?'} | {until} |")
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
-    
+
     L += ["## 🎛 Управление", "",
-          "**Добавить источник:** `sources.txt` (`имя|url|приоритет`)",
-          "",
-          "**Включить проверку чёрного экрана / звука:** в `config.json` → `\"check_black_screen\": true`, `\"check_audio\": true`",
-          "",
-          "**Разблокировать канал:** в `problems.json` → `\"blocked_until\": null`",
-          "",
-          "**Сменить EPG:** в `config.json` → `epg_url`, `epg_url_fallback`",
-          "",
-          "**Запустить вручную:** Actions → Raw Check → Run workflow (галочка `deep` = игнор кеша)", "",
+          "**Добавить источник:** `sources.txt` (`имя|url|приоритет`)", "",
+          "**Включить quality checks:** в `config.json` → `\"check_black_screen\": true`, `\"check_audio\": true`, `\"check_static_image\": true`", "",
+          "**Разблокировать канал:** в `problems.json` → `\"blocked_until\": null`", "",
+          "**Сменить EPG:** в `config.json` → `epg_url`, `epg_url_fallback`", "",
+          "**Запустить вручную:** Actions → Raw Check → Run workflow (галочка `deep` = игнор quality cache)", "",
           "## ⚙️ Как это работает", "",
           "- **Источники:** из `sources.txt`",
           "- **Категории:** M3U → API iptv-org → `📦 Разное`",
           "- **Логотипы:** M3U (HTTPS) → API iptv-org",
           "- **EPG:** iptvx.one (+ fallback), fuzzy-матч, русские имена",
-          "- **Quality checks** (опц.): `ffmpeg` combined black+audio за 2 сек",
+          "- **Quality checks** (опц.): `ffmpeg` combined black + static + audio за один проход",
           "- **Quality cache:** чистые каналы не проверяются 7 дней (в deep режиме — проверяются все)",
           "- **Проблемные каналы:** проверяются каждый прогон, 3 фейла → блок на 30 дней",
           "- **Самообучение UA:** запоминает рабочий UA по хостам",
@@ -784,26 +799,27 @@ async def main():
 
     check_black = CFG.get("check_black_screen", False)
     check_audio = CFG.get("check_audio", False)
-    quality_enabled = check_black or check_audio
+    check_static = CFG.get("check_static_image", False)
+    quality_enabled = check_black or check_audio or check_static
     if quality_enabled:
-        print(f"[!] Quality checks: black={check_black}, audio={check_audio}")
+        print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}")
         if DEEP_CHECK: print("[!] DEEP режим: игнорируем quality cache")
-    
+
     api_cats, api_names = load_api_categories()
     api_logos = load_api_logos()
     bn, bt, bp, ic, ru_disp, prog_ids = load_epg()
-    
+
     ua_cache = load_ua_cache(); ua_scores = load_ua_scores()
     warm = load_warm(); dead = load_dead(); tmo = load_tmo(); hosts = load_hosts()
     problems = load_problems(); quality = load_quality()
     print(f"[*] Кэш: warm={len(warm)} dead={len(dead)} ua_hosts={len(ua_cache)} problems={len(problems)} quality={len(quality)}")
-    
+
     try:
         conn = aiohttp.TCPConnector(limit=100, ssl=False, ttl_dns_cache=300)
         async with aiohttp.ClientSession(connector=conn) as session:
             print("[*] Загрузка источников...")
             src_results = await asyncio.gather(*(fetch_src(session, n, u) for n, u, _ in sources))
-            
+
             channels = []
             seen = set()
             for (sname, _, prio), (_, text) in zip(sources, src_results):
@@ -826,20 +842,21 @@ async def main():
                     chan["has_epg"] = resolve_epg_for_channel(chan, prog_ids, bn, bt, bp, ru_disp, api_names, api_cats) if prog_ids else False
                     channels.append(chan); kept += 1
                 print(f"[+] {sname}: {kept} (мусор: {junk})")
-            
+
             epg_pre = sum(1 for c in channels if c.get("has_epg"))
             logo_pre = sum(1 for c in channels if c.get("logo"))
             print(f"[*] Всего: {len(channels)} | с EPG: {epg_pre} | с лого: {logo_pre}")
             if not channels: return
-            
+
             executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
             loop = asyncio.get_running_loop()
             sem = asyncio.Semaphore(CFG.get("concurrency", 80))
-            
+
             done = 0; ok = 0; fail = 0
             async def wrap(ch):
                 nonlocal done, ok, fail
-                r = await check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm, dead, tmo, hosts, problems, quality)
+                r = await check_one(session, ch, sem, loop, executor, ua_cache, ua_scores,
+                                    warm, dead, tmo, hosts, problems, quality)
                 done += 1
                 if r: ok += 1
                 else: fail += 1
@@ -847,11 +864,11 @@ async def main():
                 if done % step == 0 or done == len(channels) or done == 1:
                     print_progress(done, len(channels), ok, fail)
                 return r
-            
+
             print(f"[*] Проверка ({len(channels)} шт.)...")
             rs = await asyncio.gather(*[wrap(c) for c in channels], return_exceptions=True)
             executor.shutdown()
-            
+
             alive = [r for r in rs if r and not isinstance(r, Exception)]
             threshold = max(10, int(len(channels) * 0.15))
             if len(alive) < threshold:
@@ -861,7 +878,7 @@ async def main():
                     "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 }, ensure_ascii=False, indent=2), "utf-8")
                 return
-            
+
             write_playlist(alive)
             report = {
                 "total": len(channels), "alive": len(alive), "dead": len(channels)-len(alive),
@@ -875,7 +892,7 @@ async def main():
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
             write_readme(report, alive, time.time()-started, problems)
-            
+
             elapsed = time.time() - started
             print("=========================================")
             print(f"[+] Готово за {elapsed:.1f}s [{mode}]")
