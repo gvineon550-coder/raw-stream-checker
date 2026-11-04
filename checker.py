@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v6.0 — strict hierarchy, deep reset, bitrate, dedup."""
+"""Raw Stream Checker v6.1 — fix classification + safer dedup + deep reset."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip, random
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -17,7 +17,7 @@ DATA = ROOT / "data"; DATA.mkdir(exist_ok=True)
 MSK  = timezone(timedelta(hours=3))
 DEEP_CHECK = os.environ.get("DEEP_CHECK") == "1"
 REHABILITATION_DAYS = 7
-RUN_ID = int(time.time() // 3600)  # Один ID на весь прогон
+RUN_ID = int(time.time() // 3600)
 
 def _load(p, d=None):
     try: return json.loads(Path(p).read_text("utf-8"))
@@ -224,7 +224,7 @@ def load_api_categories():
     if p.exists():
         try:
             d = json.loads(p.read_text("utf-8"))
-            if d.get("v") == 3 and time.time() - d.get("ts", 0) < ttl:
+            if d.get("v") == 4 and time.time() - d.get("ts", 0) < ttl:
                 return d.get("cats", {}), d.get("names", {}), d.get("ru", {})
         except: pass
     print("[*] Загрузка категорий из iptv-org API...")
@@ -240,13 +240,18 @@ def load_api_categories():
             for c in (ch.get("categories") or []):
                 cats[cid] = c.lower(); break
             nm = ch.get("name")
-            if nm: names[nm.lower()] = cid
+            # ВАЖНО: ключ — нормализованное имя (норм. регистр, без HD/SD и т.п.)
+            if nm:
+                nn = norm_name(nm)
+                if nn: names.setdefault(nn, cid)
             for alt in (ch.get("alt_names") or []):
-                if alt: names[alt.lower()] = cid
+                if alt:
+                    nn = norm_name(alt)
+                    if nn: names.setdefault(nn, cid)
             for n in ([nm] if nm else []) + list(ch.get("alt_names") or []):
                 if n and has_cyrillic(n): ru[cid] = n.strip(); break
-        _save(p, {"v": 3, "ts": int(time.time()), "cats": cats, "names": names, "ru": ru})
-        print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён, {len(ru)} русских")
+        _save(p, {"v": 4, "ts": int(time.time()), "cats": cats, "names": names, "ru": ru})
+        print(f"[*] Загружено {len(cats)} категорий, {len(names)} имён (нормализованных), {len(ru)} русских")
         return cats, names, ru
     except Exception as e:
         print(f"[!] API категорий: {e}"); return {}, {}, {}
@@ -295,36 +300,35 @@ def learn_category(learned, norm_nm, category, method, confidence):
     learned[norm_nm] = {"cat": category, "method": method,
                         "conf": confidence, "ts": int(time.time())}
 
-# ---------- СТРОГАЯ КЛАССИФИКАЦИЯ ----------
+# ---------- КЛАССИФИКАЦИЯ (v6.1: api_names нормализованные) ----------
 def classify_channel(ch, api_cats, api_names, learned):
     name = ch.get("name", "").strip()
     tvg_id = (ch.get("tvg_id") or "").split("@")[0].strip().lower()
-    tvg_name = ch.get("tvg_name", "").strip().lower()
     group = ch.get("group", "").strip()
     nn = norm_name(name)
 
-    # 1. Learned (автообучение — самый быстрый путь)
+    # 1. Learned
     if nn and nn in learned:
         rec = learned[nn]
         return rec["cat"], min(rec.get("conf", 0.95), 0.95), "learned"
 
-    # 2. API по tvg-id (100% точность)
+    # 2. API по tvg-id
     if tvg_id and tvg_id in api_cats:
         norm = normalize_api_category(api_cats[tvg_id])
         if norm: return norm, 1.0, "api_id"
 
-    # 3. API по tvg-name (точное совпадение)
-    if tvg_name and tvg_name in api_names:
-        cid = api_names[tvg_name]
+    # 3. API по нормализованному имени (ключи в api_names теперь нормализованы)
+    if nn and nn in api_names:
+        cid = api_names[nn]
         if cid in api_cats:
             norm = normalize_api_category(api_cats[cid])
             if norm: return norm, 0.95, "api_name"
 
-    # 4. Fuzzy по tvg-name (осторожно, только если есть имя)
-    if api_names and tvg_name and len(tvg_name) >= 4:
+    # 4. Fuzzy по name (порог 82)
+    if api_names and name and len(name) >= 3:
         try:
-            best = process.extractOne(tvg_name, list(api_names.keys()),
-                                       scorer=fuzz.ratio, score_cutoff=85)
+            best = process.extractOne(name.lower(), list(api_names.keys()),
+                                       scorer=fuzz.ratio, score_cutoff=82)
         except Exception:
             best = None
         if best:
@@ -334,15 +338,15 @@ def classify_channel(ch, api_cats, api_names, learned):
                 norm = normalize_api_category(api_cats[cid])
                 if norm: return norm, 0.8, "fuzzy"
 
-    # 5. По группе (только если группа явно соответствует категории)
+    # 5. Группа (только точное)
     if group:
         g_clean = re.sub(r'[^\w\s]', '', group.strip().lower()).strip()
         for key, val in CATEGORY_MAP.items():
             if g_clean == key:
                 return val, 0.7, "group"
 
-    # 6. По ключевым словам в названии
-    text = f"{name} {tvg_name} {group}".lower()
+    # 6. Keywords
+    text = f"{name} {group}".lower()
     for cat, kws in KEYWORD_RULES.items():
         for kw in kws:
             if kw in text: return cat, 0.6, "keyword"
@@ -483,12 +487,10 @@ def load_hosts(): return _load(DATA/"hosts.json", {})
 def save_hosts(s): _save(DATA/"hosts.json", s)
 
 def load_problems():
-    p = ROOT/"problems.json"
     if DEEP_CHECK:
-        # В DEEP-режиме полностью игнорируем проблемы (полная перепроверка)
         return {}
+    p = ROOT/"problems.json"
     d = _load(p, {})
-    # Автосброс старых блокировок
     to_drop = []
     for url, rec in d.items():
         if rec.get("blocked_until") and not rec.get("blocked_at"):
@@ -501,7 +503,6 @@ def load_problems():
     return d
 
 def save_problems(p):
-    # В DEEP-режиме не сохраняем проблемы (чтобы не блокировать каналы)
     if DEEP_CHECK: return
     _save(ROOT/"problems.json", p)
 
@@ -556,7 +557,7 @@ def upd_timeout(tmo, u, ms):
     v = d.get("v", [])[-20:] + [int(ms)]; d["v"] = v[-20:]
     d["med"] = sorted(d["v"])[len(d["v"])//2]
 
-# ---------- ПРОБЛЕМЫ КАЧЕСТВА ----------
+# ---------- ПРОБЛЕМЫ ----------
 def is_problem_blocked(u, problems):
     rec = problems.get(u)
     if not rec: return False
@@ -583,7 +584,7 @@ def is_quality_fresh(u, quality):
     return time.time() - rec.get("ts", 0) < ttl
 
 def track_problem(problems, u, name, kind, ok, run_id=None):
-    if DEEP_CHECK: return  # В DEEP-режиме не трекаем проблемы
+    if DEEP_CHECK: return
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
         "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
@@ -626,7 +627,7 @@ def track_problem(problems, u, name, kind, ok, run_id=None):
                 print(f"  [BLOCK] {name}: {ttl} дн "
                       f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
 
-# ---------- СТЕЛС: ЗАГОЛОВКИ ----------
+# ---------- СТЕЛС ----------
 def build_http_headers(ua, ref, cookie, exthttp=None):
     headers = {
         "User-Agent": ua,
@@ -809,9 +810,7 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
                     br = info.get("bitrate", 0)
-                    # Фильтр битрейта (убираем мусор < 100 kbps)
                     if br > 0 and br < min_bitrate:
-                        # Не спамим в лог, если это 74 bps (явный мусор)
                         if br > 1000:
                             print(f"  [LOWBITRATE] {ch['name']}: {br} bps < {min_bitrate}")
                         ch["_low_bitrate_rejected"] = True
@@ -845,7 +844,7 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
             mark_dead(dead, u, False); upd_host_stat(hosts, host, False)
         return None
 
-# ---------- РЕЗОЛВ EPG/ЛОГО ----------
+# ---------- EPG/ЛОГО ----------
 def resolve_logo(ch, api_logos):
     logo = (ch.get("logo") or "").strip()
     if logo and logo.startswith("https://"): return logo
@@ -877,12 +876,18 @@ def resolve_epg_for_channel(ch, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru
             return True
     return False
 
-# ---------- УМНАЯ ДЕДУПЛИКАЦИЯ ----------
+# ---------- ДЕДУП (v6.1: безопаснее) ----------
 def dedup_by_quality(alive):
     groups = defaultdict(list)
     for c in alive:
-        key = (norm_name(c["name"]) or c["name"].lower(),
-               c.get("tvg_id") or host_of(c.get("working_url","")) or "")
+        tid = (c.get("tvg_id") or "").split("@")[0].strip().lower()
+        nn = norm_name(c["name"])
+        host = host_of(c.get("working_url", "") or "")
+        if tid:
+            key = ("tid", tid)  # одинаковый tvg-id → точно дубль
+        else:
+            # нет tvg-id: склеиваем только если norm_name + host полностью совпадают
+            key = ("nh", nn, host)
         groups[key].append(c)
     result = []
     for key, grp in groups.items():
@@ -944,8 +949,8 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
     L = [
-        "# 🎯 Raw Stream Checker v6.0", "",
-        "Строгая иерархия категорий, Deep-сброс блокировок, реабилитация, автообучение, EPG, лого.", "",
+        "# 🎯 Raw Stream Checker v6.1", "",
+        "Строгая иерархия, безопасный дедуп, Deep-сброс, реабилитация, автообучение.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -1003,15 +1008,12 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
     L += ["## ⚙️ Как это работает", "",
-          "**DEEP-режим:** полностью игнорирует `problems.json` (все каналы проверяются с нуля). "
-          "Проблемы не сохраняются в DEEP.", "",
-          "**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. "
-          "HEAD pre-check → GET fallback. Ротация UA.", "",
-          "**Дедупликация:** группировка по (norm_name + tvg_id/host) → лучшее разрешение + битрейт.", "",
-          "**Битрейт:** `quality_min_bitrate = 100000` (100 kbps). Мусор (74 bps) отсеивается.", "",
-          "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`", "",
+          "**DEEP-режим:** полностью игнорирует `problems.json`, все каналы проверяются с нуля.", "",
+          "**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. HEAD → GET fallback. Ротация UA.", "",
+          "**Дедупликация:** по `tvg-id` (если есть) или по паре (norm_name + host).", "",
+          "**Битрейт:** <100 kbps — мусор (слайд-шоу), отсеивается.", "",
+          "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6)", "",
           "**Авто-обучение:** fuzzy ≥82% → `data/learned_categories.json` (60 дней).", "",
-          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок 30 дней.", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -1028,7 +1030,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v6.0 [{mode}] ===")
+    print(f"=== Raw Stream Checker v6.1 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
