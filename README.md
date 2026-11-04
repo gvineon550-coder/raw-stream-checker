@@ -1,8 +1,8 @@
-# 🎯 Raw Stream Checker v5.0
+# 🎯 Raw Stream Checker v5.2
 
-Stealth-заголовки (Accept, Origin, Language), умная дедупликация по качеству, проверка битрейта, HEAD→GET fallback, ротация UA, авто-обучение категорий, детект чёрного экрана (signalstats), EPG, лого.
+Stealth, dedup, bitrate, problem rehab, auto-learning, EPG, лого.
 
-![живых](https://img.shields.io/badge/%D0%B6%D0%B8%D0%B2%D1%8B%D1%85-324-brightgreen?style=flat-square) ![всего](https://img.shields.io/badge/%D0%B2%D1%81%D0%B5%D0%B3%D0%BE-660-blue?style=flat-square) ![EPG](https://img.shields.io/badge/EPG-260-cyan?style=flat-square) ![лого](https://img.shields.io/badge/%D1%81%20%D0%BB%D0%BE%D0%B3%D0%BE-321-purple?style=flat-square) ![HD+](https://img.shields.io/badge/HD%2B-165-success?style=flat-square) ![режим](https://img.shields.io/badge/%F0%9F%94%AC%20DEEP-2026.11.03-orange?style=flat-square)
+![живых](https://img.shields.io/badge/%D0%B6%D0%B8%D0%B2%D1%8B%D1%85-321-brightgreen?style=flat-square) ![всего](https://img.shields.io/badge/%D0%B2%D1%81%D0%B5%D0%B3%D0%BE-660-blue?style=flat-square) ![EPG](https://img.shields.io/badge/EPG-258-cyan?style=flat-square) ![лого](https://img.shields.io/badge/%D1%81%20%D0%BB%D0%BE%D0%B3%D0%BE-318-purple?style=flat-square) ![HD+](https://img.shields.io/badge/HD%2B-162-success?style=flat-square) ![режим](https://img.shields.io/badge/%F0%9F%94%AC%20DEEP-2026.11.04-orange?style=flat-square)
 
 ## 🔗 Ссылки
 
@@ -21,32 +21,34 @@ https://raw.githubusercontent.com/gvineon550-coder/raw-stream-checker/main/repor
 | Показатель | Значение |
 |---|---|
 | Всего каналов | **660** |
-| Живых | **324** (49.1%) |
-| Мёртвых | **336** |
-| С EPG | **260** (80.2%) |
-| С лого | **321** (99.1%) |
-| **HD+ (720p+)** | **165** (50.9%) |
-| Время | **322.2 s** |
+| Живых | **321** (48.6%) |
+| Мёртвых | **339** |
+| С EPG | **258** (80.4%) |
+| С лого | **318** (99.1%) |
+| **HD+ (720p+)** | **162** (50.5%) |
+| Отсеяно по битрейту | **3** |
+| Время | **322.1 s** |
 | Режим | **🔬 DEEP** |
-| Low-conf | **192** |
-| Обновлено | `2026-11-03T22:36:58Z` |
+| Low-conf | **169** |
+| Обновлено | `2026-11-04T08:41:20Z` |
 
 ### Живучесть
 
 ```
-LIVE  █████████░░░░░░░░░░░   49.1%  (324/660)
+LIVE  █████████░░░░░░░░░░░   48.6%  (321/660)
 ```
 
 ## 🎯 Методы классификации
 
 | Метод | Confidence | Каналов |
 |---|---|---|
-| `api_name` | 0.95 | 180 |
-| `none` | 0.00 | 69 |
-| `group` | 0.70 | 34 |
-| `keyword` | 0.60 | 26 |
-| `api_id` | 1.00 | 10 |
-| `fuzzy` | 0.80 | 5 |
+| `api_name` | 0.95 | 177 |
+| `none` | 0.00 | 60 |
+| `group` | 0.70 | 35 |
+| `keyword` | 0.60 | 23 |
+| `fuzzy` | 0.80 | 10 |
+| `api_id` | 1.00 | 9 |
+| `learned` | 0.95 | 7 |
 
 ## 🚫 Топ причин фильтрации
 
@@ -61,61 +63,60 @@ LIVE  █████████░░░░░░░░░░░   49.1%  (324
 
 | Категория | Каналов |
 |---|---:|
-| 📦 Разное | 87 |
+| 📦 Разное | 78 |
 | 📡 Федеральные | 48 |
-| 🎬 Кино | 40 |
-| 📰 Новостные | 25 |
+| 🎬 Кино | 41 |
+| 📰 Новостные | 24 |
 | 🎭 Развлекательные | 21 |
-| 🎵 Музыкальные | 17 |
-| 🧸 Детские | 16 |
+| 🎵 Музыкальные | 18 |
+| 📺 Сериалы | 17 |
+| 🧸 Детские | 17 |
 | ⚽ Спорт | 15 |
-| 📺 Сериалы | 15 |
-| 🎥 Документальные | 8 |
+| 🎥 Документальные | 9 |
 | 🙏 Религиозные | 6 |
 | 🌍 Природа | 5 |
-| 🍳 Кулинарные | 4 |
 | 🌍 Познавательные | 4 |
 | 🌍 Путешествия | 4 |
-| 🎭 Классика | 3 |
+| 🍳 Кулинарные | 4 |
 | 🎭 Культура | 3 |
+| 🎭 Классика | 3 |
+| 📰 Бизнес | 2 |
 | 🚗 Авто | 1 |
-| 📰 Бизнес | 1 |
 | 🛒 Магазины | 1 |
 
 ## 🎭 User-Agent
 
 | UA | Каналов |
 |---|---:|
-| `Wink` | 207 |
-| `HlsWinkPlayer` | 65 |
-| `TiviMate` | 22 |
-| `AndroidTV` | 7 |
-| `Chrome_Win` | 6 |
-| `VLC` | 6 |
+| `Kodi` | 105 |
+| `Wink` | 98 |
+| `HlsWinkPlayer` | 58 |
+| `TiviMate` | 27 |
+| `AndroidTV` | 9 |
+| `Chrome_Win` | 8 |
+| `VLC` | 8 |
 | `okhttp` | 5 |
 | `Lavf` | 2 |
-| `Kodi` | 2 |
-| `OTT` | 1 |
 | `SmartTV` | 1 |
 
 ## ⚙️ Как это работает
 
-**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. HEAD pre-check → GET fallback. Ротация UA (learned первый, остальные — random).
+**Реабилитация:** заблокированные каналы перепроверяются через 7 дней. Если чисто — разблокируются; если плохо — новый 30-дневный блок.
 
-**Дедупликация:** каналы с одинаковым именем группируются, выбирается лучшее разрешение. Остальные URLs — как fallback для плеера.
+**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. HEAD pre-check → GET fallback. Ротация UA.
 
-**Битрейт:** ffprobe извлекает `format=bit_rate`. В report.json у каждого канала есть `bitrate`.
+**Дедупликация:** группировка по (norm_name + tvg_id/host) → лучшее разрешение + битрейт.
+
+**Битрейт:** `quality_min_bitrate = 100000` (100 kbps). Ниже — слайд-шоу, отсеиваются.
 
 **Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`
 
-**Авто-обучение:** fuzzy ≥88% → `data/learned_categories.json` (60 дней). Следующий прогон — `learned` метод (мгновенно).
+**Авто-обучение:** fuzzy ≥82% → `data/learned_categories.json` (60 дней).
 
-**`#EXTHTTP` и `#KODIPROP`:** парсятся и передаются в заголовки ffprobe/ffmpeg.
-
-**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок 30 дней.
+**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок.
 
 ## ⚖️ Дисклеймер
 
 Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). Права принадлежат правообладателям. Только для личного использования.
 
-<sub>🤖 Обновлено 2026-11-04 01:36 MSK</sub>
+<sub>🤖 Обновлено 2026-11-04 11:41 MSK</sub>
