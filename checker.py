@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v5.2 — stealth + dedup + bitrate + problem rehab."""
+"""Raw Stream Checker v6.0 — strict hierarchy, deep reset, bitrate, dedup."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip, random
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -17,6 +17,7 @@ DATA = ROOT / "data"; DATA.mkdir(exist_ok=True)
 MSK  = timezone(timedelta(hours=3))
 DEEP_CHECK = os.environ.get("DEEP_CHECK") == "1"
 REHABILITATION_DAYS = 7
+RUN_ID = int(time.time() // 3600)  # Один ID на весь прогон
 
 def _load(p, d=None):
     try: return json.loads(Path(p).read_text("utf-8"))
@@ -294,32 +295,36 @@ def learn_category(learned, norm_nm, category, method, confidence):
     learned[norm_nm] = {"cat": category, "method": method,
                         "conf": confidence, "ts": int(time.time())}
 
-# ---------- КАСКАДНАЯ КЛАССИФИКАЦИЯ ----------
+# ---------- СТРОГАЯ КЛАССИФИКАЦИЯ ----------
 def classify_channel(ch, api_cats, api_names, learned):
     name = ch.get("name", "").strip()
     tvg_id = (ch.get("tvg_id") or "").split("@")[0].strip().lower()
-    tvg_name = ch.get("tvg_name", "").strip()
+    tvg_name = ch.get("tvg_name", "").strip().lower()
     group = ch.get("group", "").strip()
     nn = norm_name(name)
 
+    # 1. Learned (автообучение — самый быстрый путь)
     if nn and nn in learned:
         rec = learned[nn]
         return rec["cat"], min(rec.get("conf", 0.95), 0.95), "learned"
 
+    # 2. API по tvg-id (100% точность)
     if tvg_id and tvg_id in api_cats:
         norm = normalize_api_category(api_cats[tvg_id])
         if norm: return norm, 1.0, "api_id"
 
-    if nn in api_names:
-        cid = api_names[nn]
+    # 3. API по tvg-name (точное совпадение)
+    if tvg_name and tvg_name in api_names:
+        cid = api_names[tvg_name]
         if cid in api_cats:
             norm = normalize_api_category(api_cats[cid])
             if norm: return norm, 0.95, "api_name"
 
-    if api_names and name:
+    # 4. Fuzzy по tvg-name (осторожно, только если есть имя)
+    if api_names and tvg_name and len(tvg_name) >= 4:
         try:
-            best = process.extractOne(name.lower(), list(api_names.keys()),
-                                       scorer=fuzz.ratio, score_cutoff=82)
+            best = process.extractOne(tvg_name, list(api_names.keys()),
+                                       scorer=fuzz.ratio, score_cutoff=85)
         except Exception:
             best = None
         if best:
@@ -329,12 +334,14 @@ def classify_channel(ch, api_cats, api_names, learned):
                 norm = normalize_api_category(api_cats[cid])
                 if norm: return norm, 0.8, "fuzzy"
 
+    # 5. По группе (только если группа явно соответствует категории)
     if group:
         g_clean = re.sub(r'[^\w\s]', '', group.strip().lower()).strip()
         for key, val in CATEGORY_MAP.items():
-            if g_clean == key or g_clean.startswith(key):
+            if g_clean == key:
                 return val, 0.7, "group"
 
+    # 6. По ключевым словам в названии
     text = f"{name} {tvg_name} {group}".lower()
     for cat, kws in KEYWORD_RULES.items():
         for kw in kws:
@@ -477,20 +484,26 @@ def save_hosts(s): _save(DATA/"hosts.json", s)
 
 def load_problems():
     p = ROOT/"problems.json"
+    if DEEP_CHECK:
+        # В DEEP-режиме полностью игнорируем проблемы (полная перепроверка)
+        return {}
     d = _load(p, {})
+    # Автосброс старых блокировок
     to_drop = []
     for url, rec in d.items():
         if rec.get("blocked_until") and not rec.get("blocked_at"):
             to_drop.append(url)
     if to_drop:
         for url in to_drop:
-            name = d[url].get("name", "?")
-            print(f"[*] Авто-сброс старой блокировки: {name}")
+            print(f"[*] Авто-сброс старой блокировки: {d[url].get('name', '?')}")
             del d[url]
         _save(p, d)
     return d
 
-def save_problems(p): _save(ROOT/"problems.json", p)
+def save_problems(p):
+    # В DEEP-режиме не сохраняем проблемы (чтобы не блокировать каналы)
+    if DEEP_CHECK: return
+    _save(ROOT/"problems.json", p)
 
 def load_quality(): return _load(DATA/"quality_cache.json", {})
 def save_quality(c):
@@ -570,6 +583,7 @@ def is_quality_fresh(u, quality):
     return time.time() - rec.get("ts", 0) < ttl
 
 def track_problem(problems, u, name, kind, ok, run_id=None):
+    if DEEP_CHECK: return  # В DEEP-режиме не трекаем проблемы
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
         "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
@@ -582,7 +596,7 @@ def track_problem(problems, u, name, kind, ok, run_id=None):
     rec.setdefault("last_fail_run", {})
 
     if run_id is None:
-        run_id = int(time.time() // 3600)
+        run_id = RUN_ID
 
     rec["name"] = name
     rec["last_ts"] = int(time.time())
@@ -795,18 +809,20 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
                     br = info.get("bitrate", 0)
+                    # Фильтр битрейта (убираем мусор < 100 kbps)
                     if br > 0 and br < min_bitrate:
-                        print(f"  [LOWBITRATE] {ch['name']}: {br} bps < {min_bitrate}")
+                        # Не спамим в лог, если это 74 bps (явный мусор)
+                        if br > 1000:
+                            print(f"  [LOWBITRATE] {ch['name']}: {br} bps < {min_bitrate}")
                         ch["_low_bitrate_rejected"] = True
                         quality.pop(u, None)
                         continue
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False), exthttp)
-                        run_id = int(time.time() // 3600)
-                        if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black, run_id=run_id)
-                        if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent, run_id=run_id)
-                        if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static, run_id=run_id)
+                        if check_black: track_problem(problems, u, ch["name"], "black", ok=not is_black)
+                        if check_audio: track_problem(problems, u, ch["name"], "silent", ok=not is_silent)
+                        if check_static: track_problem(problems, u, ch["name"], "static", ok=not is_static)
                         if is_black or is_silent or is_static:
                             quality.pop(u, None); continue
                         quality[u] = {"ts": int(time.time()), "black_ok": True,
@@ -928,8 +944,8 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
     L = [
-        "# 🎯 Raw Stream Checker v5.2", "",
-        "Stealth, dedup, bitrate, problem rehab, auto-learning, EPG, лого.", "",
+        "# 🎯 Raw Stream Checker v6.0", "",
+        "Строгая иерархия категорий, Deep-сброс блокировок, реабилитация, автообучение, EPG, лого.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -987,15 +1003,15 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
     L += ["## ⚙️ Как это работает", "",
-          "**Реабилитация:** заблокированные каналы перепроверяются через 7 дней. "
-          "Если чисто — разблокируются; если плохо — новый 30-дневный блок.", "",
+          "**DEEP-режим:** полностью игнорирует `problems.json` (все каналы проверяются с нуля). "
+          "Проблемы не сохраняются в DEEP.", "",
           "**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. "
           "HEAD pre-check → GET fallback. Ротация UA.", "",
           "**Дедупликация:** группировка по (norm_name + tvg_id/host) → лучшее разрешение + битрейт.", "",
-          "**Битрейт:** `quality_min_bitrate = 100000` (100 kbps). Ниже — слайд-шоу, отсеиваются.", "",
+          "**Битрейт:** `quality_min_bitrate = 100000` (100 kbps). Мусор (74 bps) отсеивается.", "",
           "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`", "",
           "**Авто-обучение:** fuzzy ≥82% → `data/learned_categories.json` (60 дней).", "",
-          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок.", "",
+          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок 30 дней.", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -1012,7 +1028,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v5.2 [{mode}] ===")
+    print(f"=== Raw Stream Checker v6.0 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
@@ -1024,7 +1040,7 @@ async def main():
     min_bitrate = CFG.get("quality_min_bitrate", 100000)
     if quality_enabled:
         print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}, min_bitrate={min_bitrate}")
-        if DEEP_CHECK: print("[!] DEEP: игнорируем quality cache")
+        if DEEP_CHECK: print("[!] DEEP: игнорируем problems.json + quality cache")
     api_cats, api_names, api_ru = load_api_categories()
     api_logos = load_api_logos()
     bn, bt, bp, ic, ru_disp, prog_ids = load_epg()
