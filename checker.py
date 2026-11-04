@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Raw Stream Checker v5.0 — stealth + smart dedup + bitrate + HEAD fallback + rotation."""
+"""Raw Stream Checker v5.2 — stealth + dedup + bitrate + problem rehab."""
 import asyncio, json, os, re, sys, time, subprocess, io, gzip, random
 import urllib.parse, urllib.request
 from pathlib import Path
@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"; DATA.mkdir(exist_ok=True)
 MSK  = timezone(timedelta(hours=3))
 DEEP_CHECK = os.environ.get("DEEP_CHECK") == "1"
+REHABILITATION_DAYS = 7
 
 def _load(p, d=None):
     try: return json.loads(Path(p).read_text("utf-8"))
@@ -35,7 +36,7 @@ CFG = _load(ROOT/"config.json", {})
 UAS = _load(ROOT/"useragents.json", {})
 BLK = _load(ROOT/"blocklist.json", {})
 
-# ---------- ПАРСИНГ (с #EXTHTTP и #KODIPROP) ----------
+# ---------- ПАРСИНГ ----------
 ATTR_RE = re.compile(r'([A-Za-z0-9_\-]+)="([^"]*)"')
 def split_extinf(line):
     in_q = False
@@ -318,7 +319,7 @@ def classify_channel(ch, api_cats, api_names, learned):
     if api_names and name:
         try:
             best = process.extractOne(name.lower(), list(api_names.keys()),
-                                       scorer=fuzz.ratio, score_cutoff=88)
+                                       scorer=fuzz.ratio, score_cutoff=82)
         except Exception:
             best = None
         if best:
@@ -473,15 +474,30 @@ def load_tmo(): return _load(DATA/"tmo.json", {})
 def save_tmo(s): _save(DATA/"tmo.json", s)
 def load_hosts(): return _load(DATA/"hosts.json", {})
 def save_hosts(s): _save(DATA/"hosts.json", s)
-def load_problems(): return _load(ROOT/"problems.json", {})
+
+def load_problems():
+    p = ROOT/"problems.json"
+    d = _load(p, {})
+    to_drop = []
+    for url, rec in d.items():
+        if rec.get("blocked_until") and not rec.get("blocked_at"):
+            to_drop.append(url)
+    if to_drop:
+        for url in to_drop:
+            name = d[url].get("name", "?")
+            print(f"[*] Авто-сброс старой блокировки: {name}")
+            del d[url]
+        _save(p, d)
+    return d
+
 def save_problems(p): _save(ROOT/"problems.json", p)
+
 def load_quality(): return _load(DATA/"quality_cache.json", {})
 def save_quality(c):
     cutoff = time.time() - 30 * 86400
     _save(DATA/"quality_cache.json", {k: v for k, v in c.items() if v.get("ts", 0) > cutoff})
 
 def pick_ua_order(host, ua_cache, ua_scores):
-    """Первый — learned UA хоста (если есть). Остальные — случайно перемешаны (ротация)."""
     saved = ua_cache.get(host)
     scores = ua_scores.get(host, {})
     keys = sorted(UAS.keys(), key=lambda k: (-scores.get(k, 0), -CFG.get("ua_weights", {}).get(k, 1)))
@@ -533,7 +549,12 @@ def is_problem_blocked(u, problems):
     if not rec: return False
     bu = rec.get("blocked_until")
     if not bu: return False
-    return time.time() < bu
+    now = time.time()
+    if now >= bu: return False
+    blocked_at = rec.get("blocked_at", 0)
+    if blocked_at and (now - blocked_at) > REHABILITATION_DAYS * 86400:
+        return False
+    return True
 
 def is_problematic(u, problems):
     rec = problems.get(u)
@@ -551,28 +572,45 @@ def is_quality_fresh(u, quality):
 def track_problem(problems, u, name, kind, ok, run_id=None):
     rec = problems.setdefault(u, {
         "name": name, "black_fails": 0, "silent_fails": 0, "static_fails": 0,
-        "last_ts": 0, "last_ok_ts": 0, "blocked_until": None, "last_fail_run": {},
+        "last_ts": 0, "last_ok_ts": 0, "blocked_until": None,
+        "blocked_at": 0, "last_fail_run": {},
     })
-    rec.setdefault("black_fails", 0); rec.setdefault("silent_fails", 0); rec.setdefault("static_fails", 0)
+    rec.setdefault("black_fails", 0)
+    rec.setdefault("silent_fails", 0)
+    rec.setdefault("static_fails", 0)
+    rec.setdefault("blocked_at", 0)
     rec.setdefault("last_fail_run", {})
-    if run_id is None: run_id = int(time.time() // 3600)
-    rec["name"] = name; rec["last_ts"] = int(time.time())
+
+    if run_id is None:
+        run_id = int(time.time() // 3600)
+
+    rec["name"] = name
+    rec["last_ts"] = int(time.time())
+
     if ok:
         rec["last_ok_ts"] = int(time.time())
-        rec["black_fails"] = 0; rec["silent_fails"] = 0; rec["static_fails"] = 0
-        rec["blocked_until"] = None; rec["last_fail_run"] = {}
+        rec["black_fails"] = 0
+        rec["silent_fails"] = 0
+        rec["static_fails"] = 0
+        rec["blocked_until"] = None
+        rec["blocked_at"] = 0
+        rec["last_fail_run"] = {}
     else:
         last_run = rec.get("last_fail_run", {})
         if last_run.get(kind) != run_id:
             key = f"{kind}_fails"
             rec[key] = rec.get(key, 0) + 1
             rec["last_fail_run"][kind] = run_id
-        thr = CFG.get("problem_threshold", 5); ttl = CFG.get("problem_block_ttl_days", 30)
+
+        thr = CFG.get("problem_threshold", 5)
+        ttl = CFG.get("problem_block_ttl_days", 30)
         if (rec.get("black_fails", 0) >= thr or rec.get("silent_fails", 0) >= thr
             or rec.get("static_fails", 0) >= thr):
-            rec["blocked_until"] = int(time.time() + ttl * 86400)
-            print(f"  [BLOCK] {name}: {ttl} дн "
-                  f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
+            if not rec.get("blocked_until") or rec.get("blocked_until") < time.time():
+                rec["blocked_until"] = int(time.time() + ttl * 86400)
+                rec["blocked_at"] = int(time.time())
+                print(f"  [BLOCK] {name}: {ttl} дн "
+                      f"(black={rec.get('black_fails',0)}, silent={rec.get('silent_fails',0)}, static={rec.get('static_fails',0)})")
 
 # ---------- СТЕЛС: ЗАГОЛОВКИ ----------
 def build_http_headers(ua, ref, cookie, exthttp=None):
@@ -603,18 +641,14 @@ def get_ref(u):
     if "rutube.ru" in h: return "https://rutube.ru/"
     return None
 
-# ---------- HTTP PRE (HEAD → GET fallback) ----------
 async def http_pre(session, u, ua, ref, exthttp=None):
     h = build_http_headers(ua, ref, None, exthttp)
-    # Пробуем HEAD (быстрее, меньше трафика)
     try:
         async with session.head(u, headers=h, timeout=aiohttp.ClientTimeout(total=CFG.get("http_timeout",5)),
                                  allow_redirects=True, ssl=False) as r:
             if r.status in (200, 206): return r.status
             if r.status in (403, 404, 410, 451): return r.status
-            # 405 (Method Not Allowed) или другой → пробуем GET
     except: pass
-    # Fallback: GET с Range
     h["Range"] = "bytes=0-2048"
     try:
         async with session.get(u, headers=h, timeout=aiohttp.ClientTimeout(total=CFG.get("http_timeout",5)),
@@ -622,7 +656,6 @@ async def http_pre(session, u, ua, ref, exthttp=None):
             return r.status
     except: return 0
 
-# ---------- FFPROBE (с bitrate) ----------
 def ffprobe_check(u, ua, ref, cookie, tmo, exthttp=None):
     h = build_http_headers(ua, ref, cookie, exthttp)
     hdr_str = "".join(f"{k}: {v}\r\n" for k, v in h.items())
@@ -721,6 +754,8 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
     quality_enabled = check_black or check_audio or check_static
+    min_bitrate = CFG.get("quality_min_bitrate", 100000)
+
     async with sem:
         for u in ch["urls"]:
             if is_dead_cached(u, dead): continue
@@ -759,6 +794,12 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     upd_timeout(tmo, u, (time.time()-t0)*1000)
                     if not info:
                         upd_ua_score(ua_scores, host, ua_key, False); continue
+                    br = info.get("bitrate", 0)
+                    if br > 0 and br < min_bitrate:
+                        print(f"  [LOWBITRATE] {ch['name']}: {br} bps < {min_bitrate}")
+                        ch["_low_bitrate_rejected"] = True
+                        quality.pop(u, None)
+                        continue
                     if need_quality:
                         is_black, is_static, is_silent = await loop.run_in_executor(
                             executor, ffmpeg_quality, target, ua, ref, cookie, info.get("has_audio", False), exthttp)
@@ -776,11 +817,11 @@ async def check_one(session, ch, sem, loop, executor, ua_cache, ua_scores, warm,
                     mark_dead(dead, u, True)
                     warm[u] = {"ts": int(time.time()), "ua_key": ua_key,
                                "codec": info.get("codec",""), "height": info.get("height",0),
-                               "width": info.get("width",0), "bitrate": info.get("bitrate",0)}
+                               "width": info.get("width",0), "bitrate": br}
                     ch["working_url"] = u; ch["working_ua_key"] = ua_key
                     ch["working_ua"] = ua; ch["height"] = info.get("height", 0)
                     ch["width"] = info.get("width", 0); ch["codec"] = info.get("codec", "")
-                    ch["bitrate"] = info.get("bitrate", 0)
+                    ch["bitrate"] = br
                     return ch
                 except Exception as e:
                     print(f"  err {ch['name']}: {e}")
@@ -820,19 +861,15 @@ def resolve_epg_for_channel(ch, prog_ids, bn, bt, bp, ru_disp, api_names, api_ru
             return True
     return False
 
-# ---------- УМНАЯ ДЕДУПЛИКАЦИЯ ПО КАЧЕСТВУ ----------
+# ---------- УМНАЯ ДЕДУПЛИКАЦИЯ ----------
 def dedup_by_quality(alive):
-    """
-    Группирует по norm_name, в каждой группе сортирует по height desc,
-    берёт лучший как основной, остальные URLs — fallback.
-    """
     groups = defaultdict(list)
     for c in alive:
-        key = norm_name(c["name"]) or c["name"].lower()
+        key = (norm_name(c["name"]) or c["name"].lower(),
+               c.get("tvg_id") or host_of(c.get("working_url","")) or "")
         groups[key].append(c)
     result = []
     for key, grp in groups.items():
-        # Сортируем: высокое разрешение → выше битрейт → есть EPG
         grp.sort(key=lambda x: (
             -(x.get("height") or 0),
             -(x.get("bitrate") or 0),
@@ -870,7 +907,7 @@ def write_playlist(channels):
         for u in urls: lines.append(u)
     (ROOT / CFG.get("output_m3u", "playlist.m3u")).write_text("\n".join(lines) + "\n", "utf-8")
 
-def write_readme(report, working, elapsed, problems, filtered_stats, top_filtered, low_conf_count):
+def write_readme(report, working, elapsed, problems, filtered_stats, top_filtered, low_conf_count, low_br_filtered):
     repo = os.environ.get("GITHUB_REPOSITORY", "user/repo")
     branch = os.environ.get("GITHUB_REF_NAME", "main") or "main"
     raw = "https://raw.githubusercontent.com/" + repo + "/" + branch
@@ -883,7 +920,6 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
     ua_stats = Counter(c.get("working_ua_key","?") for c in working)
     grp_stats = Counter(c.get("category") or "📦 Разное" for c in working)
     method_stats = Counter(c.get("method","?") for c in working)
-    # Топ источников по качеству (1080p+)
     hd_count = sum(1 for c in working if (c.get("height") or 0) >= 1000)
     date_safe = report["generated_at"][:10].replace("-", ".")
     l_a = urllib.parse.quote("живых"); l_t = urllib.parse.quote("всего")
@@ -892,10 +928,8 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
     mode = "🔬 DEEP" if DEEP_CHECK else "⚡ normal"
     l_m = urllib.parse.quote(mode)
     L = [
-        "# 🎯 Raw Stream Checker v5.0", "",
-        "Stealth-заголовки (Accept, Origin, Language), умная дедупликация по качеству, "
-        "проверка битрейта, HEAD→GET fallback, ротация UA, авто-обучение категорий, "
-        "детект чёрного экрана (signalstats), EPG, лого.", "",
+        "# 🎯 Raw Stream Checker v5.2", "",
+        "Stealth, dedup, bitrate, problem rehab, auto-learning, EPG, лого.", "",
         f"![живых](https://img.shields.io/badge/{l_a}-{work}-brightgreen?style=flat-square) "
         f"![всего](https://img.shields.io/badge/{l_t}-{total}-blue?style=flat-square) "
         f"![EPG](https://img.shields.io/badge/{l_e}-{with_epg}-cyan?style=flat-square) "
@@ -911,6 +945,7 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
         f"| С EPG | **{with_epg}** ({epg_pct:.1f}%) |",
         f"| С лого | **{with_logo}** ({logo_pct:.1f}%) |",
         f"| **HD+ (720p+)** | **{hd_count}** ({hd_count/work*100 if work else 0:.1f}%) |",
+        f"| Отсеяно по битрейту | **{low_br_filtered}** |",
         f"| Время | **{elapsed:.1f} s** |",
         f"| Режим | **{mode}** |",
         f"| Low-conf | **{low_conf_count}** |",
@@ -952,16 +987,15 @@ def write_readme(report, working, elapsed, problems, filtered_stats, top_filtere
         if len(blocked) > 20: L.append(f"| _…ещё {len(blocked)-20}_ | | |")
         L.append("")
     L += ["## ⚙️ Как это работает", "",
+          "**Реабилитация:** заблокированные каналы перепроверяются через 7 дней. "
+          "Если чисто — разблокируются; если плохо — новый 30-дневный блок.", "",
           "**Стелс:** Accept, Accept-Language, Accept-Encoding, Connection, Origin для Wink/Rutube. "
-          "HEAD pre-check → GET fallback. Ротация UA (learned первый, остальные — random).", "",
-          "**Дедупликация:** каналы с одинаковым именем группируются, выбирается лучшее разрешение. "
-          "Остальные URLs — как fallback для плеера.", "",
-          "**Битрейт:** ffprobe извлекает `format=bit_rate`. В report.json у каждого канала есть `bitrate`.", "",
+          "HEAD pre-check → GET fallback. Ротация UA.", "",
+          "**Дедупликация:** группировка по (norm_name + tvg_id/host) → лучшее разрешение + битрейт.", "",
+          "**Битрейт:** `quality_min_bitrate = 100000` (100 kbps). Ниже — слайд-шоу, отсеиваются.", "",
           "**Каскад:** `api_id` (1.0) → `api_name` (0.95) → `learned` (0.95) → `fuzzy` (0.8) → `group` (0.7) → `keyword` (0.6) → `none`", "",
-          "**Авто-обучение:** fuzzy ≥88% → `data/learned_categories.json` (60 дней). "
-          "Следующий прогон — `learned` метод (мгновенно).", "",
-          "**`#EXTHTTP` и `#KODIPROP`:** парсятся и передаются в заголовки ffprobe/ffmpeg.", "",
-          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок 30 дней.", "",
+          "**Авто-обучение:** fuzzy ≥82% → `data/learned_categories.json` (60 дней).", "",
+          "**Quality:** `ffmpeg` black + signalstats + static + audio. 5 фейлов в РАЗНЫХ прогонах → блок.", "",
           "## ⚖️ Дисклеймер", "",
           "Проект **не хранит и не транслирует** контент. Потоки — из открытых источников (iptv-org). "
           "Права принадлежат правообладателям. Только для личного использования.", "",
@@ -978,7 +1012,7 @@ def print_progress(done, total, ok_count, fail_count):
 async def main():
     started = time.time()
     mode = "DEEP" if DEEP_CHECK else "normal"
-    print(f"=== Raw Stream Checker v5.0 [{mode}] ===")
+    print(f"=== Raw Stream Checker v5.2 [{mode}] ===")
     print(f"[*] Старт: {now_msk()}")
     sources = load_sources()
     if not sources:
@@ -987,8 +1021,9 @@ async def main():
     check_audio = CFG.get("check_audio", False)
     check_static = CFG.get("check_static_image", False)
     quality_enabled = check_black or check_audio or check_static
+    min_bitrate = CFG.get("quality_min_bitrate", 100000)
     if quality_enabled:
-        print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}")
+        print(f"[!] Quality: black={check_black}, audio={check_audio}, static={check_static}, min_bitrate={min_bitrate}")
         if DEEP_CHECK: print("[!] DEEP: игнорируем quality cache")
     api_cats, api_names, api_ru = load_api_categories()
     api_logos = load_api_logos()
@@ -1052,7 +1087,6 @@ async def main():
             print(f"[*] Всего: {len(channels)} | с EPG: {epg_pre} | с лого: {logo_pre} | low-conf: {low_conf_count}")
             print(f"[*] Learned: {len(learned)}")
             if not channels: return
-            # Перемешиваем для распределения нагрузки по CDN
             random.shuffle(channels)
             executor = concurrent.futures.ThreadPoolExecutor(max_workers=CFG.get("ffprobe_threads", 50))
             loop = asyncio.get_running_loop()
@@ -1073,6 +1107,8 @@ async def main():
             rs = await asyncio.gather(*[wrap(c) for c in channels], return_exceptions=True)
             executor.shutdown()
             alive = [r for r in rs if r and not isinstance(r, Exception)]
+            low_br_filtered = sum(1 for c in channels if c.get("_low_bitrate_rejected"))
+            print(f"[*] Отсеяно по битрейту: {low_br_filtered}")
             threshold = max(10, int(len(channels) * 0.15))
             if len(alive) < threshold:
                 print(f"[!] ПРОВАЛ: живых {len(alive)} < {threshold}. Публикация отменена.")
@@ -1081,19 +1117,16 @@ async def main():
                     "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 }, ensure_ascii=False, indent=2), "utf-8")
                 return
-            # Умная дедупликация по качеству
             before_dedup = len(alive)
             alive = dedup_by_quality(alive)
             print(f"[*] Дедупликация: {before_dedup} → {len(alive)} (склеено {before_dedup - len(alive)})")
             write_playlist(alive)
-            # Статистика битрейта
-            low_bitrate = sum(1 for c in alive if 0 < (c.get("bitrate") or 0) < 200000)
             report = {
                 "total": len(channels), "alive": len(alive), "dead": len(channels)-len(alive),
                 "with_epg": sum(1 for c in alive if c.get("has_epg")),
                 "with_logo": sum(1 for c in alive if c.get("logo")),
                 "hd_plus": sum(1 for c in alive if (c.get("height") or 0) >= 1000),
-                "low_bitrate": low_bitrate,
+                "low_bitrate_filtered": low_br_filtered,
                 "filtered": dict(filtered_stats),
                 "mode": mode,
                 "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1106,12 +1139,12 @@ async def main():
             }
             (ROOT/"report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), "utf-8")
             top_filtered = [(k, v, filtered_examples.get(k,"")) for k, v in filtered_stats.most_common()]
-            write_readme(report, alive, time.time()-started, problems, filtered_stats, top_filtered, low_conf_count)
+            write_readme(report, alive, time.time()-started, problems, filtered_stats, top_filtered, low_conf_count, low_br_filtered)
             elapsed = time.time() - started
             print("=========================================")
             print(f"[+] Готово за {elapsed:.1f}s [{mode}]")
             print(f"[+] Всего: {len(channels)} | Живых: {len(alive)} | EPG: {report['with_epg']} | Лого: {report['with_logo']}")
-            print(f"[+] HD+: {report['hd_plus']} | Low-bitrate: {low_bitrate} | Learned: {len(learned)}")
+            print(f"[+] HD+: {report['hd_plus']} | Low-bitrate: {low_br_filtered} | Learned: {len(learned)}")
     finally:
         print("[*] Сохранение кэша...")
         save_ua_cache(ua_cache); save_ua_scores(ua_scores)
