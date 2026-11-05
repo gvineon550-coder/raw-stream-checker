@@ -1069,13 +1069,11 @@
   "name": "Мир",
   "black_fails": 0,
   "silent_fails": 0,
-  "static_fails": 1,
-  "last_ts": 1793781639,
-  "last_ok_ts": 1793781639,
+  "static_fails": 0,
+  "last_ts": 1793873097,
+  "last_ok_ts": 1793873097,
   "blocked_until": null,
-  "last_fail_run": {
-   "static": 498272
-  },
+  "last_fail_run": {},
   "blocked_at": 0
  },
  "https://stream.smotrim.ru/hls2/doverie/playlist_3.m3u8": {
@@ -1457,8 +1455,8 @@
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793781554,
-  "last_ok_ts": 1793781554,
+  "last_ts": 1793873096,
+  "last_ok_ts": 1793873096,
   "blocked_until": null,
   "last_fail_run": {},
   "blocked_at": 0
@@ -2777,12 +2775,12 @@
   "blocked_at": 0
  },
  "https://streaming.astrakhan.ru/telplushd/playlist.m3u8": {
-  "name": "Telplus (360p) [Not 24/7]",
+  "name": "Телплюс ТВ (Астрахань) (360p) [Not 24/7]",
   "black_fails": 0,
   "silent_fails": 0,
   "static_fails": 0,
-  "last_ts": 1793781587,
-  "last_ok_ts": 1793781587,
+  "last_ts": 1793873080,
+  "last_ok_ts": 1793873080,
   "blocked_until": null,
   "last_fail_run": {},
   "blocked_at": 0
